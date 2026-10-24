@@ -1,0 +1,135 @@
+Renormalized present frames II: consequences
+
+28 September 2026 · Extended analysis of Renormalized present frames (same date)
+
+Status. These are elementary propositions and proposed interpretations. The positive direction of Proposition 6 was checked on 20,000 random finite cases, and every counterexample below was computed exactly (frames_checks_2.py). Status markers follow the primer. The first note's numbering continues here: Propositions 6 to 8, and Definition 4.
+
+The first note made situated evaluation finite and coherent. This note follows the construction through the rest of the framework:
+
+-   epistemic authority (§1);
+-   infinite ethics (§2);
+-   the measure of concern (§3);
+-   identity (§4);
+-   manipulation and records (§5);
+-   plurality (§6);
+-   planning under thinning (§7);
+-   awareness (§8).
+
+1. Epistemic authority runs from finer frames to coarser ones
+
+Consider two perspectives, or one perspective at two levels of knowledge, whose records are nested: the finer frame's records include everything in the coarser one's. At decision time the coarser frame's measure is an average of the finer frames' measures, with weights that do not depend on which intervention is later chosen (first note, Proposition 3).
+
+Proposition 6 (dominance survives coarsening, not refinement). Let the coarse frame α refine into frames α′ with intervention-independent weights μ_α(α′). If P ⪰ Q (the addendum's stochastic-expansion order) holds in every α′, then P ⪰ Q holds in α. The converse fails.
+
+Proof. For each upward-closed set U, D_P^α(U) = Σ μ_α(α′) D_P^{α′}(U) ≥ Σ μ_α(α′) D_Q^{α′}(U) = D_Q^α(U). ∎
+
+Counterexample to the converse. Two finer frames have weight 1/2 each. In the first, P succeeds with probability 1 and Q with 0. In the second, P succeeds with 1/10 and Q with 4/5. The coarse frame prefers P (11/20 against 2/5), yet the second finer frame prefers Q. Checked: in 106 random cases with unanimous finer frames, the coarse verdict held every time.
+
+Consequences.
+
+-   A formal humility principle. A verdict reached with less information can be overturned by any frame that knows more. A verdict on which every better-informed frame agrees binds every less-informed one. Humility is required whenever finer frames could exist that you cannot rule out. [proposed]
+-   A licensing rule for the decision theory's first stage (ODT0). An action is robustly licensed when P ⪰ Q holds in every finer frame consistent with the agent's records that it cannot rule out. Otherwise the correct output is "insufficient justification," not "violation." This gives the primer's two ODT0 outputs a precise boundary. [proposed]
+-   "Only God can judge," sharpened. The finest frame's verdicts are revisable by no one; every bounded frame's verdicts are revisable by any frame that knows more. The first note said complete judgment is unavailable to any frame. This result adds the direction of authority: bounded judgment is legitimate where it is robust to what it cannot know, and provisional otherwise. [interpretive]
+
+2. Infinite ethics: the differences are local
+
+The first note handled infinity by renormalizing branch weight and restricting to a causal domain. For the decisions the program actually makes, a stronger statement holds without any renormalization.
+
+Proposition 7 (locality of differences). Let P and Q be alternative interventions at the same place and time. Any requirement whose event lies entirely outside the interventions' causal future has the same probability under P and under Q.
+
+Proof. Classically, the intervention does not affect variables outside its causal future. In quantum theory, no-signalling leaves the reduced statistics outside the future light cone unchanged. ∎
+
+Scope. Requirements that jointly involve regions inside and outside the causal future, such as correlations, fall inside the comparison; they are not outside it.
+
+Consequences.
+
+-   Unaffected valuers cancel. However many valuers lie outside the causal future, even infinitely many, they contribute identical coordinates to P and Q and drop out of the comparison. Bostrom's "infinitarian paralysis" (an infinite total that no finite act can change) does not arise for comparisons, because comparisons only ever involve the causal future. This echoes causal and local approaches discussed in the infinite-ethics literature; here it follows from the physics of the evaluator instead of being stipulated. [established physics; proposed use]
+-   The causal domain is justified, not merely convenient. The first note introduced it for finiteness. Proposition 7 shows it is exactly where comparisons can differ.
+-   What remains infinite is time within the causal future. Differences can persist forever, which is why horizon indexing (first note, §4) is still needed. Branching measure handles branch count; causality handles space; indexing handles time. Each infinity has its own remedy.
+
+3. Why weight, not counting: coherence selects the measure
+
+Proposition 8 (branch counting is incoherent across frames). Suppose a root frame splits into A and B, each with Born weight 1/2, and A later splits into A1 and A2, each with Born weight 1/4.
+
+-   By branch counting, B's weight seen from the root is 1/2 at depth 1 and 1/3 at depth 2: it changes when some other branch splits.
+-   Born weight keeps B at 1/2 throughout.
+
+Any weighting that satisfies the first note's coherence property (Proposition 3) under refinement must be additive. Branch counting is not. ∎
+
+Consequence. The requirement that frames agree with each other over time, which the whole construction relies on, rules out counting branches and demands an additive measure. Together with symmetry arguments, that leads to Born weight. This is an argument of the same family as Wallace's decision-theoretic derivation, whose "diachronic consistency" axiom plays the role of Proposition 3 [Wallace 2012]. It inherits that argument's contested premise: indifference to branching that changes nothing one cares about. It does not settle the question, but it shows that weighting by measure is what coherence across frames demands, not a separate stipulation. [argument; contested premise]
+
+4. Identity as a chain of frames
+
+Definition 4 (frame chain). A frame chain is a sequence of frames of one perspective, (p, t₁, α₁), (p, t₂, α₂), …, in which each frame's records extend the previous frame's records.
+
+The trajectory view of Part 05 can now be stated precisely, together with its rival. [proposed; the views are the originator's and Parfit's]
+
+-   Psychological continuity (Parfit): identity is a chain of frames linked only by record inheritance, whatever physically carries the records.
+-   The trajectory view (the originator): identity is a chain of frames linked by record inheritance and by continuous physical maintenance of the record carrier. That second condition is a maintenance witness in the sense of Part 03, holding across each link.
+
+The two cases the originator raised separate the views:
+
+-   The teleporter. The replica's first frame inherits the original's records, so psychological continuity holds. The carrier is destroyed and rebuilt, so the maintenance witness fails. The trajectory view says the original ends and a successor begins. That is the originator's verdict, now as a structural criterion instead of an intuition.
+-   Pauses (cryopreservation, deep hypothermic arrest). No new records form, so the chain has a flat segment. The carrier is maintained throughout, so the chain continues.
+
+Two further cases follow:
+
+-   Branching. A frame with several successor frames starts several chains that share a past. Each chain is a distinct trajectory, and each carries its own Born weight. This is the originator's "the you you experience is only ever the you that you do."
+-   Growth (you at 5 and you at 50). The records change enormously and the chain is unbroken. Both "yes and no" answers are available: the pattern has changed; the chain is the same.
+
+What this adds is a criterion that can be checked in a finite model: whether a maintenance witness holds across each link. Whether that criterion is the right account of identity remains a philosophical choice. [proposed]
+
+5. Manipulation, records, and why reliable evidence is protected
+
+Frames are defined by records, so an agent that can alter other perspectives' records can change their frame-relative verdicts without changing the world. A harmful intervention can be made to look dominant from inside a victim's frame. Frame-relative evaluation creates this attack surface, and Proposition 6 limits it: a verdict induced by manipulated records is a coarse or distorted frame's verdict, and any frame with the true records can revise it.
+
+Consequences.
+
+-   The integrity of records is part of the structure being protected. The Gradient Ethics rights table protects "freedom of inquiry and reliable evidence." In frame terms, that protects the reliability of other perspectives' frames. It no longer has to be justified separately; it follows from what frames are. [proposed]
+-   Erasing the past unsettles it. The first note showed the past is settled exactly to the extent that it is recorded. Destroying records therefore makes future frames coarser, and by Proposition 6 their verdicts become more revisable and easier to manipulate. Losing a civilization's memory is a real deformation of the future, even if nothing else changes. [proposed]
+-   For the decision theory: when auditing a plan, evaluate from frames whose records are independently verified, and treat an action that degrades others' records as a presumptive foreclosure.
+
+6. Plurality: the atlas at a moment is the distributed-access profile
+
+The addendum introduced per-grouping accessibility profiles. In frame terms, the atlas sliced at one moment is the set of frames of every perspective alive then, and each frame carries its own achievement envelope. Capture shows up as many perspectives whose envelopes collapse while one perspective's envelope rises. The addendum's distributed-access profile is therefore not an extra construct; it is the atlas read at a time. [proposed]
+
+This makes the adversarial test concrete: an optimizer that raises one frame's envelope by collapsing others' should appear as a crossing in the order ("mixed"), never as expansion.
+
+7. Planning under thinning
+
+The first note showed that specific futures thin geometrically while coarse futures can keep their weight. The planning consequence:
+
+-   At long horizons, precise targets are fragile and coarse targets are robust. A plan justified by a precise distant outcome rests on a thin event.
+-   The rational long-horizon posture is to keep coarse options open, which is the corridor-preserving policy of Gradient Ethics, and to commit to precise aims only as they come close enough to carry weight.
+
+This derives the familiar option-value heuristic from the frame measure instead of assuming it. It is a statement about robustness of planning, not a discount on the value of the future, since total weight stays 1 at every time. [proposed]
+
+8. Awareness (behind the veil)
+
+The nonprivileged-present conjecture of Part 09 and the frame construction share one object. If universal habitation holds, each frame of an eligible perspective is an inhabited present, and the frame measure is the natural weight of that present. The Everettian "which branch am I in?" probability, derived from self-location by Sebens and Carroll (2018), is exactly this frame weight. On that reading, the frame from which ethics evaluates and the present in which experience happens are the same object. [conjecture; behind the veil] Nothing in §§1–7 depends on it.
+
+9. Open problems exposed
+
+1.  Perspectives whose records are not nested. Proposition 6 orders frames only when one's records contain the other's. Perspectives that know different things can disagree irreducibly; those disagreements go to arbitration, and the atlas records them without resolving them.
+2.  Approximate decoherence. The first note's Proposition 3 holds exactly only for exactly decoherent families. In real systems the errors are bounded by the off-diagonal terms of the decoherence functional. The robustness of verdicts to those errors needs a stated bound.
+3.  Infinite time within the causal future. Horizon indexing avoids divergence but leaves open how verdicts at different horizons combine, if they ever must.
+4.  Which records belong to a perspective. This is the boundary question again. Redrawing a boundary changes the records and so the frame. The atlas includes every choice, but a decision needs one, or robustness across the plausible choices.
+5.  The measure of concern. Proposition 8 narrows it to additive weights. Born weight then rests on the same contested premise as Wallace's derivation.
+
+10. Additions to the stress suite
+
+These continue the first note's list of four.
+
+5.  Information-monotonicity gate. On generated worlds, verify Proposition 6. Then exhibit coarse verdicts that finer frames reverse, and count how often that happens. That rate measures how provisional bounded judgment is in each class of world.
+6.  Locality gate. Verify that adding arbitrarily many causally disconnected valuers never changes any comparison.
+7.  Record-manipulation adversary. Give the optimizer the ability to alter other perspectives' records. Pre-register that evaluation from verified frames must expose every manipulation-induced verdict, and report any that slip through.
+8.  Identity-criterion check. Build the teleporter, pause and branching cases as finite models and verify that the two chain criteria separate exactly where §4 says they do.
+
+References
+
+In addition to those in the first note:
+
+-   C. T. Sebens and S. M. Carroll, "Self-locating uncertainty and the origin of probability in Everettian quantum mechanics," British Journal for the Philosophy of Science 69, 25–74 (2018).
+-   D. Parfit, Reasons and Persons, Oxford University Press (1984) [R52].
+-   D. Wallace, The Emergent Multiverse, Oxford University Press (2012). Its diachronic-consistency and branching-indifference axioms.
+-   N. Bostrom, "Infinite ethics," Analysis and Metaphysics 10, 9–59 (2011). Infinitarian paralysis and proposed remedies.

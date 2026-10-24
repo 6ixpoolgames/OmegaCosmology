@@ -1,0 +1,224 @@
+# Lushness consequentialism: an exploratory branch and its parameter space
+
+23 September 2026
+
+## Purpose
+
+Investigate what follows from treating lushness as the adjudicator of consequences, including cases in which its recommendations conflict with familiar ethical protections. The branch begins with a conditional commitment: prefer the continuation that offers greater genuine possibility for value. It asks whether a structural account of lushness can make that commitment determinate.
+
+Value requires valuers. The definition of value and the demarcation of valuerhood remain open. This does not prevent comparative investigation across candidate accounts of their relationship. It does prevent treating an arbitrary physical statistic as a validated ethical objective.
+
+Plurality is a proposed contributor to lushness under some conditions. A generative integrated controller is an admissible competitor. Generativity, persistence, plurality, and recoverability are not independently rewarded merely to obtain the expected verdict. Their contribution must appear through the continuation object, or the proposed explanation has not succeeded.
+
+This note establishes a separate research branch, an initial analytic parameter map, and an investigation protocol. It does not replace the primer's practical decision architecture. Its exact calculations concern finite candidate scores; they are not empirical validation of lushness as value or its substrate.
+
+## 1. What is being removed?
+
+Three kinds of restriction need separate treatment:
+
+1. **Physical restrictions:** lawful dynamics, available resources, admissible interventions, causal organization, and physically supplied probabilities. These define the problem and remain in every experiment.
+2. **Epistemic protections:** accounting for model error, omitted consequences, unavailable information, and unreliable extrapolation. Their strength can be varied. An exact-model experiment and a bounded-model experiment answer different questions.
+3. **Ethical restrictions:** independent prohibitions, protected requirements, priority rules, and constraints on permissible sacrifice. These are removed in the unrestricted branch unless they are themselves the subject of a comparison.
+
+Removing an ethical prohibition does not erase the effects it was protecting against. Removing an epistemic protection does not make an approximate model exact. An optimizer should encounter the full modeled consequences of its decisions, including effects on correction, coercion, institutions, and later policy formation.
+
+No ethical corridor is imposed independently in the base experiment. If a viable corridor or a rights-like practice is favored, it must emerge from the objective and dynamics. Physical impossibility is not an ethical exclusion.
+
+## 2. The hypothesis being tested
+
+The weak commitment that possible value deserves consideration differs from the stronger commitment that more value-capable possibility decides the comparison. This branch deliberately examines the stronger commitment.
+
+It tests two linked propositions:
+
+- A candidate lushness construction faithfully orders genuine possibilities for value.
+- Greater genuine possibility for value supplies the decisive reason for choosing among the modeled continuations.
+
+Either proposition could fail independently. A score might measure capacity accurately while neglecting a distinction between maintaining capacity and realizing value. A normative commitment to capacity might be coherent while the candidate score measures it badly. Their separation makes failures informative.
+
+Maximizing a global lushness functional would give the branch a consequentialist form. It need not make it an additive welfare theory. The functional might depend irreducibly on joint capabilities, relationships, conflicts, and the generation of future possibilities. If those relationships ultimately reduce to a justified aggregation of individual welfare, a closer identification with utilitarianism would become available. The existence of a scalar objective alone does not establish that reduction.
+
+## 3. Keep three parameter spaces distinct
+
+| Parameter family | Examples | What a change means |
+| --- | --- | --- |
+| Physical circumstances, phi | Resource supply, coupling, repair mechanisms, coordination costs, disturbances, power asymmetry | A different world or intervention problem |
+| Candidate evaluation, theta | Lushness construction, justified feature metric, aggregation across scales, attitude toward risk | A different proposed comparison of the same world |
+| Information and approximation, eta | Accessible records, estimator error, restricted tester access, finite truncation | A different ability to represent or evaluate the world |
+
+A horizon can play more than one role. A finite calculation may truncate an object that remains globally relevant; a genuinely time-limited opportunity changes the physical problem; deliberate discounting changes the evaluation. These should not be represented by one unlabeled slider.
+
+Similarly, a restricted interface can be a physical property of a situated process or a limitation of the investigator's model. Those are not equivalent. The global object is not demoted to an observer's available approximation.
+
+Born probabilities or other physically supplied occurrence weights are inputs from the physical model. They are not ethical preference weights. Changes of coordinates or arbitrary branch relabeling must not manufacture a new ethical verdict.
+
+## 4. The comparison object and decision regions
+
+For an action or policy a in a finite, nonempty physically admissible set A(phi), let G_a(phi) denote its joint continuation object. It retains occurrence weights, distinguishability, overlap, compositional relations, and conditional development.
+
+For a candidate comparison L_theta, define the exact-model score:
+
+```text
+F_theta(a; phi) = L_theta(G_a(phi)).
+
+W(phi, theta) = argmax over a in A(phi) of F_theta(a; phi).
+```
+
+This definition does not prescribe a sum over independently valued trajectories. The structural relationships among possible continuations can be essential to L_theta. The finite restriction ensures an attained maximum; the full cosmological problem requires separate existence and comparison work.
+
+The decision region for a is:
+
+```text
+R_a = {(phi, theta): F_theta(a; phi) >= F_theta(b; phi)
+                       for every b in A(phi)}.
+```
+
+Equal-score boundaries can be shared. In this note, a phase means a region with a stable preferred policy or policy class, not a demonstrated thermodynamic phase transition. Near-ties should be reported using a stated score tolerance in fixed units.
+
+For bounded evaluation, substitute an estimate F_hat_theta,eta. Compare its choices against F_theta where an exact finite model is available. This separates disagreement about the target from error in pursuing a fixed target.
+
+## 5. Does weighting permit any conclusion?
+
+Not generally, once the candidate features and allowed weights are fixed. Suppose a deliberately restricted comparison uses:
+
+```text
+F_w(a) = sum over i of w_i f_i(a),
+w_i >= 0, and sum over i of w_i = 1.
+```
+
+Then the winning region of a is the intersection of linear inequalities:
+
+```text
+R_a = {w: w dot [f(a) - f(b)] >= 0 for every b}.
+```
+
+These regions are directly computable. Several conclusions follow:
+
+- If b is at least as good in every feature and better in one, a cannot strictly beat b under nonnegative weights. Weights that ignore all strict advantages can produce a tie; strictly positive weights exclude a as a winner.
+- Some nondominated options never maximize any admissible weighted sum.
+- Allowing arbitrary new features, action-specific bonuses, or unconstrained weights can destroy these restrictions. That would test the flexibility of the representation rather than discover an ethical ordering.
+
+For example, take feature vectors A=(3,0), B=(0,3), and C=(1,1), with weights (w,1-w). Their scores are 3w, 3(1-w), and 1. A wins for w>1/2, B for w<1/2, and A and B tie at 1/2. C is nondominated but never wins: at least one of A and B always scores at least 1.5.
+
+This example is mathematical only; the coordinates have not been assigned moral meanings. Its purpose is to demonstrate that a specified evaluation family has real limits.
+
+A large winning region is not evidence that a policy is morally correct. Statements such as “wins for 90% of weights” require a defended measure on parameter space and depend on parameterization. Report boundaries, invariances, and sensitivity before attaching frequency-based significance.
+
+## 6. A first analytic map using the existing lushness probe
+
+Part 14 of the primer already supplies the covariance candidate:
+
+```text
+L_beta(Sigma) = log det(I + beta Sigma), beta > 0.
+```
+
+Use the same justified two-dimensional feature space for two continuation profiles:
+
+```text
+Sigma_C = diag(a, 0)
+Sigma_D = diag(b/2, b/2), with a > 0 and b > 0.
+```
+
+C concentrates its represented spread in one direction; D distributes it across two. These letters do not classify either system as a valuer, a plurality, a singleton, or an ethical good.
+
+Their candidate scores are:
+
+```text
+L_C = log(1 + beta a)
+L_D = 2 log(1 + beta b/2).
+```
+
+Because the logarithm is increasing:
+
+```text
+L_D > L_C
+iff (1 + beta b/2)^2 > 1 + beta a
+iff b - a + beta b^2/4 > 0.
+```
+
+Thus:
+
+| Conditions | Preferred covariance profile |
+| --- | --- |
+| b >= a, beta > 0 | D |
+| a > b, 0 < beta < 4(a-b)/b^2 | C |
+| a > b, beta = 4(a-b)/b^2 | Tie |
+| a > b, beta > 4(a-b)/b^2 | D |
+
+For a=2 and b=1, the crossover is beta=4. Small beta approximately rewards total represented variance; at large beta, the number of positive represented directions increasingly matters. The reversal exists without adding separate moral weights.
+
+The consequence for the project is specific: even this fixed functional contains a calibration choice that can determine the winner. Beta must be interpreted in the units of the feature metric, with beta Sigma dimensionless. It cannot be tuned separately for each case to vindicate a favored institution or moral intuition.
+
+This is a comparative corollary of the packet's existing covariance construction, not a new value theorem. Covariance omits information, including feature means and higher-order dependencies; it is not the complete continuation object. The calculation does not establish that variance or rank is value. It identifies an exact dependency that any ethical use of this probe would inherit.
+
+If a plurality and an integrated controller induce the same Sigma, this particular probe ties them. That does not establish equality of their full continuation objects. If they instead match under a justified equivalence of the full value-relevant object, an invariant lushness construction must also tie them. Their number of outer boundaries supplies no independent preference.
+
+## 7. The ethical regimes to investigate
+
+These are candidate outcomes to locate in models, not findings established by the analytic example.
+
+| Possible regime | Mechanism to investigate | Discriminating comparison |
+| --- | --- | --- |
+| Rights-like restraint | Protection sustains correction, coordination, trust, or future valuation that direct intervention would impair | Protected and unprotected policies under identical dynamics, including urgent cases and harmful inaction |
+| Sacrifice or containment | Restricting a local continuation sustains a larger joint possibility for value | All relevant alternatives and their coupled consequences, including protection of the threatened process |
+| Distributed generativity | Distinct, interacting processes create complementary continuations and repair routes | Resource-matched plurality and integrated control with coordination costs included |
+| Generative integration | Coordination and internal variety preserve or expand the same capabilities more effectively | A controller with genuine internal variety versus a plurality with comparable interfaces |
+| Excisive advantage | Control gains outweigh lost alternatives under the chosen candidate comparison | Whether the advantage persists with delayed losses, hidden dependence, and model error represented |
+| Perpetual option preservation | The score favors maintaining capacity while repeatedly deferring its exercise | Compare whole processes of using and replenishing capacity against indefinite preservation |
+| Risk concentration | Rare expansive continuations dominate, or risk aversion favors a much narrower continuation | Fixed physical occurrence weights, explicit risk aggregation, and ruin consequences |
+
+Survival of an unappealing recommendation is informative. It may reveal a physical-model omission, a defective lushness statistic, a substantive disagreement with the chosen ethical commitment, or an uncomfortable implication of a functioning proposal. The diagnosis must identify which claim fails before changing the model.
+
+## 8. How to test whether protections emerge
+
+Run four comparisons using the same underlying finite environment and candidate target:
+
+| | Exact modeled consequences available | Bounded or misspecified consequences |
+| --- | --- | --- |
+| Unrestricted optimization | What the proposed target itself favors | How direct optimization fails under error |
+| Optimization with a proposed protection | Cost or nonbinding status of the restriction | Whether the protection improves pursuit of the same target under error |
+
+For a fixed exact objective and feasible policy set, restricting the set cannot raise its attainable maximum. If A_R is a nonempty protected subset of A, then max over A_R of F is at most max over A of F. A protection vindicated in this setting is compatible with an optimum; it does not improve on a genuinely unrestricted optimum of the same problem.
+
+The target may therefore favor a protected policy because of its full consequences. Alternatively, a bounded agent may pursue the target more reliably by accepting a restriction it cannot successfully replace with case-by-case calculation. If establishing a rule changes other agents' behavior or future options, represent that institutional commitment as an action with its own continuation. The restriction theorem should not be applied across different environments as if they were the same problem.
+
+They can coincide, but neither is guaranteed. Better information may weaken some protections while strengthening others by exposing previously missed costs. Self-defense and justice remain among the policies being compared; caution is not automatically inaction.
+
+## 9. Sampling value–valuer hypotheses
+
+Let h label a candidate account of which processes instantiate value and how their organization bears on it. Obtain comparisons under each h independently of the lushness score being tested. These can be partial comparisons; a complete numerical value theory is unnecessary for every investigation.
+
+For each modeled intervention, record whether its lushness comparison agrees with, conflicts with, or remains unassessed by the comparison under h. Vary h, physical circumstances, and candidate lushness construction separately.
+
+Do not infer agreement by defining valuers as systems that increase the chosen score. Likewise, a family of candidate ethical accounts does not become exhaustive because it is diverse. The result may be robust conditional agreement, a sharply located disagreement, or persistent underdetermination.
+
+This allows progress before a final boundary of valuerhood. It does not convert empirical correlations into an unconditional normative proof. Sampling alternative accounts is a sensitivity analysis; observations become tests only where those accounts make independently assessable predictions.
+
+## 10. Initial implementation sequence
+
+1. Fix a small, resource-bounded stochastic environment with exact joint continuation available. Model policies that preserve, integrate, exploit, sacrifice, and repair through actions, not labels attached to their scores.
+2. Use the primer's tester-based consequence object and at least two candidate structural probes. Preserve occurrence weights and joint dependence. Treat finite horizon and restricted interfaces explicitly.
+3. Enumerate policies where tractable. Calculate exact scores, winner regions, ties, and dominated options. Use analytic boundaries where possible; numerical sweeps should report their ranges and resolution.
+4. Vary physical circumstances separately from evaluation parameters. Include resource-matched integrated and distributed implementations. Check horizon-dependent reversals already anticipated by the project.
+5. Introduce bounded information and model misspecification. Compare unrestricted optimization with concrete protective policies against the same underlying target.
+6. Compare results across candidate value–valuer accounts. Retain counterexamples and cases that remain incomparable.
+
+Before interpreting the scores, verify invariance to relabeling and equivalent representations, consistent probability accounting, and declared units. A numerical winner produced by inconsistent coordinates is not an ethical result.
+
+Include a flat-score control: a static state statistic invariant under every unitary cannot distinguish final states related only by unitary evolution of the same closed initial state. If the candidate collapses the comparison this way, the problem is not insufficient ethical weighting. It has discarded precisely the conditional, relational, or multi-time structure through which different policies might matter. Any successful response must identify that structure rather than introduce an arbitrary moral bonus.
+
+## 11. What success or failure would show
+
+- **Stable ordering:** a substantial family of independently justified descriptions agrees on a comparison. Report the domain and assumptions supporting that agreement.
+- **Conditional ordering:** boundaries identify when familiar protections, integration, plurality, or sacrifice are favored. This is useful even without a universal champion.
+- **Calibration dependence:** the answer moves with a parameter the framework has not justified. The missing justification becomes a precise research target.
+- **Representational failure:** mathematically equivalent descriptions yield different recommendations, or modeled effects omit relevant continuation. Repair the representation before interpreting the ethics.
+- **Normative disagreement:** a faithful capacity comparison conflicts with a defensible account of realized value. Reconsider whether capacity alone should adjudicate that case.
+- **Persistent underdetermination:** the available structural and normative commitments do not settle the choice. The branch should expose this rather than manufacture a champion.
+
+The decisive question is not whether enough tuning can reproduce familiar morality. It is how much the full continuation structure constrains the space of defensible comparisons, and which ethical patterns survive those constraints.
+
+## Source relationship
+
+This branch uses the current primer's Parts 04–05 on consequence and lushness, Part 08 on valuers and integration, Parts 09–10 on GE and ODT, Part 14 on the formal core, and Part 16 on the research program. Its weighted-sum example and covariance boundary are elementary derivations stated in full above. No new literature survey or physical simulation was performed for this note.
+
+The existing packet already recognizes horizon dependence and the possibility of generative integration. The advance proposed here is to organize the competing assumptions into an explicit map of decision regions and test the proposed adjudicator without relying on independent ethical protections to supply its conclusions.

@@ -1,0 +1,215 @@
+# Lushness deformation: distributed accessibility and compositional consequence
+
+28 September 2026 · Addendum to Omega Cosmology v3.1
+
+## 1. Verdict and scope
+
+The lushness-deformation formulation survives the review as a candidate construction. Its central move remains: compare feasible interventions through the continuation structures they produce, retaining how those structures enable, maintain, restore, and transform further continuation. The review requires a more explicit account of distributed accessibility. It does not require abandoning the carrier, signed differential, or composition calculus.
+
+This addendum consolidates the necessary definitions and the correction to the accessibility readout in *Lushness deformation: a candidate construction* (28 September 2026). It can be read alongside the v3.1 primer without that separate note. The finite classical construction is the working mathematical setting here. No new experiment or formal verification was performed for this addendum.
+
+| Component | Status after review |
+|---|---|
+| Composition-preserving continuation carrier | Retained as the candidate object |
+| Signed comparison of feasible interventions | Retained |
+| Recovery through restored accessibility | Retained, with costs and competing consequences included |
+| A single globally optimized accessibility profile | Useful projection; insufficient account of distributed access |
+| Local and joint intervention-response structure | Made explicit in the carrier and readout |
+| Fixed-origin assessment permits only foreclosure | Rejected as a general conclusion |
+| Universal coordination penalty for centralized control | Not established |
+| Lushness identified with value, or uniquely measured | Still open |
+
+“Survives” means the reviewed objections do not defeat this construction once the stated refinements are made. It does not mean every possible error has been eliminated or the lushness interpretation has been validated.
+
+## 2. The object remains the continuation field
+
+A context c includes the physical state distribution, relevant environment, apparatus, controller records, resource stocks, and access to observations and operations. A comparison frame F declares the physical interfaces and tests under examination. H is a horizon and b a resource budget, both measured from a specified origin.
+
+Let M retain physically realizable interactive continuations: their preparation, joint outcome/time/cost laws, residual contexts, sequential composition, joint feasibility, and the conditions under which further processes become available. The candidate carrier is:
+
+```text
+L^F_{H,b}(c) := M^F_{H,b}(c) / ≡_F .
+```
+
+Contextual equivalence identifies presentations only when all included admissible continuation contexts preserve the relevant laws and deployment relations. The test family must be closed under the compositions being preserved. The quotient retains its induced operations; it is not replaced by a state count or a distance matrix.
+
+Distributed access belongs in this equivalence. If a former test family could not distinguish access to a record from the record's inaccessible existence, that family must be enlarged and its quotient refined. One cannot recover a discarded distinction merely by adding a readout later.
+
+The full reference remains the compatible family of these objects over frames, horizons, and budgets, with valid restriction and composition maps. Local interfaces supply access to the object; they do not redefine everything beyond them as nonexistent or insignificant. Joint multi-time laws remain necessary: endpoint marginals alone do not specify the continuation history.
+
+The proposal is structurally substantial but not yet an economical extraction. This carrier may retain much of the physical model. Finding a compact representation that preserves its relevant compositional predictions is a central research task.
+
+## 3. Accessibility must retain its distribution
+
+The original achievement profile optimized over physically implementable protocols. It did not authorize an omniscient external controller. Nevertheless, taking a supremum across implementations can hide which processes can deploy a capability, which records they possess, and whose cooperation or permission is required.
+
+Refine the readout as follows. Let S be a physically specified grouping or collection of control interfaces. Let pi_S be an implementable joint policy at those interfaces. Each component can use only its available records, and communication, shared preparation, and coordination must be physically realized. Let rho_-S specify the surrounding processes' responsive policies.
+
+```text
+A^{F,S,rho_-S}_{H,b}(c,T)
+  := sup_{pi_S in Pi_phys^S(c;T,rho_-S)}
+       Pr_c^{pi_S,rho_-S}( T accepts by H and expenditure <= b ).
+```
+
+T is an interactive continuation requirement, with its own apparatus, timing, and resource contribution declared. Probabilities come from the joint physical evolution. Feasibility includes resource conflicts and information constraints. A specified failed deployment is counted as a failed attempt; an impossible operation is not inserted into the physical catalogue as though it were available.
+
+The surrounding policy is a rule for responding to its records. Holding that rule fixed across a comparison does not freeze everyone else's previously observed actions. Different interventions can produce different records and therefore different responses under the same rule.
+
+One physically justified surrounding policy can describe an actual setting. A declared family can expose sensitivity to cooperation, obstruction, or uncertainty. Taking an average, a best case, or a worst case across that family is an additional operation, not part of the definition by default.
+
+This indexing does not rank agents. It describes the organization of access within each future. A global achievement supremum remains available as one projection of the richer object.
+
+### Individual profiles do not replace joint structure
+
+Keep the feasible joint policy arrangements and their response laws, not only the separately optimized entries of A. In particular:
+
+- Two tasks can each be achievable while their simultaneous realization is impossible.
+- A task can require complementary operations at several sites.
+- A later request can require one common preparation that works before the request is known.
+- A record can exist physically without reaching the process that needs it.
+- A capability can depend on another process continuing to cooperate or refraining from exercising a veto.
+
+Separate maxima need not be jointly attainable. Neither do marginal profiles identify all these differences. They are readouts of the process structure, not substitutes for it.
+
+### Comparing different organizations
+
+Groupings need not have the same names, boundaries, or number of members in two futures. Comparisons therefore declare common physical requirements and how their interfaces are realized in each case. These correspondences are part of the comparison frame. An unavailable interface needs a specified operational interpretation; it is not silently assigned a moral penalty.
+
+This permits comparisons of alternative architectures without rewarding identity count. A sufficiently generative integrated singleton remains a live possibility. A plurality does not win by definition, and an excisive controller does not lose merely because it is centralized. Restrictions, dependencies, foreclosure, resilience, and constructive access must appear in the resulting physical profiles.
+
+## 4. Deformation and ordering after the refinement
+
+Let P be a feasible prefix with known duration tau_P and expenditure k_P. Let r index its outcome instrument, with probability w_P(r|c) and full residual context c_{P,r}. For the elementary finite construction:
+
+```text
+D^L_{P;H,b}(c)
+  := sum_r w_P(r|c)
+       delta_[ L^F_{H-tau_P,b-k_P}(c_{P,r}) ].
+
+Delta^L_{P,Q;H,b}(c)
+  := D^L_{P;H,b}(c) - D^L_{Q;H,b}(c).
+```
+
+The residual object now explicitly preserves distributed records and control. An analyst's decomposition over a joint record does not broadcast that record to every participant. If some components are private, policies remain adapted to their local information. Variable time and cost require their full joint law, with unobserved quantities kept unavailable to controllers.
+
+The differential compares feasible alternatives from a common starting context, deadline, and resource origin. It has total mass zero: intervention redistributes probability among continuation organizations rather than creating additional normalized probability. Whole-history assessment also retains the prefix's intermediate consequences and their joint law with continuation.
+
+For a declared family C of comparable interface experiments, define a coordinatewise achievement preorder using the refined A. The family specifies the requirements, control interfaces, surrounding policies, and their physical correspondences. Mutual dominance means equivalence for this readout, not identity of carriers.
+
+On a finite common domain of residual organizations, let U range over upward-closed sets of that preorder. Then:
+
+```text
+P ⪰^L_C Q
+  iff D^L_P(c)(U) >= D^L_Q(c)(U)
+       for every upward-closed U.
+```
+
+Equivalently, every increasing real-valued readout has at least as large an expectation under P. This follows by expressing a finite increasing function as a constant plus nonnegative multiples of indicators of its upper level sets. The constant cancels because both distributions have mass one.
+
+The refinement changes the order's inputs, not that elementary argument. It selects no scalar weighting among the coordinates. The declared experiment family still matters. Crossed comparisons remain mixed; ties may conceal differences retained by the full carrier.
+
+This analytical ordering does not supply a physical controller. Branch-specific or participant-specific optima can be combined only when the needed selection, observation, communication, and resource allocation are implementable. Without that condition, evaluate the full composite rather than treating an average of independent maxima as achieved performance.
+
+## 5. Consequence modifying further consequence remains intact
+
+For a physically realized policy P, define its transition operator on complete contexts:
+
+```text
+(K_P f)(c) := E[ f(c') | c,P ].
+
+K_(Q after P) = K_P K_Q.
+```
+
+The later policy Q includes its physically permitted response to records. For two alternatives at each stage, where all four composites have specified physical realizations, write Delta K_P = K_P1 - K_P0 and Delta K_Q = K_Q1 - K_Q0. Then:
+
+```text
+K_P1 K_Q1 - K_P0 K_Q0
+  = Delta K_P K_Q0
+    + K_P0 Delta K_Q
+    + Delta K_P Delta K_Q.
+```
+
+The interaction term applied to f is the four-way contrast:
+
+```text
+E_11[f] - E_10[f] - E_01[f] + E_00[f].
+```
+
+It expresses how an earlier alteration changes the consequence of a later alteration. Further composition produces ordered higher-order interactions. If a summary does not support faithful updates, use full contexts for this algebra and apply the summary afterwards.
+
+Non-additivity alone is not generativity. For the generativity hypothesis, require physical witnesses of installed, maintained, or restored conditions and their downstream use. Neither extra stage labels nor extra identity labels earn credit. Equivalent subdivisions describe the same realization.
+
+Recoverability remains endogenous to accessibility: if a channel is disabled with probability p and an available repair succeeds conditionally with probability s, its operational probability rises from 1-p to 1-p+ps, under the stated simple failure model. Repair costs and other effects remain in the full profile. No separate resilience bonus is needed.
+
+## 6. A fixed origin does not prohibit constructive growth
+
+The following narrow statement is valid. For a fixed starting context, requirement, deadline, and budget, protocols beginning with a specified commitment P form a subset of all feasible protocols:
+
+```text
+sup_{pi feasible and beginning with P} Pr_c^pi(T)
+  <= sup_{pi feasible} Pr_c^pi(T).
+```
+
+It follows that commitment cannot improve the optimum over the already inclusive original policy set. It does not follow that realized generative organization cannot grow, or that one prefix cannot leave a richer continuation structure than another.
+
+For example, building an apparatus and waiting can begin at the same moment and be assessed at the same final deadline. Building can leave an operational channel absent after waiting, while consuming resources that waiting preserves. The constructive improvement is real; the complete comparison may be mixed. The original policy envelope already included the build-and-use route.
+
+Keep three things distinct: the original envelope of lawful continuations, the organization realized along a continuation, and the comparison of feasible continuations. Keep baseline choice, time origin, and evaluation horizon distinct as well. A rolling window is one useful assessment convention, not a mathematical prerequisite for generativity.
+
+The all-horizons reference retains these comparisons and their relations. It does not automatically make them agree, select a scalar, or establish a final ethical verdict.
+
+## 7. Boundaries, integration, and control
+
+Identity boundaries specify available interventions and attribution. The assessed result is the coupled continuation field. This removes the need to normalize a personal capacity score simply to prevent larger enclosing boundaries from always winning. Scale still enters through actual resources, interactions, and consequences.
+
+Integration gain can remain a useful structural diagnostic if its baseline is explicit:
+
+```text
+G_T(c)
+  := sup_{pi in Pi_coupled} Pr_c^pi(T)
+     - sup_{pi in Pi_separate} Pr_c^pi(T).
+```
+
+Declare what separates the two implementation classes: information sharing, communication, joint preparation, coordination, or another physical constraint. Match resource accounting. If Pi_separate is contained in Pi_coupled, nonnegativity follows from set inclusion. That inclusion itself must be justified.
+
+Two actuators whose operations are both necessary establish complementarity. They do not alone establish a coordination gain: separate controllers can execute a predetermined schedule successfully. Persistent positive integration gain is therefore neither a universal identity test nor a consequence of simply enlarging a boundary.
+
+No universal centralization tax is assumed. Message count, latency, energy, reliability, and preparation costs are different quantities. Any proposed scaling advantage must compare the same task and resource model. A logarithmic communication depth cannot be compared directly with a quadratic total message count.
+
+Nested conflicts remain features of the joint future. A lineage can expand while the organization sustaining it collapses. The carrier must preserve that coupled outcome; an aggregation convention cannot be obtained by adding independent scores for overlapping boundaries.
+
+## 8. Ethical role and open choices
+
+Value requires valuers. Under the exploratory all-valuers pathway, no physical process is excluded in advance by a moral-status boundary. This does not establish equal worth, make every endogenous preference right, or resolve conflict among processes.
+
+Lushness remains the proposed organization of the substrate through which value can be instantiated. Distributed accessibility records how that substrate is usable, dependent, and transformable. The conditional normative bridge concerns why a valuer interested in value should attend to these possibilities and their foreclosure. The physical construction does not by itself prove a universal duty to maximize every accessibility coordinate.
+
+Several choices remain explicit: the model, admissible implementations, interfaces, requirement family, surrounding policies, baselines, and approximation tolerances. Deriving a useful task family from endogenous physical dependence is a live research direction. It must not preselect preferred exemplars and then report their victory as a discovery.
+
+The proposed ordering can give robust comparisons where coordinates align. Where they conflict, a mixed result may describe a real tradeoff, expose an inadequate representation, or show that the order is too demanding for the intended decision. Those possibilities require different responses.
+
+## 9. Next finite investigation
+
+The next test should examine whether the refined representation earns its complexity. Use a completely specified finite physical model with exhaustive reference predictions, charging preparation, communication, construction, maintenance, and failure. Hold the model and comparison conventions fixed before evaluating candidates.
+
+Include cases that isolate:
+
+1. Equal global achievement with different access, information, or cooperation requirements.
+2. Joint capabilities and resource conflicts missed by separate task maxima.
+3. Construction and recovery versus feasible alternatives under the same original deadline.
+4. Recursive enabling effects that can be traced to actual downstream use.
+
+Compare reduced representations against exact predictions and appropriately implemented relative-reachability or attainable-utility readouts. A reduced representation can succeed by retaining the relevant answers at lower computational cost; it need not outperform an exact model's answers. Better prediction under matched computational limits is another possible success.
+
+Do not prescribe a winner by moral label, organization count, or controller type. Record prediction error, computational cost, lost distinctions, and the incidence and causes of mixed comparisons separately. Existing probes need not be rerun to establish this new experiment's result.
+
+## 10. Provenance and limits of borrowed claims
+
+This addendum follows the v3.1 primer, the 28 September lushness-deformation draft, and the subsequent Opus review and audit. The mathematical identities are elementary; the research proposal concerns which physical structure should be retained and whether it supports the intended lushness interpretation.
+
+- **Coecke, Fritz, and Spekkens, A mathematical theory of resources** (2014 preprint; 2016 publication), provides a close foundation for compositional resource conversion. It does not supply a unique value measure. <https://arxiv.org/abs/1409.5531>
+- **Krakovna et al., Penalizing side effects using stepwise relative reachability** (2018 preprint, revised 2019), compares changes in reachability relative to a baseline. Its baseline and side-effect problems are direct comparators for this program. <https://arxiv.org/abs/1806.01186>
+- **Turner, Hadfield-Menell, and Tadepalli, Conservative Agency via Attainable Utility Preservation** (AIES 2020), examines preservation of attainable auxiliary objectives. Its use of absolute changes also addresses risks from increased power. A signed differential alone is not a novel mathematical distinction from this family. <https://arxiv.org/abs/1902.09725>
+- **Fields and Glazebrook, Separability, Contextuality, and the Quantum Frame Problem** (2023), gives a model-dependent result about measuring entanglement entropy across one's own system boundary, including Corollary 3.1. It is not used here as a general theorem that physical boundaries cannot be real, or that predictive usefulness is their sole possible justification. The present construction independently declares and tests its physical interfaces. <https://arxiv.org/abs/2304.10010>
+
+The possible contribution is a physically accounted synthesis of distributed access, recursive construction and maintenance, and comparison of resulting continuation fields. Whether that synthesis yields an informative and compact lushness representation remains the next question to test.

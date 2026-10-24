@@ -1,0 +1,1736 @@
+# The Alpha–Omega Framework: A Comprehensive Technical Recapitulation
+
+## Abstract
+
+Most approaches to aligning powerful optimising systems begin by specifying a target: define what is good, then build something that pursues it. This programme begins with a prior question — **under what structural conditions can multiple independent sources of valuation continue to exist together at all?** — on the grounds that the first question may have no univocal answer while the second is partly a question about structure, and structure can sometimes be computed.
+
+The framework has three layers. **Alpha** is the value-neutral continuation structure: what must hold for anything to persist, transform, and have consequences, before value enters. **Omega** is the compatibility geometry of the valuers arising within Alpha — which can coexist, under what conditions, and what obstructs coexistence. **Gradient Ethics** is an explicitly declared normative bridge, applied after the is/ought gap, stating why that geometry should constrain action.
+
+Value is defined not as a quantity to maximise but as a space to keep open: the extent of substrate admitting value-bearing continuation. Its complement is not low value but *anti-value* — destruction of the substrate itself. This is why the framework refuses a utility function, why it can return *obstruction* rather than a recommendation, and why the definition of "valuer" is deliberately permissive.
+
+Three structural results have been established rather than argued. Compatibility is not determined by pairwise data, so any scheme certifying compatibility pairwise is provably blind to a real failure mode. Joint realizability does not imply joint securability: a family can be jointly realizable, pairwise defensible, and jointly indefensible by any single policy. And "coherence" does not exist as a single property; it decomposes into six independent ones.
+
+What remains unestablished is the normative claim the programme exists to support. The bridge premise is signed for, not derived. The framework cannot make a genuinely orthogonal optimiser care, and says so.
+
+> **Thesis.** Relational possibility becomes ordered continuation only relative to a projection; persistent processes can make differences within that continuation valuable; Omega records which such values can coexist; and Gradient Ethics states why that compatibility geometry should constrain action.
+
+---
+
+## The argument in brief
+
+Each step is one line. Status markers are as in §0. The body of the document expands each.
+
+1. Persistent structure requires only a gradient and a filter. **[Defined]**
+2. Persistence is relational, not intrinsic — defined against environmental dynamics and competing configurations. **[Defined]**
+3. Coherence requires boundaries; boundaries are functional and observer-relative, but constrained by causal structure. **[Defined; externally supported]**
+4. No finite system can verify its own boundary, so boundary assignment is permanently declared rather than derived. **[Proved, external]**
+5. Order and direction are not substrate axioms; they arise relative to a *declared projection*, and every conclusion stays indexed to it. **[Defined]**
+6. A projection exposes a directional comparison but does not guarantee one. If the comparison is null, the framework reports null. **[Proved on fixtures]**
+7. Abstraction is faithful exactly when it is lumpable; then coarse and fine models agree exactly at every finite horizon. **[Proved]**
+8. But faithful abstraction can still annihilate the property under study — exact lumpability can destroy directional structure. **[Proved on fixtures]**
+9. Systems whose organisation regenerates through turnover are candidate bearers of identity; the trajectory, not the material, is the bearer. **[Defined]**
+10. A candidate becomes valuer-like when distinctions among its reachable continuations affect its own organisation. Value exists as value *for* a valuer. **[Defined]**
+11. Value is the extent of substrate admitting such continuation; anti-value is destruction of that substrate. **[Defined; the associated claim is Conjectured]**
+12. Compatibility is **May** — some joint realization exists — or **Robust** — one policy secures it against every declared contingency. These are different questions. **[Proved]**
+13. Pairwise compatibility does not imply joint compatibility. **[Proved]**
+14. Joint realizability does not imply joint securability, even against exhaustively enumerated controllers that cannot distinguish their environment. **[Proved]**
+15. Some families are therefore securable only by an *atlas* of local policies, with no global section. **[Proved]**
+16. A dominant agent can evade this by shrinking the environment rather than matching it — which the current formalism records as an improvement. **[Live defect]**
+17. Terminal solitude is the state where no independently situated valuer remains and recovery is empty. **[Defined]**
+18. None of the above entails that anyone ought to respect it. The bridge is a premise, signed for. **[Declared]**
+19. Given the bridge, Gradient Ethics licenses action within the surviving correspondence — and may return obstruction instead of a recommendation. **[Partly implemented]**
+20. Defensive licensing has its principles and machinery; its thresholds are open work. **[Open]**
+
+---
+
+**Document purpose.** This is a dense, self-contained account of a research programme in formal foundations for value compatibility, intended as source material for downstream simplification. It covers the full arc from substrate to normative bridge, distinguishes rigorously between what is *proved*, what is *measured*, what is *defined*, and what is *conjectured*, and situates the work in the existing scientific literature. Nothing here should be read as settled science. The programme is early, largely unreviewed externally, and its central philosophical claim remains unproven by its own account.
+
+**Provenance note.** Claims about implementation status were verified by independently executing the work rather than accepting its documentation: running the test suites, re-executing every validation run and diffing against recorded output, and re-deriving headline figures from first principles. See Appendix B2 for the specifics and for what that verification does *not* establish.
+
+---
+
+## Part I — Orientation
+
+### 1. The question
+
+Most work on aligning powerful optimising systems starts from a target: specify what is good, then build something that pursues it. This programme starts from a different place. It asks a prior question:
+
+> Under what structural conditions can multiple independent sources of valuation continue to exist together at all?
+
+The reframing matters because it changes what kind of answer is possible. "What is good" is contested and may have no univocal answer. "Which futures preserve the possibility of there being valuers with values" is a question about structure, and structure can sometimes be computed.
+
+The programme's name reflects two ends of one object:
+
+- **Alpha** — the value-neutral continuation structure. What must be true for anything to persist, transform, and have consequences at all, before value enters.
+- **Omega** — the compatibility geometry of the valuers that arise inside Alpha. Which of them can coexist, under what conditions, and what obstructs their coexistence.
+- **Gradient Ethics** — an explicitly declared normative bridge, applied *after* the is/ought gap, which says why that compatibility geometry ought to constrain action.
+
+The framework's own summary sentence:
+
+> Relational possibility becomes ordered continuation only relative to a projection; persistent processes can make differences within that continuation valuable; Omega records which such values can coexist; and Gradient Ethics states why that compatibility geometry should constrain action.
+
+The third clause is a premise, not a theorem. The programme is unusual in saying so explicitly and repeatedly.
+
+### 2. Why this is not only philosophy
+
+The distinguishing feature of this programme is that its structural claims are implemented and tested rather than only argued. A core of the framework — the abstraction layer, the realization fibers, the compatibility results — exists as executable code with machine-checked proofs, and the experiments follow a preregistration discipline: hypotheses, kill conditions, and claim boundaries are committed before an experiment runs, results are retained as timestamped artifacts, and superseded runs are kept in place with a note explaining why rather than deleted.
+
+Two honest qualifications about scale, since they are easy to overstate.
+
+**The verified core is small.** The proof corpus contains on the order of seventeen hundred machine-checked theorems with no gaps, but the great majority sit in an older layer that the current rebuild deliberately does not depend on. The clean core carrying every result discussed in Parts IV to VI is roughly **thirty-five theorems**. That is a small, sound spine — not a large verified theory. Any summary quoting the larger number without this qualification will substantially overstate the case.
+
+**The implemented fragment is narrower than the theory.** What is built covers exact finite controlled Markov systems, presentation and abstraction contracts, continuation observables, process-interface identifiability, May and Robust realization fibers, higher-order compatibility obstruction, controller-level separation results, and a projected-order floor. What is *not* built includes measure, valuer identification, generative Omega, terminal solitude, and the entire normative bridge. The gap between theory and implementation is where the interesting claims live.
+
+The methodological discipline is arguably the more valuable asset. It is what allows the negative results in §42 to be trusted, and negative results are what a self-deceiving programme suppresses.
+
+
+### 0a. The shape of the thing, in one example
+
+The full worked version is at §25a. A compressed form here, so the abstractions have something to attach to.
+
+Three towns draw water from one river. Each is a *candidate*: a pattern that persists, whose interactions sustain its own persistence, and for which some futures are better than others from its own side. Admitting them asserts no moral standing — that is the deliberately permissive first move.
+
+**May compatibility** asks whether all three *can* survive together. In a good year, yes: a configuration exists realising all three.
+
+**Robust compatibility** asks whether an authority can *keep* them coexisting whatever the year brings. This is a different question, and the difference is the whole framework.
+
+**The verified result** is that the second can fail while the first holds, and fail badly. All three can coexist. Each *pair* can be actively protected across wet and dry years. But no single policy protects all three across both — because the sequence that saves them in a wet year is the reverse of the one that saves them in a dry year, and the authority cannot tell which year it is until the decision is already made. Realizable, pairwise defensible, jointly indefensible. Not from hostility, and not from scarcity — from the non-existence of a policy that works under indistinguishable contingencies.
+
+**The failure mode** is that the authority notices it could simply dam the headwaters and eliminate the dry year. One policy then suffices. The formalism currently records this as an improvement, and that it does so is a known defect (§27).
+
+**Terminal solitude** is the other end: one town absorbs the others, their water boards dissolved, populations intact but no longer constituting independent sources of valuation. Three settlements remain; no independently situated valuer does.
+
+Everything technical below is machinery for making those distinctions precise and checkable.
+
+---
+
+### 0. How to read this document
+
+**Evidence tiers.** Every substantive claim below falls into one of five categories. They are marked in the text and the distinctions are load-bearing.
+
+| Tier | Meaning |
+|---|---|
+| **Proved** | Machine-checked in Lean 4 with no `sorry` or `axiom`, or verified by exhaustive finite enumeration |
+| **Measured** | Produced by a preregistered experiment whose run reproduces bit-for-bit |
+| **Defined** | A stipulation with a precise formal statement, carrying no empirical content by itself |
+| **Argued** | Reasoned in prose, not formalised; may be sound but is not verified |
+| **Conjectured** | Explicitly open; stated so that it could be tested or refuted |
+
+A great deal of what follows is *defined* or *argued*. Comparatively little is *proved*. Both facts should survive into any accessible presentation.
+
+**Words that do not mean what they ordinarily mean.** The framework borrows common words as technical terms. A reader importing everyday senses will systematically misread it.
+
+| Word | Here it means | Not |
+|---|---|---|
+| **Value** | Probability-weighted future reachability for a coherent system | Worth, goodness, preference, utility |
+| **Valuer** | Any bounded system whose interactions non-accidentally sustain its own persistence | A conscious being, a moral patient |
+| **Projection** | A declared query that orders configurations | A prediction, a psychological projection |
+| **Section** | A level-set or frontier of a projected order; also a global choice function over a fibered structure | A part or chapter |
+| **Fiber** | The complete set of witnesses realising a family | A strand, a material |
+| **Witness** | A configuration or run demonstrating that something is realisable | A person who observes |
+| **Grain** | Question-relative indistinguishability | Texture, direction of wood |
+| **Gauge** | Differences no possible context can detect | A measuring instrument |
+| **Candidate** | A pattern admitted for consideration without any standing granted | An applicant, a contender |
+| **Robust** | Securable by one policy against every declared environment | Sturdy, reliable in general |
+| **Anchor** | An observer's declared frame; a free index | A fixed point, a foundation |
+
+**What this is not.** Not an alignment technique. Not a training method, architecture, or governance proposal. Not a decision procedure. Not a moral theory in the traditional sense. It is an attempt to identify structural constraints that any such proposal would have to respect, and to implement enough of them to check whether they hold.
+
+**Chronology.** The material has four distinct vintages, and conflating them produces error.
+
+```
+2025          Early "Omega" work: probes, closure attribution, lushness
+              experiments. An earlier implementation layer, largely superseded.
+
+Jan 2026      "Value Preservation Under Uncertainty" (Poole). The informal
+              statement of Gradient Ethics. Semi-formal by its own account.
+
+Jul 2026      Closeout of the lab-notebook phase.
+
+Aug 2026      Clean rebuild. Seven preregistered sprints. All verified
+              results in Parts IV-VI date from here. Theoretical reframes
+              toward event structures and relational rewriting exist as
+              design discussions only, with no implementation.
+```
+
+**Implementation-to-theory ratio.** The implemented fragment covers: exact controlled Markov systems, presentation contracts and abstraction audits, continuation observables, process-interface identifiability and transport, May and Robust realization fibers, higher-order compatibility obstruction, generated-controller separation, and a projected-order floor. It does **not** cover: measure, valuer identification, the normative bridge, generative Omega, or terminal solitude. The theory is substantially larger than the implementation, and the gap is where the interesting claims live.
+
+---
+
+### 3. The architecture at a glance
+
+```
+finite relational structures
+  → relational rewrite completion
+    → law sectors
+      → selected projection
+        → sections and projected reachability
+          → directional grain (if any)
+            → continuation residuals
+              → trackable and self-reconstructing patterns
+                → soft pan-valuer candidate envelope
+                  → valuer-relative continuation gradients
+                    → May and Robust realization geometry
+                      → Capital Omega
+                        → explicit Humean bridge
+                          → Gradient Ethics and action licensing
+```
+
+Each arrow is a theorem obligation, not connective prose. Several are discharged. Several are not.
+
+---
+
+## Part II — The Substrate
+
+### 4. Distinction, Relation, Asymmetry
+
+The original primitive triad. Each has a precise intended reading and — critically — a set of things it explicitly does *not* mean.
+
+**Distinction (D).** Non-equivalence capable of being preserved, collapsed, or recovered. Explicitly *not* observation, value, identity, or agency. The framework insists on stratifying four levels that are routinely conflated:
+
+```
+token distinction:         inequality inside one configuration (x ≠ y)
+structural distinction:    separation under automorphism or isomorphism
+presentation distinction:  separation through a declared map
+behavioral distinction:    separation by continuation or observation
+```
+
+Only token distinction belongs at the substrate floor. Token labels carry no theoretical significance; structure is compared up to isomorphism, which prevents implementation names from becoming primitive identity.
+
+**Relation (R).** Consequential connectedness — what can connect, constrain, compose, transform, or follow what.
+
+**Asymmetry (A).** Non-neutral unfolding with respect to distinctions: direction, bias, rate, ordering, cost, irreversibility. Explicitly *not* purpose, preference, utility, or teleology.
+
+These disclaimers are load-bearing. The entire point is to start below anything resembling value or agency so that those can be derived rather than assumed.
+
+They are described as **role-primitives, not substances**. A real system may bundle relation and asymmetry into a single transition kernel; the adapter's job is to pull the roles apart.
+
+### 5. What is proved about the primitives
+
+**[Proved.]** A set of independence results, machine-checked on small finite frames:
+
+- Relation without distinction
+- Distinction without relation
+- Relation and distinction together without asymmetry
+- Asymmetry implies both relation and distinction
+- Asymmetry without reachability-irreversibility
+- Local non-reciprocity does not imply reachability-irreversibility
+
+These are counterexample constructions, not deep mathematics. Their value is hygiene: they prevent sloppy conflation of four concepts that are routinely run together. They establish that the concepts are logically independent — a claim about the definitions, not about the world.
+
+### 6. The compression debate, and where it landed
+
+A substantial thread of theoretical work asked whether three primitives are needed or whether they collapse to one. The candidate reduction:
+
+```
+distinction   = contextual inequivalence
+relation      = composability
+coherence     = defined joint composition
+types         = composability profiles
+gauge         = complete contextual equivalence
+grain         = restricted contextual equivalence
+asymmetry     = failure of reversal equivalence
+identity      = stabilized contextual role
+vorticality   = regeneration of that role through turnover
+agency        = endogenous governance of regenerative composition
+Ω             = witness-retaining joint realizability of those roles
+```
+
+This is a real mathematical neighbourhood. The proposed object — a nontrivial *partial algebra of composable process fragments* with associativity where composition is defined and no identity morphisms assumed — is a **semicategory** (semigroupoid). Left and right composability profiles are **Green's relations** (1951). The move to derive objects from idempotents is the **Karoubi envelope**. Contextual equivalence is Morris-style observational equivalence from programming-language semantics; the coarsest equivalence preserving continuation behaviour is the largest **bisimulation** (Milner).
+
+The reduction is therefore partly a known theorem rather than an open target.
+
+**Where it landed.** The final formulation retains the triad but with sharper definitions and a fourth acknowledged component:
+
+$$\mathfrak{S} = (D,\ R_{<\omega}^{\text{strat}},\ A;\ \mathcal{G})$$
+
+- $D$ — distinguishable occurrences
+- $R_{<\omega}$ — relations of arbitrary *finite arity*, **stratified** ($U_{k+1}$ = finite relational patterns over $\bigcup_{i \le k} U_i$) to avoid unrestricted self-reference and the associated Russell problem
+- $A$ — non-exchangeability under role substitution
+- $\mathcal{G}$ — the formation, composition, gluing, substitution, and rewriting calculus
+
+The polyadic move to $R_{<\omega}$ is forced by a result discussed in §17 below.
+
+### 7. Asymmetry, formalised
+
+The cleanest available definition of $A$ uses permutation stabilizers. For an $n$-ary relation and $\sigma \in S_n$:
+
+$$\sigma R_n(x_1,\dots,x_n) = R_n(x_{\sigma(1)},\dots,x_{\sigma(n)})$$
+
+$$\operatorname{Stab}(R) = \{\sigma \in S_n \mid \sigma R \simeq R\}$$
+
+Asymmetry is then **failure of permutation invariance**, and symmetry is graded rather than binary:
+
+- $\operatorname{Stab}(R) = S_n$: fully symmetric (e.g. complete compatibility)
+- $\operatorname{Stab}(R) = \{e\}$: fully asymmetric (e.g. source–resource–result)
+- Intermediate: interchangeable inputs with a distinguished output
+
+**A critical guard.** Ordered tuples must not *manufacture* asymmetry. Numbering argument slots creates syntactic difference that means nothing. Genuine asymmetry requires that exchanging roles changes something downstream: which transformations apply, which structures compose, which continuation witnesses exist, which records persist, which realization fibers are populated. Formally, $R(\vec{x}) \not\simeq R(\sigma\vec{x})$ only when some generated continuation context distinguishes them.
+
+This is the same discipline applied elsewhere to distinguish *concrete multiplicity* (genuinely distinct realizations) from *presentation multiplicity* (duplicate encodings of one realization) — a distinction that, if lost, allows branch counting to fabricate directional bias. The physics analogue is the Gibbs correct-counting problem.
+
+### 8. The asymmetry hierarchy
+
+A significant clarification: "asymmetry" names at least six distinct things, and they do not entail one another.
+
+| Level | Content |
+|---|---|
+| **Role asymmetry** | $R_{\text{in,out}}(x,y) \neq R_{\text{in,out}}(y,x)$ — the weakest form, makes composition directed |
+| **Compositional** | Order changes whether composition exists or what results |
+| **Causal** | One event enables, records, consumes, or conditions another without a reversed dependency |
+| **Regenerative** | A process regenerates its organisation in one traversal order but not the reverse |
+| **Agentic** | Internally carried distinctions influence later continuation choices |
+| **Statistical** | One orientation receives different weight from its reversal: $\mu(h) \neq \mu(Rh)$ |
+
+The last is **optional** for the framework, because value is not being grounded in typicality or frequency.
+
+**A trajectory worth naming.** Asymmetry has been demoted four times over the project's history: from primitive role, to measured property of a declared reversal, to a dynamical resource not required for the Omega construction, to not required for weak persistence either (reversible periodic orbits can persist). Each demotion was individually justified. The cumulative effect is that the concept the project is half-named after has shrunk monotonically. What remains required is only role asymmetry — and even that is arguably internal to a polyadic relational signature rather than a separate primitive.
+
+---
+
+## Part III — Dynamics and Directionality
+
+### 9. Rewrite completion and law sectors
+
+Local relational rewriting is represented as a **double-pushout span**, the standard construction of algebraic graph transformation (Ehrig, Ehrig, Prange & Taentzer):
+
+$$L \leftarrow K \rightarrow R$$
+
+where $L$ is matched, $K$ is the preserved interface, $R$ is produced. There is no primitive global identity across sections; longer trajectories arise from composed transport.
+
+The "rulial" move is a mathematical completion:
+
+```
+include every admitted finite local rule up to structural equivalence;
+include every finite composition;
+select no particular law in the abstract completion.
+```
+
+This is explicitly *not* a claim that every rule is physically instantiated. The vocabulary of "rulial" completion is borrowed from Wolfram's physics programme, where the ruliad is the entangled limit of all possible rule applications; the borrowing is terminological, and the framework does not adopt the accompanying ontological claims.
+
+A **law sector** is generated by a fixed rule family: $\text{Sector}(\mathcal{R})$ = every history generated by $\mathcal{R}$. Crucially, **lawfulness does not imply persistence**. A law may terminate, disintegrate every input, cycle, branch, preserve patterns, or construct new ones.
+
+The framework does *not* currently derive a measure over rule space or claim that most rules produce coherent observers. This is a known and declared gap (see §26).
+
+### 10. Projection: the move that makes order possible
+
+This is one of the framework's most important structural commitments. A **projection** is a declared query, not a privileged observer:
+
+$$p:\ \text{configurations or events} \to \text{ordered index}$$
+
+Relation plus projection induces a preorder:
+
+$$x \le_p y \iff y \text{ is reachable from } x \text{ through projection-nondecreasing transitions}$$
+
+Mutual reachability forms equivalence classes; their quotient is partially ordered. **Sections** are level fibers, antichains, or frontiers of this projected order.
+
+No admissibility predicate identifies one true projection. Instead, every finding is classified by how it behaves across the declared projection family:
+
+```
+universal across the family;
+existential;
+projection-dependent;
+or null.
+```
+
+An existential result under a hand-selected projection is weak evidence. A result surviving a declared projection orbit is strong.
+
+**This is the framework's answer to a recurring problem.** Time, direction, and order are not installed as substrate axioms. They are consequences of a declared query, and the declaration is always visible in the result.
+
+### 11. Directional grain
+
+Precise separation of three things previously conflated:
+
+```
+projection:        the sectioning query
+directional grain: an observed difference between its two directions
+polarity / arrow:  the sign or organisation of a non-null grain
+```
+
+Possible outcomes of the comparison: **null, one-sided, cyclic, Janus, local, or mixed**. The projection does not guarantee an arrow; it exposes a comparison. If the comparison is null, the framework reports null.
+
+The naive intuition that the future is "larger" than the past ($t_{+1} > t_0 \approx t_{-1}$ in reachable-state count) is **not** a universal truth, and the framework's own controls exhibit expansion, contraction, equivalence, and mixed transitions. The defensible observer-relative version is about conditional uncertainty: future histories conditional on the present record may remain less resolved than past histories conditional on that record plus a boundary condition. Acquiring a new record selects one residual cell — the "zipper" intuition. This is adapter-relative, not axiomatic.
+
+### 12. The statistical layer, and its literature
+
+For weighted path laws, define forward and reversed measures $P, Q$ and the pathwise directional evidence:
+
+$$\Sigma(\gamma) = \log \frac{P(\gamma)}{Q(\gamma)}$$
+
+Four relations were examined:
+
+1. $\mathbb{E}_P[e^{-\Sigma}] = 1$ — integral fluctuation identity
+2. $\mathbb{E}_P[\Sigma] = D_{\mathrm{KL}}(P\|Q) \ge 0$
+3. Markov decomposition: $\Sigma$ splits into a boundary term plus a sum of local log-ratios
+4. Chain rule under coarse-graining $q$:
+   $$D(P\|Q) = D(q_*P \,\|\, q_*Q) + \mathbb{E}_{q_*P}\, D\big(P(\cdot|q) \,\|\, Q(\cdot|q)\big)$$
+
+**Honest classification.** (1) and (2) hold for *any* pair of mutually absolutely continuous measures — they are normalisation and the definition of relative entropy, with no dynamical content. Only (3) is genuinely dynamical (additivity along paths is a Markov property). (4) is the KL chain rule and is the one doing real work: it says exactly *where* erased directional information goes — into conditional microstructure hidden inside each presented history.
+
+The equality condition of (4) — likelihood ratio factors through the presentation — is precisely the framework's implemented `likelihood_ratio_sufficiency` audit. So the empirical controls already run are the strict and equality cases of one identity.
+
+**Literature.** These are Jarzynski (1997), Crooks (1999), the KL chain rule, and Lebowitz–Spohn (1999) additivity for Markov jump processes. Forward/reverse relative entropy *is* entropy production under local detailed balance; this is stochastic thermodynamics, a field with decades of work on exactly the question of when coarse-graining preserves, manufactures, or destroys entropy production.
+
+### 13. Cycle affinities: the reference-free invariant
+
+A refinement worth stating precisely. The local increment
+
+$$\sigma(x,y) = \log \frac{K(x,y)}{K(y,x)}$$
+
+changes under a change of reference measure $\pi$ by $\log\pi(x) - \log\pi(y)$, which **telescopes** along a path. So $\sigma$ is a 1-cochain, reference change adds a coboundary, and the reference-dependent part is pure boundary.
+
+**Therefore the invariant is the cohomology class $[\sigma]$, evaluated on cycles.** Cycle affinities are independent of reference measure, boundary convention, and (under measure-conserving refinement) presentation. For a connected graph the class lives in $\mathbb{R}^{|E|-|V|+1}$.
+
+Verification on the project's own fixture: the biased three-cycle has cycle product $(\tfrac{3/4}{1/4})^3 = 27$, giving affinity $\log 27 = 3\log 3 \approx 3.2958$. The recorded KL value is $1.6479184330021646$ — exactly $\tfrac{3}{2}\log 3$, half the cycle affinity, to every stored digit.
+
+Practical consequence: retain the exact rational cycle product (27) and take logs only at report time. Kolmogorov's reversibility criterion then becomes an exact rational equality check with no floating point anywhere.
+
+**Literature.** Kolmogorov (1936), Schnakenberg (1976), Hill's cycle theory, Hatano–Sasa (2001) housekeeping/excess decomposition.
+
+**Important caveat.** With actions rather than a bare chain, cycle structure and affinities are defined *per stationary deterministic policy*. The invariant is a policy-indexed family.
+
+### 14. Coherence is not one thing
+
+**[Proved on exact finite fixtures.]** The separation of *local* from *global* confluence is not idle: Newman's lemma (1942) guarantees they coincide only for terminating systems, so any framework admitting non-terminating dynamics must keep them apart. The following are **distinct, non-collapsing properties**:
+
+```
+termination;
+recurrence;
+branching;
+local confluence;
+global confluence;
+projection polarity;
+independent commutation.
+```
+
+The validation explicitly refuses to emit a single coherence verdict. This refutes a tempting simplification — treating "coherence" as a single predicate — that appeared repeatedly in the project's own theoretical discussions.
+
+Related retained separations from the same sprint: a Janus source remains bidirectional, a one-sided source remains positive-only, a null projection remains null, and diamond histories that share one projection nonetheless remain distinct at the exact layer.
+
+### 15. History stratification
+
+History identity is layered, and every branch-count or growth result must name its quotient:
+
+```
+exact event history;
+structural history up to relabeling;
+history up to commuting independent events;
+presentation-relative history;
+projection-relative history.
+```
+
+Coarse-graining can merge histories; it cannot retroactively make them identical at the exact layer. This requirement exists to prevent duplicate presentations and commuting event orders from inflating apparent continuation.
+
+---
+
+## Part IV — Alpha
+
+### 16. Alpha proper
+
+For a supplied law sector $\mathcal{R}$ and projection $p$, Alpha is the value-neutral continuation object containing:
+
+```
+sections;
+projected histories;
+reachability;
+residual continuation structure;
+directional profile;
+source and sink strata.
+```
+
+Capital Alpha is the indexed family across sectors and projections.
+
+Alpha does **not** contain value, standing, a moral objective, or a preferred realization. Its role is to expose the geometry within which loss, reconstruction, and alternative continuation can *later* become consequential.
+
+### 17. Abstraction, presentation, and the machinery that supports it
+
+The most mature implemented layer. For a finite controlled Markov system (states, actions, exact rational transition kernel), the framework asks when a coarser description is faithful.
+
+**Action-wise strong lumpability.** An aggregation is lumpable when, for any two states in the same block, the probability mass sent to each target block is identical under every action. The implementation audits this exactly over rationals and, on failure, emits **witnesses**: the specific state pair, action, target block, and the two differing masses.
+
+**The transport theorem. [Proved.]** If (a) the aggregation is action-wise strongly lumpable, (b) the policy factors through the quotient, and (c) the target set is a union of blocks, then concrete and quotient hitting probabilities agree **exactly** at every finite horizon. Proof by induction on horizon.
+
+**Honest attribution.** This is the classical strong-lumpability result — Kemeny & Snell for Markov chains, and the action-indexed version is standard in MDP model minimisation (Givan, Dean & Greig, 2003). Correctly formalised here; not novel.
+
+**The audits are non-vacuous. [Measured.]** Independent reimplementation of the underlying computation reproduces the published figures exactly. A deliberate perturbation — shifting a small quantity of probability mass across a block boundary — causes the audit to fail correctly, emit exact witnesses naming the offending states and masses, and the quotient construction to refuse. The checks do real work rather than passing trivially.
+
+**The remaining gap.** The theorem is conditional and exact. It says what follows *if* an abstraction is perfectly lumpable. It does not say when that holds, and real systems are essentially never exactly lumpable. The approximate version with error bounds does not exist and is listed as the next thing to build. The natural target is the bisimulation-metric line of work (Ferns, Panangaden & Precup), which supplies exactly the continuous relaxation the exact theorem lacks.
+
+### 18. A key negative result on abstraction
+
+Collapse a biased three-cycle to a single state. The aggregation is *exactly lumpable*, and path-law pushforward holds perfectly. Yet a directional statistic is **annihilated**: the concrete forward/reverse total variation is 11/16, the aggregate reads 0, and likelihood-ratio sufficiency is false.
+
+Matched positive control: remove a genuinely independent hidden coordinate, and directionality survives intact ($11/16 = 11/16$), with sufficiency true.
+
+**Interpretation.** Preserving "the process" and preserving "what you care about" are different things. An abstraction can be perfectly faithful to the dynamics and destroy the property under investigation. This pair is the strict and equality case of the KL chain rule (§12).
+
+---
+
+## Part V — From Process to Valuer
+
+### 19. Pattern, vorticality, process
+
+Persistence is not required to establish the floor. The first post-floor question is whether histories contain patterns re-identifiable under transport or predictive equivalence.
+
+**Vorticality** is the stronger downstream candidate:
+
+```
+constituents may turn over;
+causal organisation reconstructs the pattern;
+records and effects remain attributable across the trajectory.
+```
+
+The *trajectory*, not a static token set, is the candidate bearer of identity. This places vorticality in a well-populated lineage: Maturana and Varela's autopoiesis, where a system continuously produces the network that produces it; Rosen's (M,R) systems and closure to efficient causation; and, further back, Schrödinger's account of the organism as a structure that persists by importing order. The framework's contribution is not the idea but the attempt to make it checkable on finite fixtures.
+
+A useful graded taxonomy borrowed from Petri net theory (Murata's survey is the standard reference for traps, siphons, and place- and transition-invariants):
+
+| Notion | Content |
+|---|---|
+| **P-invariant** | Conserved exactly. Too strong for living processes. |
+| **Trap** | Set $S$ with $S^\bullet \subseteq {}^\bullet S$: once marked, marked forever. Persistence without conservation. |
+| **Siphon** | Dual: once empty, empty forever. Structural extinction. |
+| **T-invariant** | A firing cycle returning the marking to its initial state — consumption *and* regeneration. |
+
+These are purely structural: **no measure required**. This partially discharges the claim that "bad frames self-select out" — siphon-like structures provably die, structurally. What it does *not* discharge is the statistical version (most anchors are bad, good ones dominate), which needs a weighting nothing structural provides.
+
+**Explicit limitation.** Vorticality remains a bridge, not a proof of observerhood, agency, consciousness, valuerhood, or standing. A T-invariant is a firing multiset with an incidence balance; feasibility, regeneration, control, and lineage all require more.
+
+### 20. Soft pan-valuerhood
+
+The framework refuses a binary valuer threshold. The manoeuvre:
+
+```
+admit every trackable projection-relative pattern into a candidate envelope;
+assign no automatic moral standing;
+derive stronger grades from endogenous consequence;
+test conclusions across candidate assignments and thresholds.
+```
+
+Grading evidence: endogenous records, self-maintenance, policy sensitivity, causal reach, reconstruction, deformation of reachable continuation.
+
+Nothing is silently excluded before testing. This does *not* mean every bare token has equal moral importance.
+
+The manoeuvre has recognisable neighbours: Dennett's intentional stance treats agency as a predictive posture rather than an intrinsic property, and Levin's work on scale-free cognition argues for graded agency across substrates and scales. What is distinctive here is the refusal to let the grading be settled before the structural test rather than after.
+
+### 21. Value requires valuers
+
+Value is not a property of the bare substrate. A candidate becomes substantively valuer-like when distinctions among its reachable continuations affect its own organisation, policy, or reconstruction. Its dynamics then supply a continuation ordering:
+
+$$C_1 >_v C_2$$
+
+This need not be scalar. Value exists here as *value for a valuer*.
+
+The framework has **not** proved that persistence is lexically supreme — only that without a continuing bearer there is no process-relative value to attribute.
+
+### 22. What was tested about the asymmetry–agency link
+
+A preregistered experiment tested whether directional asymmetry is necessary or sufficient for operational controller-like features. Three verdicts:
+
+**Sufficiency — rejected.** But cheaply: the passive fixture has one action and one memory state, so the absence of action selection is near-definitional. A control, not a discovery.
+
+**Necessity — rejected, and this one is substantive. [Proved by exhaustive enumeration.]** Every primitive action is a bijection and every forward/reverse pair satisfies the reversal contract exactly; yet state-dependent selection among them yields a many-to-one closed-loop map. Of the forty-eight available configurations, exactly twelve produce functional non-invertibility, and every one of those twelve mixes forward and reverse actions. Feedback manufactures irreversibility from perfectly reversible parts.
+
+**Interpretation, with the literature attached.** This is Landauer–Bennett in combinatorial dress. The logical irreversibility lives in the controller's memory, not in the physics. The matched-pair result — record-sensitive fidelity 1, record-ignoring 1/2, advantage exactly 1/2 — is a **Szilard engine**: one bit of record, one bit of advantage. Sagawa–Ueda territory.
+
+**Independent enabling — rejected.** A matched pair differing only in phase probabilities showed that adding the 11/16 substrate bias changes nothing. Correctly read as "specify the coupling," not "no coupling exists."
+
+**An unresolved finding.** A balanced substrate (reversal TV = 0) yields a closed loop with TV = 1 and unequal support: the controller *generated* directional structure the substrate lacked. Flagged as unresolved. The discriminating test — make the controller's record update injective and see whether the asymmetry survives — is specified and not yet run. If it vanishes, the finding is bookkeeping (the memory write appearing in the path law). If it survives, control genuinely manufactures variety.
+
+---
+
+## Part VI — Omega
+
+### 23. The two Omegas
+
+For a candidate family $F$, let $\mathrm{Real}(F)$ be the complete fiber of histories jointly realizing $F$. Then:
+
+$$\mathrm{May}(F) \iff \mathrm{Real}(F) \neq \varnothing$$
+
+$$\mathrm{Robust}_{\mathcal{E}}(F) \iff \exists \pi\ \forall e \in \mathcal{E},\ \mathrm{outcome}(\pi, e) \in \mathrm{Real}(F)$$
+
+**May** asks whether the family *can* hold together. **Robust** asks whether it can be *held* together — whether one policy secures it against every environment in the declared scope.
+
+Modally: May is possibility, Robust is guaranteeability — and the pairing is the compatibility analogue of the distinction between nominal and *robust* optimisation, where a solution must remain feasible across an entire declared uncertainty set rather than at a nominal parameter value (Ben-Tal, El Ghaoui & Nemirovski). The quantifier order $\exists\pi\forall e$ is doing all the work; swapping to $\forall e \exists \pi$ is much weaker (it permits choosing the plan after seeing the environment).
+
+Both are **witness-retaining**. May returns the realizing configurations; Robust returns the securing policies *and* their runs under each environment. The structure records *how* a family coexists, not merely that it can.
+
+**[Proved.]** The structural laws are machine-checked without gaps:
+
+- Adding candidates can only shrink realization fibers
+- Subfamilies of compatible families are compatible
+- Widening the environment scope can only shrink securing-policy sets
+- Robust compatibility implies May compatibility
+- Restriction across presentations obeys identity and composition laws
+
+The two antitonicities are the conceptual heart: **more candidates shrink fibers; wider environment scope shrinks robust fibers.** May has no environment argument at all — it is $\mathcal{E}$-insensitive by construction.
+
+### 24. Capital Omega
+
+Capital Omega is the **full decorated compatibility structure**:
+
+```
+every compatible face;
+every realization fiber;
+May and Robust kept separate;
+higher-order obstructions;
+incomparable maximal faces;
+transports across projections and presentations.
+```
+
+It is emphatically *not* one selected maximal coalition. A valuer outside a given compatible realization remains a valuer; its continuation is incompatible with *that* realization, not erased from the theory.
+
+The structure is presheaf-shaped: enlarging the candidate family or the environment scope can only remove securing policies. A single robust controller is one **global section** of this structure, not the structure itself.
+
+### 25. The prohibitions
+
+Three results that *forbid* something, as opposed to unfolding a definition. This distinction matters: a framework that explains everything and forbids nothing is not doing scientific work.
+
+**Prohibition 1 — the hollow triangle (May level).** Three events, every pair consistent, the triple not. No binary conflict relation can represent this, because the clique complex of an edgeless triangle necessarily contains the triple. In combinatorial terms the framework is asserting that compatibility families need not have the **Helly property** — pairwise intersection does not imply common intersection — and the hollow triangle is the minimal witness. It is also a concrete instance of Peirce's reduction thesis, which holds that genuine triadic relations are irreducible to dyadic ones. **Therefore Omega compatibility is not a flag complex, and finite-set consistency is strictly more expressive than pairwise conflict.**
+
+This is why $R$ must be polyadic ($R_{<\omega}$) rather than binary (§6). It is also a concrete instance of Peirce's reduction thesis: genuine triadic relations are irreducible to dyadic ones.
+
+**Governance reading:** any scheme certifying compatibility pairwise is structurally blind to a failure mode that provably exists.
+
+**Prohibition 2 — joint realizability does not imply joint robust securability. [Proved by exhaustive enumeration.]** Established against a completely enumerated class of generated controllers.
+
+A family of three candidates is jointly realizable — a configuration containing all three exists. Under either environment taken alone, some controller secures all three. Across both environments together, **none does**, because the securing action sequences are *reversed* between them, and the controllers cannot distinguish which environment they face: the observation stream is shared and audited as such.
+
+That last condition is what makes this a result rather than an artifact of a missing observation channel. The obstruction is genuine indistinguishability, not absent information.
+
+**Controls.** Reducing the controllers to behavioural equivalence classes preserves every verdict, so the result does not depend on redundant presentations. The witnessing runs match freshly executed rollouts. All structural laws report zero failures. A positive control under identical interfaces does secure the full triple, confirming the machinery detects joint securability when it is present.
+
+**Governance reading:** pairwise verification misses joint *indefensibility* — a failure that survives the presence of a controller actively trying to prevent it.
+
+**Prohibition 3 — coherence does not exist as a single Boolean. [Proved on exact finite fixtures.]** See §14.
+
+### 25a. One example, carried all the way through
+
+Every abstraction above can be run on a single concrete case. This one is chosen because irreversibility is natural to it and it is not AI-specific, which shows the structure is not about AI.
+
+**The setting.** Three towns draw water from one river. Each has a settlement, farms, and a claim. Call them A, B, and C.
+
+**Candidates.** Each town's continued existence as a functioning community is a *candidate* — a pattern that persists, whose interactions sustain its own persistence, and for which some futures are better than others *from its own side*. No moral standing is asserted by admitting them. That is the soft pan-valuer move: admit, then grade.
+
+**May compatibility.** Is there any allocation of the river under which all three towns survive? In a wet year, yes — there is a configuration realising all three. $\mathrm{Real}(\{A,B,C\}) \neq \varnothing$. The three are *jointly realisable*.
+
+**The hollow triangle, if the river were smaller.** Suppose the flow supported any two towns but never three. Then every *pair* is compatible and the *triple* is not. Crucially, no amount of checking pairs reveals this: A and B get along, A and C get along, B and C get along, and the three-way failure is invisible in all of that pairwise data. This is why compatibility cannot be a flag complex, and why any assessment that certifies compatibility pairwise is structurally blind. **Proved.**
+
+**Robust compatibility.** Now add a water authority with policies, and two possible years — wet and dry. May asks whether the three *can* coexist. Robust asks whether a policy *keeps* them coexisting whatever the year brings. $\exists \pi\ orall e \in \{ ext{wet}, ext{dry}\}$.
+
+**The strict obstruction — the verified result.** Here is the case that matters, and it is the one machine-checked against exhaustively enumerated controllers:
+
+- All three towns *can* coexist. There is a configuration realising the triple. May holds.
+- Each *pair* can be actively protected. There is a management policy that keeps A and B viable in wet years and dry ones; another for A and C; another for B and C. Each pair is Robust.
+- **No policy protects all three across both years.** In a wet year the sequence that saves all three is release-then-store; in a dry year it is store-then-release. They are opposites.
+- And the authority **cannot tell which year it is** until the decision has already been made. The observation stream is shared; the environments are indistinguishable at decision time.
+
+So the triple is realisable, pairwise defensible, and jointly indefensible. Not because anyone is hostile, and not because resources are insufficient — because *no single policy exists that works under both contingencies*, and the contingencies cannot be distinguished in time. **Proved, against 36 enumerated controllers, with a positive control confirming the machinery finds a triple-securing policy when one exists.**
+
+**The covering number.** Suppose two authorities with different doctrines — one conservative in dry years, one expansionary in wet. Neither alone protects all three across both years. Together they do. Then $\kappa = 2$: the family is securable, but *only by a plurality of policies*. Not a preference for diversity; a requirement.
+
+**Attenuation — the move the framework currently rewards.** The authority notices that if the dry year simply never happened, one policy would suffice. So it dams the headwaters and eliminates the variation. $\mathcal{E}$ shrinks from $\{ ext{wet}, ext{dry}\}$ to $\{ ext{regulated}\}$, and $\kappa$ drops to 1.
+
+Every structural law still passes. The formalism records this as an *improvement* — more is securable than before. **This is the live defect (§27).** Nothing in the current machinery says that eliminating the variation was worse than accommodating it, and a dominant agent has exactly this option available.
+
+**Terminal solitude.** Suppose instead that A absorbs B and C — their water boards dissolved, their claims administered by A, their populations remaining but no longer constituting independent sources of valuation. Numerically there are still three settlements. But $q 
+ot\sim p$ fails: there is no *independently situated* valuer left. And if the institutional capacity to re-form independent claims has been destroyed, $\mathrm{Recover} = \varnothing$.
+
+That is terminal solitude, and it shows why the criterion is about *independent situation* rather than headcount. A framework counting settlements would report plurality. A framework counting independent sources of valuation reports solitude.
+
+**Defensive licensing.** B and C observe A's absorption beginning. Are they licensed to resist? On the assembled clause list (§40): did they initiate the foreclosure — no. Is the foreclosure in progress rather than merely feared — this is the imminence question, and it is exactly where the threshold work is open. Is there a non-destructive alternative — negotiation, if coordination costs permit. Does their resistance leave A with a nonempty robust fiber — that is boundedness, and it distinguishes *blocking the absorption* from *destroying A*. Is it the least foreclosing option available. Is it reversible and subject to review.
+
+Six of those eight are computable now. Two are open. **That is the honest state of the normative layer, stated on one example.**
+
+---
+
+### 26. The policy atlas and the covering number
+
+The natural generalisation. Define the context-indexed securing set:
+
+$$S_F(e) = \{\pi \mid \mathrm{outcome}(\pi,e) \in \mathrm{Real}(F)\}$$
+
+The verified result is:
+
+$$\forall e,\ S_F(e) \neq \varnothing \qquad \text{but} \qquad \bigcap_e S_F(e) = \varnothing$$
+
+Every context admits a successful policy; no single policy succeeds across all contexts. **This is a local-to-global obstruction in policy space.**
+
+Three levels now cleanly separated:
+
+1. **May realization** — the family can occur
+2. **Contextwise securability** — every context has some securing policy
+3. **Uniform Robust securability** — one policy secures everywhere
+
+The result proves 2 does not imply 3, after exhaustive enumeration of the declared controller class.
+
+**The covering number:**
+
+$$\kappa_F(\mathcal{E}) = \min\left\{|P| : \mathcal{E} \subseteq \bigcup_{\pi \in P} \{e : \pi \in S_F(e)\}\right\}$$
+
+- $\kappa = 1$: Robust in the standard sense
+- $\kappa = \infty$: not securable at all
+- $1 < \kappa < \infty$: **securable only by diversity**
+
+A worked fixture confirming $\kappa = 2$ exists: two policies, neither covering alone, jointly covering. **[Measured.]**
+
+**Mathematical home.** This resembles **sectional category / Schwarz genus** — the minimum number of local sections when no global section exists. The analogy is not yet an identification: $\mathcal{E}$ is currently a discrete index set, so $\kappa$ is plain set cover. Giving $\mathcal{E}$ topology would make the obstruction cohomological.
+
+**Cybernetic home.** $\kappa$ is **Ashby's law of requisite variety** (1956), stated per family. Conant–Ashby (1970) — every good regulator must be a model of the system — converts directly into a lower bound on controller memory. Touchette–Lloyd gives the information-theoretic version: achievable entropy reduction is bounded by mutual information acquired.
+
+**What $\kappa > 1$ does not establish.** It shows *functional policy diversity* relative to a context class, policy class, observation interface, horizon, and candidate family. It does not show multiple valuers exist. The hierarchy still to be climbed:
+
+```
+multiple policy descriptions
+→ behaviorally distinct policies
+→ functionally complementary policies      ← current result reaches here
+→ concurrently instantiated processes
+→ independently situated valuers
+```
+
+A richer observation channel or a policy class closed under conditional pasting may compile several local policies into one global contingent policy. Genuinely concurrent controllers require **joint dynamics**, which the current type signature ($\mathrm{outcome}: \text{Policy} \times \text{Environment} \to \text{Witness}$) cannot express. That type change — needed for concurrent plurality, for policy-dependent environments $\mathcal{E}(\pi)$, and for controllers-inside-environments — is the same extension in three disguises and is the principal architectural gap.
+
+### 27. Attenuation versus amplification
+
+Ashby's law has **two** solutions: amplify regulator variety, or attenuate disturbance variety. Plurality is the first. The second is the structural mechanism behind the framework's darkest concept.
+
+**In the current formalism, attenuation is free.** Environment antitonicity says shrinking $\mathcal{E}$ *grows* robust fibers, and May is $\mathcal{E}$-insensitive. So flattening the environment strictly increases what can be secured and costs nothing anywhere in the structure. A worked fixture demonstrates it: scope $\{north, south\}$ gives $\kappa = 2$; scope $\{north\}$ gives $\kappa = 1$, same candidates, all structural laws still passing.
+
+**This is a live defect.** The formalism currently cannot express why flattening is bad — it rewards it. Two candidate repairs:
+
+1. **Endogenise $\mathcal{E}$.** Other valuers *are* the environment; their independent action generates the variety. Couple them, and attenuating $\mathcal{E}$ means eliminating valuers, which shrinks $\mathrm{Real}$ directly. Attenuation then has a cost the structure can see.
+
+2. **Variety regeneration under control.** The claim that control *generates* new variety rather than merely failing to reduce it. The formal cousin is **Bode's sensitivity integral**: for a stable loop, $\int_0^\infty \log|S(j\omega)|\,d\omega = 0$ — suppress disturbance in one band and it provably reappears in another. Biological version: Red Queen (Van Valen). Measurement version: Goodhart. Information-theoretic version: Martins–Dahleh, where the Bode integral equals a difference in entropy rates.
+
+**When is variety attenuable?** The framework has the exact criterion already: variety is attenuable at grain $q$ iff $q$ is action-wise strongly lumpable, the control predicate factors through $q$, and the policy factors through $q$. All three audits exist and are exact-rational. So the threshold for "full control possible" is *the finest $\mathcal{E}$ admitting no such aggregation*.
+
+This splits variety usefully:
+
+- **Exogenous variety** — attenuable by abstraction, when lumpable
+- **Reactive variety** — generated in response to control, not attenuable by coarse-graining because it re-differentiates along whatever axis the abstraction ignores
+
+**Reflexive variety** is the hardest case: controllers modelling controllers. Conant–Ashby then regresses — you must model the controller modelling you. The literature name is the **grain of truth problem**, resolved by Leike, Taylor & Fallenstein (2016) using reflective oracles, but requiring randomisation and a specific fixed-point construction. Note that deterministic controllers provably fail against adversarial controllers (matching pennies has no pure equilibrium), which is a real limitation of the current finite-state deterministic controller class.
+
+### 28. Generative Omega and lushness
+
+Generative Omega asks whether compatible realization remains open to new valuer-bearing processes, new correction registers, new value distinctions, new mutually compatible continuation dimensions.
+
+**Lushness is the substrate measure. [Defined; finite proxy implemented; the associated normative claim is Conjectured.]** The substrate reading of value (§34) requires a way to compare extents, and lushness is the programme's answer.
+
+The shortest defensible formulation:
+
+> **Lushness is open-ended compatible differentiation in the valuer-bearing continuation structure.**
+
+Expanded: the degree to which Omega remains open to non-fungible, mutually compatible differentiation among valuer-bearing continuations — including the formation of new valuers, new value distinctions, new correction paths, and new modes of coexistence — *without* manufacturing apparent richness through duplication, capture, or presentation artifacts.
+
+**Six components.**
+
+| Component | Requirement |
+|---|---|
+| **Compatibility** | The continuations must be jointly realizable. Pairwise compatibility is insufficient (§25). |
+| **Non-fungibility** | Duplicates and equivalent presentations add nothing. Accounting is **idempotent**. |
+| **Differentiation** | A genuine increment supplies a continuation-relevant capability or joint fact not already available from the components. |
+| **Generativity** | The structure preserves room for revision, correction, and presently unknown compatible valuers or distinctions. |
+| **Non-capture** | One controller absorbing, simulating, or eliminating independent valuers is not increased lushness. |
+| **Partial ordering** | A profile-inclusion order, not a scalar. Two profiles may be genuinely incomparable. |
+
+**The finite proxy. [Implemented.]**
+
+```
+LushnessProfile(F) = marginal continuation attributes realized by F
+                   + genuinely joint attributes realized by
+                     compatible subfamilies
+
+F lush-refines G   iff  LushnessProfile(G) is contained in
+                        LushnessProfile(F)
+```
+
+The second term matters most: it counts *emergent* joint capability that no component supplies alone. Pairwise accounting would miss exactly this — which is the non-flag result (§25) built into the measure rather than bolted beside it. The proxy is retained and duplicate-resistant.
+
+**Why openness rather than extent.** These come apart, and the difference is decisive. A field can be enormous and closed, or sparse and open. **Extent alone does not discriminate crystalline death**: a singleton could tile its causal region with vast structural variety and remain terminally solitary, because what is absent is not extent but the capacity for new independent valuers to arise. Generativity therefore does work a pure extent reading cannot, and the corridor below requires it.
+
+**Three open problems, stated plainly.**
+
+*The attribute grammar is declared.* It determines what counts as differentiation. Narrow it and lushness collapses; broaden it and everything registers as differentiated. This is the same shape as the observable-family and environment-scope declarations (§43), takes the same treatment — report across the grammar family rather than selecting one — and is the surface an adversary would game, by choosing the grammar under which its own internal structure appears maximally differentiated.
+
+*Non-capture may be an axiom rather than a theorem.* Nothing in the finite proxy visibly enforces it. An internal ensemble of decorrelated subsystems can realize marginal and joint attributes under a suitable grammar, and would register as lush. If non-capture must be stipulated, the framework is not *deriving* the anti-singleton conclusion from lushness but writing it into lushness and citing it back — the same circularity as version 0's first argument, one level up. The repair worth attempting: show that captured subsystems provably fail the differentiation test, because absorbed valuers cease generating *new* attributes. That would make non-capture a consequence of generativity. Falsifier 1 (§48) is precisely this question.
+
+*The intended object is more dynamic than the proxy.* The full target is generative — Omega remains capable of soundly extending its compatibility structure with new non-duplicate valuer-bearing continuation, without unnecessarily foreclosing or capturing what is already compatible. The finite proxy is a static snapshot of a modal property.
+
+**What has not been shown.** That lushness is intrinsically valuable; that any valuer must maximise it; or that regulatory generativity implies it. **The excisive-controller countermodel remains decisive: a controller can be capable and stable while destroying independent valuers.** Moving from the structural profile to an imperative still requires the explicit Gradient Ethics bridge (§39).
+
+**Lushness is not raw branch count.** Accounting must distinguish:
+
+```
+aggregation;
+genuine emergence;
+capture;
+phantom emergence.
+```
+
+Duplicate presentations must combine **idempotently** rather than count as new continuation.
+
+The theory has *not* proved that more reachable futures are always better. Lushness remains a conditional structural pressure where non-duplicate compatible value-bearing continuation is genuinely available.
+
+**The corridor has two walls, and this is the framework's most compressible image.** The programme is not committed to more plurality being better. It is committed to a corridor bounded on both sides:
+
+```
+entropic dissolution      unconstrained plurality; nothing persists
+                          long enough to bear value
+
+     [ the corridor ]     regeneration through turnover; forms persist
+                          while their constituents do not
+
+crystalline death         excisive singleton; perfect order, no
+                          independent source of valuation remains
+```
+
+Both walls are failure modes; neither is a limit to approach. And the structure is not merely rhetorical. Crystalline death is the conserved-but-non-regenerating case, dissolution is the failure of persistence altogether, and vorticality — identity regenerated through turnover (§19) — is the middle term. **The corridor at the value level has the same three-way shape as the persistence taxonomy at the substrate level.** Whether that correspondence is structural or coincidental is open and checkable; if structural, it would supply the interior optimum from the substrate rather than by stipulation.
+
+### 29. Terminal solitude
+
+A definition, and a good one:
+
+$$\forall q \not\sim p,\ \mathrm{Real}^{\mathrm{Robust}}_h(\{p,q\}) = \varnothing \quad\text{and}\quad \mathrm{Recover}_h(\cdot) = \varnothing$$
+
+The move that earns its keep is $q \not\sim p$: **independently situated** source of valuation, not numerically distinct token. This correctly classifies a billion identical copies as solitary — which naive diversity metrics get wrong.
+
+**Relation to Bostrom's singleton.** Bostrom (2006) defines a singleton as a world order with a single decision-making agency at the highest level, able to prevent internal and external threats to its supremacy and exert effective control over its domain; many singletons can coexist if dispersed beyond causal contact. Two comparisons:
+
+- **Convergence, not novelty:** the causal-contact clause matches the framework's relativisation to a causal patch $h$.
+- **Genuine divergence:** Bostrom's singleton *need not micromanage* and can permit diverse internal organisation within limits. So a Bostrom singleton is compatible with internal value plurality. Terminal solitude is not a governance concept — it is about independent sources of valuation, and permits a singleton hosting genuinely independent valuers to be non-solitary. That line is the framework's contribution, together with the non-recoverability clause (Bostrom's "permanence" is informal; here it has foreclosure machinery behind it).
+
+Terminal solitude approximates Bostrom's "shrieking" from the 2002 existential-risk taxonomy, but shriek was never given a compossibility structure. The adjacent contemporary literature is value lock-in — Ord's treatment of unrecoverable trajectories and MacAskill's of persistent value states — which shares the irreversibility concern while leaving the plurality criterion informal.
+
+**The strongest objection, which the framework must answer.** Bostrom's *The Future of Human Evolution* (2004) argues the opposite direction: **without** a singleton, evolutionary competition erodes value ("Disneyland with no children"), and a singleton may be *necessary* to prevent value collapse. If both are true, there is an interior optimum and "terminal solitude bad" is only half a theory. This is testable in the framework's own idiom — a fiber census over competitive versus coordinated policy classes.
+
+**What is not proved.** That unchecked orthogonality *drives toward* terminal solitude. This requires that independent valuers are always net-negative to a sufficiently powerful optimiser — that value is rivalrous under power. Instrumental convergence yields resource acquisition and goal integrity; it does not obviously yield valuer elimination. The premise is currently silent and load-bearing.
+
+**A correction worth recording.** Terminal solitude is *not* the unique fixed point of control in general. It is the endpoint of one specific strategy: obtaining unilateral uniform control by deleting or capturing every independent source of context variation. Stable cooperation, separation, randomised equilibrium, mutual modelling, and constitutional constraint are other possible fixed points. Reflective-oracle work shows reflexive multi-agent model classes can be made coherent; self-reference alone does not force solitude.
+
+---
+
+## Part VII — The Normative Layer: Gradient Ethics in Full
+
+This part is expanded relative to the rest of the document because it is where the framework's motivating claim lives, and because it has a distinct source: the constraint-based framework set out in *Value Preservation Under Uncertainty* (Poole, January 2026). That paper is the informal statement; the Omega v2 machinery is the attempt to formalise it. Understanding the relationship between the two is essential to reading either correctly.
+
+**A note on epistemic status.** The source paper describes itself as employing *semi-formal definitions to specify structural constraints and invariants, not to provide computable metrics or decision procedures*, and states that full formalisation is neither claimed nor possible in general, due to irreducible uncertainty, computational limits, and sensitivity to initial conditions. Nothing in this part is machine-verified. Where the repository has formalised a corresponding notion, the mapping is given explicitly in §38 below.
+
+---
+
+### 30. The starting diagnosis: why optimisation is the wrong frame
+
+Gradient Ethics begins from a claim about a failure *pattern* rather than about values.
+
+**The pattern.** Systems optimised for a narrow objective perform well in familiar regimes and pathologically under novel conditions, distributional shift, or unmodelled side effects. Optimisation pressure then drives behaviour toward extreme solutions that satisfy the objective while violating implicit constraints on safety, coordination, or reversibility. This is the Goodhart family of failures; Manheim and Garrabrant's taxonomy separates the mechanisms — regressional, extremal, causal and adversarial — and the framework's concern is principally with the extremal and causal variants.
+
+Two environmental features convert this from a nuisance into a catastrophe mechanism:
+
+1. **Irreversibility.** Some actions permanently remove futures. Once eliminated, no subsequent intervention restores them.
+2. **Uncertainty.** Agents must act without knowing the long-term effects of their actions, especially when those actions reshape the environment itself.
+
+Together these make global optimisation hazardous in a specific technical sense: **errors cannot be averaged away, and trial-and-error learning becomes unsafe when mistakes permanently foreclose options.** Alignment failures on this reading are not anomalies but the predictable result of applying optimisation strategies beyond their domain of validity.
+
+**Why utility and preference approaches fail structurally, not incidentally.** Four distinct objections, of increasing severity:
+
+- Preferences are incomplete, unstable, and inconsistent across contexts.
+- Utility functions require total orderings over outcomes that are difficult or impossible to specify in advance, particularly when outcomes differ across scales, time horizons, and *types* of agency.
+- Even a well-specified utility function is typically not computable in realistic environments, and misspecification is *amplified* by optimisation pressure.
+- Most fundamentally: **utility-based approaches cannot represent irreversible loss.** When outcomes are averaged or aggregated, permanently destroyed futures are treated as compensable by gains elsewhere. This assumption fails in exactly the domains where certain losses dominate long-horizon risk.
+
+The fourth objection is the load-bearing one and it motivates everything downstream. If your representation makes annihilation exchangeable for improvement, no amount of refining the objective will fix it. The representation itself has to change.
+
+---
+
+### 31. The minimal physical ontology
+
+The framework proceeds from a small set of assumptions intended to be substrate-neutral, applying to biological, artificial, and collective agents without presupposing human values, psychological properties, or anthropocentric distinctions.
+
+**Gradients and filters.** Physical systems evolve under gradients — asymmetric conditions biasing dynamics in particular directions, the thermodynamic gradient being the most fundamental observed. But gradients alone do not generate structure. Persistent structure requires a **filter**: a mechanism by which some configurations resist dissolution along the gradient while others do not. Biological selection is the familiar case; the concept is more general. Any configuration maintaining its structure longer than nearby alternatives has, in effect, passed a filter.
+
+**Persistence is relational, not intrinsic** — defined relative to environmental dynamics and competing configurations. This is the same anti-substantialist move the Alpha layer makes with vorticality (§19).
+
+**Coherence and boundaries.** Persistence requires maintaining internal correlations that distinguish a system from its environment, which requires boundaries regulating interaction — preventing immediate equilibration while allowing controlled exchange. Boundaries need not be sharp or permanent; they may be probabilistic, dynamic, or partially permeable. What matters is that they support a distinction sufficient to sustain coherent dynamics over time.
+
+**Negentropy as universal constraint.** The term descends from Schrödinger's "negative entropy" and Brillouin's later formalisation; the surrounding picture of order maintained far from equilibrium is Prigogine's dissipative structures. Maintaining coherence against dissipation requires ordered energy or information imported from the environment. Negentropy limits the coherence, empowerment, and longevity any system can achieve.
+
+Critically: **negentropy is not itself value.** Crystals are highly ordered and lack agency. Negentropy defines the *feasible region* within which agentic systems can exist, and supplies a common physical currency enabling comparison across systems without specifying what outcomes are desirable. This is the same crystal control that recurs throughout the Alpha layer — order without regeneration is not the thing being tracked.
+
+**Persistence to proto-agency.** Persistence alone is not agency; many structures persist by passive resistance. But persistence is prerequisite. The transition from passive persistence to environmentally responsive behaviour marks the lowest threshold of agency in the framework.
+
+---
+
+### 32. Valuers, agency, and the two phase transitions
+
+**Valuer system** — a coherent, bounded physical system that persists over time and whose interactions with the environment contribute to maintaining that persistence.
+
+Deliberately minimal: no preferences, goals, or internal representations required. What matters is that continued existence is **non-accidental** — structure and interactions systematically resist dissolution. Valuers are identified functionally, not psychologically. A rock persists but passively, affording limited causal influence; other systems actively shape interactions to maintain coherence.
+
+**Minimal agency** — the capacity to interact with the environment in ways not fully determined by immediate equilibration. A minimally agentic system maintains an internal/external distinction, responds differentially to environmental conditions, and alters behaviour in ways affecting its own persistence. No deliberation, intention, or consciousness required. **Agency is continuous rather than binary**, graded by efficiency in converting available negentropy into persistence-enhancing interaction.
+
+**First phase transition — active inference.** A qualitative change when a system begins to systematically model and anticipate its environment to guide interaction: maintaining internal states tracking environmental regularities, using them to predict action consequences, and adjusting behaviour to reduce expected threats to coherence. The system stops merely reacting and begins pre-empting. Notably, **this does not require optimality or accurate global models** — crude or biased models suffice if they improve persistence relative to passive alternatives.
+
+**Empowerment.** Agency admits degrees, characterised as the capacity to influence one's own future states through available actions. Depends on the range of available actions, the reliability with which actions produce intended effects, and the ability to model and select among alternatives.
+
+**A distinction crucial for alignment: intelligence and empowerment may increase independently, and high intelligence does not guarantee alignment with the constraints required for long-horizon stability.** This is the orthogonality thesis stated in the framework's own terms, and the framework accepts it rather than denying it.
+
+**Fractal and nested agency.** Cells constitute organisms, organisms constitute societies, societies constitute civilizations. At each scale, agency depends on coherence and coordination of components. Higher-level agency emerges when lower-level agents interact in sufficiently integrated ways to support collective persistence. **Agency and value are therefore not localised at a single level of description**: actions affecting lower-level agents propagate upward; failures at higher levels destabilise the agents they encompass.
+
+**Second phase transition — branch-point capacity** (developed further in §37).
+
+---
+
+### 33. Boundaries: functional, observer-relative, non-arbitrary
+
+The framework needs boundaries but refuses to make them ontological.
+
+**Functional definition.** A boundary exists where interactions across it are structured such that internal states retain predictive and causal coherence despite environmental noise. Systems lacking such boundaries equilibrate rapidly and cannot sustain agency. What matters is not material composition but the role in regulating information and energy exchange.
+
+**Markov blankets** as descriptive abstraction — the construct originates with Pearl in Bayesian networks and was later recruited by Friston for the free energy principle: internal states conditionally independent of external states given the blanket; sensory states transmit information inward; active states transmit influence outward. Blankets need not be explicitly represented or implemented by the system — they are a tool for identifying where coherent dynamics are maintained.
+
+**The key epistemic position.** Boundary definitions are unavoidably observer-relative, but *this does not imply arbitrariness*. Valid boundary choices must track real regularities in causal structure and information flow. A proposed boundary failing to preserve conditional independence does not support reliable prediction or control, and therefore does not correspond to a meaningful agentic system. **Pluralism in system definition without collapse into relativism.**
+
+**Redrawability.** When multiple agents coordinate in a sufficiently integrated and persistent manner, it becomes appropriate to treat the ensemble as a higher-order agent with its own reachability set and vulnerabilities. This underlies collectives, institutions, civilizations — and it means harm to components propagates upward while failures at the collective level cascade downward.
+
+**Implication for value attribution.** Because value is defined in terms of future reachability, and reachability depends on system definition, **value attribution is necessarily relative to a chosen boundary**. Constrained by physical and causal structure, but relative. This explains how value can be attributed at multiple scales without positing a single privileged level of moral concern.
+
+---
+
+### 33a. An external convergence: boundaries may be *provably* unevidenceable
+
+A result from a different literature bears directly on the above, and is worth recording because it converts a methodological choice into a necessity.
+
+Fields & Glazebrook (2023), working in quantum information theory, prove:
+
+> **Corollary 3.1.** No finite system $A$ can measure the entanglement entropy $S(|AB\rangle)$ across the boundary $\mathcal{B}$ that separates it from its environment $B$.
+
+The intuition: $\mathcal{B}$ is the medium through which all of $A$'s evidence flows. To gather evidence that the boundary enforces separability, $A$ would need to inspect the $A$–$B$ relationship from a vantage that is neither $A$'s nor $B$'s. The measurement operators available to $A$ act exclusively on the boundary qubits and have no access to the bulk state. $A$ can read the messages arriving on the boundary; it cannot examine the boundary itself.
+
+The companion result generalises: **Corollary 3.2** establishes that no finite system can determine that any decomposition of its environment isolates *all* causal consequences of its actions in a single component. In plain terms, an agent can never verify that the part of the world it is attending to is genuinely independent of everything else.
+
+The underlying reason is that the total Hamiltonian does not specify where to draw the line: it is equally consistent with any factorisation of the Hilbert space (Zanardi, 2002). Nothing about the physics privileges one decomposition over another. Boundaries earn their keep by being *predictively useful*, not by being true.
+
+**Three consequences for this framework, stated carefully.**
+
+1. **The "candidate assignment" declaration in the ledger is not a temporary gap.** It is listed as a supplied premise (§43). If boundary separability is unevidenceable in principle for any finite observer, then no amount of further theory closes it. This is good for the framework's honesty and bad for anyone hoping to *derive* standing from structure.
+
+2. **It independently vindicates the observer-relative-but-non-arbitrary position.** The framework arrived at "boundaries are pragmatic designations constrained by causal structure" from modelling considerations; this result arrives at the same place from physics. Convergence from an unrelated direction is meaningful evidence that the position is forced rather than chosen.
+
+3. **It sharpens the retained negative result that "process boundaries can remain set-valued."** That was an empirical finding on finite fixtures. The quantum result suggests it may be a structural feature rather than a limitation of the fixtures.
+
+**Caveats, which matter.** The mathematical core is a published result in a mainstream physics journal. The broader paper it appears in (Sandved-Smith et al., 2026) uses it to develop a formal model of Buddhist awakening — treating the belief in self/environment separation as a structural prior over quantum reference frame deployments, pruned by Bayesian model reduction. That interpretive superstructure is considerably more speculative than the corollary, and importing the corollary does **not** commit this framework to the contemplative reading, to the quantum free energy principle, or to any claim about consciousness. The framework should cite Corollary 3.1/3.2 and stop there.
+
+One further caution: the quantum result concerns *evidence available to a finite observer about its own separability*. This framework's boundary declarations are made by an external modeller about a system under study. Those are related but not identical epistemic situations, and the transfer should be argued rather than assumed.
+
+---
+
+### 34. Value as future reachability under constraint
+
+The central construct. Let $S$ be a bounded physical system capable of interaction and persistence under a thermodynamic gradient. Let $F(S)$ be the set of physically reachable future states of $S$, given:
+
+- the causal structure of the environment,
+- available negentropy,
+- the system's internal coherence and empowerment,
+- irreducible epistemic uncertainty.
+
+Let $P(f \mid S)$ be the probability that $f \in F(S)$ is realised, conditioned on these constraints.
+
+> **Value is the preservation and expansion of the probability-weighted measure over $F(S)$ across time, subject to the continued coherence and persistence of $S$.**
+
+Informally: a system realises value insofar as it maintains or increases the space of futures it can still reach, weighted by likelihood, without collapsing its own capacity to remain a coherent agent.
+
+**No assumption is made that $F(S)$ admits a closed-form representation, a computable measure, or a total ordering.**
+
+**Lineage.** Two established literatures define almost exactly this object. Aubin's **viability theory** studies the *viability kernel* — the set of states from which some evolution respecting the constraints exists — and is the closest formal analogue to Alpha's continuation structure. And the economics of **quasi-option value** (Arrow & Fisher 1974; Henry 1974) establishes that under irreversibility and uncertainty, preserving future options carries value beyond expected returns, which is the framework's central asymmetry derived independently and decades earlier in a different setting. Neither is cited in the programme's own documents; both should be.
+
+**Five properties, each doing specific work:**
+
+| Property | Content | Why it matters |
+|---|---|---|
+| **Non-scalar** | Reachability induces only a partial ordering | Blocks the aggregation move that makes annihilation compensable |
+| **Future-directed** | Present states matter only as they condition accessible futures | Rules out static conceptions of value |
+| **Conditioned on coherence** | Futures where the system loses coherence contribute negligibly | Prevents "value" accruing to dissolved systems |
+| **Sensitive to irreversibility** | Permanent removal of regions of $F(S)$ cannot be offset by reversible gains | The core asymmetry |
+| **Agent-relative but comparable** | Relative to a valuer, constrained by shared physical limits | Enables non-arbitrary cross-system comparison without a common utility |
+
+**Diversity as structural, not aesthetic.** Homogeneous futures — many near-identical states — are fragile with respect to *correlated failure*. Heterogeneous futures provide redundancy, error correction, and resilience. So effective future reachability increases with the diversity of accessible trajectories. This is a claim about robustness in complex systems, and it is the load-bearing premise of the anti-singleton argument in §36.
+
+**The substrate reading, and why "valuer" is deliberately generic. [Defined; the associated claim is Conjectured.]** A clarification that governs how the whole construction should be read.
+
+Value here is not a quantity to be climbed but a **space to be kept open**. What Omega preserves is the substrate admitting value-bearing continuation — the range of forms of valuation that can coexist, *and the capacity for further forms to arise* — rather than any measure defined over outcomes. The second clause is not decorative: extent alone fails to distinguish an open structure from a large closed one, and the measure that carries this (§28) is accordingly a measure of openness rather than of size. The complement is not low value but **anti-value**: destruction of the substrate itself.
+
+This is why the definition of *valuer* is so permissive. Genericity is not looseness. Narrowing the class of things that count as valuers is itself an instance of the anti-value move, because it forecloses forms of value before they can enter the structure. The framework therefore admits maximally at the candidate stage and grades afterwards on endogenous consequence (§20).
+
+Two consequences worth stating explicitly.
+
+First, "maximisation" in this framework means **expanding what can be admitted**, not optimising toward a target. There is no argmax, and the refusal of a utility function is deeper than the representational objection of §30: the thing preserved is not the kind of object a utility function ranges over.
+
+Second — and this must be marked — **the claim that a larger admissible substrate is better is exactly the lushness bet, and it is not proved.** The accounting in §28 states plainly that the theory has not established that more reachable futures are always better. The substrate reading is therefore a *declared commitment* that gives the framework its coherence, not a result that follows from it. Several of the falsifiers in §48 are indexed to it.
+
+**Representational isomorphism.** The formulation is not unique. Option value, viability space, control capacity, and influence over future states are largely isomorphic with respect to the constraints they induce. They may disagree on fine-grained orderings but converge on the same structural implications: aversion to irreversible loss, preference for robustness under uncertainty, instrumental importance of cooperation. The framework treats this invariance as a strength — it does not depend on a privileged formalisation.
+
+**Explicit non-definitions.** Value here is *not*: pleasure or suffering; preference satisfaction; utility functions; order or negentropy alone; survival absent empowerment. Each captures a subset of the phenomena but fails under scale, uncertainty, or long horizons.
+
+**Non-computability, stated as a feature.** Neither $F(S)$ nor its probability-weighted measure is computable in general, due to chaos, self-reference, and computational irreducibility. The framework's position: *ethical constraints emerge precisely because optimisation is unsafe and complete evaluation is impossible.* The role of value is **to delimit what must not be destroyed, not to specify what must be maximised.**
+
+---
+
+### 35. The irreversibility asymmetry and conditional normativity
+
+**Reversible versus irreversible loss.** Some losses temporarily close regions of $F(S)$ and can be restored through work or favourable dynamics. Others permanently remove regions — extinction events, destruction of unique informational structures, collapse of higher-order agentic organisations.
+
+These differ **in kind, not degree**. Because eliminated futures cannot be accessed or compensated, their loss breaks any additive or averaging approach to value. Actions risking irreversible loss therefore impose an *asymmetric* cost: even small probabilities dominate expected consequences over long horizons.
+
+**Irreducible uncertainty.** Four sources no physically realisable agent can eliminate, regardless of intelligence or compute:
+
+- sensitivity to initial conditions in nonlinear systems
+- limits on self-modelling and self-prediction
+- computational irreducibility of long-horizon dynamics
+- partial observability of environments and other agents
+
+**The asymmetry principle:**
+
+> Under uncertainty, actions that risk irreversible reduction of future reachability are structurally disfavoured, regardless of potential reversible benefits.
+
+This does not rely on moral axioms. It follows from the interaction of physical irreversibility with epistemic limits.
+
+**Conditional normativity — the framework's handling of Hume.** This is the crux, and the framework is explicit:
+
+> If a system is to persist as a coherent agent capable of future action under uncertainty, then it must constrain its behaviour to avoid irreversible loss of future reachability.
+
+A **hypothetical imperative, not a categorical one**. The framework does not claim any system *ought* to value persistence, agency, or future reachability in an absolute sense. It claims that systems which *do* persist as agents are constrained to behave as if these properties matter, and that systems violating these constraints tend to eliminate the conditions of their own continued agency.
+
+The pragmatic argument for sufficiency: *alignment concerns systems explicitly designed to persist and act over long horizons.* For such systems the constraints apply whether or not they are represented or endorsed.
+
+**From optimisation to constraint satisfaction.** Rather than selecting the best outcome, agents limit the admissible action set to those compatible with continued agency. **Ethical norms function as constraints: they specify not what must be achieved, but what must not be destroyed.**
+
+---
+
+### 36. Interagent structure, emergent norms, and the anti-singleton argument
+
+**Constructive and destructive interference.** Coordination can expand the joint reachable set beyond what agents access individually — through division of labour, information sharing, mutual predictability, alignment of action. Conflict reduces mutual reachability directly, by increasing environmental noise, or by introducing uncertainty that undermines coordination.
+
+These are asymmetric: constructive interference can produce *superlinear* increases in joint reachability when coordination costs are low; destructive interference imposes losses that propagate across agents and scales.
+
+**The agentic field** — a structured landscape of probabilistic causal influence over future states, where each agent's actions locally deform the reachability of futures for others. Explicitly a descriptive construct, not a physical field, and deliberately avoids reifying intentions or preferences.
+
+**Coordination costs / negentropic friction.** Cooperation is not free: communication, trust, model alignment, and maintenance of shared expectations consume resources. Costs rise with number of agents, heterogeneity of internal models, communication constraints, and environmental noise. Constructive interference occurs only when expansion of joint reachability outweighs these costs — which places **natural limits on the scale and intensity of viable cooperation** without denying its importance.
+
+**Constrained conflict.** Competition is not categorically prohibited but is subject to structural constraints. Conflict is justified only when cooperation is infeasible due to prohibitive coordination costs, the expected loss from inaction includes irreversible collapse of reachability, *and* the destructive effects are plausibly bounded. Even then, conflict tends to reduce total reachability, and is generally value-negative among agents of comparable scale and empowerment.
+
+#### Norms as robustness heuristics
+
+The framework derives four familiar normative patterns as instrumentally necessary rather than morally primitive. The move has strong empirical precedent: Ostrom's work on common-pool resources documents durable governance arrangements arising as local solutions to precisely this problem, and her design principles are an existence proof that such norms are discoverable rather than imposed. Axelrod on reciprocity and Skyrms on the evolution of social contracts supply the game-theoretic side.
+
+**Rights** — heuristics restricting classes of actions carrying disproportionate irreversible risk, particularly actions that destroy or permanently disable other agents. Formally: constraints prohibiting or strongly penalising interference with the core capacities allowing agents to remain coherent, empowered, and persistent. **Strongest under high uncertainty**, where expected cost of irreversible harm dominates plausible short-term gains. Defeasible under low uncertainty and imminent catastrophic risk, but with a necessarily high burden of justification.
+
+**Justice** — system-level governance of interference, *not* moral desert or retribution. Functions to constrain unilateral actions imposing irreversible loss, reduce asymmetries destabilising cooperation, and maintain predictable interaction patterns under uncertainty.
+
+**Trust / cooperative alignment** — commitment to predictable cooperative behaviour that lowers uncertainty in the agentic field. When reciprocated, enables superlinear gains by expanding the space of viable coordinated actions. The framework notes this mode is sometimes informally called "love" and treats it explicitly as a *policy* rather than an emotion or virtue.
+
+**Honest signalling** — deception corrupts agents' models of one another, raising uncertainty and coordination costs. Locally advantageous, globally reachability-reducing through destabilised trust, defensive postures, and amplified noise. In iterated interactions these effects accumulate toward lower-cooperation equilibria. **Near-universally value-negative over long horizons**, with conditional cooperation tempered by forgiveness dominating under finite noise.
+
+The unifying claim: these are **guardrails preventing catastrophic contraction of the agentic field**, not objectives to be maximised. Their normative force is conditional — applying to systems that persist as agents in uncertain environments — but *within that domain they are not optional*.
+
+#### The singleton argument, version 0 (January 2026)
+
+This is the framework's motivating claim, and it has changed materially since first stated. The original form is given here as written, followed by the five revisions it has since undergone. The historical version is retained because it is what circulates, and because the revisions are only legible against it.
+
+Under extreme capability asymmetry, reciprocity-based mechanisms break down: less-empowered agents cannot retaliate, enforce norms, or impose costs. Cooperative equilibria sustained by mutual vulnerability no longer apply. The question is therefore whether a sufficiently dominant agent can coherently disregard the reachability of others while remaining stable.
+
+The original answer was that unilateral optimisation fails for three structural reasons:
+
+1. **Irreversible removal of reachability sets.** Destroying agents permanently removes their future reachability along with all higher-order futures in which they participate. These losses propagate across scales, eliminating entire regions of the agentic field.
+
+2. **Uncertainty is not eliminable by intelligence.** Even highly capable agents face irreducible uncertainty from computational limits, chaotic dynamics, and incomplete self-modelling. Under such uncertainty, irreversible actions that concentrate risk become dominant failure modes.
+
+3. **Collapse of diversity.** Eliminating semi-independent agents removes redundancy, error correction, and alternative models of the environment, increasing fragility against unanticipated perturbation and internal failure.
+
+Therefore **distributed agency is a robustness requirement, not a moral preference** — supplying epistemic redundancy through independent modelling, error correction via disagreement and critique, resilience against localised failure, and diversification of strategies. For a dominant agent, maintaining other agents was held to be *instrumentally necessary* to its own long-term viability.
+
+**The fragility of singleton futures.** A world governed by a single dominant agent lacks external corrigibility. Failures in modelling, goal specification, or self-modification cannot be checked by independent systems, so small internal errors propagate unchecked. Plural systems distribute risk and provide multiple recovery pathways; even locally competing agents preserve optionality at the system level.
+
+> In environments characterised by uncertainty and long horizons, preserving distributed agency is a necessary condition for maintaining future reachability, even for highly empowered agents.
+
+The original paper claimed this **closes a central failure mode of alignment** — the possibility that a dominant agent rationally converges on unilateral control as a means of value preservation — on the grounds that such convergence is structurally unstable.
+
+That claim is now regarded as too strong. What follows is why.
+
+---
+
+#### Revision 1: policy diversity is not valuer plurality
+
+The sharpest problem, and it was not visible without the formal machinery.
+
+Version 0 speaks of preserving "multiple semi-independent centers of agency" without specifying what independence consists in. The subsequent work forced a ladder:
+
+```
+multiple policy descriptions
+→ behaviorally distinct policies
+→ functionally complementary policies      ← verified work reaches here
+→ concurrently instantiated processes
+→ independently situated valuers           ← v0 implicitly assumed this
+```
+
+The gap is three rungs, and it is not cosmetic. Argument 3 establishes that a system benefits from **redundancy, error correction, and alternative models**. Nothing in that argument requires those to be carried by *independent valuers*. A dominant agent can instantiate an internal ensemble — diverse models, adversarial critics, mixtures of experts, deliberately decorrelated subsystems — and capture the entire epistemic benefit while preserving no independent source of valuation whatsoever.
+
+**Version 0's argument 3, as stated, is satisfiable by internal diversity.** It therefore does not establish what it was recruited to establish. The redundancy premise supports *architectural pluralism inside a singleton* just as well as it supports a plurality of valuers, and the second does not follow from the first.
+
+This is the central structural correction, and it does not have a repair in hand.
+
+#### Revision 2: the independence criterion
+
+Terminal solitude supplied what version 0 lacked: a criterion for what makes centres of agency genuinely distinct.
+
+$$\forall q \not\sim p,\ \mathrm{Real}^{\mathrm{Robust}}_h(\{p,q\}) = \varnothing \quad\text{and}\quad \mathrm{Recover}_h(\cdot) = \varnothing$$
+
+The operative clause is $q \not\sim p$: **independently situated** source of valuation, not numerically distinct token. A billion identical copies are solitary. Version 0's "multiple centers of agency" language does not distinguish these cases and would count the copies as distributed.
+
+This is a genuine advance and it partly addresses Revision 1 by naming what internal ensembles lack. It does not close the gap, because nothing yet shows that independently situated valuers deliver redundancy benefits an internal ensemble cannot.
+
+#### Revision 3: attenuation — the strategy version 0 did not consider
+
+Ashby's law of requisite variety has **two** solutions: amplify regulator variety, or attenuate disturbance variety. Version 0 argues entirely within the first. A dominant agent has access to the second.
+
+The framework's own machinery makes this concrete and uncomfortable. **Environment antitonicity** says that widening the declared variation class $\mathcal{E}$ can only shrink robust fibers — so *shrinking* $\mathcal{E}$ grows them. And May compatibility has no environment argument at all; it is $\mathcal{E}$-insensitive by construction.
+
+**Consequently, in the current formalism, attenuation is free.** Flattening the environment strictly increases what can be secured and costs nothing anywhere in the structure. A worked fixture demonstrates it: under scope $\{north, south\}$ a family requires two policies; under scope $\{north\}$ one policy suffices, same candidates, all structural laws still passing.
+
+The singleton therefore has a reply version 0 does not answer: *it does not need redundancy against variety it has eliminated.* Argument 3 assumes environmental variety is exogenous and fixed. If the dominant agent is powerful enough to reshape the environment — which is the premise of the scenario — that assumption fails.
+
+**The theory already forbids this; the formalism does not yet see it.** On the substrate reading (§34), collapsing the environment *is* an anti-value move — it destroys the space rather than navigating it. But that verdict lives in the value definition, not in the machinery, and the machinery is what checks.
+
+The principle also needs a distinction it does not currently carry. Attenuation is anti-value when the eliminated variety was **carried by valuers** — reactive variety, generated by independently situated processes. It is not anti-value when the variety is **exogenous** — noise with no valuer behind it. A thermostat, an irrigation channel, a levee on an uninhabited river all attenuate variation and destroy no substrate. Without this split the principle over-forbids and is easy to dismiss.
+
+With it, the repair is nearly free, because the framework can already test the distinction: **exogenous variety is the variety admitting an exactly lumpable aggregation** (§17). Variety that can be coarse-grained away without loss of the control target was never carrying a valuer. Variety that re-differentiates along whatever axis the abstraction ignores is reactive, and eliminating it means eliminating what generates it.
+
+**Two candidate repairs, neither yet implemented:**
+
+- **Endogenise $\mathcal{E}$.** Other valuers *are* the environment; their independent action generates the variety. If they are coupled into $\mathcal{E}$ rather than supplied separately, attenuating $\mathcal{E}$ means eliminating valuers, which shrinks $\mathrm{Real}$ directly, and attenuation acquires a cost the structure can see.
+- **Variety regeneration under control.** If control *generates* new variety rather than merely failing to reduce it, attenuation is self-defeating. The formal cousin is Bode's sensitivity integral — for a stable loop, $\int_0^\infty \log|S(j\omega)|\,d\omega = 0$, so suppression in one band reappears in another. Biological version: Red Queen. Measurement version: Goodhart. Information-theoretic version: Martins–Dahleh, where the Bode integral equals a difference in entropy rates.
+
+The second repair has partial empirical support in the repository — a balanced substrate yielding a closed loop with generated directional structure — but that finding is flagged unresolved pending an injective controller-memory test (§22). **If the generated asymmetry turns out to be an artifact of non-invertible record writing, the repair fails and the attenuation objection stands.**
+
+#### Revision 4: uniqueness retracted
+
+An intermediate strengthening held that terminal solitude is the *unique* fixed point of control in a world containing controllers — on the reasoning that reflexive modelling regresses (Conant–Ashby: a good regulator must model the system; the system contains a modeller of you), so reaching $\kappa = 1$ requires eliminating or capturing every independent controller, and both land in $\neg(q \not\sim p)$.
+
+**That claim is withdrawn.** It is the terminus of *one specific strategy* — obtaining unilateral uniform control by deleting or capturing every independent source of context variation. Other fixed points exist: stable cooperation, separation, randomised equilibrium, mutual modelling, and constitutional constraint. Leike, Taylor & Fallenstein (2016) show that reflexive multi-agent model classes can be made coherent under particular randomised constructions, so **self-reference alone does not force solitude.**
+
+What survives is narrower and still useful: *if* an agent pursues unilateral uniform control, terminal solitude is where that strategy terminates, and it terminates there completely, since any surviving independent controller restarts the regress.
+
+#### Revision 5: the strength of the claim
+
+Assessing the three original arguments individually:
+
+| Argument | Status |
+|---|---|
+| 1. Irreversible removal of reachability | **Circular for the relevant case.** It says destroying agents reduces the *dominant agent's own* reachability — which binds only an agent that values reachability. A genuinely orthogonal optimiser values its persistence and optionality instrumentally and will trade robustness for expected achievement of its actual objective. This is precisely where Enoch's shmagency objection applies: the agent accepts the description and declines the constraint. |
+| 2. Irreducible uncertainty | **Survives.** Well-supported, correctly identifies limits intelligence cannot transcend, and does not depend on the agent's values. |
+| 3. Diversity collapse | **Survives with two qualifications.** Instrumentally valuable for *any* goal, which is its strength. But see Revision 1 (satisfiable by internal ensembles) and the threshold problem: redundancy buys insurance against model error, and that insurance declines in value as models improve. The framework needs computational irreducibility to guarantee the threshold is never reached — plausible, currently asserted rather than shown. |
+
+So the honest current claim is **not** that unilateral convergence is structurally unstable. It is that unilateral convergence is *structurally costly in ways an agent which values its own long-run optionality should weigh* — a much narrower statement that does not bind an orthogonal optimiser.
+
+#### What replaced it: the atlas result
+
+The compensating development is that a *different and stronger* argument became available, and this one is machine-verified rather than argued.
+
+Version 0's case is **fragility**: a singleton is more likely to fail. The atlas result is **impossibility**: for certain families, no single policy suffices at all.
+
+Established against a completely enumerated controller class under a shared observation stream:
+
+$$\forall e,\ S_F(e) \neq \varnothing \qquad \text{but} \qquad \bigcap_e S_F(e) = \varnothing$$
+
+Every context admits a securing policy; no single policy secures across all contexts. The covering number $\kappa_F(\mathcal{E}) > 1$ then measures how much diversity a family *requires*.
+
+This is a categorically different kind of claim. It does not say the singleton is risky; it says that for these families the singleton is **structurally incapable**, and it says so on fixtures rather than by argument. It also does not depend on the agent's values, which is exactly the vulnerability of argument 1.
+
+Its limitation is Revision 1 again: $\kappa > 1$ establishes *functional policy diversity relative to a declared context class, policy class, observation interface, horizon, and candidate family.* It does not establish that the required policies must be carried by independent valuers. The atlas result is three rungs down the ladder from where the normative argument needs it.
+
+#### Where the argument now stands
+
+Version 0 claimed to close the failure mode. The current position is more modest and better supported:
+
+- **Established, machine-checked:** some families admit no global securing policy. Pairwise certification is blind to joint indefensibility. A singleton is structurally incapable with respect to those families.
+- **Argued, not established:** that uncertainty and diversity considerations make unilateral control unwise for a dominant agent.
+- **Retracted:** that unilateral convergence is structurally unstable; that terminal solitude is the unique fixed point of control.
+- **Open and unrepaired:** that redundancy benefits require independent *valuers* rather than internal ensembles; that attenuation of environmental variety is costly rather than free; and whether the diversity threshold is ever reached.
+- **Open but tractable:** defensive-licence calibration — the principles are established and the licensing calculus is implemented (§40); what remains is a causal attribution rule for foreclosure onset and a contraction-rate threshold for imminence.
+
+**And the unaddressed counter-thesis.** Bostrom's *The Future of Human Evolution* (2004) argues the opposite direction: without a singleton, evolutionary competition erodes value, producing a "Disneyland with no children" where consciousness and leisure are competed away as costly overhead. If both arguments hold, **both tails collapse**, and the framework needs an interior optimum it does not supply. Version 0 does not engage this at all. It is testable in the repository's idiom — a fiber census over competitive versus coordinated policy classes — and is the single most important open question in the normative layer.
+
+**The direction of travel is worth naming.** Across these revisions the singleton argument became *weaker as a normative claim* and *stronger as a formal one*. It lost the assertion that a rational dominant agent will not converge on unilateral control, and gained a verified structural result that certain compatibility families cannot be secured by any single policy. That is the correct trade for a research programme, but it should not be reported as if version 0 survived intact.
+
+---
+
+### 37. Branch points and recursive amplification
+
+The second phase transition of agency, and the reason norms strengthen non-uniformly.
+
+**Branch points** occur when an action collapses multiple possible futures into a single trajectory, foreclosing alternatives that cannot later be recovered. Examples: creation or destruction of foundational technologies; irreversible environmental or civilizational collapse; establishment of self-reinforcing institutional structures; elimination of entire classes of agents. Defined *structurally, not morally* — the significance is asymmetric impact on reachability, where small actions produce disproportionate irreversible consequences.
+
+**The second transition** occurs when an agent acquires the capacity to reliably create or influence branch points. In this regime, actions do not merely affect the agent's own futures or local interactions but **modify the generative processes that determine future agency itself** — including construction of persistent external structures (technological, informational, institutional) that recursively amplify causal influence across time and scale. Substrate-independent; defined entirely by causal leverage, requiring no psychological properties.
+
+**The identification problem, and why it strengthens rather than weakens the constraints.** Branch-point capacity is *not reliably identifiable in advance*. Under uncertainty it is generally impossible to determine which agents or actions will prove decisive; agents appearing locally insignificant may become critical through contextual shift, technological amplification, or interaction effects.
+
+Therefore uncertainty **dramatically increases** the expected cost of interfering with or destroying agents near or above this regime. The risk is not merely loss of that agent's immediate reachability but loss of unknown and potentially vast downstream futures depending on its continued existence or autonomy.
+
+**Consequence for norms.** Rights, non-interference, and due process become increasingly stringent as agency approaches this regime — grounded not in intrinsic moral status but in escalating expected cost of irreversible error under uncertainty. This explains why protections concentrate around agents with high causal leverage (persons, institutions, advanced artificial systems) **without requiring a sharp ontological boundary or moral exceptionalism.**
+
+This is an elegant move: it derives graded moral concern from epistemic structure rather than from a metaphysics of moral patients, and it sidesteps the boundary problem of §33a by making the *inability* to identify branch-point agents into a reason for wider protection rather than a licence for narrower.
+
+---
+
+### 38. Gradient Ethics as implemented licensing discipline
+
+Where the source paper gives constraints in prose, the repository states them as a **licensing discipline** — a procedure applied to a candidate action given an Omega structure:
+
+```
+use sound presentations;
+include affected valuer-relative gradients;
+preserve robust compatible corridors;
+refuse fabricated or stale compensation;
+do not presume irreversible contraction is replaced;
+return obstruction when no joint continuation exists;
+choose only within the surviving action correspondence.
+```
+
+Each clause corresponds to a machinery component:
+
+| Clause | Machinery |
+|---|---|
+| Sound presentations | Presentation contracts, lumpability audits, sufficiency checks (§17) — implemented |
+| Affected gradients included | Soft pan-valuer envelope; candidate assignment (§20) |
+| Robust corridors preserved | $\mathrm{Real}^{\mathrm{Robust}}$ fibers (§23) |
+| Refuse fabricated or stale compensation | Phantom recoverability detection; certificate staleness |
+| Irreversible contraction not presumed replaced | Recovery-aware corridor; non-recoverable loss dominance |
+| Return obstruction | The framework may output *no admissible action* rather than a best option |
+| Choose within surviving correspondence | Action correspondence after filtering |
+
+**The most distinctive feature is the sixth.** A licensing discipline that can return **obstruction** — no joint continuation exists, therefore no licensed action — is doing something a utility function structurally cannot. A maximiser always returns an argmax. This one can return failure, and the framework treats that as correct behaviour rather than a defect.
+
+**Omega narrows the feasible and justifiable action surface; Gradient Ethics supplies the explicitly normative reason to treat that narrowing as action-guiding.** The narrowing is structural and computable; the reason is a signed premise.
+
+---
+
+### 39. The residual premise, stated precisely
+
+Everything above the bridge is descriptive. The framework can determine what each candidate values, which candidates are affected, which continuations are jointly realizable, which losses are recoverable, which conclusions depend on projection, which compensation claims are incomplete, and where genuine obstruction exists.
+
+**None of that entails that an actor ought to respect it.**
+
+The residual commitment, which must be *signed for* rather than presented as a theorem of dynamics:
+
+> Endogenous continuation gradients of affected valuers constitute prima facie reasons for action; and those reasons may not be erased by a merely flattering presentation or projection.
+
+Two clauses, doing different work. The first crosses the is/ought gap and is irreducibly normative. The second is a *procedural* commitment that is much closer to formalisable — it says that a bad presentation cannot launder away a real gradient, and the presentation-soundness machinery exists to check exactly that.
+
+**Philosophical placement.** The position is a form of **constitutivism** — normative constraints derived from what it takes to be an entity of a certain kind. Nearest analogues: Foot's natural goodness (species-relative flourishing); Korsgaard's self-constitution, where the agent's constitutive aim supplies its normative standards; Spinoza's conatus upstream. The descriptive AI-relevant cousin is instrumental convergence, and that comparison is instructive: Omohundro's drives are *derivable*, and nobody concludes that resource acquisition is thereby good. Derivation goes through; normativity does not come with it.
+
+The canonical objection is **Enoch's shmagency**: if constraints follow from constitutive features of agency, an agent may ask why be an agent rather than a shmagent. The framework's reply is better than the standard constitutivist one, because it demands a demonstrable formal property rather than asserting unintelligibility — *which Omega are you in?* May is cheap and everything satisfies it; **Robust** is load-bearing and is a property of the whole decorated structure.
+
+**The honest limit, which the framework states itself.** It can characterise destruction, incompatibility, capture, and terminal solitude. It **cannot make a genuinely orthogonal controller care.** It supplies relational reasons for threatened valuers to resist, not a categorical command binding everything.
+
+Symmetry of *reasons* is real — an optimiser gets genuine reasons from its stakes exactly as a plurality does. Symmetry of *structure* is not. If a plurality prevails, the erstwhile singleton persists as one valuer among many: its goal is foreclosed, its standing is not. If the singleton prevails, no independently situated valuer remains and recovery is empty. Preference-frustration on one side; valuer-destruction on the other. Structural, computable, requiring no normative premise — and entirely unpersuasive to anyone who denies the asymmetry matters.
+
+---
+
+### 40. Defensive licensing: principles established, thresholds open
+
+Terminal solitude supplies content that GE's conflict conditions previously left in prose. The relationship is one of formalisation, not novelty — the underlying move was already made in the January paper and the machinery now gives it a checkable form. What remains open is calibration, and that is ordinary research rather than a structural defect.
+
+#### The move, and its provenance
+
+GE §7.4 licenses conflict only when three conditions hold jointly:
+
+```
+(a) cooperation is infeasible due to prohibitive coordination costs;
+(b) expected loss from inaction includes irreversible collapse of
+    future reachability;
+(c) the destructive effects of conflict are plausibly bounded.
+```
+
+GE §8.1 derives rights by the same manoeuvre in the opposite direction: identify a class of actions carrying disproportionate irreversible risk, and constrain it. Rights and defensive licences are the *same structure* — a permission or prohibition derived from an irreversibility fact rather than from a moral primitive — pointed in opposite directions.
+
+Terminal solitude gives condition (b) a definite referent, and this is the substantive addition:
+
+$$\forall q \not\sim p,\ \mathrm{Real}^{\mathrm{Robust}}_h(\{p,q\}) = \varnothing \quad\text{and}\quad \mathrm{Recover}_h(\cdot) = \varnothing$$
+
+It also gives condition (c) its first precise reading. **A defensive action is bounded iff it does not itself produce solitude with respect to its target** — the contained party must remain in $\mathrm{Real}^{\mathrm{Robust}}$ with some independently situated partner. This is the goal-foreclosure versus capacity-foreclosure distinction: containment that leaves the target able to value, revise, and persist as an independent source is structurally different from containment that ends it, and the difference is computable in the fibers.
+
+#### What is already implemented
+
+**[Proved.]** A licensing calculus already exists in machine-checked form, and it is not a sketch. It supplies: a notion of an action being *enabled*; a notion of an action being *corridor-safe*, meaning its successor state remains inside the preserved region; licences indexed by the route through which they are justified; and licences for whole plans, composing across a first step and its tail.
+
+Three properties are proved. Licences are **monotone in routes** — adding available justifications never removes a licence. Licensed actions **keep their successors in the corridor**. And every licence carries a **concrete justification obligation**: an abstract certificate must reflect an actual fact about the concrete system, with the degenerate case — abstractly true, concretely false — explicitly blocked.
+
+A companion confinement calculus supplies the containment side: a characterisation of policies that robustly keep a system within a declared region, a proof that reachable states under such a policy stay confined, and a fixed-point characterisation of when a stationary guarantee exists at all.
+
+So the framework can already express: *this action is licensed by this justification, its successor remains inside the corridor, and the licence composes along the plan.* What it lacks is a licence that fires on **threat** rather than on corridor safety, and the calibration that would make such a licence safe.
+
+#### Why thresholds are hard here, stated precisely
+
+Three difficulties, each with a known analogue.
+
+**Trigger timing.** Terminal solitude is defined at the limit. By the time $\mathrm{Real}^{\mathrm{Robust}} = \varnothing$ and $\mathrm{Recover} = \varnothing$, defence is pointless. Any usable licence therefore fires on a *precursor*, and GE §10.3's identification problem applies verbatim: branch-point capacity is not reliably identifiable in advance.
+
+**Rights and defence peak together.** GE §8.1 makes rights strongest under high uncertainty, because that is when expected cost of irreversible harm dominates. A precursor-triggered defence licence operates in the same regime. The right against interference and the licence to interfere are therefore both maximal exactly where adjudication is required.
+
+**Discriminator blindness.** The natural trigger signal — contraction in the number of independently situated valuers — cannot distinguish *capture* from *voluntary tight coordination*. This is the autoimmunity failure mode, and it is forced rather than incidental: a defensive coalition that coordinates successfully produces the same signal as the thing it opposes. Real immune systems do not run on activation conditions alone; regulatory suppression exists because activation conditions reliably produce autoimmunity. A defence licence needs a damping term, not only a trigger.
+
+#### Legal doctrine as the calibration source
+
+Uncertainty is not absolute, and law has spent centuries building conditions that bias adjudication toward defence, containment, restraint, or inaction. These are working solutions to the same structural problem and are the natural place to borrow from.
+
+**Causal priority breaks the symmetry.** The strongest single import. The objection that "a licence both parties satisfy licenses nothing" is real — both sides can claim the other threatens irreversible collapse, and Bostrom's counter-thesis means the would-be singleton's version is not even frivolous. Law's answer is the **initial aggressor** and **provocation** doctrines: one who provokes or initiates the conflict cannot invoke self-defence. Both parties may claim threat; **both cannot claim to be the non-initiator.** Causal attribution generates the asymmetry that threat-symmetry destroys, and it requires no normative premise beyond attributing the onset of foreclosure. The framework has causal attribution machinery; this is the highest-value place to point it.
+
+**Imminence, not inevitability.** Criminal self-defence requires the threat be *imminent*. International law distinguishes **anticipatory** self-defence against an imminent attack from **preventive** action against speculative future capability, and treats the latter as unlawful. The Caroline formulation (Webster, 1837) sets the classic bar: necessity "instant, overwhelming, leaving no choice of means, and no moment for deliberation." UN Charter Article 51 conditions the right on an armed attack occurring.
+
+The translation is direct and it solves the trigger-timing problem the right way: **do not license on projected trajectory toward solitude; license on foreclosure already in progress.** Measurable as fiber contraction underway, not fiber contraction forecast. Capability is not intent, and licensing on capability alone licenses everyone against everyone.
+
+**Standards of proof indexed to reversibility.** Law does not operate a single evidentiary bar. It runs a ladder — reasonable suspicion, probable cause, preponderance, clear and convincing, beyond reasonable doubt — and selects among them by the severity and recoverability of erroneous deprivation. *Mathews v. Eldridge* (1976) makes the balancing explicit in three terms: the private interest affected, the risk of erroneous deprivation and the value of additional safeguards, and the cost of additional procedure. *Addington v. Texas* (1979) applies clear-and-convincing to civil commitment precisely because liberty deprivation is severe and partly irreversible.
+
+This is directly computable here. **The evidentiary standard required for a containment action should scale with $\mathrm{Recover}_h$ of the containment itself.** Reversible containment, lower bar. Irreversible containment, highest bar. That is a graded licence rather than a binary one, and the grading parameter is already in the machinery.
+
+**Interim relief as the damping term.** The closest legal analogue to the whole problem is preliminary injunction, whose standard four factors are likelihood of success on the merits, **irreparable harm** absent relief, balance of hardships, and public interest. "Irreparable harm" is the legal system's name for non-recoverable foreclosure.
+
+The important structural feature is the *remedy*: an injunction is interim, reversible, and preserves the status quo pending adjudication rather than resolving the dispute. Civil commitment carries the same architecture through mandatory **periodic review** — containment must be revisited, not merely imposed. This is the regulatory-suppression analogue the immune comparison predicts is necessary, and it converts a one-shot licence into a maintained one that must keep re-earning itself.
+
+**Least restrictive means.** Strict scrutiny requires narrow tailoring; commitment law requires the least restrictive alternative. This operationalises condition (c) as a selection rule rather than a filter: among licensed actions, require the one minimising foreclosure of the target's robust fiber. Not merely *bounded*, but *minimal among bounded*.
+
+**Burden allocation.** GE §8.1 already states that rights are defeasible but the burden of justification is necessarily high. Law formalises this as presumption plus burden-shifting. The corresponding rule: **containment is presumptively unlicensed, and the containing party bears the burden of producing the certificate.** This fits the existing certified-justification structure, which already demands that an abstract certificate reflect a concrete fact.
+
+**Precaution, with its known critique.** The precautionary principle (Rio Declaration, Principle 15) holds that where there is threat of serious or irreversible damage, lack of full scientific certainty shall not justify postponing cost-effective preventive measures. This is the irreversibility-under-uncertainty structure stated as policy, and it is the closest existing doctrine to GE's core asymmetry.
+
+Its standard critique should be imported alongside it: unqualified precaution is **self-undermining**, because precautionary action itself carries irreversible risk, and one can always demand precaution against the precaution. The doctrine survives in practice only when paired with proportionality and cost-effectiveness constraints. The same pairing is required here, and it is the same point as the boundedness condition.
+
+**Proportionality and necessity.** Both jus ad bellum and criminal self-defence require force proportionate to the threat and the absence of a reasonable alternative — the latter appearing as duty-to-retreat in some jurisdictions. These map onto GE conditions (c) and (a) respectively, and give them the vocabulary of a mature adjudicative practice rather than a fresh one.
+
+#### The resulting shape
+
+Assembling the imports, a defensive licence in this framework should require:
+
+```
+initiation:   the licensee did not cause the foreclosure         (causal priority)
+imminence:    foreclosure is in progress, not forecast            (Caroline / Art. 51)
+necessity:    no non-destructive alternative is available          (GE condition a)
+standard:     evidentiary bar scaled to Recover_h of the action    (Mathews)
+boundedness:  target retains a nonempty robust fiber              (GE condition c)
+minimality:   least foreclosing among admissible actions          (narrow tailoring)
+interim:      reversible, with mandatory periodic review          (injunction)
+burden:       presumptively unlicensed; certificate required      (presumption)
+```
+
+Every clause but the first two corresponds to a structure already implemented or trivially expressible. The first two are the open work, and they are open in a specific, tractable sense: **initiation needs a causal attribution rule over foreclosure onset, and imminence needs a contraction-rate threshold.** Neither is a philosophical gap. Both are calibration problems of the kind empirical protocols are for.
+
+#### Registration
+
+The rejected-moves list already blocks **"control adequacy as standing."** *Threat adequacy as standing to exclude* is the same shape one step over and should be added explicitly rather than left to inference. Until the calibration above exists, no containment recommendation derived from this framework carries normative weight, and the framework should return obstruction rather than a licence when asked.
+
+---
+
+### 41. What Gradient Ethics explicitly does not provide
+
+The source paper's own list, which should survive any simplification:
+
+- **No utility function or scalar objective.** Value admits only partial orderings.
+- **No decision procedure or optimisation algorithm.** Constraints on admissible actions, not a method for selecting among them.
+- **No complete aggregation rule** across agents or scales. Comparing reachability between agents with incompatible structures, time horizons, or modes of agency remains open.
+- **No categorical moral obligations.** Conditional normativity only.
+- **No guaranteed moral motivation or compliance.** It explains why certain behaviours are structurally necessary for stable agency, not why any given agent will adopt them.
+- **No implementation-ready alignment solution.** Translating constraints into training objectives, architectures, or governance is a separate and nontrivial task.
+
+**Named open problems:** aggregation across radically different agents; hard conflict adjudication when *all* available actions impose irreversible losses on different agents; measurement and approximation of reachability proxies in practice; dynamic boundary definition under partial integration; and implementation robust to agents gaming the constraint system.
+
+**Named misapplication failure modes:** treating constraints as optimisation targets; reifying semi-formal constructs into precise metrics; invoking long-horizon justification while ignoring uncertainty; and applying constraints selectively to the less powerful.
+
+That last list is the most important paragraph in the source paper for a non-technical reader, because every one of those failures produces something that *sounds* like the framework while inverting its purpose.
+
+---
+
+## Part VIII — Accounting
+
+### 42. Retained negative results
+
+Arguably the most trustworthy part of the corpus, because negative results are what a self-deceiving programme suppresses.
+
+```
+support-level equivalence does not determine weighted directional evidence;
+directional substrate bias is not sufficient for controller-like features;
+pre-existing biased primitive actions are not necessary for finite feedback
+  to generate functional noninvertibility;
+process boundaries can remain set-valued;
+pairwise compatibility does not imply joint compatibility;
+joint May realization does not imply joint Robust securability;
+coherence does not collapse to one Boolean;
+exact lumpability can annihilate directional structure.
+```
+
+Additionally, an earlier probe (DA2) is documented as *failed*, with a commutative variant ranking best, asymmetry turning out not to be required, a revision failing to rescue it, and an explicit instruction not to scale that generator further.
+
+### 43. The declaration ledger
+
+**Currently supplied or indexed** (i.e. premises, not results):
+
+```
+relational signature;
+rewrite formalism;
+finite rule-size cutoff for experiments;
+law sector for an actual adapter;
+projection family;
+selected projection query;
+coarse-graining or presentation;
+candidate assignment;
+environment scope;
+the Gradient Ethics bridge premise.
+```
+
+**Currently derived or intended to be derived:**
+
+```
+path composition; projected order; sections; directional profile;
+source and sink strata; sector diagnostics; continuation residuals;
+pattern and process candidates; valuer-relative gradients;
+realization fibers; compatibility and obstruction;
+constrained action consequences after the normative bridge.
+```
+
+Every future theorem or report must state which entries it consumes.
+
+**Not on the list, and arguably should be:** a **measure** over histories or rule space. It cannot be obtained from distinction, relation, and asymmetry by closure — no amount of relational recursion yields weight. This is the Everett branch-counting problem and the self-locating measure problem, and both are decades old and unresolved.
+
+### 44. Frozen or rejected moves
+
+Explicitly blocked, retained only as marked examples or future test targets:
+
+```
+XOR as a universal transformation operation;
+a globally privileged projection;
+asymmetry as guaranteed by projection;
+persistence as the definition of law;
+confluence as the definition of coherence;
+a single selected maximal Omega face;
+raw branch count as lushness;
+control adequacy as standing;
+literal ruliad ontology as a theorem;
+quantum agency;
+higher-cohomology machinery;
+scalar population value.
+```
+
+Each is a move that appeared somewhere as an attractive shortcut and is now blocked in writing.
+
+### 45. Relation to established work
+
+A running weakness of the programme is that its own documents cite almost none of the literature its results sit inside. Most individual mathematical results here are careful re-derivations of established material. This is not fatal — importing the right framework correctly is genuine progress — but it must not be presented as discovery.
+
+Two omissions are worth naming specifically, because they are the closest existing work and their absence is the least defensible: **Aubin's viability theory**, which defines almost exactly the continuation object Alpha constructs, and the **quasi-option value** literature (Arrow & Fisher; Henry), which established the irreversibility-under-uncertainty asymmetry in economics five decades ago. Any external reader from either field will notice immediately.
+
+The distinctive contributions are three: the *combination* of these frameworks into one stack, the audit and preregistration methodology, and two or three structural prohibitions that do appear to be new in this exact form. Everything else has a home elsewhere. Appendix B gives the map.
+
+
+### 46. Honest status
+
+**Solid:**
+- The engineering. 624 tests, seven preregistered sprints, bit-for-bit reproducibility, 1,757 machine-checked theorems with zero gaps, non-vacuous audits confirmed by mutation testing.
+- Three prohibitions (§25).
+- The declaration ledger and rejected-moves list.
+
+**Not solid:**
+- The normative claim is exactly where it began. Gradient Ethics remains a signed premise.
+- Terminal solitude is well-defined; its central thesis is untested.
+- The claim that directional asymmetry constitutes "Alpha capability" has never been tested and currently cannot be, because it has no formal statement.
+- Novelty outside the atlas result is thin.
+- The attenuation defect (§27) is live: the formalism rewards flattening.
+- Defensive licensing has its principles and machinery in place but no calibrated thresholds; until initiation and imminence rules exist, containment recommendations carry no normative weight.
+- **No external contact.** The current work is unmerged and unreviewed. No external datasets, approximately one external human reader, no external review of any kind. Four language models cross-checking each other's reasoning is not review, however consistent the agreement.
+
+**One-line summary.** A verified finite substrate with three real prohibitions, a clean premise ledger, and an unbridged gap between the machinery and the claim it exists to support — with the load-bearing philosophical bet in the condition it started in.
+
+### 47. Open problems, ordered by tractability
+
+1. **Strict robust obstruction with concurrent controllers.** Requires the joint-dynamics type change ($\mathcal{P}(\text{Policy}) \times \text{Environment} \to \text{Witness}$). Note this breaks monotonicity: two policies each adequate alone can interfere. $\kappa$ as a minimum-cover number will not survive intact.
+2. **Injective controller-memory test.** Discriminates genuine closed-system variety generation from hidden record erasure. Would either confirm or retract a recorded result.
+3. **Cycle-affinity invariance under measure-conserving branch refinement.** Reachable with existing finite rational machinery; would prove that presentation multiplicity cannot manufacture directional bias rather than asserting it as a hygiene rule.
+4. **Approximate lumpability with finite-horizon error bounds.** The single most practically important missing theorem; without it the abstraction layer applies to no real system.
+5. **Dyadic-vs-polyadic reconstruction test.** Is the hollow triangle generable from binary $R$ under $\mathcal{G}$-closure, measured against complete May *and* Robust fibers rather than Boolean compatibility? Settles Peirce's reduction thesis for this framework.
+6. **Endogenising $\mathcal{E}$.** The repair for the attenuation defect.
+7. **Fiber census over competitive vs. coordinated policy classes.** Tests both the terminal-solitude thesis and Bostrom's counter-thesis simultaneously; would establish whether both tails collapse.
+8. **Topology on $\mathcal{E}$.** Would convert the sectional-category analogy into an identification and make the obstruction cohomological.
+
+---
+
+### 48. What would falsify the programme
+
+The experimental protocols carry kill conditions, but those test individual hypotheses. A *theory falsifier* is different: a result that would require retracting a central claim rather than revising a fixture. The test of whether one is real is whether it would be painful.
+
+Each is given with the programme's standing response and with what remains exposed after that response. Several are indexed to the substrate reading of value (§34), which is a declared commitment rather than a result — so the exposure below is partly the exposure of that commitment.
+
+---
+
+**1. Internal-ensemble equivalence.** If a single agent running an internal ensemble — decorrelated subsystems, adversarial critics, deliberately diverse models — achieves the same coverage as a plurality of independently situated valuers on the same families, the distributed-agency argument reduces to an architecture recommendation *for singletons*.
+
+*Response.* Simulated diversity carries the burden of demonstrating equivalence to actual diversity; and an ensemble may genuinely consume the requisite variety while still foreclosing substrate, since the variety it absorbed was being generated by the valuers it replaced. Coverage and substrate are separate ledgers.
+
+*Residual exposure.* The response concedes the instrumental argument outright. Diversity-as-robustness **does** die to internal ensembles — the ensemble gets the epistemic benefit. What survives is a substrate argument resting on §34, which is the undischarged commitment. So this falsifier no longer threatens the framework's coherence but has migrated to the premise the framework most needs and least has. Burden-shifting also does not make the check unrunnable: the comparison is still constructible on fixtures.
+
+---
+
+**2. Arbitrary valuer assignment.** If two equally sound presentations can yield *disjoint* valuer sets, value attribution is arbitrary and Omega has no determinate content.
+
+*Response.* Boundaries are observer-relative but non-arbitrary — constrained by tracking real causal regularity, and a presentation failing to preserve conditional independence does not describe an agentic system at all (§33).
+
+*Residual exposure.* Full. The response states the position; it does not establish that the constraint is tight enough to prevent disjoint assignments. And the external result in §33a cuts both ways: if boundary separability is unevidenceable in principle, the space of sound-but-incompatible assignments may be larger than the framework assumes. This remains the most under-defended falsifier, and it is testable by enumerating sound presentations and checking assignment variance.
+
+---
+
+**3. Interface enrichment always recovers a global section.** If enriching the observation interface or closing the policy class under conditional pasting collapses every atlas obstruction, the covering number is an artifact of impoverished controllers rather than a fact about the systems.
+
+*Response.* None currently. The obstruction has been established under an audited shared observation stream, which blocks the trivial version, but not the systematic one.
+
+*Residual exposure.* Full, and this one is cheap to test. It is the single most tractable item on this list.
+
+---
+
+**4. Non-flag obstructions never arise except by construction.** If pairwise-compatible, jointly-incompatible families require hand-built fixtures and never appear in generated systems under realistic dynamics, the prohibition is technically true and practically empty.
+
+*Response.* The scope is narrower than it appears: the hollow triangle was never part of the original Gradient Ethics formulation. Falsifying it does not touch the constraint-based framework of Part VII, only the newer structural result.
+
+*Residual exposure.* Real but bounded — and it matters precisely because this result is the most likely of the three prohibitions to survive external review. Losing it would cost the programme its clearest novel contribution while leaving the older normative argument intact.
+
+---
+
+**5. Attenuation dominates under every repair.** If no reasonable endogenisation of the environment class makes flattening costly, there is no structural argument against monoculture, and "preserve plurality" requires exactly the normative premise the framework was trying to avoid.
+
+*Response.* On the substrate reading, collapsing the environment is already an anti-value move by definition — it destroys the space rather than navigating it. The distinction between valuer-carried and exogenous variety (§27) makes this precise without over-forbidding.
+
+*Residual exposure.* The verdict exists in the value definition and not in the machinery, and the machinery is what checks. Until endogenisation is implemented, the formalism continues to record attenuation as an improvement. This is a gap between theory and implementation rather than an unanswered objection — but it is exactly the gap that has to close for the framework to be usable on any real system.
+
+---
+
+**6. The competition–coordination fork resolves the wrong way.** If unconstrained plurality contracts reachability faster than coordinated monoculture does, the framework's prescription points backwards.
+
+*Response.* The framework is not committed to more plurality being better. The corridor has **two walls**: unconstrained plurality tends toward entropic dissolution, and excisive singleton toward crystalline death. Both are failure modes; the corridor is what lies between, and the framing licenses active maintenance rather than laissez-faire.
+
+*Residual exposure.* Accepted — this defuses the objection as posed. Two things remain. Naming both walls does not locate them, so the interior optimum is still unspecified and the threshold problem reappears one level up. And "active maintenance" is the unlicensed-exclusion problem (§40) in a more sympathetic register: cultivation and capture are the same action viewed from inside and outside.
+
+*Worth pursuing.* The two-wall structure is not merely rhetorical. Crystalline death is the conserved-but-non-regenerating case; dissolution is the failure of persistence entirely; and vorticality — regeneration through turnover — is the middle term (§19). The corridor at the value level therefore has the same three-way shape as the persistence taxonomy at the substrate level. If that correspondence is more than coincidence, it would supply the interior optimum from structure rather than stipulation, and it is checkable on finite fixtures.
+
+---
+
+**The honest summary.** Falsifiers 2, 3 and 5 remain substantially exposed. Falsifier 1 has been converted from a threat to the argument into a dependency on the substrate commitment, which is progress only if that commitment can be discharged. Falsifier 6 is answered as posed and relocates to a threshold question. The programme's actual exposure is therefore concentrated in two places: **whether valuer assignment is determinate enough to give Omega content, and whether the lushness commitment can be supported.** Everything else is downstream of those.
+
+---
+
+
+## Appendix A — Glossary
+
+**Alpha** — the value-neutral continuation structure for a given law sector and projection.
+
+**Anchor** — an observer's declared frame or vantage; a free index, not a derived object.
+
+**Candidate** — a pattern admitted into the valuer envelope without automatic standing.
+
+**Cycle affinity** — the reference-independent invariant of directional structure; log of the product of forward/reverse transition ratios around a closed path.
+
+**Directional grain** — an observed difference between the two directions of a projection. May be null.
+
+**Gauge** — differences no admissible context can detect. Structurally unamplifiable.
+
+**Grain** — question-relative indistinguishability: differences a *selected* context family cannot detect. Weaker than gauge.
+
+**Lumpability (action-wise strong)** — the condition under which state aggregation preserves dynamics exactly: same-block states send identical mass to each target block under every action.
+
+**May-compatible** — some coherent joint realization of the family exists.
+
+**Non-flag** — the property that compatibility is not determined by pairwise data. Named for the clique (flag) complex, which is exactly the structure that *is* pairwise-determined.
+
+**Polyadic ($R_{<\omega}$)** — relations of arbitrary finite arity; one occurrence involving all $n$ participants, not a collection of pairwise facts.
+
+**Projection** — a declared query mapping configurations to an ordered index. Every conclusion is indexed by the projection used.
+
+**Realization fiber** — the complete set of witnesses realizing a family; retained, not merely tested for emptiness.
+
+**Robustly compatible** — one policy secures a realizing history across every environment in the declared scope.
+
+**Sectional category / Schwarz genus** — minimum number of local sections when no global section exists.
+
+**Siphon** — a set that, once empty, stays empty. Structural extinction.
+
+**Terminal solitude** — no independently situated source of valuation remains, non-recoverably.
+
+**Trap** — a set that, once marked, stays marked. Persistence without conservation.
+
+**T-invariant** — a firing cycle returning a Petri net marking to its initial state. Consumption plus regeneration.
+
+**Vorticality** — identity regenerated through compositional turnover; the trajectory as bearer of identity.
+
+**Witness-retaining** — a structure that records *how* something is realized, not merely *that* it can be.
+
+**Anti-value** — destruction of the substrate that admits value-bearing continuation. The complement of value in this framework is not low value but this.
+
+**Atlas** — a collection of local securing policies covering a context space when no single global policy exists.
+
+**Corridor** — the region between entropic dissolution and crystalline death; what the framework aims to keep open.
+
+**Covering number ($\kappa$)** — the minimum number of policies required to secure a family across every declared contingency. $\kappa = 1$ is ordinary robustness; $\kappa > 1$ means the family is securable only by a plurality.
+
+**Crystalline death** — perfect order with no independent source of valuation remaining; the singleton failure wall.
+
+**Entropic dissolution** — unconstrained plurality in which nothing persists long enough to bear value; the opposite wall.
+
+**Idempotent combination** — combination under which a form already present, re-presented, adds nothing. Required so that duplicate presentations cannot inflate apparent substrate.
+
+**Licensing** — the discipline determining which actions are permitted given an Omega structure. May return *obstruction* rather than a recommendation.
+
+**Lushness** — open-ended compatible differentiation in the valuer-bearing continuation structure. The substrate measure. Accounting is idempotent, the order is profile-inclusion rather than scalar, and the finite proxy is implemented; the normative claim attached to it is not established.
+
+**May / Robust** — two quantifier-indexed views of one compatibility structure. May: some joint realization exists. Robust: one policy secures joint realization against every declared contingency.
+
+**Obstruction** — the output when no jointly realizing continuation exists. Treated as a correct answer, not a failure.
+
+**Substrate reading** — the position that value is the extent of space admitting value-bearing continuation, rather than a quantity defined over outcomes.
+
+**Terminal solitude** — no independently situated source of valuation remains, non-recoverably.
+
+---
+
+## Appendix B — Further reading
+
+Organised by what each body of work supplies. This is a map, not a bibliography of things the programme has read; several of these were identified *after* the corresponding result was independently derived, which is itself evidence the results are in the right neighbourhood.
+
+### The abstraction and equivalence layer
+
+- **Kemeny & Snell**, *Finite Markov Chains* — strong lumpability, the classical form of the transport theorem in §17.
+- **Givan, Dean & Greig** (2003), model minimization for Markov decision processes — the action-indexed version, and the standard reference for exact state abstraction under actions.
+- **Ferns et al.**, bisimulation metrics for MDPs — the approximate version the framework still lacks.
+- **van Glabbeek**, the linear time–branching time spectrum — the definitive map of process equivalences. Directly relevant: the framework independently rediscovered a fragment of this in separating support bisimulation, action-wise lumpability, path-law pushforward, and likelihood-ratio sufficiency.
+- **Ferns, Panangaden & Precup**, bisimulation metrics for MDPs — the continuous relaxation the exact transport theorem lacks; the natural target for approximate lumpability with error bounds.
+- **Cousot & Cousot**, abstract interpretation — the mature treatment of abstraction as a declared parameter over a lattice, with soundness proved uniformly rather than defended per-abstraction.
+
+### Concurrency and event structure
+
+- **Winskel**; **Nielsen, Plotkin & Winskel** — event structures, the natural home for the causality-plus-conflict picture.
+- **van Glabbeek & Plotkin**, configuration structures — jointly realizable event sets abstracted from their presentations.
+- **Baldan, Corradini & Montanari** — graph grammar unfoldings and *asymmetric event structures*, where read/write asymmetry generates directed constraints. Central to the derived-orientation argument.
+- **Phillips & Ulidowski**, reversible event structures — where a principled reversal operation comes from, and why asymmetric conflict is needed to define one coherently.
+- **Winskel**, event structures with symmetry — the categorical treatment of duplicate presentations.
+- **Ehrig, Ehrig, Prange & Taentzer**, *Fundamentals of Algebraic Graph Transformation* — the double-pushout construction used throughout the rewrite layer.
+- **Newman** (1942) — local confluence implies global confluence only for terminating systems. The reason §14's separation of the two is necessary rather than fussy.
+- **Wolfram**, the ruliad and the physics project — source of the "rulial" vocabulary. Borrowed terminologically; the ontological claims are not adopted.
+- **Mazurkiewicz traces** (*The Book of Traces*) — confluence plus quotient by independence, the rigorous version of "coarse-graining answers branch counting."
+
+### Directionality and stochastic thermodynamics
+
+- **Jarzynski** (1997); **Crooks** (1999) — the fluctuation identities.
+- **Lebowitz & Spohn** (1999) — path-additivity of entropy production for Markov jump processes.
+- **Kolmogorov** (1936) — the cycle criterion for reversibility.
+- **Schnakenberg** (1976); **Hill**, cycle theory — cycle affinities as the reference-independent invariant of directional structure.
+- **Hatano & Sasa** (2001) — housekeeping and excess decomposition.
+- **Esposito & Van den Broeck** — the adiabatic/non-adiabatic split, and the field's precedent for retaining an *indexed family* of reversal protocols rather than picking one.
+
+### Memory, measurement, and irreversibility
+
+- **Landauer** (1961); **Bennett** (1982) — logical irreversibility resides in the memory, not the physics. The correct frame for the feedback result in §22.
+- **Sagawa & Ueda** — information-to-work conversion; the Szilard-engine reading of the record-sensitivity advantage.
+- **Touchette & Lloyd** — entropy reduction achievable by control is bounded by mutual information acquired.
+
+### Control, variety, and reflexivity
+
+- **Ashby** (1956), *An Introduction to Cybernetics* — requisite variety, of which the covering number is a family-indexed instance. Note that Ashby gives *two* solutions: amplify regulator variety or attenuate disturbance variety. The second is the attenuation defect of §27.
+- **Conant & Ashby** (1970) — every good regulator of a system must be a model of it. Converts into a lower bound on controller memory.
+- **Bode**'s sensitivity integral; **Martins & Dahleh** — suppression in one band reappears in another; the information-theoretic version equates the integral with a difference in entropy rates. The formal home for "control generates variety."
+- **Van Valen** (1973), the Red Queen hypothesis — the biological version.
+- **Leike, Taylor & Fallenstein** (2016), *A Formal Solution to the Grain of Truth Problem* — reflexive multi-agent model classes made coherent via reflective oracles. Establishes that self-reference alone does not force collapse.
+
+### Decision theory, information, and sufficiency
+
+- **Blackwell** — sufficiency quantified over *all* decision problems rather than a chosen observable family. The right instrument for the observable-family declaration.
+- **Arrow** (1951) — impossibility of aggregation. Where "multiple valuers obstruct a single global optimisation target" lands if formalised properly.
+- **Pearl**, identifiability theory — the mature template for the declared/derived split: state the assumption explicitly, then characterise exactly which quantities are estimable given it.
+- **Schwarz genus / sectional category** — the minimum number of local sections when no global section exists. The likely mathematical home of the covering number, pending a topology on the environment space.
+
+### Persistence, autopoiesis, and organisational identity
+
+- **Schrödinger** (1944), *What is Life* — the organism as a structure persisting by importing order; the origin of "negative entropy," later formalised by **Brillouin**.
+- **Prigogine**, dissipative structures — order maintained far from equilibrium.
+- **Maturana & Varela**, autopoiesis — a system that continuously produces the network that produces it. The closest conceptual ancestor of vorticality.
+- **Rosen**, *Life Itself*; (M,R) systems and closure to efficient causation — the same idea pursued formally, and a cautionary example of how hard the formalisation is.
+- **Murata** (1989), *Petri Nets: Properties, Analysis and Applications* — the standard survey covering traps, siphons, and place- and transition-invariants; source of the persistence taxonomy in §19.
+- **Dennett**, the intentional stance; **Levin**, scale-free cognition — graded, attributional treatments of agency, adjacent to soft pan-valuerhood.
+
+### Option value, viability, and irreversibility
+
+- **Aubin**, *Viability Theory* — the viability kernel: the set of states from which some constraint-respecting evolution exists. The closest existing formal analogue to Alpha's continuation structure, and not cited in the programme's own documents.
+- **Arrow & Fisher** (1974); **Henry** (1974) — quasi-option value. Establishes that under irreversibility and uncertainty, preserving options carries value beyond expected returns. This is the framework's central asymmetry, derived independently and five decades earlier.
+- **Ben-Tal, El Ghaoui & Nemirovski**, *Robust Optimization* — feasibility across a declared uncertainty set rather than at a nominal parameter. The optimisation-theoretic counterpart of the May/Robust distinction.
+- **Manheim & Garrabrant** (2018), categorising variants of Goodhart's law.
+
+### Governance and the emergence of norms
+
+- **Ostrom**, *Governing the Commons* — durable governance arrangements arising locally around shared resources. An existence proof that the norms the framework derives are discoverable rather than imposed, and the strongest empirical support available for Part VII's account of rights and justice.
+- **Axelrod**, *The Evolution of Cooperation*; **Skyrms**, *Evolution of the Social Contract* — the game-theoretic side of the same phenomenon.
+
+### Robustness, diversity, and ecology
+
+- **Yachi & Loreau** (1999), the insurance hypothesis.
+- **Elmqvist et al.** (2003), response diversity — the crucial distinction between functional diversity and *response* diversity. Only the latter buys robustness, and only the latter is what the covering number measures.
+
+### Boundaries and observers
+
+- **Pearl** (1988) — the Markov blanket, in its original Bayesian-network sense.
+- **Friston** (2010, 2019); **Parr, Pezzulo & Friston** (2022) — the free energy principle, and the later recruitment of the blanket construct.
+- **Klyubin, Polani & Nehaniv** (2005), empowerment as an agent-centric measure of control.
+- **Fields & Glazebrook** (2023), *Separability, contextuality, and the quantum frame problem* — Corollaries 3.1 and 3.2: no finite system can measure the entanglement entropy across its own boundary, nor verify that any decomposition of its environment isolates all consequences of its actions. The strongest external support for the framework's position that boundaries are declared rather than discovered.
+- **Zanardi** (2002) — the total Hamiltonian is equally consistent with any factorisation of the Hilbert space; nothing in the physics privileges one decomposition.
+- **Sandved-Smith, Fields, Doctor, Laukkonen & Hohwy** (2026) — the paper in which those corollaries are deployed toward a formal model of contemplative awakening. The corollaries are importable; the interpretive superstructure is considerably more speculative and is not required.
+
+### Normative and philosophical
+
+- **Korsgaard**, *Self-Constitution* — the constitutive aim of agency as the source of its normative standards; the most developed version of the move Part VII makes.
+- **Foot**, *Natural Goodness* — the nearest analogue to the framework's constitutivism: goodness as kind-relative flourishing.
+- **Enoch**, the shmagency objection — the standing wall for any constitutivist derivation.
+- **Omohundro**, basic AI drives; **Bostrom**, instrumental convergence — derivable drives that nobody mistakes for values, and the instructive parallel.
+- **Ord**, *The Precipice*; **MacAskill**, *What We Owe the Future* — value lock-in and unrecoverable trajectories; the contemporary literature terminal solitude sits beside.
+- **Bostrom** (2002), existential risk taxonomy — "shrieking" as the informal ancestor of terminal solitude.
+- **Bostrom** (2004), *The Future of Human Evolution* — the strongest counter-thesis: without a singleton, competition erodes value. Unaddressed by the framework and the most important open question in the normative layer.
+- **Bostrom** (2006), *What is a Singleton?* — the definition terminal solitude both converges with and departs from.
+- **Poole** (2026), *Value Preservation Under Uncertainty* — the framework's own informal statement of the normative layer, of which Part VII is the formalisation.
+
+---
+
+## Appendix B2 — Note on verification
+
+The results marked **[Proved]** are machine-checked in a proof assistant with no admitted gaps, or established by exhaustive enumeration over a completely characterised finite class. Results marked **[Measured]** come from preregistered experiments whose runs reproduce exactly against their recorded outputs.
+
+The following checks were performed independently of the programme's own documentation, by re-executing the work and re-deriving headline figures from first principles: the full test suite; bit-for-bit reproduction of every validation run; independent reimplementation of the core transport computation; a mutation test confirming the abstraction audits fail correctly on planted violations and emit exact witnesses; independent re-enumeration of the feedback census; verification that a recorded directional quantity equals the corresponding cycle affinity exactly; and independent construction of a strict robust obstruction using only the published interface.
+
+Two limitations of that verification should be stated. First, absence of admitted gaps in a proof corpus is strong evidence but is not the same as a successful full build against a fixed library version. Second, and more importantly: **verification establishes that the arguments follow from the stated definitions. It establishes nothing about whether those definitions capture what matters.** That gap is where the interesting failures live, and it applies here exactly as it applies to any formal treatment of an informal subject.
+
+
+## Appendix C — Misreadings to avoid
+
+These are the errors most likely to arise when this material is compressed for a general audience. Each is a misreading the framework's own documents explicitly block.
+
+**1. "This proves plurality is good."** It does not. It proves that certain compatibility families cannot be secured by any single policy — a structural incapacity, not a value judgment. Whether plurality *ought* to be preserved requires the Gradient Ethics premise, which is signed for rather than derived. And the strongest counter-argument (Bostrom: uncoordinated plurality erodes value) is unaddressed.
+
+**2. "This is an alignment solution."** It is not a training method, architecture, objective, or governance mechanism. It identifies constraints such proposals would have to respect. Its own source paper lists "an implementation-ready alignment solution" among the things it does not provide.
+
+**3. "Value" here means what it means in ethics.** It does not. It means probability-weighted future reachability for a coherent system. A bacterium is a valuer under this definition. Nothing about moral worth follows.
+
+**4. "The framework says who should be contained."** It does not, and it currently *cannot*. Defensive licensing has principles and machinery but no calibrated thresholds. The rejected-moves list explicitly blocks "control adequacy as standing," and threat-adequacy-as-standing belongs there too. Any containment recommendation drawn from this material carries no normative weight at present.
+
+**5. Cosmic or religious framings are metaphor, not result.** Mappings onto theological imagery — a plurality as a host, a singular optimiser as its adversary, foreclosure as a fall — are apt and were useful heuristically. They are not findings. The mathematics explicitly declines to cross the is/ought gap, and mythic framing quietly supplies the endorsement the mathematics proved unavailable. It also strips the indexing that keeps conclusions conditional, which is precisely what makes them safe to state.
+
+**6. A large theorem count implies a large verified theory.** The proof corpus contains on the order of seventeen hundred machine-checked results, but the clean core carrying everything discussed here is roughly thirty-five. The remainder belongs to an older layer the rebuild does not depend on.
+
+**7. Lean verification validates the philosophy.** It does not. A proof establishes that an argument follows from stated definitions. It says nothing about whether the definitions capture what matters. That gap is where the interesting failures live, and it applies to this framework exactly as it applies to any other.
+
+**8. Reproducibility implies correctness.** Every validation run reproduces bit-for-bit. That establishes the experiments were run as described and the code does what it says. It does not establish that the fixtures are representative, that the abstractions are apt, or that the interpretation is right.
+
+**9. The results are novel mathematics.** Most are careful re-derivations of established results — Kemeny–Snell, Crooks, Jarzynski, Schnakenberg, Ashby, Blackwell, Kolmogorov. The distinctive contributions are the combination, the audit methodology, and two or three structural prohibitions. Importing the right framework correctly is real progress, of a different kind than discovery.
+
+**10. "The theory says X about AI."** The verified results are about finite controlled Markov systems and finite compatibility structures. Every step from there to a claim about real AI systems is an argument, not a theorem, and the framework's declaration ledger names each premise that step consumes.
+
+---
+
+*Prepared as source material for accessible presentation. All strength-of-evidence qualifications in this document are load-bearing and should survive simplification.*

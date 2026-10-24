@@ -1,0 +1,81 @@
+# 00 — Orientation
+
+Omega Cosmology studies the structure of continuation. It asks how physical situations support, constrain, differentiate, and transform what can follow from them. Its practical question is how processes within that structure, including agents and valuers, change the conditions of their own continuation and that of others.
+
+The program starts with physics. It builds a language for perspective, consequence, and composition, and uses that language to study generative organization, value, and decision. Gradient Ethics is the ethical branch. Omega Decision Theory is the architecture for acting under incomplete knowledge. Awareness and theology enter as interpretations of the same structure, and as further questions about it.
+
+## The motivating question
+
+Compare a nebula with a civilization.
+
+The civilization is lawful physics. Given enough time and the right accidents, its futures may already lie somewhere in the nebula's possible continuations. Building a civilization creates nothing outside physical law. Yet something has plainly changed. Tools, records, repair, coordination, and construction have altered **what can happen next, how reliably it can happen, what it requires, and what can happen together.** A factory does not change the laws that permit an engine. It changes the conditions under which engines can reliably be produced, and under which better factories can be built afterwards.
+
+That difference is the program's central object. The working characterization in this edition is:
+
+> **Generativity** concerns processes that establish, maintain, and transform the conditions for further processes. **Lushness** seeks to capture the resulting organization of possible continuation and its capacity to support value.
+
+Both are research targets. The mathematical task is to extract that organization from physical continuation without writing a favourable ranking in by hand. This edition presents the construction that makes the task concrete, and it states plainly what has not yet been done: no unique lushness measure has been established, and nothing has been proved about life, plurality, civilization, or any particular automaton maximizing one.
+
+## Structure first, situated access second
+
+The reference is the complete lawful consequential structure of the world under consideration. A situated process reaches and influences parts of that structure through physical couplings, records, and available transformations. A bounded model describes those relations at some resolution and horizon.
+
+A model's omissions do not remove anything from the reference. This is the root of the program's concern with Goodharting: an optimizer can become very effective at a representation that has dropped the very thing it was supposed to preserve. A convenient proxy can help an agent act. It cannot redefine the reality against which the action is judged.
+
+The complete object is a reference ideal. It is not a claim that some omniscient evaluator has already supplied a canonical measure, an ordering of infinities, or an ethical answer. Comparisons still need definitions.
+
+## Five levels
+
+The construction separates five levels. Most confusions in this area come from sliding between them.
+
+1. **Physical reference.** The states, dynamics, correlations, resources, and histories of a declared model. *(Parts 01–02.)*
+2. **Realized process presentation.** Which interventions and procedures have physical implementations, with their continuation laws and composition. *(Part 02.)*
+3. **Derived organization.** Construction, maintenance, repair, dependence, capability, and hierarchy, extracted from those processes. *(Parts 03, 05, 06.)*
+4. **Candidate comparison.** A prospective lushness profile, order, or functional on this structure. *(Part 04.)*
+5. **Normative use.** The reasons for considering or preferring what that comparison identifies. *(Parts 07–08.)*
+
+The construction is strongest at the first two levels. The new research concentrates on the third. The fourth and fifth are substantive questions in their own right. They do not follow automatically from a correct physical model.
+
+## Main terms
+
+A **perspective** is a physically situated continuation process. It need not be conscious, intentional, or alive. A **focus** is a condition or boundary relation through which compatible contributions to a process are organized. **Consequence** is a difference in continuation, and a **deformer** is anything whose condition or interaction makes such a difference. **Continuation** is the physically supported extension of a situated process, including how it responds to admissible interactions.
+
+**Generativity** and **lushness** are the research targets named above. A **valuer** is provisionally a process for which distinctions among continuations matter endogenously; the demarcation is open. The foundational dependence claim is simple:
+
+**Value requires valuers.**
+
+Value itself is left open. Its possibility in the substrate is the present working proxy. The physical investigation does not need to begin by partitioning the world into a fixed list of individual valuers: valuing can be studied as a process while its bearers remain to be individuated. That is compatible with the dependence claim. It does not mean that every physical difference already counts as valuation.
+
+**Gradient Ethics (GE)** investigates how policies preserve, develop, capture, or foreclose the conditions through which valuation can occur. It adopts consideration for the possibility of value under uncertainty. **Omega Decision Theory (ODT)** separates licensing an action, comparing licensed actions, and arbitrating what the comparison leaves open.
+
+## The ethical ambition, at its actual strength
+
+The program's ambition is to say something about which continuations are better, with its normative bridge stated openly rather than derived. The weaker commitment is consideration: the possibility of value warrants attention in action, especially where a decision could foreclose it irreversibly. The stronger research hypothesis is that lushness, if it can be characterized faithfully, can help adjudicate choices. Neither follows from the physics alone, and the physics does not need them to proceed.
+
+## How claims are marked
+
+The text places a short status marker beside claims where the status matters:
+
+- **[established]** — established mathematical or physical machinery, used in its published domain and cited.
+- **[project result]** — a finite result of this program: proved in Part 12, or retained in the project repository with its declared scope.
+- **[proposed]** — the synthesis this edition puts forward for investigation.
+- **[conjecture]** — an interpretive or metaphysical conjecture, including the originator's own leanings where they are stated as such.
+
+Unmarked text explains the construction. Open work is collected in Part 14 rather than repeated as a disclaimer throughout.
+
+## How to read the packet
+
+- **Parts 01–02:** the physical object and the continuation machinery.
+- **Part 03:** generative organization, the principal new direction.
+- **Part 04:** lushness, its candidate instruments, and the stronger value question.
+- **Parts 05–06:** identity, persistence, recovery, agency, and valuers.
+- **Parts 07–08:** Gradient Ethics and Omega Decision Theory.
+- **Parts 09–10:** awareness and the metaphysical horizon.
+- **Part 11:** exact worked examples.
+- **Part 12:** the formal core in one notation: finite classical presentation first, then the quantum realization.
+- **Parts 13–15:** glossary, research program and claim map, references.
+- **Part 16:** research appendix with provenance and a migration map from the previous edition.
+
+A reader interested mainly in alignment can read this orientation, then Parts 03, 04, 07, and 08, and return to the foundations. A technical collaborator should read Parts 02, 03, 11, and 12 before designing experiments. An LLM ingesting the packet should use the complete edition and keep the status markers intact.
+
+The theory should be allowed to produce an unwelcome answer. The aim of this edition is to make the inquiry more intelligible and more answerable, while keeping the intuition that motivated it.

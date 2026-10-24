@@ -1,0 +1,186 @@
+# Omega Cosmology v4.1: style sheet — r2
+
+**Date:** 16 October 2026.
+**Changes from r1:**
+- Status vocabulary for formal results (section 2), after Sol's review of
+  Appendix A.
+- A rule for results that rest on premises (section 2).
+- The chapter map (section 6).
+**Use:** read this sheet before drafting or revising any section, and again
+after every context compaction. It applies to every chapter and appendix.
+Where it repeats a standing ruling, the ruling governs.
+
+## 1. Voice
+
+The manuscript has one voice, after Parfit.
+
+- **Plain declarative sentences.** Each claim is stated precisely enough to be
+  wrong. A paragraph makes one step.
+- **Explicit arguments.**
+  - Arguments that carry weight are numbered.
+  - Their premises are named and listed.
+  - The text says which premise does the work.
+- **Objections at full strength.** An objection is stated in its best form
+  before it is answered. If it is not answered, the text says so.
+- **Worked examples, never analogies.** An example is a specified physical
+  model with numbers that can be recomputed (Appendix B). Thought experiments
+  are allowed only when they can be written as such a model.
+- **No ornament.**
+  - No rhetorical questions used in place of arguments.
+  - No "clearly", "obviously", "of course", "profoundly" or "deeply".
+  - Short memorable lines appear only when they clarify. The only approved
+    aphorism is: "If your internal state cannot influence the world, might as
+    well dream."
+- **Person.**
+  - "We" for the reasoning ("we now show").
+  - "The program" for the research enterprise.
+  - "This manuscript" for the text. Never "I", and never "the book".
+- **Terms.** A technical term is defined at its first use and keeps exactly
+  one sense afterwards.
+
+## 2. Status
+
+Every substantive claim has one of six statuses. In prose, the status is
+carried by the verb.
+
+| Status | What it is | Verbs and forms allowed |
+|---|---|---|
+| D, definition | a stipulation | "we define", "is defined as" |
+| T, theorem | proved in Appendix A, or cited with a source | "proves", "it follows", "Theorem A.4.2 shows" |
+| M, model result | shown in a named model, within its scope | "in model C.n, …", "the model shows"; never "proves", "establishes" or "demonstrates" without the model's name |
+| E, empirical correspondence | observed in published work | "corresponds to", "is observed in", with a citation |
+| N, normative premise | assumed, and named | "we assume", "the [name] premise" |
+| C, conjecture | able to lose | "we conjecture", "the central conjecture", always with what would count against it |
+
+- **Status tables.** Every chapter ends with a status table listing its
+  claims under these six labels.
+- **Firewalls.**
+  - A model result bears on a conjecture only through a sentence that says how
+    far it bears.
+  - The subject distinction never licenses an ethical conclusion by itself.
+- **Formal results (Appendix A and chapters citing it).** Every formal result
+  carries one of these statuses:
+
+  | Status | Meaning |
+  |---|---|
+  | established elsewhere | proved in the literature; outlined or proved here, with the source |
+  | proved here | proved in Appendix A under its stated assumptions |
+  | conditional on physical premises | proved given named physical hypotheses, which are not proved |
+  | conditional on a normative premise | proved given a named normative premise, which does the normative work |
+  | analytical model with stipulated payoffs | algebra in a decision model whose gains and losses are stipulated, not computed by the measure |
+  | definition | a stipulation |
+  | adopted | a methodological choice |
+
+- **Results that rest on premises.** State the premise in the sentence that
+  uses the result. Write "given the valuing premise, destroying the conditions
+  of valuing is dominated", never "the measure proves strict protection".
+  Report a stipulated-payoff model as a property of that model, never as a
+  theorem of the measure.
+- **Pending decisions.** Text that depends on an open decision carries a
+  bracketed marker in the draft (for example [P4]). Markers are removed once
+  the originator decides.
+
+## 3. Terms
+
+| Use | Do not use |
+|---|---|
+| program, manuscript | project; book (in the text) |
+| central conjecture | wager |
+| lushness L = 2^ℓ; log lushness ℓ, in bits | breadth as a defined term |
+| rate h, offset b, crossover horizon T× | gain, bias (except when citing dynamic programming) |
+| expected persistence E[N]; hazard λ; generative window | lifetime, survival as defined terms |
+| model C.n (Appendix C) | adapter numbers, experiment code names |
+
+- **Lushness in prose.** "Lushness" may be used for ordinal comparisons, since
+  L and ℓ rank developments the same way. Every number quoted is log lushness
+  in bits.
+- **Valuer** [P4, working definition]: any physically specified subsystem
+  treated as a subject of the measure. The term implies neither experience nor
+  agency.
+- **Kept out of manuscript text:** ledger codes (A17, C5), ruling numbers, and
+  the word "originator". They belong in the working files and in Appendix G.
+
+## 4. Mathematics
+
+- **Units.** Logarithms are base 2, so entropies are in bits.
+- **Notation.** The notation is fixed in section A.1 and used everywhere. The
+  core symbols:
+
+  | Symbol | Meaning |
+  |---|---|
+  | K | kernel |
+  | g | step entropy |
+  | ℓ_n | log lushness |
+  | Π | Cesàro limit |
+  | Z = (I − K + Π)⁻¹ | fundamental matrix |
+  | h = Πg | rate |
+  | b = Z(g − h) | offset |
+  | T× = −Δb/Δh | crossover horizon |
+  | N, λ | random horizon, hazard |
+  | H, h₂ | entropy, binary entropy |
+
+- **Boxed results.**
+  - A result's statement is set as a blockquote containing the display.
+  - It is followed by a line beginning *In words:*, written without symbols.
+  - Every boxed equation has an In words line.
+- **Display math.** \[ … \]. Inline math in plain Unicode where it is
+  legible (ℓ_n, Δh, T×).
+- **Appendix A numbering.** Results are numbered within their section, with
+  one counter for all kinds: Definition A.3.1, Lemma A.3.2, Theorem A.3.3,
+  and so on.
+- **Parts of a result.** Each result gives:
+  - its assumptions, where they go beyond the standing ones;
+  - the statement;
+  - the In words line;
+  - a proof, or the source with an outline of the proof;
+  - its scope.
+
+  A **conditional proposition** rests on physical premises. The premises are
+  named and are not proved.
+- **Chapters do not prove.** They state results in words, cite them ("Theorem
+  A.4.2") and show a worked example.
+
+## 5. Citations
+
+- **Author–year,** for example (Cover and Thomas 2006). Up to three authors are
+  named; four or more are "first author et al.".
+- **Pinpoints** (theorem, page or section numbers) are given only when they
+  have been checked against the source. Otherwise, cite the chapter or the
+  whole work.
+- **Reference lists.** Every chapter ends with "References cited in this
+  chapter", and Appendix F collects them all. Each reference is verified before
+  its chapter is marked final.
+
+## 6. Chapter structure
+
+1. **An opening paragraph** stating what the chapter claims, with what status,
+   and what it does not claim.
+2. **Numbered sections,** n.1, n.2, ….
+3. **A status table,** then the references.
+
+Cross-references take the forms "chapter 5", "section 5.3", "Theorem A.4.2"
+and "Appendix C".
+
+**Chapter map.** Chapter numbers follow outline r3 (chapters 1–33, Parts
+I–VIII, Appendices A–G). The map is frozen once the originator confirms it.
+From then on:
+- the old 00–14 rewrite map in the program review is superseded;
+- renumbering requires a recorded decision.
+
+## 7. Files and workflow
+
+- **Local drafts:** <user-home>/v41/ms/.
+  - Chapters: `NN_SHORT_TITLE_r#.md` (01–33).
+  - Front matter: `00_FRONT_MATTER_r#.md`.
+  - Appendices: `A_FORMAL_CORE_r#.md`, `B_WORKED_EXAMPLES_r#.md` and so on.
+- **Scripts.** Every number in the manuscript is produced by a script under
+  <user-home>/analysis/. Appendix B lists the script for each example.
+- **Order of work:** draft → sent to the originator → approved → uploaded.
+- **Drive.**
+  - The v4.1 folder: source-966759f6c549a912e7c9.
+  - Its deprecated folder: source-18094c0eb7e0d1ca5563.
+  - Upload with r# in the filename and check the Drive file size against the
+    local byte count.
+  - Superseded files go to deprecated, on Drive and in <user-home>/deprecated.
+- **Repository.** Nothing is committed or pushed to the repository without the
+  originator's explicit instruction.

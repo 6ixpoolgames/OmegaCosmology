@@ -1,0 +1,53 @@
+# 01 — The shared physical object
+
+## One object, many situated descriptions
+
+Begin with a lawful physical world, including its states, interactions, causal relations, and boundary conditions. Call its complete physical description Ω_phys. The symbol does not presuppose that this description is a finite data structure or that any inhabitant can calculate it.
+
+In a closed quantum model, a state and unitary dynamics provide a familiar realization. In relativistic settings, local observables, causal regions, and states on suitable hypersurfaces provide a more appropriate language. These are ways to represent one underlying physical situation at different levels of scope.
+
+The block viewpoint places the relations among events within the description rather than adding a privileged present that advances through it. Physical clocks, records, changing organisms, and deliberating agents still occur. Their succession is an internal relation. An agent's action matters through the dependencies it participates in, whether the theorist describes those dependencies sequentially or all at once. Everett's relative-state formulation supplies a foundational quantum neighbor. [R28]
+
+## Quantum alternatives have structure
+
+A quantum superposition is more than a list of classical possibilities. Relative phase can change later outcomes. Entangled systems possess correlations that their reduced states do not specify. A decomposition into vectors is not automatically a decomposition into physically autonomous worlds.
+
+For this reason, the framework's “branches” should be read according to context. In a decohered regime they can denote approximately autonomous histories with stable records. Before that regime, they can denote interfering contributions to an amplitude. The mathematical carrier must retain the difference.
+
+For a sequence of projectors at specified times, a histories construction uses class operators C_α and a decoherence functional:
+
+```text
+D(α, β) = Tr(C_α ρ C_β†).
+```
+
+When the off-diagonal terms vanish sufficiently for the intended description, diagonal terms provide additive probabilities for the chosen family. Without that condition, interference contributes. Arbitrary incompatible families cannot simply be pooled into one classical probability tree. Decoherent-histories work supplies the relevant discipline here. [R01]
+
+Multiway graphs remain useful pictures: alternative paths, convergence, and shared dependence become visible. A quantum multiway representation must carry amplitudes or an equivalent quantum process structure. Counting graph paths alone discards part of the physics.
+
+## Relative presents
+
+A present membrane is the program's image for a boundary through which a situated process is described. In a relativistic model, a spacelike hypersurface may serve this purpose. Its specification involves geometry and a choice of frame or slicing. A worldline at one event does not, on its own, choose a unique global hypersurface.
+
+Different admissible sections can represent the same physical situation. Their descriptions must be related by the appropriate dynamics and frame transformations. Quantum reference-frame research gives explicit constructions in controlled settings; relational quantum hypersurfaces provide a particularly close intellectual neighbor. [R02–R04]
+
+The framework uses this family of descriptions rather than demanding one privileged universal membrane. Some physical perspectives are better represented by local regions, worldtubes, or interfaces than by a whole-universe slice.
+
+## Local access and global correlations
+
+A subsystem S has a reduced state ρ_S obtained by tracing out its environment E. This state predicts the statistics of measurements performed on S at that boundary. Predicting subsequent interactions can require the joint state ρ_SE and the dynamics that couple them.
+
+Two joint states may have the same local marginals yet yield different later behavior. The local present therefore need not be a complete standalone specification of continuation. The complete relevant joint state, together with the laws, carries the information needed in the ordinary unitary model. Part 13 demonstrates this with two classical correlations embedded in a two-qubit system.
+
+Quantum probabilities are supplied by the quantum state and Born rule. Missing local information and intrinsic quantum uncertainty are related features of prediction, but they are not interchangeable explanations.
+
+## Nonlocality and the block picture
+
+Entangled correlations can span distant regions of the shared object. A block description makes their common preparation and subsequent interactions available in one account. It does not reduce Bell correlations to ordinary local hidden variables: Bell's result constrains precisely that sort of explanation under its assumptions. [R05]
+
+The useful move is to represent correlations where they physically belong instead of forcing them into isolated objects. This supplies a coherent setting for perspectival accounts, without adding a mechanism that transmits controllable signals outside the relevant causal structure.
+
+## What this foundation provides
+
+Ω_phys is the source of continuation constraints. Perspectives inherit their possibilities from it. Physical state space, causal accessibility, coherent interference, and stable records determine what can be combined and what can be distinguished. The later consequence object must preserve these constraints when it compresses the description.
+
+Further reading: decoherent histories [R01]; quantum reference frames [R02, R03]; matter relative to quantum hypersurfaces [R04]; Bell's theorem [R05]; quantum channels and distinguishability [R06, R07].

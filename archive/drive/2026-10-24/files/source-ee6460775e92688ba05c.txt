@@ -1,0 +1,448 @@
+CONSEQUENCE-PRESERVING COMPRESSION
+v2.5 checkpoint
+Current through 21 September 2026
+
+CURRENT STATUS
+
+Once a physically situated Perspective and its residual continuation are identified, the next problem is compression.
+
+The goal is to remove descriptive redundancy while preserving every distinction that changes consequential continuation at the chosen physical scale of analysis.
+
+The core question is:
+
+    What is the smallest representation of the past or present that preserves the physically consequential future?
+
+This problem connects the project to mature work in causal states, predictive state representations, sufficient statistics, process tensors, quantum strategies, rate-distortion theory, information bottlenecks, bisimulation, model reduction, and operational process discrimination.
+
+These mathematical tools do not define the underlying ontology. They provide ways to represent and compress a consequence structure that is already physically grounded.
+
+
+1. WHY COMPRESSION IS NECESSARY
+
+A universal physical description contains vastly more detail than any local consequential description needs.
+
+Examples of potentially redundant information include:
+
+- microscopic labels with no effect on later dynamics;
+- thermal fluctuations that rapidly mix away;
+- alternative descriptions related by symmetry;
+- historical details whose future effects have completely recombined;
+- inaccessible environmental degrees of freedom;
+- duplicate encodings of the same physical distinction.
+
+If every microdifference were counted separately, any measure of possibility richness would be dominated by raw state-space size.
+
+The program therefore seeks a representation that preserves what matters to continuation while eliminating distinctions that are future-equivalent.
+
+
+2. THE RESIDUAL CONTINUATION MAP
+
+Let h denote a physically realizable history or conditioning state.
+
+Map it to its residual continuation process:
+
+    h -> Upsilon_P^h.
+
+This separates two kinds of information.
+
+Historical information:
+
+    what physically happened in detail.
+
+Continuation information:
+
+    what physical process remains possible after that history.
+
+The project is primarily interested in the second when constructing consequence geometry.
+
+Many histories may therefore map to the same continuation.
+
+
+3. EXACT PREDICTIVE EQUIVALENCE
+
+In an ordinary stochastic process, two histories h and h' can be called predictively equivalent when
+
+    Pr(future | h) = Pr(future | h').
+
+For a controlled system, the requirement must hold under every physically relevant future action policy pi:
+
+    Pr(Y_future^pi | h)
+        =
+    Pr(Y_future^pi | h')
+
+for all pi.
+
+The equivalence classes define predictive states.
+
+This construction is attractive because it does not group histories by superficial similarity. It groups them according to identical continuation.
+
+In the project, the same idea is applied only after the physical Perspective and continuation structure are identified.
+
+
+4. CAUSAL STATES
+
+Computational mechanics provides a particularly clean uncontrolled example.
+
+Define
+
+    h ~ h'
+
+iff
+
+    Pr(X_future | h)
+        =
+    Pr(X_future | h').
+
+The resulting equivalence classes are causal states.
+
+They form a minimal exact predictive representation under standard conditions.
+
+This is closely aligned with the project's desired compression principle:
+
+    retain only distinctions in the past that make a difference to continuation.
+
+Causal-state machinery is therefore a natural mathematical reference point for classical finite models.
+
+
+5. PREDICTIVE STATE REPRESENTATIONS
+
+Predictive State Representations extend the idea to controlled systems.
+
+Rather than representing a system through an assumed hidden latent state, a PSR represents it through predictions of outcomes of future experiments or action-observation sequences.
+
+A state can be represented schematically by
+
+    s(h)
+        =
+    { Pr(test succeeds | h) }_tests.
+
+This is useful for consequence compression because a physically situated system is defined partly through what continuation it supports under intervention.
+
+The representation can therefore encode future behavior directly rather than reconstructing an arbitrary microscopic latent state.
+
+
+6. QUANTUM PROCESS REPRESENTATIONS
+
+The quantum analogue requires more than a probability distribution over future observations.
+
+Multi-time quantum processes can contain:
+
+- memory;
+- temporal entanglement;
+- intervention dependence;
+- non-Markovian correlations;
+- incompatible instruments;
+- coherent alternatives.
+
+Quantum combs, process tensors, and quantum strategies provide mature carriers for this structure.
+
+The residual continuation can therefore be represented schematically as
+
+    Upsilon_P^h
+        =
+    conditional quantum process after h.
+
+Two histories can then be considered continuation-equivalent when they induce the same conditional process.
+
+This is stronger than matching one measurement distribution. It preserves how the process would respond to the whole physically relevant range of later interactions.
+
+
+7. MINIMAL SUFFICIENT REPRESENTATION
+
+Let S_P(h) denote a compressed state of history h.
+
+An exact sufficient representation should satisfy:
+
+    S_P(h) = S_P(h')
+        implies
+    Upsilon_P^h = Upsilon_P^h'.
+
+A minimal sufficient representation retains no distinction that can be removed without losing continuation information.
+
+The ideal exact pipeline is
+
+    h
+        -> Upsilon_P^h
+        -> S_P(h).
+
+The first map is supplied by physical dynamics.
+
+The second removes redundancy.
+
+
+8. APPROXIMATE COMPRESSION
+
+Exact equality is often too strict.
+
+Real physical systems are noisy, continuous, large, and computationally inaccessible. Two continuation processes may differ only by a physically negligible amount.
+
+This leads to approximate compression.
+
+Let D_cont be a physically meaningful distance between continuation processes.
+
+Then seek a compressed representation Z satisfying approximately
+
+    D_cont(
+        Upsilon_P^H,
+        Upsilon_P^Z
+    )
+        <= epsilon
+
+on average or with a suitable worst-case criterion.
+
+One schematic optimization is
+
+    minimize representation complexity
+
+subject to
+
+    expected continuation distortion <= epsilon.
+
+An information-theoretic version may take the form
+
+    minimize I(H;Z)
+
+subject to
+
+    E[D_cont(Upsilon^H,Upsilon^Z)] <= epsilon.
+
+The exact objective need not be universal. The important principle is maximal compression subject to bounded loss of consequential continuation.
+
+
+9. PREDICTIVE RATE-DISTORTION
+
+Predictive rate-distortion theory studies precisely this tradeoff.
+
+The past is compressed while preserving information relevant to the future.
+
+As the allowed distortion approaches zero, the representation approaches exact predictive sufficiency.
+
+As distortion tolerance increases, increasingly fine distinctions are merged.
+
+This gives a natural multiscale family of consequence-preserving descriptions.
+
+Rather than introducing an arbitrary ontological cutoff, the program can study how continuation structure simplifies as physically meaningful resolution changes.
+
+
+10. INFORMATION BOTTLENECK
+
+The information bottleneck provides a related template.
+
+One seeks a representation Z of past information H that compresses H while retaining information about a relevance variable Y:
+
+    maximize predictive relevance
+    while minimizing retained past information.
+
+For the present program, the relevance object is not merely a selected label Y. It is the physical residual continuation.
+
+This makes the conceptual target a process-level or future-structure information bottleneck.
+
+
+11. OPERATIONAL PROCESS DISTANCE
+
+Approximate compression requires a distance or divergence between continuation processes.
+
+For ordinary probability distributions, total variation or related statistical distances may suffice.
+
+For quantum states, trace distance measures optimal single-shot discrimination advantage.
+
+For quantum channels, diamond-norm-type distances capture discrimination under ancillary assistance.
+
+For multi-time strategies or process tensors, strategy norms and interactive process discrimination provide higher-order analogues.
+
+The general operational idea is:
+
+    two continuations are close when no physically available interaction can make them behave very differently.
+
+Within the current topology-first program, such distances are ways of characterizing physical separation in continuation space, not arbitrary choices of semantic relevance.
+
+
+12. DATA PROCESSING
+
+A sensible consequence compression should respect data processing.
+
+If two continuation states are already close, applying the same downstream physical transformation should not create a larger distinguishability than the transformation itself physically permits.
+
+This is captured by contraction properties of many operational distances.
+
+Schematically,
+
+    D(
+        Phi(Upsilon),
+        Phi(Upsilon')
+    )
+        <=
+    D(
+        Upsilon,
+        Upsilon'
+    )
+
+for an appropriate physical map Phi.
+
+Data-processing behavior is important because it prevents representation from inventing consequence that the physical process does not contain.
+
+
+13. OVERLAP AS DERIVED STRUCTURE
+
+Once a distance D_cont has been physically justified, an overlap measure need not be introduced independently.
+
+One can define, for example,
+
+    O(Upsilon,Upsilon')
+        =
+    Psi(D_cont(Upsilon,Upsilon'))
+
+for a monotone decreasing function Psi.
+
+Exact equivalence is the limiting case
+
+    D_cont = 0.
+
+Thus overlap, similarity, and partial redundancy can be treated as derived features of consequence geometry.
+
+This is preferable to postulating a separate overlap axiom without connection to physical continuation.
+
+
+14. RECOMBINATION UNDER COMPRESSION
+
+Suppose two histories differ for a time but eventually induce the same residual continuation.
+
+Then compression naturally merges them:
+
+    h != h'
+
+but
+
+    S_P(h) = S_P(h').
+
+This is effective recombination.
+
+Nothing requires the universal physical history to be deleted. The compressed consequence state simply records that the old distinction no longer changes continuation.
+
+This distinction between physical history and current consequence state is central to the program.
+
+
+15. MEMORY AND NON-MARKOVIANITY
+
+A compressed present need not be Markovian in the naive state-variable sense.
+
+If the future depends on long-range historical information, then the sufficient predictive state must retain whatever memory is necessary.
+
+This may be:
+
+- a finite hidden state;
+- a belief state;
+- a recurrent predictive state;
+- a process-tensor memory;
+- a causal-state class;
+- an infinite-dimensional sufficient statistic.
+
+The compression principle does not assume that the world is memoryless.
+
+It asks instead:
+
+    what is the smallest state that makes the remaining continuation conditionally complete?
+
+
+16. COMPUTATIONAL IRREDUCIBILITY
+
+The exact consequence state may be well defined even when a bounded agent cannot calculate it efficiently.
+
+This motivates distinguishing:
+
+    physical consequence state
+
+from
+
+    computational approximation to the consequence state.
+
+A finite agent may maintain
+
+    Shat_P^C
+
+under computational budget C.
+
+As C increases, the approximation may improve without ever reconstructing the universal process in full.
+
+This provides a natural place for bounded rationality, model uncertainty, and approximate control later in the program.
+
+
+17. MODEL REDUCTION
+
+Several mature reduction methods are relevant implementation tools.
+
+Examples include:
+
+- balanced truncation;
+- Hankel singular-value methods;
+- Mori-Zwanzig projection;
+- state aggregation;
+- bisimulation and approximate bisimulation;
+- spectral model reduction;
+- tensor-network compression.
+
+These methods are useful insofar as they preserve continuation-relevant behavior.
+
+The project does not require one universal algorithm. Different physical regimes may admit different efficient representations of the same general compression principle.
+
+
+18. COMPRESSION AND CAUSAL STRUCTURE
+
+A valid compression should preserve not only passive prediction but also the relevant intervention structure.
+
+Two states can produce the same uncontrolled trajectory distribution while responding differently to intervention.
+
+If those interventions are physically available, the states are consequentially distinct.
+
+Therefore the appropriate compressed object in agentive or controlled settings is generally closer to an intervention-aware process state than to a passive forecast distribution.
+
+
+19. COMPRESSION AND QUANTUM COHERENCE
+
+A compression that replaces every coherent alternative by a classical mixture too early can destroy real future consequence.
+
+If relative phase remains capable of affecting later interference, it must remain represented.
+
+Only after the relevant coherence has become physically inaccessible or decohered can an approximately classical compression merge the alternatives without losing continuation information.
+
+This is a central quantum constraint on the compression program.
+
+
+20. COMPRESSION ACROSS SCALE
+
+The same physical process may support useful consequence representations at several scales.
+
+At fine scale, many microscopic distinctions remain.
+
+At intermediate scale, fast-mixing details disappear while stable control variables remain.
+
+At macroscopic scale, the compressed state may consist of objects, agents, records, institutions, or ecological variables.
+
+A successful program should show how these descriptions relate through lawful coarse-graining rather than treating one level as uniquely fundamental for all purposes.
+
+
+21. FROM COMPRESSION TO GEOMETRY
+
+After continuation-equivalent or approximately redundant states are merged, what remains is a space of nonredundant consequence states.
+
+Call this space schematically
+
+    Gamma_P.
+
+Gamma_P is not merely a set.
+
+It inherits structure from:
+
+- the physical topology of continuation;
+- process composition;
+- causal relations;
+- operational distinguishability;
+- conditioning dynamics;
+- quantum interference and decoherence;
+- physical weights.
+
+The next question is:
+
+    What geometry does this compressed consequence space carry?
+
+That geometry is the subject of the next document.

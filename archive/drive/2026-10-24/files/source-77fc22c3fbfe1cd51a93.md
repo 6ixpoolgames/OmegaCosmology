@@ -1,0 +1,45 @@
+# Omega research packages — structural probes and unrestricted lushness
+
+23 September 2026
+
+This folder accompanies Parts 04–05, 09–10, 13–14, and 16 of the primer. It preserves the runnable evidence behind the structural results and the separate proposal for exploring lushness as an unrestricted adjudicator.
+
+## Files and reading order
+
+1. [Probes 1–3](Lushness_Probes_1-3_2026-09-23.zip): covariance sufficiency, calibration, and rare broad alternatives. Extract the archive and read `MODEL_SPEC.md`, then `REPORT.md`.
+2. [Continuation dependency test](Continuation_Dependency_Test_2026-09-23.zip): a reversible three-bit device testing whether the omitted dependency affects an available conditional continuation. Read `MODEL_SPEC.md` and `REPORT.md`; the source enumerates all 70 balanced one-bit readouts.
+3. [Unrestricted lushness research branch](Lushness_Consequentialism_Research_Branch.md): the stronger evaluative commitment, parameter-space distinctions, and eventual policy comparisons. This is a research proposal, not an inference that the structural probes establish its ethics.
+
+Both archives contain code, requirements, machine-readable results, explanatory reports, figures, and SHA-256 manifests. Plain-text copies of this index and the branch note are included. The primer's Parts 13–14 contain the essential example and derivations for readers who do not run the code.
+
+## Reproduction
+
+Use Python 3 and install the dependencies listed in each extracted package's `requirements.txt`. From the directory containing that package's script:
+
+```text
+python run_probes.py --out results
+python run_test.py --out results
+```
+
+Run each command in its own package directory. The calculations use finite enumeration, not sampling or training. The continuation dependency test uses rational arithmetic for probability laws, moments, and discrete comparisons; entropy and figures use floating point. Recorded calculation times were below a second per core experiment after imports, with figure generation adding modest overhead. Runtime depends on the environment.
+
+## What the evidence supports
+
+- Means and covariance can omit a higher-order dependency while the full joint representation retains it.
+- A permitted reversible continuation converts that dependency into a difference in input transfer through a specified receiver. The covariance summary cannot support an exact update for this family.
+- Pulling the future readout back through the dynamics identifies the missing observable XYZ; the complete product basis reconstructs the joint law.
+- Weighted covering and a declared similarity-sensitive diversity detect the conditional response difference. Receiver-only simulation supplies an independent capability comparison.
+- Candidate calibration can reverse comparisons. Transporting a metric with a coordinate change prevents a spurious units-induced reversal.
+- Support count and occurrence weight behave differently. A conditional rare-event bound holds for a fixed bounded-feature covariance construction and saturates with increasing breadth.
+
+## What remains to be tested
+
+The tests do not rank complete worlds by value, identify information transfer with generativity, or validate a universal lushness score. Equal scalar scores for different processes are not automatically wrong. The full model retains the input and every register output; the receiver interface defines a physical relation within that object.
+
+The immediate continuation is the structural sequence in Part 16: observable closure, composition of response geometry, robustness to calibration and representation, and distinctions between random variation and the formation of further attainable responses. The branch note's richer policy environments are later possibilities, not the next required experiment.
+
+When transferring this work to a local Codex instance, retain each exact model specification and its negative controls. Keep physical circumstances, proposed evaluation, and approximation error separate. Do not reward generativity, persistence, plurality, or repair as extra terms merely to recover an expected result; investigate whether their contributions follow from the continuation structure.
+
+## Sources
+
+The primer's references identify the borrowed quantum process, predictive-equivalence, and diversity machinery. In particular, R35 attributes similarity-sensitive diversity to Leinster and Cobbold, and R36 supplies interactive quantum strategy distance. The finite register identities are stated and derived directly in Part 14. The research claim is the relevance and limits of these tests for this program.
