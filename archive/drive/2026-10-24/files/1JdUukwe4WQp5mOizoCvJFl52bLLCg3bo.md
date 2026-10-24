@@ -1,0 +1,122 @@
+# 16 — Research program and claim map
+
+## The next decisive question
+
+The central question is how value relates to the physically structured possibilities for its instantiation. Lushness is the leading proposal for characterizing that possibility. The stronger ambition is to determine whether the complete object can also explain value itself.
+
+Two linked tasks support this inquiry: construct a faithful continuation object, and investigate the relation between its organization and valuation. The physical work can proceed without a completed theory of value. The value inquiry can examine concrete organizations and relationships without waiting for a universal numerical measure. A finite result should state which connection it establishes.
+
+## Completed finite probes
+
+The finite baseline establishes the following results. These are elementary consequences of the declared probability models, supported by exact enumeration and reproducible calculations.
+
+| Probe | Result | Consequence for the program |
+| --- | --- | --- |
+| Three-bit dependency | P_t=(1+tXYZ)/8 has identical means and covariance for all t while its joint law changes. | Covariance is not the full representation; a scalar tie alone does not establish a wrong value ranking. |
+| Calibration and coordinate transport | Explicit preparations exchange covariance-score rank at q(1+β)=3. Transporting the feature metric preserves the score under changes of units. | Separate a genuine evaluation parameter from arbitrary coordinate artifacts; not every preparation can win in a fixed family. |
+| Rare broad alternatives | Support remains m+1 as its rare mass p tends to zero. A fixed unit-feature covariance construction satisfies L_cov≤βp uniformly in m. | Retain occurrence weights; the tail bound is conditional and trades breadth sensitivity for saturation. |
+| Continuation dependency | Reversible composition exposes the missing XYZ dependency as receiver separation abs(t). All 70 balanced one-bit decoder readouts are classified. | The omission hides a real conditional capability; the full joint continuation object predicts it correctly. |
+| Observable completion and response profiles | Pullback of the future readout requires XYZ. Weighted covers and declared D₂ diversity detect the resulting response separation. | Let permitted tests determine sufficient observables before evaluating candidate comparisons. |
+
+The continuation package also verifies a receiver-only simulation order: stronger parity channels can reproduce weaker ones through stochastic postprocessing, with the converse excluded by contraction. The order concerns the specified transfer relation. It does not rank whole preparations, prove generativity, or assign moral status.
+
+The [research folder](https://drive.google.com/drive/folders/1GA_6q5ism9fQoU13AuaEfIITwizyVrW1) contains both runnable archives and the unrestricted-branch note. The downloadable primer includes the same files under `research/`, with an index describing assumptions, commands, results, and scope. Each probe archive contains its model specification, code, results, and checksum manifest.
+
+## The next structural tests
+
+Continue at the level of physical continuation before constructing policy ecologies. The next useful comparisons should ask:
+
+1. Does closure under the declared future tests yield a manageable sufficient observable space, and when does it require the full joint description?
+2. Do weighted covers and similarity-sensitive diversity retain the relevant response distinctions when interactions are composed or the horizon is extended? Test response families with equal pairwise distances and weights but different permitted future composition.
+3. Which rankings survive changes of coordinates, equivalent representations, physical input distribution, similarity calibration, and interface? These changes have different meanings and should be varied separately.
+4. Can one distinguish extensive random variation from structure that changes later attainable response families without adding a generativity bonus? If a candidate ties them, identify whether it omitted a tested capability or simply remains insufficient to settle an overall comparison.
+
+No canonical distribution over counterfactual actions is assumed. Use a declared physical source where available, or retain conditional and support profiles. An interface restriction specifies the tested physical relation; it does not turn bounded access into the global target.
+
+## Track A: build the physical carrier
+
+Start with finite quantum circuits and finite controlled stochastic systems. Specify an interface, initial joint state, dynamics, admissible interventions, conditioning records, and horizon. Construct the exact response object for systems small enough to enumerate or simulate.
+
+Use the worked examples as acceptance cases. A candidate must distinguish states whose phase becomes observable later and joint states with identical marginals but different continuation. It must preserve quantum eraser normalization and the equality of the recombined marginal. It should explain any equivalence through the physical access restriction that produces it.
+
+**Deliverable:** a documented residual-process representation with tested composition and conditioning operations, plus exact and approximate equivalence procedures for its declared domain.
+
+## Track B: investigate consequence geometry
+
+Apply several probes to the same carrier: discrimination distances, covering profiles, effective dimension, covariance-based summaries, memory structure, and reachable transformations. Keep the underlying process accessible so that a surprising score can be traced to a real structural difference.
+
+Vary horizon, resolution, input access, and resource assumptions independently. A change caused by opening a new physical interface is different from a change caused by rescaling a feature coordinate. Confirm which transformations each candidate treats as invariant.
+
+Include a maximally revealing case: closed unitary dynamics with unrestricted global access. Distinguishability is then preserved, so any claimed universal erasure of microscopic consequence must be examined closely. A useful reduced geometry must identify the physical or effective restriction supporting it.
+
+**Deliverable:** a family of geometry profiles with explicit domain maps and counterexamples to proposed invariances.
+
+## Track C: investigate value-capable lushness
+
+Investigate endogenous significance, the generation of new forms of valuation, coupled valuation, and the relationship between capacity and realization. These are live angles on an open concept of value, not replacement definitions. Candidate criteria for valuerhood should remain broad enough to encounter unfamiliar organizations.
+
+Compare systems under matched resource and interaction conditions. Useful cases include repetition, persistent memory, an adaptive process, a sterile replicator, and a generative ecology. Compare independent and commonly exposed copies, and centralized and distributed implementations with matched capabilities. Include cases where a concentrated realization depends on a broad supporting substrate, where immediate gains erode future capacity, and where indefinite preservation prevents the use of that capacity.
+
+Test whether generativity and persistence emerge in candidate lushness rather than being supplied as score components. Distinguish capacity from realization and low-weight support from substantial probability. Noise, mixing, and durable random records provide additional checks on overlap and situated consequence; a successful candidate need not declare gas universally valueless.
+
+**Deliverable:** a research report separating physical distinctions, candidate value-capable structure, and claims about value. Show what would favor identifying lushness with value, retaining it as a capacity measure, or using several structural properties. Preserve failed comparisons and unresolved cases rather than repairing the definition to fit preferred examples.
+
+## Track D: connect to agency and recovery
+
+Use explicit policy-sensitive systems with disturbances, limited resources, and repair actions. Identify which endogenous organizations create additional continuation routes. Compare individual, pairwise, and joint compatibility rather than relying on marginal scores.
+
+Study self-modification by allowing actions to alter the controller or its interface. Ask which identity and continuation relations remain preserved. Include cases in which an improved aggregate output destroys an individual's repair route or removes independent correction.
+
+**Deliverable:** finite models connecting process structure to viability corridors, policy atlases, regeneration, and excisive versus generative control.
+
+## Track E: develop Gradient Ethics and ODT
+
+Choose concrete ethical cases and state the commitment to consideration for possible value, the uncertainties about its instantiation, and the requirements adopted for the decision. Examine how rights-like protections, justice, cooperation, and defensive capability address recurring vulnerabilities in coupled continuation. Include the consequences of inaction and cases where protection of one process threatens the conditions of others.
+
+Compare ethical policy families through what they preserve, enable, overlook, or foreclose across regimes. Vary horizons, recoverability, dependence, coordination costs, and power asymmetry. Distinguish a policy's structural justification, an actor's motivation to adopt it, and the capability to enforce it. Familiar moral intuitions are hypotheses to investigate within these dynamics.
+
+Include the unrestricted lushness branch. Separate physical circumstances φ, candidate evaluation parameters θ, and information or approximation limits η. Map winner regions and ties rather than tuning one preferred outcome. Compare exact and bounded evaluation, with and without independent ethical protections, while retaining physical constraints and all modeled consequences. An exact restriction cannot improve the maximum of the same objective over the same action set; institutional commitments that alter the world must be represented as actions.
+
+Compare candidate value–valuer accounts independently of the lushness definition. Their agreement with a structural score can support a conditional interpretation; defining them to favor the score would make the test circular. Keep the permissibility of sacrifice, the role of plurality, and the capacity-versus-realization question open to the results.
+
+Evaluate ODT by error detection and decision transparency. Does it expose an unrealizable repair? Does it keep individual and joint feasibility separate? Does it preserve a genuine conflict rather than burying it in a score? Does it support proportionate action under urgency?
+
+**Deliverable:** a set of decision case studies with model-to-world obligations and clearly attributed arbitration rules. No universal capability advantage is required for this work to be useful.
+
+## Track F: extend perspective carefully
+
+After the finite carrier is stable, work on quantum reference-frame transformations, field-theoretic interfaces, and relative hypersurfaces. Identify what changes when the system/environment decomposition changes or when a convenient tensor factorization is unavailable.
+
+Awareness research should specify candidate κ relations and what observations or conceptual constraints distinguish them. Alpha–Omega generalization should specify structure-preserving mappings from broader possibility models into physical realizations. These tracks can inform the core without dictating its empirical conclusions.
+
+**Deliverable:** explicit extensions with inherited results, newly required assumptions, and concrete questions that the extension makes possible.
+
+## Claim map
+
+**Established tools:** quantum states, channels, instruments, Born probabilities, decoherence, process descriptions, relational constructions in their published domains, predictive equivalence, and viability methods. The references identify the borrowed machinery.
+
+**Framework vocabulary:** perspective as situated continuation; focus as a boundary or conditional organizer; consequence and deformation as differences in continuation; identity invariant; excisive and generative control; the ODT stages. Lushness names a research target concerning value-capable possibility. Valuerhood has provisional criteria; value itself is left open.
+
+**Direct finite results in this packet:** continuation equivalence; horizon refinement for nested testers; an encoding-error bound; operational contraction under tester closure; a covariance closure counterexample and its observable completion; conditional transfer and receiver simulation in a reversible three-bit model; fixed-trace covariance spread; an exact calibration boundary; a bounded-feature rare-event estimate; weighted-cover and D₂ calculations on an explicit response ensemble; elementary compatibility implications and counterexamples.
+
+**Hypotheses under investigation:** that physical consequence structure supports a faithful characterization of value-capable richness; that generative organization has characteristic contributions to it; that a stronger account may explain value itself; that identity invariants can be coherently transported across deep transformation; and that a broader Alpha–Logos construction can recover physical realizations. No universal maximization rule follows merely from identifying a physical profile.
+
+**Phenomenal and metaphysical conjectures:** universal habitation, candidate physical/phenomenal coupling, and theological redescriptions.
+
+**Foundational dependence claim:** value requires valuers. This motivates investigation of the substrate and its continuation without defining value by the proxy.
+
+**Normative commitment:** possible value warrants consideration in action, including uncertainty about its bearers and enabling conditions. GE investigates the consequences of this commitment for protection, justice, and defense. Particular requirements, authority, and arbitration still need justification; candidate valuerhood does not automatically establish a right to unlimited continuation.
+
+**Stronger research commitment:** maximize genuine possibility for value if it can be faithfully characterized. The unrestricted branch examines this proposal separately from the weaker commitment to consideration. No current structural probe establishes the stronger commitment, validates a universal lushness measure, or derives familiar rights from it.
+
+## Working discipline for collaborators
+
+Each probe should state its question, physical assumptions, representation, test domain, expected discriminations, and conditions for failure before choosing a scoring function. Keep exact calculations beside approximations. Record random seeds, tolerances, resource matching, and all normalization factors when they apply. The present exact tests establish comparisons under common interfaces and operation classes; they do not establish equal preparation costs.
+
+Use established mathematical machinery where it fits. Name the borrowed result and its domain. When a construction fails, classify the failure: physics, representation, approximation, candidate statistic, or normative interpretation. These failures call for different repairs.
+
+Do not quietly strengthen valuerhood to force cooperation, build generativity into lushness, or replace global consequence with a convenient accessible proxy. Do not install a formal theory of stakes as an unexamined intermediate layer. Conversely, do not demand a solved theory of consciousness before investigating physical continuation. The program advances by resolving dependencies in the order that the questions require.
+
+Neighboring work on endogenous normativity [R32], semantic information [R33], and causal effects on future trajectories [R34] supplies concrete constructions and related questions. Borrow results where their assumptions fit, while keeping the stronger value question explicit. Scope and formal maturity should be assessed claim by claim.
+
+A successful next paper could present a sound carrier, a few discriminating examples, and a precise map of remaining choices. The objective is to make the intuitive object inspectable enough that evidence can improve it.

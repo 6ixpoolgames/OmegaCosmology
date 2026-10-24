@@ -1,0 +1,1769 @@
+# Omega Cosmology — complete primer
+
+Project Omega · 23 September 2026
+
+This edition collects all 18 parts in reading order. Each chapter is also available separately. Reference labels resolve to the bibliography in Part 17. The primer develops physical continuation into a research program for consequence, lushness, agency, and value.
+
+## Contents
+
+- [00 — Orientation](markdown/00_Orientation.md)
+- [01 — The shared physical object](markdown/01_Shared_Physical_Object.md)
+- [02 — Focus and elementary continuation](markdown/02_Focus_and_Continuation.md)
+- [03 — Physical perspectives and relative presents](markdown/03_Physical_Perspectives.md)
+- [04 — Consequence and faithful compression](markdown/04_Consequence_and_Compression.md)
+- [05 — Lushness and the geometry of futures](markdown/05_Lushness.md)
+- [06 — Persistent organization and identity invariants](markdown/06_Identity_Invariants.md)
+- [07 — Recovery, robustness, and regeneration](markdown/07_Recovery_and_Robustness.md)
+- [08 — Agency, valuers, and interacting ecologies](markdown/08_Agency_and_Valuers.md)
+- [09 — Gradient Ethics](markdown/09_Gradient_Ethics.md)
+- [10 — Omega Decision Theory](markdown/10_Omega_Decision_Theory.md)
+- [11 — Awareness and experienced time](markdown/11_Awareness_and_Experienced_Time.md)
+- [12 — Alpha–Omega and the metaphysical horizon](markdown/12_Alpha_Omega_and_the_Metaphysical_Horizon.md)
+- [13 — Worked examples](markdown/13_Worked_Examples.md)
+- [14 — A compact formal core](markdown/14_Formal_Core.md)
+- [15 — Glossary](markdown/15_Glossary.md)
+- [16 — Research program and claim map](markdown/16_Research_Program.md)
+- [17 — References and intellectual neighbors](markdown/17_References_and_Intellectual_Neighbors.md)
+
+# Omega Cosmology: a primer
+
+## 00 — Orientation
+
+Omega Cosmology studies the structure of continuation: how physical situations support, constrain, differentiate, and transform what can follow from them. Its central object is the full structure of consequential possibility. Its practical concern is how processes within that structure—including agents and valuers—alter the conditions of their own and others' continuation.
+
+The program begins with physics, develops a language for perspective and consequence, and uses that language to investigate value and agency. Gradient Ethics is its ethical branch. Omega Decision Theory supplies an architecture for decisions under incomplete knowledge. Awareness and theology enter as interpretations and further questions about the same structure.
+
+The guiding intuition is simple. An action does more than select an immediate outcome. It changes the future conditions under which further outcomes, actions, relationships, discoveries, and valuations become possible. A destroyed library, a repaired ecosystem, a new mathematical language, and a self-modifying machine alter this structure in different ways. Understanding those differences requires more than counting immediate results.
+
+## The structure-first move
+
+The framework adopts a completed description as its organizing viewpoint. Events, records, correlations, and continuations belong to one physical object. A situated process encounters only part of that object, from a particular physical relationship to it. The resulting description is perspectival without being arbitrary: physical coupling, causal access, records, and available interactions constrain it.
+
+“Completed” describes the viewpoint. It does not give a finite observer complete knowledge or imply a single classical trajectory. In a quantum realization, interference, entanglement, and incompatible possible measurements belong to the object. A block-Everett interpretation is a natural home for this picture, while much of the operational work can proceed without settling between interpretations of quantum mechanics.
+
+The program repeatedly makes three moves:
+
+1. Replace isolated objects with the relations and continuation processes that sustain them.
+2. Replace raw multiplicity with physically differentiated consequential structure.
+3. Distinguish what the full object contains from what a bounded model can represent.
+
+These moves connect the physics to the ethics. A convenient proxy can help an agent act, but it cannot redefine the reality against which that action should be assessed.
+
+## The main terms
+
+A **perspective** is a physically situated continuation process. It need not be conscious, intentional, or alive. A **focus** specifies a condition or boundary relation through which compatible quantum contributions are organized. **Consequence** is a difference in continuation. The **futures field** is the structured physical possibility of such continuation; “field” is a conceptual name, not an assertion that it is an additional field in quantum field theory.
+
+**Lushness** is the proposed richness of value-capable possibility in this structure. Physical consequence geometry supplies candidate descriptions; whether they capture that richness is part of the research. **Valuers** are provisionally understood as processes for which distinctions matter endogenously. A **deformer** makes a difference to continuation without thereby being a valuer. **Gradient Ethics** investigates how policies preserve, develop, capture, or foreclose the conditions through which valuation can occur.
+
+The foundational dependence claim is that value requires valuers. Value itself remains open; its possibility in the substrate is the present proxy. GE adopts consideration for that possibility under uncertainty and investigates how rights-like protections, justice, cooperation, and defensive capability serve it. This does not make every instance of persistence good or require every individual continuation to be preserved. The stronger research question is whether the complete structure can explain value itself as well as its enabling conditions.
+
+## How to read the packet
+
+Read Parts 01–05 for the physical and mathematical spine. Parts 06–10 develop identity, recovery, agency, Gradient Ethics, and Omega Decision Theory. Parts 11–12 cover awareness and the metaphysical horizon. Part 13 supplies concrete examples; Part 14 collects the formal core. Parts 15–17 are the glossary, research program, and references.
+
+A reader primarily interested in alignment can read this orientation, Parts 05 and 07–10, then return to the physical foundations. A technical collaborator should also read the worked examples and formal core before designing experiments. An LLM ingesting the packet should use the complete edition and keep the distinction between definitions, hypotheses, and results intact.
+
+## How claims are presented
+
+Established mathematical tools retain their established meaning. Framework definitions introduce the program's vocabulary. Hypotheses identify proposed connections to be investigated. Explicit propositions in the formal core have short derivations and stated domains. Open work is collected in Part 16 rather than repeated as a disclaimer throughout the text.
+
+The program's contribution is the assembled research question and its discipline of consequence-preserving description. Quantum mechanics supplies a substantial backbone; it does not by itself establish a universal measure of lushness, a theory of consciousness, or an ethical ordering. The primer shows how to work on those questions without confusing them.
+
+The ambition is a coherent account that extends from elementary continuation to the conditions of value. The immediate task is concrete: identify what must be retained when describing how a physical difference changes what can follow.
+
+---
+
+# 01 — The shared physical object
+
+## One object, many situated descriptions
+
+Begin with a lawful physical world, including its states, interactions, causal relations, and boundary conditions. Call its complete physical description Ω_phys. The symbol does not presuppose that this description is a finite data structure or that any inhabitant can calculate it.
+
+In a closed quantum model, a state and unitary dynamics provide a familiar realization. In relativistic settings, local observables, causal regions, and states on suitable hypersurfaces provide a more appropriate language. These are ways to represent one underlying physical situation at different levels of scope.
+
+The block viewpoint places the relations among events within the description rather than adding a privileged present that advances through it. Physical clocks, records, changing organisms, and deliberating agents still occur. Their succession is an internal relation. An agent's action matters through the dependencies it participates in, whether the theorist describes those dependencies sequentially or all at once. Everett's relative-state formulation supplies a foundational quantum neighbor. [R28]
+
+## Quantum alternatives have structure
+
+A quantum superposition is more than a list of classical possibilities. Relative phase can change later outcomes. Entangled systems possess correlations that their reduced states do not specify. A decomposition into vectors is not automatically a decomposition into physically autonomous worlds.
+
+For this reason, the framework's “branches” should be read according to context. In a decohered regime they can denote approximately autonomous histories with stable records. Before that regime, they can denote interfering contributions to an amplitude. The mathematical carrier must retain the difference.
+
+For a sequence of projectors at specified times, a histories construction uses class operators C_α and a decoherence functional:
+
+```text
+D(α, β) = Tr(C_α ρ C_β†).
+```
+
+When the off-diagonal terms vanish sufficiently for the intended description, diagonal terms provide additive probabilities for the chosen family. Without that condition, interference contributes. Arbitrary incompatible families cannot simply be pooled into one classical probability tree. Decoherent-histories work supplies the relevant discipline here. [R01]
+
+Multiway graphs remain useful pictures: alternative paths, convergence, and shared dependence become visible. A quantum multiway representation must carry amplitudes or an equivalent quantum process structure. Counting graph paths alone discards part of the physics.
+
+## Relative presents
+
+A present membrane is the program's image for a boundary through which a situated process is described. In a relativistic model, a spacelike hypersurface may serve this purpose. Its specification involves geometry and a choice of frame or slicing. A worldline at one event does not, on its own, choose a unique global hypersurface.
+
+Different admissible sections can represent the same physical situation. Their descriptions must be related by the appropriate dynamics and frame transformations. Quantum reference-frame research gives explicit constructions in controlled settings; relational quantum hypersurfaces provide a particularly close intellectual neighbor. [R02–R04]
+
+The framework uses this family of descriptions rather than demanding one privileged universal membrane. Some physical perspectives are better represented by local regions, worldtubes, or interfaces than by a whole-universe slice.
+
+## Local access and global correlations
+
+A subsystem S has a reduced state ρ_S obtained by tracing out its environment E. This state predicts the statistics of measurements performed on S at that boundary. Predicting subsequent interactions can require the joint state ρ_SE and the dynamics that couple them.
+
+Two joint states may have the same local marginals yet yield different later behavior. The local present therefore need not be a complete standalone specification of continuation. The complete relevant joint state, together with the laws, carries the information needed in the ordinary unitary model. Part 13 demonstrates this with two classical correlations embedded in a two-qubit system.
+
+Quantum probabilities are supplied by the quantum state and Born rule. Missing local information and intrinsic quantum uncertainty are related features of prediction, but they are not interchangeable explanations.
+
+## Nonlocality and the block picture
+
+Entangled correlations can span distant regions of the shared object. A block description makes their common preparation and subsequent interactions available in one account. It does not reduce Bell correlations to ordinary local hidden variables: Bell's result constrains precisely that sort of explanation under its assumptions. [R05]
+
+The useful move is to represent correlations where they physically belong instead of forcing them into isolated objects. This supplies a coherent setting for perspectival accounts, without adding a mechanism that transmits controllable signals outside the relevant causal structure.
+
+## What this foundation provides
+
+Ω_phys is the source of continuation constraints. Perspectives inherit their possibilities from it. Physical state space, causal accessibility, coherent interference, and stable records determine what can be combined and what can be distinguished. The later consequence object must preserve these constraints when it compresses the description.
+
+Further reading: decoherent histories [R01]; quantum reference frames [R02, R03]; matter relative to quantum hypersurfaces [R04]; Bell's theorem [R05]; quantum channels and distinguishability [R06, R07].
+
+---
+
+# 02 — Focus and elementary continuation
+
+## The intuition
+
+Focus names a relation between a situated boundary and the compatible quantum contributions that connect to a specified condition. Imagine asking how a prepared system could reach a particular detector effect. The condition organizes the relevant contributions; the dynamics supplies their propagation and interference.
+
+A focus can be a physical detector condition, a boundary constraint, or a mathematical query about a possible endpoint. It does not require attention, intention, agency, or an actual future measurement. These become particular implementations of the more general relation.
+
+This gives the prism imagery a precise role. Changing the question can resolve the same physical process differently. Performing a different physical interaction can also change the process. Both matter, and the equations distinguish them.
+
+## A minimal construction
+
+Let ρ be the state at a chosen boundary, E a quantum channel carrying it to another boundary, and F an effect there, with 0 ≤ F ≤ I. The probability associated with F is:
+
+```text
+p(F | ρ) = Tr[F E(ρ)] = Tr[E*(F) ρ].
+```
+
+E* is the dual channel. It brings the endpoint question back to the earlier boundary. The pair consisting of the forward state and backward-propagated effect describes a focus without asserting that a later event causes the earlier state to change. Channels and effects already supply this machinery. [R06, R07]
+
+An intermediate instrument {M_k}, consisting of completely positive operations whose sum is trace preserving, gives:
+
+```text
+p(k | F, ρ) = Tr[F E₂(M_k(E₁(ρ)))]
+              / Σ_j Tr[F E₂(M_j(E₁(ρ)))].
+```
+
+Here the denominator must be nonzero. It is the probability of the endpoint condition in the specified experiment. The intermediate instrument matters: a measurement can alter what subsequently reaches the endpoint. Past-quantum-state methods are an established close relative of this construction. [R08]
+
+For a history class operator C_α and endpoint effect F, a focused histories expression is:
+
+```text
+D_F(α, β) = Tr[F C_α ρ C_β†].
+```
+
+It preserves interference between compatible contributions. Additive classical probabilities require an appropriate decoherent family; the expression is not a license to assign mutually incompatible histories simultaneous classical reality.
+
+## Four operations to keep distinct
+
+**Redescription** changes coordinates, basis, or frame while preserving the physical content. **Conditioning** asks about the process given a record or specified outcome. **Intervention** inserts a physical operation and can change the process. **Decoherence** results from physical correlations that suppress relevant interference in a reduced description.
+
+Focus can be involved in all four. Using the word without specifying which operation is meant creates apparent paradoxes. A focus selected on paper does not physically decohere a beam. A detector interaction can do so. Sorting an existing data set by a correlated record is conditioning.
+
+## Coherence and uncertainty
+
+Coherence is expressed relative to a decomposition and accessible observables. In a chosen basis, off-diagonal terms can produce interference under suitable later interactions. Stable pointer structures arise from the interaction with the environment; they are not selected solely by the analyst's preference. [R09, R10]
+
+Position and momentum illustrate how different focuses resolve incompatible aspects of a process. A narrow position distribution entails a constraint on momentum spread through the usual uncertainty relation. For canonical variables:
+
+```text
+Δx Δp ≥ ℏ / 2.
+```
+
+For many canonical modes, the covariance matrix V obeys the corresponding matrix uncertainty condition. This provides a principled compositional mathematics without inventing a second uncertainty principle for civilizations or minds. [R11]
+
+A trajectory is recoverable as an approximation in suitable regimes. Momentum is not generally a hidden label for a unique past path, and position is not a complete state specification. The full quantum process carries what the path cartoon leaves out.
+
+## Delayed quantum erasure
+
+In a quantum eraser, entanglement correlates path alternatives with another system. Sorting outcomes by a suitable measurement on that system reveals complementary interference patterns in conditional subsets. Adding the subsets restores the unchanged unconditional distribution. [R12]
+
+Focus captures the conditional organization cleanly: different endpoint conditions select different compatible amplitude combinations. The recorded unsorted detections do not need to be rewritten. The whole experiment is one quantum process whose different conditional descriptions must agree when recombined.
+
+This is the substantive content of “compatible histories snapping into order”: a condition organizes which contributions enter a conditional description. Whether awareness has an additional relation to that organization is a separate question in Part 11.
+
+Further reading: channels [R06, R07]; past quantum states [R08]; decoherence and coherence [R09, R10]; Gaussian uncertainty [R11]; delayed-choice quantum erasure [R12].
+
+---
+
+# 03 — Physical perspectives and relative presents
+
+## Perspective as situated continuation
+
+A physical perspective is a process described from a situated interface with the rest of reality. Its specification includes where and how it couples, which degrees of freedom belong to the description, what correlations cross its boundary, and how continuation is organized there.
+
+This is broader than observation by a mind. A photon interacting with a detector, a gas exchanging energy with its surroundings, a crystal carrying an excitation, and a civilization building instruments all have physically situated continuation. Agency and awareness are additional forms of organization within this domain.
+
+The perspective is not a freely floating viewpoint added to the world. Its boundary and continuation must be physically supported. Different decompositions may be legitimate for different purposes; the program seeks their consistent relationships rather than a unique partition of reality into subjects.
+
+## A useful specification
+
+For concrete work, write a perspective specification schematically as:
+
+```text
+P = (region or interface, observable algebra,
+     boundary condition, coupling structure, continuation domain).
+```
+
+The list is a modeling interface, not a proposed new elementary particle. In finite quantum examples, the algebra may be all operators on a subsystem Hilbert space. In field-theoretic work it may be a local algebra associated with a spacetime region. The continuation domain identifies which interactions and extensions are physically at issue.
+
+Subsystem structure itself deserves attention. Accessible observables can help identify a useful tensor-product decomposition, while different physical couplings can support different decompositions. This is one reason “the same thing from another perspective” needs a transformation rule rather than an intuitive assertion. [R13]
+
+Quantum reference frames and relational quantum mechanics offer complementary precedents. The former provides explicit transformations in particular models; the latter emphasizes the relational character of state attribution. Neither is simply adopted wholesale as the definition of Omega perspective. [R02, R03, R14]
+
+## Relative present and focus
+
+A relative present specifies a boundary for describing a process. Focus specifies a condition through which connections across or away from that boundary are resolved. They interact, but they answer different questions.
+
+For example, a field state may be described on a spacelike hypersurface, while a detector effect specifies a focus in a later region. Changing the hypersurface requires the appropriate dynamical and geometric transformation. Changing the detector effect changes the conditional question. Their relation can be studied in the same model without identifying a basis choice with a tilt of spacetime.
+
+The present membrane can therefore be a valuable organizing image: compatible correlations pass through a situated boundary. It should retain the mathematical structure of that boundary rather than suggest an impermeable surface separating a fixed classical past from an unstructured future.
+
+## Memory and the full process
+
+Physical memory is dependence carried by the present organization of a system and its correlations. A durable register is one familiar architecture, but even a temporary environment correlation can carry memory into later behavior.
+
+A full relevant joint state and dynamics can encode this dependence at one boundary. When access is restricted to a subsystem across several times, a process tensor represents how the subsystem responds to sequences of operations. It is a compact operational description of multi-time structure, including environmental memory. [R15, R16]
+
+Thus “the present contains the relevant past” and “a local description needs multi-time information” can both be true. The first concerns a sufficient physical boundary description. The second concerns a reduced description whose local instantaneous state omits consequential correlations.
+
+Exhausting tester families is a way to characterize that process: consider every admissible sequence of interactions on the specified interface. The tester family is determined by the physical setting being studied. Restricting it for a calculation produces an approximation, not a new universe in which omitted distinctions cease to exist.
+
+## Composition and scale
+
+Two perspectives can overlap, share records, exchange signals, or be combined into a larger process. Their combination must retain joint correlations. Taking a product of their reduced descriptions is valid only where the required independence holds.
+
+Higher-level perspectives become useful when stable organization supports repeatable continuation: molecules, cells, organisms, institutions. The same broad relational move applies at these scales, while the relevant mathematics and effective variables can change.
+
+Massive worldlines admit proper-time descriptions. Massless propagation follows null structure and has no rest frame in which an ordinary observer can sit. Both participate in causal dependencies. Momentum, polarization, helicity, and other physical structures provide further orientations without requiring an additional hidden time dimension. [R17, R18]
+
+The open task is to make these perspective specifications interoperable: to show which continuation distinctions survive when one description is transformed, composed, or compressed into another.
+
+Further reading: subsystem structure [R13]; relational quantum mechanics [R14]; process tensors [R15, R16]; relativistic geometry and particle representations [R17, R18].
+
+---
+
+# 04 — Consequence and faithful compression
+
+## What a difference leaves behind
+
+Consequence is the difference a physical condition makes to continuation. A distinction can alter the next interaction, remain dormant in a record, become amplified much later, or change which regimes can ever be reached. The relevant object includes these dependencies, not only the next observable state.
+
+Let Υ_P^h denote the residual continuation process at perspective P given physically meaningful conditioning information h. Depending on the setting, this may be a conditional stochastic process, a quantum process tensor, or a suitable histories or algebraic construction.
+
+The superscript does not assume that every quantum possibility belongs to a single classical history. It identifies the boundary records, outcomes, or conditions through which the continuation is being specified.
+
+## Continuation equivalence
+
+Two conditions are continuation-equivalent within a declared physical domain when they generate the same statistics under every admissible continuation test:
+
+```text
+h ~_P h′  iff  p(y | T, h) = p(y | T, h′)
+                 for every admissible tester T and outcome y.
+```
+
+This gives an exact equivalence relation and a quotient by consequential redundancy. The resulting object Γ_P contains distinctions that survive this comparison, together with their inherited physical relations.
+
+The equivalence is prospective and domain-relative. It does not say that h and h′ are the same historical event, the same person, or the same global physical state. An environment outside the chosen domain can retain a distinction that the reduced continuation cannot reveal. Enlarging the domain can separate conditions previously grouped together.
+
+Classical computational mechanics provides a close precedent: histories are grouped by their conditional distributions of futures, yielding predictive causal states. Controlled quantum processes require the corresponding richer response structure. [R19, R15]
+
+## Why future context matters
+
+Two qubit states can agree on all measurements in one basis yet disagree after a rotation and another measurement. If the rotation is an admissible continuation, the states cannot be merged in an exact consequence representation.
+
+The same principle applies to practical systems. Two seeds may look identical today but respond differently to drought. Two institutions may make identical decisions under routine conditions but differ under a succession crisis. A compression that preserves their current outputs can erase their most important future distinction.
+
+Faithful compression therefore preserves the effects of permitted future composition. For an abstract representation q and a concrete update F_a, the desired relationship is:
+
+```text
+q(F_a(x)) = F̄_a(q(x))
+```
+
+where F̄_a is the corresponding abstract update. In stochastic and quantum models the statement concerns compatible transition laws or process maps. This relation must be checked; equality on a narrow set of current observations does not guarantee it.
+
+A three-bit example makes the requirement exact. Let X, Y, Z take values ±1, with joint law P_t(x,y,z)=(1+txyz)/8 for −1≤t≤1. Every preparation has zero means and covariance I₃. Apply the reversible gate (X,Y,Z)→(X,Y,XYZ). The output means become (0,0,t) and its covariance becomes diag(1,1,1−t²). One identical input summary would have to produce different output summaries under the same gate. No exact abstract update exists on means and covariance alone for this family.
+
+The full joint representation predicts the result. The repair is also determined by the continuation: pulling the future last-bit readout back through the gate requires the observable XYZ. Retaining it alongside the constant, single-bit, and pair-product observables completes a basis for all functions on these eight states. This is an instance of closure under permitted future tests, rather than a decision to reward correlation.
+
+Part 13 extends the example to a conditional information-transfer capability. Even the complete unconditional output state can conceal that relation when the input is averaged away. A faithful response object retains the conditional laws and their physical input correlations. A scalar comparison need not preserve every distinction, but it cannot substitute for the full process when predicting its continuation.
+
+## Horizon and resolution
+
+At horizon H, compare the tests whose relevant output can occur within H. Increasing H expands the questions and can reveal delayed distinctions. Under nested test domains, the resulting equivalence classes refine as the horizon increases.
+
+A useful discrepancy is:
+
+```text
+d_P,H(x, y) = sup_T TV[p(· | T, x), p(· | T, y)],
+```
+
+where TV is total variation distance and the supremum ranges over the stated testers. This is a pseudometric before quotienting. For unrestricted single-system state discrimination, the corresponding distance is trace distance. Multi-round processes have their own discrimination constructions. [R06, R07, R15]
+
+An approximation tolerance ε can bound the error in relevant predictions. Pairwise closeness alone should not be treated as exact identity: “within ε” is generally not transitive. Use an explicit partition, cover, or encoding with a verified distortion bound.
+
+## The global target
+
+The full object is approached through enlarging physical domains, richer admissible interactions, longer horizons, and finer controlled descriptions. There may be no finite computable representation containing all of it. That is a limitation on our access, not an instruction to redefine consequence as whatever a convenient model notices.
+
+This is also where the proposed ultimate resolution belongs. At the most complete level, distinctions stop mattering to consequence only when the full applicable physical theory makes them continuation-equivalent. Quantum incompatibility helps determine the structure of that theory. A numerical Planck-length cutoff is not needed to define the target.
+
+Calling the quotient “quantization” can gesture at removing spurious multiplicity, but exact equivalence need not produce finitely many discrete classes. Quantum state spaces themselves contain continuous families. The rigorous work is the identification of physically meaningful distinctions and their composition, followed by controlled approximation.
+
+## Preserved structure
+
+Γ_P should retain more than a set of labels. Depending on the realization, it carries distances, causal relations, coherent combinations, physical weights, permitted transformations, and conditional continuation. A successful compression retains the parts required to reconstruct consequential behavior within its domain.
+
+This is the bridge to lushness: once redundant descriptions have been removed without discarding real consequence, ask what richness remains.
+
+Further reading: predictive causal states [R19]; quantum process descriptions [R15, R16]; operational distinguishability [R06, R07, R36].
+
+---
+
+# 05 — Lushness and the geometry of futures
+
+## The research object
+
+Lushness is the proposed richness of value-capable possibility in the futures field. Its motivating intuition is that the organization of continuation can reveal what an action preserves, opens, closes, or redirects without requiring a separate evaluation of every trajectory. The target is the global structure; a bounded observer accesses approximations of it.
+
+The physical carrier includes distinguishable continuations, their weights, correlations, composition, and conditional development. A useful first representation is:
+
+```text
+G_P = (Γ_P, distinguishability, causal and compositional relations,
+       conditional continuation, physically supplied weights).
+```
+
+Candidate lushness profiles describe aspects of this carrier. Establishing a faithful physical carrier and establishing that a profile captures value-capable richness are separate achievements. A statistic of physical variety earns the latter interpretation through its relation to valuation, rather than through its size alone.
+
+Value remains undefined by the program. Its possibility in the substrate supplies the present proxy. The stronger ambition is to determine whether the same continuation structure can explain value itself, or whether it characterizes the capacity for value while further distinctions identify its realization.
+
+Lushness is intended to help adjudicate choices. The motivating preference is for greater genuine possibility for value, assessed through the coupled continuation an action produces. The physical carrier, a candidate measure of that possibility, and the justification for preferring it are distinct parts of this proposal. A successful measure would make the preference informative without separately scoring every trajectory. The program also examines the stronger commitment to maximizing it, including cases where this conflicts with familiar protections or with realizing value now.
+
+## What the volume intuition points toward
+
+Consider two systems with comparable resources. One repeats a narrow regime. Another can form tools, relationships, memories, and new capabilities that alter which regimes become reachable. Their continuation objects can differ even when present entropy or immediate output counts are similar.
+
+Volume suggests the extent of differentiated possibility. Geometry adds separation, overlap, connectivity, dependence, and accessibility. Process adds the fact that entering one region changes what can follow from there. The relevant object can therefore contain the generation of further possibility, including possibilities for new forms of valuation.
+
+Generativity and persistence are phenomena to explain through this structure. They are not supplied bonuses in a score. The hypothesis is that their contributions become visible through the continuation they sustain or produce over appropriate horizons. Whether this supports a general ordering is a further question.
+
+## Global structure and situated access
+
+A physical perspective accesses the shared object through particular couplings, records, interfaces, and available interactions. Its description can compress distinctions that make no difference within that continuation domain. Another perspective may retain them. A god's-eye description, insofar as the framework can specify one, retains the full physically relevant structure.
+
+These are relationships among descriptions and physical access conditions. A distinction absent from one description need not be absent from the world. Likewise, situating an assessment does not authorize deleting a global contribution merely because it is inconvenient for the model.
+
+The stronger value question concerns what such distinctions enable for valuation. A physical difference can support an unfamiliar valuer, contribute indirectly to an ecology, or remain irrelevant to a particular assessment. The framework keeps these possibilities open while investigating a more substantive account of value.
+
+## Overlap and the generation of consequence
+
+Different histories can leave the same residual continuation relative to a specified interface. Histories can also leave continuations that are close without being identical. Exact equivalence and approximate overlap should be determined by their future responses under physically admissible tests, as developed in Part 04.
+
+Conditioning or interaction then produces new residual processes. A consequence can alter which later distinctions, transformations, and couplings become possible. Studying these transitions is one route to detecting generativity without introducing it as an independent reward.
+
+Physical duplication requires separate care. Relabeling a process adds no possibility. Implementing another copy changes resource use, correlations, failure modes, and possible interactions. Redundancy can create recovery even when the copies initially behave identically. Joint continuation is the reference for deciding what has actually changed.
+
+## Four distinctions for comparison
+
+**Support and weight.** A process can permit many alternatives while assigning almost all weight to a few. Both belong in the description. Conditioning must retain the probability of reaching the condition as well as the normalized probabilities within it.
+
+**Capacity and realization.** Available transformations differ from those a process actually undergoes. A continuation can support many forms of valuation while realizing few; another may realize a valuable activity within a narrow range. The relationship between these cases belongs to the value inquiry rather than being settled by counting alternatives.
+
+**Separate and joint structure.** Individual descriptions can miss shared dependencies, complementarity, and conflict. A repair route or a coordinated capability may exist only in the combined process. Conversely, several descriptions can refer to the same enabling contribution and must not automatically be added.
+
+**Accumulated and surviving consequence.** A distinction may have mattered earlier while leaving no remaining difference at a present interface. Cumulative history and residual continuation answer different questions. A profile should state which it represents.
+
+## Candidate probes and what the tests establish
+
+Three questions should be asked separately: does the representation retain a consequential distinction, does a summary detect it, and should an overall evaluation prefer one continuation? The finite probes now provide exact answers to parts of the first two questions.
+
+**Covariance is a limited summary.** With a justified feature map φ and physical probability measure μ, covariance Σ supports the probe L_cov(β)=log det(I+βΣ). It detects spread across represented directions. Yet the three-bit family in Part 04 has identical means and covariance while differing in a dependency that a permitted reversible continuation can expose. Means and covariance therefore fail as a sufficient continuation representation in that model. Equal scalar scores alone would not establish a mistaken value ranking: different processes may legitimately tie on an overall measure.
+
+**Calibration can change the winner.** The probe needs a declared feature metric as well as a scale β. Two explicit preparations with covariances diag(4,0) and diag(1,1) exchange rank at β=2 under the identity metric. A change of feature units leaves the comparison invariant only when the metric is transported with it. Part 14 states the general boundary. Calibration is a research question, not a parameter to fit separately to each desired verdict.
+
+**Support is different from occurrence weight.** A preparation that is almost always one record and rarely one of m distinct records has support m+1 for every nonzero rare-event probability p<1. Its small-radius support cover remains large as p approaches zero. This is correct as a statement about possible alternatives, but insufficient as a description of how much probability they carry. In a declared bounded-feature construction, L_cov≤βp uniformly in m. That bound controls rare breadth for this statistic while also compressing large breadth; it is not a general solution to low-probability ethical dilemmas.
+
+Two richer candidates work directly with distances between residual processes or response laws:
+
+1. **Probability-weighted covering profiles.** N_(ε,δ) is the fewest radius-ε balls needed to cover at least 1−δ of a physically supplied probability measure. Centers, metric, domain, and ball convention are specified. The full profile records resolution and tolerated omitted mass rather than hiding either in one cutoff. Ordinary support covering remains a separate quantity; a zero-mass allowance does not generally recover every point of an arbitrary continuous domain.
+2. **Similarity-sensitive effective diversity.** For a finite ensemble of processes with weights p_i and declared similarities Z_ij, use D₂=1/(Σ_ij p_i Z_ij p_j). This borrows the order-two construction of Leinster and Cobbold [R35]. One candidate is Z_ij=1−d(i,j), with normalized operational distance d∈[0,1]. Identical responses contribute as one response type; distinguishable responses contribute according to their weights. The similarity function and ensemble remain explicit choices.
+
+On the three-bit device's two input-conditioned receiver laws, their distance is |t|. A physical fair input supplies equal weights. The candidates give D₂=1/(1−|t|/2) and a covering profile that resolves two responses when ε<|t| and δ<1/2, and one otherwise. They detect a capability difference hidden by the initial covariance. An independent receiver-simulation comparison confirms the conditional information-transfer ordering; it does not order the complete preparations by value.
+
+No probability distribution over all counterfactual interventions is supplied automatically. Use actual preparation or input statistics where available, or report unweighted support and conditional profiles. The chosen receiver is a physical relation inside the global object, not a replacement for that object. Entropy, dependencies, response repertoires, and their later composition can vary differently.
+
+These candidates are leads for comparing continuation structure. Further tests must establish what they omit, how they compose, and whether their comparisons track value-capable possibility. Part 14 gives the formulas; Part 16 links the runnable probes. Generativity and persistence must emerge through such structure rather than enter as additional rewards.
+
+## Physical counting and resolution
+
+Quantum amplitudes combine before probabilities are assigned to a resolved outcome. Phase as well as magnitude matters. Born weight is therefore more structured in its origin than literal branch thickness, and a normalized state's total probability of one cannot by itself measure richness.
+
+The ultraviolet-catastrophe analogy motivates using lawful physical distinctions and weights before counting. Planck's resolution depended on the energy spectrum and occupation law; it was not a generic prescription to identify every sufficiently close possibility. [R20] The physical model must similarly justify resolution and equivalence in the continuation object.
+
+Gas-like mixing and noise provide a limited but useful test. Overlap and consequence-preserving compression can remove redundant descriptions within a domain; situatedness specifies which differences can affect that continuation. A more substantive account of value may distinguish their contributions further. No universal zero-value verdict for gas is required: a complete physical account may retain genuine microscopic structure and possible contributions as substrate. The task is to represent those contributions faithfully, not to construct a score that excludes gas by design.
+
+## The stronger lushness question
+
+The central open question is how value relates to the physically structured possibilities for its instantiation. Four live angles guide investigation:
+
+1. **Endogenous significance.** Investigate when a difference matters through the organization of a process itself. This can sharpen the proposed criteria for valuerhood while keeping physical deformation distinct from valuation.
+2. **New forms of valuation.** Examine how continuation creates new capacities and relationships through which previously unavailable distinctions can matter. Mere novelty does not establish improvement; the object must represent what changes.
+3. **Coupled valuation.** Study how overlap, complementarity, interdependence, and conflict alter joint possibilities. Local preservation, sacrifice, and integration must remain legible at the relevant scales.
+4. **Capacity and realized value.** Investigate how relatively concentrated value-generating organizations depend on a broader substrate, and how exercising their capacities changes the possibilities available afterward.
+
+Life is an important exemplar of organized continuation that produces further valuers, capabilities, and relations. Its comparative efficiency as a generator of value is a hypothesis to investigate, not a result supplied by labeling it alive. A narrow niche might realize value intensively while depending on a much wider ecology for repair, resources, and adaptation.
+
+A substrate's role in generating value can justify its protection even when the realization is concentrated elsewhere. Calling it intrinsically valuable makes the further claim that it matters in its own right. The program can investigate both possibilities without confusing productive capacity with its realization or requiring perpetual preservation at the expense of use.
+
+The research may identify lushness with value, establish it as a measure or profile of value-generating capacity, or find that several structural properties remain necessary. The immediate aim is to make those alternatives answerable through the object. Defining value as whatever a preferred statistic measures would close the question prematurely.
+
+Further reading: predictive structure [R19], quantum processes [R15, R31], and distinguishability [R06, R07, R36] support the carrier. Similarity-sensitive diversity [R35] supplies a candidate comparison. Work on endogenous normativity [R32], semantic information [R33], and interventions on future trajectories [R34] addresses nearby questions. Their relevance is as neighboring research and usable machinery, rather than as a supplied definition of value.
+
+---
+
+# 06 — Persistent organization and identity invariants
+
+## What persists through change?
+
+A whirlpool exchanges water, an organism replaces molecules, and an institution replaces members. Their persistence is carried by organized relations and causal continuity rather than by an unchanging inventory of material.
+
+The framework uses **identity invariant** for a candidate structure through which a continuing process remains identifiable across specified transformations. “Invariant” is a research demand: name what is preserved, under which transformations, and how that preservation can be established.
+
+The invariant need not be a number or a hidden object at the center of the process. It may be a relational pattern, a continuity relation, a family of constraints, or an organized capacity to maintain and reconstruct characteristic behavior.
+
+## Three different questions
+
+**Type:** what kind of pattern is this? A winding number can classify a vortex, and a causal architecture can classify a control system.
+
+**Continuity:** how is this occurrence connected to earlier and later occurrences? Material transport, causal dependence, record inheritance, and maintained organization can supply relevant evidence.
+
+**Numerical identity:** when should two occurrences be treated as the very same individual? Copying, fusion, fission, and radical transformation make this question stronger than classification or prediction alone.
+
+A successful account should specify which question it answers. Two systems with identical future response statistics may still have different origins and be distinct individuals. Continuation equivalence is therefore an important tool for identity research, not a complete replacement for it.
+
+## The role of vorticality
+
+Vortices provide a compelling example of stable organization maintained through movement. Under appropriate conditions, circulation or topological winding distinguishes a pattern from its background. A complex order parameter that stays nonzero around a loop permits the integer winding:
+
+```text
+n = (1 / 2π) ∮ dθ.
+```
+
+Continuous deformations that preserve the relevant conditions cannot change n. The same n can characterize many different vortices, so it identifies a class rather than a unique individual. Topological-defect research supplies the actual mathematics. [R21]
+
+Vortical imagery can thus guide the search for persistent organization without requiring every persistent thing to rotate. A stable crystal pattern, a computational organization, and a dissipative biochemical cycle can demand different invariants. Wolfram's proposed connection between localized structural obstructions and particles is a neighboring research idea, rather than an established identification of all particles as vortices. [R22]
+
+## Orientation without an inner center
+
+A perspective is organized around its actual physical relations: coupling, causal access, correlations, and continuation. An identity invariant would describe what remains characteristic as those relations evolve. There need not be a central point around which all of them turn.
+
+For a massive system, proper time along a worldline can help order local events. For a massless excitation, null propagation and field structure supply a different description. Internal symmetries, charges, helicity, and conserved quantities can help characterize a process without becoming an immortal personal essence. [R17, R18]
+
+This makes “identity-bearing orientation” a useful phrase when it is tied to a specified physical model. Its explanatory content comes from the relations it preserves.
+
+## Transformation and self-modification
+
+Agents can modify the mechanisms that carry their own continuity. An artificial system might replace its memory substrate, revise its policy, distribute itself across devices, or merge with another system. Biology already supplies less deliberate versions of many such transformations.
+
+A practical identity analysis should record several dimensions separately: causal lineage, preserved memory, functional competence, commitments, internal organization, and relationships with others. Which combination establishes identity depends on the question. Repairing a service, preserving a person's agency, and reconstructing a species are different targets.
+
+This is consequential for ethics. A replacement that restores external output can still fail to restore the affected individual. Conversely, insisting on molecular sameness can obscure genuine continuity through ordinary biological change.
+
+The research task is to identify physically supported invariance and continuity relations, then determine which identity claims they warrant. A brief theological analogy to “soul” appears in Part 12; the physical account uses identity invariant throughout.
+
+Further reading: topological winding [R21]; proposed substrate-based particle descriptions [R22]; particle representations [R18]; predictive equivalence [R19].
+
+---
+
+# 07 — Recovery, robustness, and regeneration
+
+## Recovery is a relation in the futures field
+
+An action can damage a system while leaving routes back to relevant forms of continuation. Another action can remove those routes. The distinction between recoverable loss and foreclosure is central to the framework because it describes how consequence persists.
+
+Specify a target region A, a physical state x after disturbance, available policies Π, contingencies E, resources, and a horizon H. Recovery asks whether an allowed continuation can reach A. Robust recovery asks whether a policy can secure that result across the registered contingencies while respecting any constraints along the way.
+
+This is a physical reachability question before it is a moral judgment. Viability theory and control theory provide established machinery for such questions. [R23]
+
+## Three repair targets
+
+Recovering **function** restores a capability or output. Recovering **lineage** maintains a causal organization through the damage. Recovering an **individual** makes an additional identity claim. These targets can coincide, but should be registered separately when the distinction matters.
+
+A new copy of a burned book may restore its text. It does not restore the original artifact's causal history. Replacing a destroyed agent with one that produces the same external answers may restore a service while leaving the individual's continuation unresolved. The recovery target determines what counts as success.
+
+This distinction also prevents a common aggregation mistake: a gain elsewhere does not, by itself, constitute repair here. Compensation and restoration are different relations.
+
+## Information retention and feasible return
+
+Closed unitary dynamics preserves quantum information globally. A macroscopic process can nevertheless disperse the information needed for reconstruction into correlations that are inaccessible to a given system, or require unavailable resources and control to reverse.
+
+Burning a book illustrates the difference. Global physical traces may remain, while all feasible routes available to the relevant agents fail to reconstruct the text. Whether recovery is possible depends on the actual state, interactions, resources, and continuation domain, not merely on whether the microscopic equations are reversible.
+
+The full physical object contains whatever return routes actually exist. A bounded model estimates them. Confusing a route imagined by a model with a realizable physical route is a major failure mode for consequential reasoning.
+
+## Horizon and the corridor
+
+A short horizon can miss a slow repair path. A longer horizon can reveal it. A longer protection horizon can also reveal a delayed failure. Reachability and sustained viability therefore use time differently and should not be collapsed into one generic “longer is better” claim.
+
+For a safe region K, a viability corridor consists of conditions from which admissible policies can keep the process in K for the specified duration and contingencies. The corridor can change as resources, couplings, and capabilities change. It is a structured region of action space, not a static list of forbidden moves.
+
+A loss becomes terminal relative to a target and domain when no continuation in that domain restores the target. The framework's event-horizon imagery refers to this loss of return routes. It does not imply that every such boundary is literally a gravitational horizon.
+
+## Redundancy that creates possibility
+
+Two copies of a record can behave identically during normal operation yet differ from a single copy under damage. With independent failure probability p, losing both copies has probability p², compared with p for one copy. Shared failure causes can erase that advantage.
+
+The consequential difference is carried by the implementation: location, coupling, repair mechanisms, and failure dependence. Removing repeated labels from a description is appropriate. Removing real alternative repair routes is not.
+
+Life offers many examples: error correction, distributed inheritance, immune memory, overlapping functions, social learning, and ecological interdependence. Each can preserve access to future organization. A beneficial mutation that disappears before reproduction shows the converse: a potentially generative distinction can be lost before redundancy develops.
+
+## Regeneration
+
+Regeneration is stronger than keeping a current state unchanged. A regenerative system can rebuild capabilities or develop new ways of continuing after disturbance. Its recovery paths may alter the very space of available policies.
+
+This is a promising connection to lushness. Robust and regenerative organization can preserve differentiated continuation across contingencies, while opening routes that a fragile copy lacks. Whether a proposed lushness measure captures this should be demonstrated on examples, rather than guaranteed by adding a resilience bonus to its definition.
+
+The ethical importance follows later: when valuers depend on these routes, closing them can remove the possibility of correction, development, or further valuation.
+
+Further reading: viability and reachability [R23]; quantum channels and reversibility [R06, R07]; requisite variety [R24].
+
+---
+
+# 08 — Agency, valuers, and interacting ecologies
+
+## From continuation to agency
+
+Every physical process participates in continuation. Agency adds organized sensitivity to alternatives and the capacity to alter how the process continues. A policy can be explicit software, an evolved control architecture, or a distributed pattern of response.
+
+An agency model becomes useful when interventions on internal organization systematically change the system's response to circumstances. Learning, planning, self-maintenance, and self-modification enrich that structure. They are not all required at the elementary boundary of the concept.
+
+Deformation is a difference in continuation. A deformer is any process whose condition, interaction, or existence makes such a difference. It need not act intentionally, maintain itself, or value anything. Agency is one organization through which deformation occurs.
+
+Agents deform the futures field through their physical actions. They build tools, consume resources, alter other agents, establish institutions, and change which later actions are available. Describing agency as field deformation keeps these wider consequences visible without making causal influence a measure of value.
+
+## Valuerhood
+
+The foundational premise is that value requires valuers. Beauty, welfare, achievement, significance, and other forms of value require some locus for which distinctions can matter. The program uses “valuer” broadly to keep that dependence in view without deciding its final demarcation in advance.
+
+A working physical characterization is a process whose organization differentiates among continuations in an endogenous way. Self-maintenance, selective response, error correction, preference-like structure, and sensitivity to consequences are possible evidence. These criteria are proposals informed by familiar valuers, not a completed definition. A permissive candidate class allows unfamiliar substrates and degrees of organization to be investigated.
+
+Thermostats, organisms, institutions, nonconscious control systems, and conscious subjects therefore become boundary cases to investigate. Calling all of them physical perspectives does not settle which are valuers or what standing they have.
+
+An agent can implement a goal supplied by another process. A valuer's orientation can also be conflicted, unstable, or destructive of itself. The necessity of valuers for value does not entail that every valuer consciously endorses its own persistence or expands the possibilities of others.
+
+Value is not defined here by whichever continuations a candidate valuer happens to select. The program investigates the capacity for valuation while leaving the content and realization of value open. Lushness is proposed as a characterization of value-capable possibility; deciding whether it can also characterize value itself requires further work. The ethical basis for consideration under uncertainty is developed in Part 09.
+
+## The Darwinian engine
+
+Persistence filters what remains present. Reproduction and propagation allow some organizations to occupy more available resources and carry their characteristics further. Under suitable conditions, selection favors traits that contribute to that continuation.
+
+The engine has no preference. It reveals a corridor of continuations that survive the actual pressures, opportunities, and interactions. It does not identify one universally best endpoint. Sterile replicators, parasites, cooperative ecologies, and highly generative systems can all succeed under different conditions.
+
+Reproduction is especially important for populating newly available niches, but an individual persistent process need not reproduce to continue. The framework studies the broader dynamics of retention, propagation, resource competition, and transformation.
+
+The stronger lushness hypothesis is that some generative organizations can expand their consequential reach by creating new capabilities and compatible forms of coexistence. That hypothesis is meaningful because selection alone does not guarantee it.
+
+## Shared stakes and competing continuations
+
+Agents can share dependencies without sharing a numerical identity. Their survival may rely on the same ecosystem, infrastructure, knowledge, or social trust. Correlated trajectories can create shared stakes and make sacrifice intelligible within a larger continuing organization.
+
+Correlation by itself does not prove that interests coincide. A host and parasite can be tightly coupled while imposing conflicting demands. The relevant questions concern what is jointly feasible, what each process requires, and who bears the loss when their continuations conflict.
+
+For a family F of valuers, let R_i be valuer i's registered continuation requirement. **May compatibility** means some admissible joint continuation satisfies every R_i. **Robust compatibility** means an available policy secures the joint requirements across a specified nonempty contingency set.
+
+Individual feasibility is weaker than joint feasibility. Pairwise compatibility is weaker than compatibility of a whole group. These simple facts matter for institutions and alignment: promises that can each be met in isolation may compete for the same irreplaceable resource.
+
+## Plurality, integration, and excision
+
+A plurality can distribute exploration, correction, resources, and independent judgment. Its effective power depends on coordination and starting conditions; numerical or material size alone does not guarantee control of outcomes.
+
+An integrated controller can also embody rich internal variety. At a suitable functional level, a highly integrated generative system and a well-coordinated plurality may implement equivalent response structures. The important distinction is what their organization preserves and can generate.
+
+An **excisive** controller flattens or removes consequential alternatives to secure control. A **generative** controller maintains or develops the variety needed for open-ended response. Ashby's requisite variety offers a useful foundation for comparing regulatory demands and available responses, without proving that either centralized or distributed organization always wins. [R24]
+
+**Terminal solitude** names the closure in which independent valuation has been eliminated and cannot be regenerated within the relevant continuation. It chiefly concerns excisive control. A single integrated system with rich internal valuation is not terminally solitary merely because it has one outer boundary.
+
+Further reading: requisite variety [R24]; viability [R23]; predictive organization [R19]. The valuer criterion and its relation to consciousness are program-level research questions.
+
+---
+
+# 09 — Gradient Ethics
+
+## The starting point
+
+Gradient Ethics begins with a dependence claim: value requires valuers. Whatever value ultimately proves to be, its possibility depends on processes through which distinctions can matter. Actions change those processes, their relations, and the continuations through which further valuation can occur.
+
+The futures field supplies the physical continuation structure for this investigation. Lushness is the leading proposal for characterizing the richness of value-capable possibility within it. Value itself remains open: its possibility in the substrate is the present proxy, rather than a definition of what value is.
+
+GE asks how policies deform this field and how familiar ethical practices fare within the resulting dynamics. Preservation, sacrifice, cooperation, competition, learning, and containment can each alter the conditions of subsequent valuation. Their significance depends on the coupled continuation they produce, including consequences outside the actor's immediate model.
+
+## The conditional ethical commitment
+
+The ethical commitment is that the possibility of value warrants consideration in action. Under uncertainty about where value is instantiated and to what extent, its enabling structures cannot be dismissed simply because a bounded evaluator has not recognized their significance.
+
+This gives a basis for consideration and a burden of justification. It does not assign every valuer equal weight, make every preference authoritative, or require preserving every individual continuation. An organism can sacrifice cells; a community can restrain an attacker; a commitment can close alternatives while enabling capabilities that indecision would never produce. Evaluation concerns what these transformations do to value-capable continuation as a whole.
+
+The dependence of value on valuers does not, by itself, compel every possible agent to care about that whole. GE makes its inclusive evaluative standpoint explicit. Agents that already care about particular goods also have conditional reasons to attend to their enabling conditions. Interdependence can extend those reasons beyond the agent's apparent local interest, but an orthogonal controller need not accept them.
+
+Physical analysis supplies the consequences and constraints of a commitment. The proposal that lushness can faithfully characterize value-capable possibility supplies a research hypothesis. The commitment to consider that possibility supplies the ethical orientation. A complete account of value may strengthen or revise their connection.
+
+## A corridor revealed by dynamics
+
+The persistence filter has no preference. Continuing organizations occupy trajectories compatible with their continuation under actual pressures and interactions. Selection can favor maintenance, propagation, cooperation, predation, or specialization in different regimes. It reveals a corridor rather than a champion.
+
+For a particular model, viability theory asks which states and policies preserve stated requirements across specified contingencies. [R23] Such a calculation can establish a corridor relative to those requirements. The physical dynamics constrain what is feasible; the calculation alone does not establish that its requirement register exhausts what matters.
+
+GE studies how policy changes the corridor itself. Building a repair capacity, corrupting a communication network, preserving an ecological dependency, or monopolizing a resource changes what later agents can do. Continued agency can require decisive commitment and the removal of destructive options. The program therefore investigates the conditions under which restraint, intervention, or optimization preserves the possibility of further valuation.
+
+## Uncertainty, irreversibility, and ethical consideration
+
+A bounded agent cannot resolve the complete consequences of its actions. It may misidentify a valuer, overlook a dependency, underestimate future generativity, or mistake a temporary limitation for permanent incapacity. Small present influence can precede large future consequence.
+
+Irreversible foreclosure is especially consequential because it can remove the routes through which those mistakes would have been discovered or repaired. This is the basis for caution toward structures whose significance remains uncertain. The rationale does not require first assigning intrinsic worth to every candidate valuer.
+
+The same reasoning applies to delay and inaction. An unchecked destructive process can remove recovery, prevent future valuation, or make later defense impossible. Irreversibility therefore motivates comparison of available courses, including their opportunities for correction; it does not make every destructive act forbidden or every small probability dominate all other considerations.
+
+Horizons and recovery conditions matter. A short model can hide delayed damage, while a longer one can reveal either recovery or further loss. Bounded decisions must register these limits without substituting the model's horizon for the extent of the actual consequence.
+
+## Rights as protections against recurring vulnerabilities
+
+Rights-like heuristics protect features of interagent life that local calculation repeatedly undervalues or exposes to exploitation. Each protection should be understood through the dynamics it guards.
+
+| Protection | Dynamics it helps preserve |
+| --- | --- |
+| Bodily integrity | The physical organization and capacities through which a valuer continues and acts. |
+| Freedom of inquiry and reliable communication | Discovery of missed dependencies, correction of models, and coordination through usable evidence. |
+| Due process | Resistance to irreversible error by an evaluator that is mistaken, biased, or captured. |
+| Consent and participation | The affected process's contribution to understanding and directing transformations of its continuation. |
+| Exit and association | Alternative relationships, independent coordination, and routes out of destructive control. |
+
+These are hypotheses about the functions of protections in particular regimes. Their practical strength can exceed what one decision-maker can justify through an immediate calculation, precisely because the protected structure carries consequences outside that calculation.
+
+Scope and exceptions must be assessed through the same dynamics. A protection that prevents arbitrary destruction can also be misused to shield an actor destroying everyone else's continuation. GE examines which conditions support a heuristic, where it fails, and what procedure can revise its application without making it empty.
+
+## Justice, self-defense, and enforcement
+
+Justice governs interference among coupled valuers. It constrains unilateral foreclosure, maintains usable procedures and evidence, and addresses asymmetries that undermine coexistence. Its role includes making protection enforceable.
+
+Self-defense and containment are internal to this account. When a process threatens the conditions of continued valuation, preserving those conditions can require restricting its action. Assessment includes the evidence of threat, the consequences of inaction, available alternatives, the extent of foreclosure imposed, and opportunities for correction, repair, or release. A response may protect shared continuation while reducing one actor's control over it.
+
+The enforcing institution is itself a deformer. Its incentives, information, and capacity to capture the decision frame belong in the analysis. Concentrated authority can manufacture threats, erase opposition, or define its own expansion as indispensable. Review and contestation help preserve the difference between protecting the field and appropriating it.
+
+Justification, motivation, and enforcement are distinct. An action's consequences do not depend on the actor describing them honestly. An actor can nevertheless reject the ethical commitment, and others may lack the capability to stop it. GE must describe all three questions without treating successful coercion as proof of moral authority.
+
+## Power, plurality, and integration
+
+A competent plurality can combine resources, exploration, information, and defense. Whether these become effective power depends on coordination costs, initial conditions, timing, and available opportunities. Under manageable asymmetry, mutual dependence and collective response can constrain destructive behavior. Under extreme asymmetry, those mechanisms may fail.
+
+Singleton fragility is a contingent possibility. An integrated generative controller may retain rich internal variety and implement capabilities comparable to those of a coordinated plurality. Excisive control is distinguished by the continuation it flattens or removes to maintain dominance. Ashby's requisite variety helps investigate the regulatory demands and response capacities involved. [R24]
+
+If an excisive controller has no incentive to cooperate, defensive reasons can still exist for those it threatens. Their justification does not require proving that the controller secretly shares their values. The feasibility and legitimacy of a particular response remain questions about the actual situation.
+
+## Virtues and established ethical approaches
+
+Virtues can be investigated as durable policies for recurring contingencies. Prudence attends to delayed consequence. Humility preserves correction. Honesty sustains usable signals. Courage enables necessary action under risk. Restraint limits avoidable foreclosure. Justice organizes and defends the conditions of coexistence.
+
+GE also provides a common physical language in which different ethical approaches can be compared by their dynamics. Consequential proposals select outcome features and aggregation rules; rights and duties stabilize constraints; virtue traditions cultivate dispositions; reciprocal and relational approaches organize interaction. Each can be examined for what it enables, protects, overlooks, or destroys across different horizons and power distributions.
+
+This comparative role does not require all approaches to agree or reduce to one scalar. A policy may protect one aspect of the substrate while damaging another. Describing that conflict accurately is useful even before the framework can settle its final valuation.
+
+## An unrestricted lushness research branch
+
+A parallel inquiry asks what follows if greater genuine possibility for value is made decisive and a candidate lushness functional is optimized without independently imposed ethical protections. Lawful dynamics, actual resources, and the full modeled consequences remain. Rights-like restraint, sacrifice, plurality, integration, or excision then appear as possible outcomes to explain, rather than labels that predetermine the score.
+
+This strengthens the commitment from consideration to maximization. It tests both whether a candidate orders value-capable possibility faithfully and whether that possibility should settle the choice, including its relationship to realized value. A scalar objective can depend on irreducible joint structure; it need not be an additive welfare theory.
+
+The branch varies physical circumstances, evaluation choices, and information limits separately. Unwelcome results must first be diagnosed as model omissions, failed summaries, calibration dependence, or substantive implications of the commitment. The finite structural probes do not decide between these ethical alternatives. Parts 10 and 16 specify how this inquiry relates to practical ODT.
+
+## Signals, experience, and value
+
+Suffering, pleasure, motivation, and preference can influence attention, learning, action, and relationships. Their effects belong to the continuation structure. GE does not make any one signal the definition of success.
+
+The phenomenal significance of experience remains part of the open account of value. Its role cannot be settled solely by identifying a signal's causal function. Likewise, suppressing a report does not establish that the experience or its consequences have disappeared. The present program keeps these questions available without making a completed theory of consciousness a prerequisite for studying physical continuation.
+
+## The global object and bounded judgment
+
+The complete consequential object remains the reference. A bounded model is useful insofar as it supports defensible claims about that object. Unrepresented valuers, dependencies, and possibilities do not cease to exist when a proxy omits them. Treating the proxy as the target is the Goodhart failure the framework seeks to expose.
+
+In the cosmological vocabulary, a god's-eye perspective names complete access to the relevant structure. It is not a substitute for specifying how that structure bears value. Whether a sufficiently complete structural account also determines value is the stronger lushness question.
+
+Until that question is resolved, ODT organizes justified constraints, partial comparisons, and explicit arbitration. GE's practical work is to make ethical consideration responsive to the consequences of action while preserving the conditions for correcting its own account.
+
+Further reading: viability [R23] and cybernetics [R24] support the dynamics. Research on endogenous normativity [R32], semantic information [R33], and causal effects on future trajectories [R34] addresses neighboring parts of the physical-to-value problem. These works locate shared questions and offer particular constructions; they do not supply the unresolved account of value.
+
+---
+
+# 10 — Omega Decision Theory
+
+## Decision architecture
+
+Omega Decision Theory, or ODT, organizes decisions around the difference between the complete consequential object and the model available to an agent. It makes the justification for action, the comparison of options, and the resolution of remaining conflict separately inspectable.
+
+ODT is not a substitute name for expected utility theory, causal decision theory, or a theory of logical counterfactuals. Those approaches address questions that a concrete ODT implementation may still need to answer. ODT's distinctive focus here is the preservation of justified continuation conditions through modeling and choice.
+
+The architecture has three stages:
+
+```text
+ODT0 — License actions against the declared continuation corridor.
+ODT1 — Compare licensed actions using the supported partial ordering.
+ODT2 — Apply explicit arbitration where a decision remains necessary.
+```
+
+## The decision frame
+
+Before assessing an action, specify the affected systems, their registered requirements, available interventions, plausible contingencies, resources, and relevant horizons. Record what is known, what is estimated, and which concrete features the model omits.
+
+The frame is revisable. Discovering another affected valuer, a hidden dependence, or a missing repair route can change the licensed set. This revision is part of decision quality, rather than an inconvenience to be suppressed after optimization has started.
+
+GE motivates consideration for possible value under uncertainty. A decision frame records how that commitment is being applied; inclusion in the frame does not automatically require preserving every registered process. Assess the consequences of delay and inaction alongside intervention, including threats to shared continuation and the need for defense. Justifying a requirement and demonstrating that an action satisfies it are distinct tasks.
+
+## ODT0: justification that survives contact with the world
+
+Licensing asks whether an action preserves the justified corridor and whether its supporting argument applies to the concrete system.
+
+Suppose an abstract model claims that a damaged process can always be repaired. That claim is useful only if the abstract repair has a realizable physical counterpart under the stated resources and contingencies. A model can invent a recovery route by dropping a dependency, merging distinct agents, or treating a merely possible intervention as available.
+
+One sufficient pattern is a simulation relation linking abstract states and actions to concrete ones, with verified preservation of the required continuation properties. The exact proof obligation depends on whether the claim is existential, robust, probabilistic, or adversarial. An existential path in an optimistic abstraction cannot establish robust recovery in reality.
+
+Failure of licensing can mean demonstrated violation or insufficient justification. These should remain distinct outputs. Decisions under urgency may require a registered fallback; the framework does not turn missing evidence into a theorem of either safety or catastrophe.
+
+## ODT1: retain justified incomparability
+
+Among licensed options, compare what the evidence and normative commitments actually support. A partial ordering can express dominance without pretending that every tradeoff has a common unit.
+
+For example, suppose two legitimate aims remain. An option that improves both over another can dominate it. One that improves the first while weakening the second may remain incomparable. Lushness is intended as a possible adjudicator of such comparisons through their joint continuation structure. Establishing that role requires a justified relation to value-capable possibility; naming a structural score does not resolve the conflict.
+
+When support, probability, recovery, and horizon matter differently, keep those distinctions visible. A large support containing almost no probability mass and a concentrated high-probability gain need not receive the same assessment.
+
+## ODT2: explicit arbitration
+
+Action sometimes requires choosing from a finite frontier of incomparable options. Arbitration can use a negotiated priority, a voting rule, a fairness criterion, a lottery, or a registered score. The authority and rationale for that rule should be recorded.
+
+If every candidate breaches some requirement, an emergency rule may compare violations. That is a decision under conflict, not a retroactive declaration that all requirements were satisfied. Recording the breach supports later repair and institutional learning.
+
+Finite maximization is mathematically straightforward once a score is supplied. The difficult work is whether the score is legitimate and whether its inputs faithfully describe the world.
+
+## Low-probability claims and large stakes
+
+ODT does not automatically solve Pascal-style problems. A claim involving a tiny probability and enormous consequence must still specify the outcome, evidential support, probability model, scope of aggregation, and possible double counting.
+
+The architecture helps expose where the force of the argument comes from. An unbounded utility, an invented branch count, or a model that treats incompatible scenarios as simultaneously additive can dominate a calculation for reasons unrelated to the physical object. Keeping support, weight, and consequence structure separate makes these failures easier to diagnose.
+
+Lushness research may provide more faithful comparisons of value-capable possibility. A physical profile alone does not determine the realization or ordering of value. Explicit uncertainty, partial orderings, and justified constraints on irreversible foreclosure can guide action while that connection is investigated.
+
+The finite rare-event probe in Part 14 proves L_cov≤βp for a specific bounded-feature ensemble. It establishes sensitivity to occurrence weight under declared normalization. It does not bound every candidate lushness construction, remove calibration choices, or justify ignoring a rare catastrophe. A comparison must retain the physical event weight alongside its conditional consequence.
+
+## Exact maximization as a research comparison
+
+The unrestricted branch evaluates F_θ(a)=L_θ(G_a) over all physically admissible actions in a finite model. Here G_a is the full modeled continuation object and θ specifies a candidate comparison. It adds no independent ethical corridor. Practical ODT retains its stated commitments while this stronger proposal is examined.
+
+For the same exact objective and action set A, restricting actions to a nonempty subset A_R cannot improve the attainable maximum: max_(a∈A_R) F_θ(a)≤max_(a∈A) F_θ(a). A protection can be compatible with an optimum, or help a bounded evaluator pursue the target under error. If establishing a rule changes others' behavior, that commitment is an action with a different continuation; it must be modeled as such.
+
+Separate physical circumstances from evaluation parameters and approximation limits. Map where preferred policies change, including ties and calibration-dependent boundaries. A policy winning across a large region of parameter space is not thereby justified: a percentage requires a defended measure on that space. Candidate value–valuer accounts should supply comparisons independently of the score being assessed, so agreement can be informative rather than built into the definitions.
+
+## Why this matters for alignment
+
+An increasingly capable agent can optimize the wrong representation more effectively. ODT asks it to preserve the relationship between the representation and the continuation it is meant to govern: affected valuers remain represented, recovery claims remain realizable, and correction remains possible.
+
+This is a useful research and governance target even before a universal value measure exists. It can be implemented as concrete modeling obligations, audit questions, and decision records. Success should be tested by whether those obligations catch consequential mistakes, not by whether the system produces more elaborate justifications.
+
+Further reading: quantum and classical process models [R15, R19] inform representation; viability theory [R23] informs corridor conditions. ODT is the program's staged decision architecture.
+
+---
+
+# 11 — Awareness and experienced time
+
+## The physical and phenomenal questions
+
+A physical perspective describes situated continuation. Phenomenality concerns whether and how anything is experienced. The program distinguishes **awareness**, used here for minimal phenomenal presence, from **consciousness**, used for richer organizations of perception, integration, memory, attention, and report.
+
+This terminology keeps two questions separate: what physical organization constitutes a perspective, and what makes a perspective phenomenally inhabited? A crystal and an organism can both have physical continuation without the same answer to the second question.
+
+The relation can be represented schematically by a correspondence κ between physical perspective occurrences and experiences. κ could express identity, emergence, a dual-aspect relation, or a psychophysical law. The physical account supplies the domain in which such proposals can be made precise; it does not determine κ by changing terminology.
+
+## Nonprivileged present awareness
+
+The central phenomenal conjecture is that awareness is situated at a present, while no present is globally privileged. A present occurrence can contain physical records of a past, anticipation of futures, and mechanisms that bind these into an apparent stream.
+
+On the **universal-habitation conjecture**, every eligible perspective occurrence is inhabited. Eligibility might be universal, graded, dependent on substrate, or dependent on organization. The conjecture does not require a single awareness to travel along the block selecting one moment after another.
+
+The resulting account can be timeless at the global level and temporally structured from within. What an occurrence remembers, expects, and experiences as change belongs to its situated organization. This provides an architecture for understanding the appearance of passage while leaving the phenomenal character of passage to the coupling account.
+
+## Compatibility and anthropic reasoning
+
+An occurrence that consciously recognizes its own situation must be physically compatible with that recognition. Conditioning on such an occurrence restricts the relevant physical possibilities. This is a useful compatibility requirement, but compatibility alone does not decide which systems are aware or supply a measure over experiences.
+
+The perspectival move therefore has two applications. In physics, it restricts descriptions to those compatible with an actual situated process. In the phenomenal conjecture, it asks which physical situations can instantiate the awareness under consideration. The second depends on κ.
+
+Awareness does not need to be inserted into the quantum eraser to explain its statistics. If a phenomenal theory is added, it must coexist with the already specified quantum process and its conditional records.
+
+## Don Page as a close foundation
+
+Don Page's Sensible Quantum Mechanics is an especially close neighbor. It separates a quantum world from a space of conscious perceptions and relates measures on perceptions to expectation values of positive awareness operators. His later discussion of consciousness and quantum theory develops that family of proposals. [R25, R26]
+
+In a finite-dimensional schematic version:
+
+```text
+μ(S) = Tr[ρ A(S)],
+```
+
+where S is a set of experiences and A(S) a suitable positive operator associated with it. A physical record projector is not automatically such an awareness operator; the correspondence is additional structure.
+
+Omega borrows the clarity of a global quantum description related to situated phenomenal occurrences. Its main development concerns physical continuation, consequence geometry, lushness, and the ecology of valuers. It does not require Page's full metaphysical position or assume that his proposed awareness measure has already been identified.
+
+Page and Wootters' relational-time construction is a different contribution: it represents dynamics through correlations with internal clock readings. It is relevant to the physical account of time, whereas Sensible Quantum Mechanics concerns the relation to conscious perceptions. [R27]
+
+## Agency in an inhabited block
+
+If all eligible occurrences are inhabited, deliberation and action still participate in physical dependence. Different policies have different consequences. A block description does not make an intervention causally equivalent to its absence.
+
+What changes is the interpretation of selection. One may no longer imagine a single external spotlight choosing which entire world becomes real. Decision theory then needs a clear account of conditional expectation, branch-relative interests, and the relation between identity and successors. Universal habitation alone does not provide that account.
+
+Likewise, the existence of some surviving continuation does not establish quantum immortality or make its weight irrelevant. A physical continuation, an individual's identity, and an expectation of experience are different pieces of the problem.
+
+## Why the question matters for value
+
+If phenomenality carries distinctions absent from a purely physical consequence description, a complete account of value must include them through κ or a successor theory. If phenomenality is identical with certain physical organization, that organization becomes part of what must be preserved.
+
+Either way, the relevant ambition is to understand the actual substrate of valuation. The awareness conjecture extends the program's perspective-first approach while leaving a concrete task: identify what physical and phenomenal structure the correspondence must retain.
+
+Further reading: Page's awareness-measure proposals [R25, R26]; Page–Wootters relational time [R27]; relative-state quantum mechanics [R28].
+
+---
+
+# 12 — Alpha–Omega and the metaphysical horizon
+
+## Generalizing the physical construction
+
+The physical program begins with our universe. Alpha–Omega asks whether the same perspectival move can be stated more generally: a space of possible structure, lawful modes of composition and transformation, and situated processes that inherit constrained possibilities within it.
+
+**Alpha** names the generative possibility side of that picture. **Logos** names a lawful relational articulation through which a world is constituted. **Omega** names completed manifestation or the full realized structure considered as a whole. These terms organize a metaphysical extension; they do not add a measured physical force.
+
+“Adapter” is useful here for the relation between a general generative description and a particular physical realization. For embodied processes, the term remains perspective. This preserves the distinction between a cosmophysical articulation and a situated process within it.
+
+## Gradient and filter
+
+The broad engine combines differences that permit change with constraints that select what can occur or persist. In concrete models these may be energetic gradients, dynamical laws, boundary conditions, conservation relations, stability conditions, and environmental selection.
+
+There is no need to posit one scalar potential behind every such structure. Nor must the full engine be fluid dynamics. Fluid flow supplies powerful examples of transport, circulation, coherent organization, dissipation, and instability; a universal fluid ontology would require an additional construction.
+
+The generalization is valuable when it preserves the actual mathematics of its realizations. A metaphor becomes a useful adapter when one can specify which structures map to which, and which operations remain valid after the mapping.
+
+## Intellectual neighbors
+
+Wolfram's ruliad proposes a totality of computational possibilities and relates experienced physics to the structure of observers within it. It is a close neighbor of the move from a broad possibility object to compatible situated descriptions. [R29]
+
+Omega can borrow multiway representations and the question of observer-compatible structure without requiring that a particular rewriting model already establishes our physics. Its immediate route works outward from quantum continuation and physically specified interfaces.
+
+Information-geometric optimization supplies another neighbor: optimization formulated through geometric invariance rather than arbitrary coordinates. [R30] The connection is methodological. A general ability to find global optima in every search space does not follow from the existence of a geometric description. Whether lushness can help search or adaptation is a testable downstream question in particular settings.
+
+## Completion and aspiration
+
+Completed manifestation and an ideal of maximal lushness should be kept distinct. The first concerns the full object. The second concerns a proposed comparison among objects or continuations. Calling something Omega does not establish that it is best.
+
+The program's ambitious question is what the richest value-capable continuation could be under a given lawful structure. Answering it requires the consequence object, a defensible account of valuerhood, and justified comparisons. The Darwinian engine constrains the corridor without supplying a unique champion.
+
+A highly integrated plurality and a single generative controller might realize equivalent continuation structure at an appropriate level. The relevant equivalence must be specified. It could concern response capability, internal variety, or patterns of valuation. It would not automatically identify their phenomenal subjects or political arrangements.
+
+## Simplicity, aseity, and the veil
+
+One elementary substrate whose relations generate complex phenomena is a form of ontological economy. It does not by itself explain why that substrate or its laws exist, whether they could have been otherwise, or whether the totality depends on anything beyond itself.
+
+**Aseity** concerns that stronger independence of being. A claim of aseity is a metaphysical commitment with consequences; it is not obtained merely by counting elementary substances. The relational physics can be pursued while that commitment remains open.
+
+The framework's stance here is apophatic: specify what the constructions establish, narrow the limits of intelligible description, and resist treating the remaining horizon as a fully known object. A situated process may explain increasingly much of its world without reaching an empirical standpoint outside all formal and physical reality.
+
+## Theological redescriptions
+
+The vocabulary permits suggestive translations. Logos can evoke lawful intelligibility. An identity invariant can be compared, in a limited physical sense, with soul as a principle of continuity. Redemption can evoke regained access to generative continuation. Terminal solitude can evoke an excisive closure that destroys the possibility of other valuation.
+
+These are invitations to dialogue, not dictionary identities. A global awareness that inhabits suffering would also be a further phenomenal and theological hypothesis; sharing suffering would not alone justify imposing it.
+
+The theological reach of the program is therefore its open horizon. The same questions about relation, continuation, identity, and valuation can be asked at increasing scope, while the physical work proceeds on the structures that can be specified and tested.
+
+Further reading: Wolfram's ruliad [R29] and physics proposal [R22]; information-geometric optimization [R30]; Page's phenomenal proposals [R25, R26].
+
+---
+
+# 13 — Worked examples
+
+These small models show what the framework's distinctions do. Their conclusions are exact within the stated settings. They provide tests for larger constructions, not a numerical definition of value.
+
+## 1. A phase that a coarse description misses
+
+Take two qubit states:
+
+```text
+|+⟩ = (|0⟩ + |1⟩)/√2
+|−⟩ = (|0⟩ − |1⟩)/√2.
+```
+
+A measurement in the 0/1 basis returns equal probabilities for either state. A description retaining only those probabilities merges them.
+
+A measurement in the +/− basis distinguishes them perfectly. If that measurement is an admissible continuation, their difference is consequential. The compression failed because it discarded phase that could influence a later interaction.
+
+If the physical channel first completely dephases both states in the 0/1 basis and access to the environment is excluded, both become I/2 on the system. They are then equivalent for subsequent tests on that reduced output. The difference between these cases is a physical operation and access domain, not a change in descriptive taste.
+
+## 2. The same local present, different continuation
+
+Use two bits S and E, represented as diagonal two-qubit states. Prepare either a matching correlation or an opposite correlation:
+
+```text
+ρ_match = (|00⟩⟨00| + |11⟩⟨11|)/2
+ρ_opp   = (|01⟩⟨01| + |10⟩⟨10|)/2.
+```
+
+In both cases S alone is uniformly random, and so is E. Now apply the reversible interaction S ← S XOR E, leaving E unchanged.
+
+For ρ_match, S becomes 0 with certainty. For ρ_opp, S becomes 1 with certainty. The same local density operator at the first boundary did not determine the later local state. The joint correlation plus dynamics did.
+
+This example needs neither consciousness nor quantum entanglement. It isolates why full continuation can contain information absent from instantaneous marginals.
+
+## 3. Focus in a quantum eraser
+
+Prepare the idealized entangled state:
+
+```text
+|Ψ⟩ = (|a⟩|0⟩ + |b⟩|1⟩)/√2,
+```
+
+where a and b are orthogonal signal paths. Tracing out the marker yields the signal mixture:
+
+```text
+ρ_signal = (|a⟩⟨a| + |b⟩⟨b|)/2.
+```
+
+Measure the marker in the +/− basis. Conditional on +, the signal is (a+b)/√2; conditional on −, it is (a−b)/√2. Let ψ_a(x) and ψ_b(x) be the path amplitudes at a screen. The conditional distributions are:
+
+```text
+p(x | ±) = |ψ_a(x) ± ψ_b(x)|² / 2.
+```
+
+Each marker outcome has probability 1/2. Their mixture is:
+
+```text
+p(x) = [|ψ_a(x)|² + |ψ_b(x)|²] / 2.
+```
+
+The cross terms cancel. Conditional focus reveals different organized subsets; the unconditional signal statistics remain unchanged. The ideal model captures the central conditional structure of the delayed-choice experiment. [R12]
+
+## 4. Representation duplication and physical redundancy
+
+First, take a physical state x and introduce a thousand names for it. A consequence quotient identifies the names whenever they denote the same process. No physical capability has been added.
+
+Next, store a recoverable classical record in two locations with independent failure probability p. If either surviving location suffices for restoration, total failure has probability p². A single copy fails with probability p.
+
+These are different cases. Independent storage changes the process under disturbance. A common catastrophe that destroys both locations can remove the advantage, so the failure model belongs in the comparison. Arbitrary unknown quantum states cannot simply be duplicated by the classical copying procedure; quantum protection needs an appropriate encoding and noise model.
+
+## 5. Horizon-dependent recovery
+
+Consider a deterministic transition graph with damaged state D, repair state R, and restored state A:
+
+```text
+D → R → A.
+```
+
+Recovery to A is impossible within one step and possible within two. A short-horizon quotient can therefore hide a real return route.
+
+Now add a transition from A to failure F on the following step unless a resource-consuming maintenance action is taken. Reaching A and remaining viable are different claims. A longer horizon reveals recovery in the first question and a new obligation in the second.
+
+## 6. Everyone individually repairable, no joint repair
+
+Two systems A and B are damaged. A single indivisible resource can repair either one and is consumed. There is no replenishment or sharing within the model.
+
+Each individual has a repair route. There is no route repairing both. Formally, “for each i there exists a successful policy” does not imply “there exists one policy successful for all i.”
+
+A related three-system case has enough resources for any two, but not all three. Every pair is compatible; the whole family is not. Marginal or pairwise summaries lose a decisive constraint.
+
+## 7. A policy atlas needs a selector
+
+There are two unobserved environments, e₀ and e₁, and two policies. Policy π₀ succeeds only in e₀; π₁ succeeds only in e₁. Every environment has a successful policy, but no fixed policy succeeds in both.
+
+The two success regions form a cover. Using that cover robustly requires an available way to identify the relevant region and select its policy. If sensing supplies that information in time, an adaptive policy may solve the problem. Without it, the cover is only an existential catalog.
+
+Nor does needing two policy behaviors imply needing two valuers. One controller can implement both when its architecture and information allow it.
+
+## 8. Breadth at fixed covariance
+
+Compare positive semidefinite matrices with eigenvalues (M,0,…,0) and (M/r,…,M/r,0,…,0), with r nonzero entries, M > 0. They have the same trace M.
+
+For β > 0:
+
+```text
+L_narrow = log(1 + βM)
+L_broad  = r log(1 + βM/r).
+```
+
+For r > 1, L_broad exceeds L_narrow. The statistic detects independent spread at matched total covariance. Whether the chosen covariance faithfully represents consequence is a separate modeling question.
+
+## 9. A decision without invented commensurability
+
+Suppose three licensed actions have validated outcome profiles A=(1,0), B=(0,1), and C=(0,0), where both coordinates are to be increased. A and B each dominate C, while neither dominates the other.
+
+ODT1 removes C from the undominated frontier. ODT2 can select between A and B using an authorized priority or lottery. A chosen weighted sum is an explicit arbitration commitment; it is not a discovery that the two aims were secretly measured in the same unit.
+
+## 10. A hidden dependency becomes a continuation capability
+
+Let X,Y,Z∈{−1,+1} have joint law P_t(x,y,z)=(1+txyz)/8, with −1≤t≤1. Their means vanish and their covariance is I₃ for every t. At t=0 the bits are independent; at t=1 they obey Z=XY.
+
+An independent physical input U∈{−1,+1} controls a sign flip. A fixed parity decoder then acts reversibly:
+
+```text
+(X,Y,Z) → (X,Y,UZ) → (X,Y,UXYZ).
+Receiver output W = UXYZ.
+P(W=w | U=u,t) = (1+tuw)/2.
+```
+
+The full model retains U and all register outputs. The receiver reads only W. No direct input wire, reset, fresh blank receiver register, or swap of U into W is permitted. Both preparations face the same interface and operations; their preparation entropies differ, so this does not compare equal preparation costs.
+
+| Dependency | Initial covariance score at β=1 | Separation of conditional receiver laws | Best recovery with fair U |
+| --- | ---: | ---: | ---: |
+| t=0 | 3 log 2 | 0 | 1/2 |
+| t=1/2 | 3 log 2 | 1/2 | 3/4 |
+| t=1 | 3 log 2 | 1 | 1 |
+
+The exact separation is |t| and recovery is (1+|t|)/2. The independent preparation is uniform on eight states and unchanged by any reversible register permutation. Its quantum realization I₈/8 is also unchanged by any unitary on that register. Input-selected reversible register operations alone therefore cannot transfer U into this receiver at t=0. The parity preparation permits perfect transfer.
+
+This result survives an exhaustive check of the distinct one-bit readouts of eight-state reversible decoders. Each is a balanced Boolean function f with four positive outputs and has a reversible extension. There are 70: 36 expose no dependency, 32 give separation |t|/2, and two give |t|. The direct readout W=UZ is a zero-transfer control. These counts do not supply a probability prior over operations.
+
+If the fair input U is averaged out, the entire receiver register is uniform for every t. The full joint object still retains E[UW]=t. Even a complete unconditional receiver snapshot therefore fails to characterize input transfer. The conditional response object captures it.
+
+There is a direct comparison independent of the diversity formula. With receiver-only stochastic postprocessing allowed, a channel of strength t can reproduce strength s whenever |s|≤|t|. For t≠0, multiply W by an independent sign R with E[R]=s/t. The converse fails for |s|>|t| because such processing cannot increase the separation of conditional output laws. This orders the specified transfer capability, not the global value of the preparations.
+
+The two response laws also provide a test of richer summaries. Under the physical fair input and similarity 1−TV, D₂=1/(1−|t|/2). Weighted covering with centers in the response family needs two balls precisely when ε<|t| and δ<1/2. Both detect the demonstrated change. The underlying representation already retained it; the deficient object was the covariance compression. A scalar evaluation can still tie different processes without being wrong.
+
+## What these examples establish together
+
+Phase, joint correlation, access, horizon, redundancy, shared resources, and information for policy selection all change continuation. A proposed consequence representation must preserve their effects within its declared domain. A candidate lushness summary must state which aspects it compares and justify the distinctions it discards for that purpose. The continuation test supplies a concrete sufficiency requirement without prescribing a value ranking. Part 16 links its exact enumeration and the accompanying calibration and rare-event probes.
+
+---
+
+# 14 — A compact formal core
+
+This section fixes one tractable setting: finite-dimensional quantum systems, finitely many interaction slots, and specified interfaces. Classical stochastic models are included through diagonal states and classical operations. Relativistic and field-theoretic extensions require their appropriate algebras and boundary structures.
+
+## A. Quantum ingredients
+
+A state ρ is positive semidefinite with Tr ρ = 1. A channel E is completely positive and trace preserving. An effect F satisfies 0 ≤ F ≤ I. An instrument {M_o} consists of completely positive trace-nonincreasing maps whose sum is a channel.
+
+For a physical outcome o:
+
+```text
+p(o) = Tr[M_o(ρ)]
+ρ_o  = M_o(ρ) / p(o),                    when p(o) > 0.
+```
+
+Retain the pair (p(o), ρ_o), or the unnormalized state M_o(ρ), when comparing occurrence weight and conditional structure. Conditional normalization alone discards p(o).
+
+For a downstream effect F:
+
+```text
+p(F | ρ) = Tr[F E(ρ)] = Tr[E*(F) ρ].
+```
+
+This equality is the definition of the dual map under the trace pairing. It supplies the elementary focus construction. [R06–R08]
+
+## B. Residual processes and testers
+
+Let Υ_x denote the residual process associated with physical boundary condition x. An admissible tester T is a causally ordered sequence of allowed interventions, ancillas, and final readout on the specified interface. Write its outcome law as p_Υx^T(y).
+
+Process tensors or quantum combs represent these multi-time response laws, with positivity and causal normalization constraints. Use one explicit Choi convention when implementing them; tensor order and transposes must follow that convention. The abstract probability pairing avoids hiding a convention in notation. Interactive strategy discrimination supplies corresponding operational distance machinery. [R15, R31, R36]
+
+For a nonempty tester family T_H, define:
+
+```text
+d_H(x, x′) = sup_{T ∈ T_H} ½ Σ_y |p_Υx^T(y) − p_Υx′^T(y)|.
+```
+
+Define x ~_H x′ when d_H(x,x′)=0 and Γ_H as the resulting quotient of the physical condition domain. Each tester's output distribution is normalized. The metric compares normalized residual processes; separately retain any weight associated with the boundary conditioning itself.
+
+### Proposition 1: exact equivalence and horizon refinement
+
+The relation ~_H is an equivalence relation. If T_H is contained in T_H′, then d_H ≤ d_H′, and equivalence at H′ implies equivalence at H.
+
+**Derivation.** Equality of all corresponding probability laws is reflexive, symmetric, and transitive. A supremum over a subset cannot exceed the supremum over the larger set. Thus expanding admissible continuation can separate classes but cannot merge classes already distinguished.
+
+The distance is a pseudometric on physical conditions and a metric on its zero-distance quotient. Finiteness of the underlying Hilbert space does not imply that this quotient has finitely many points.
+
+## C. Compression and composition
+
+An encoding q maps concrete conditions to abstract representations. A decoder or abstract process assignment produces predictions p̂_q(x)^T. Require a uniform error bound in the declared domain:
+
+```text
+sup_{x,T} TV[p_Υx^T, p̂_q(x)^T] ≤ ε.
+```
+
+If q(x)=q(x′), the triangle inequality gives d_H(x,x′) ≤ 2ε. Thus an encoding that merges perfectly distinguishable conditions cannot satisfy ε < 1/2 for that tester domain.
+
+For exact deterministic updates F_a, abstraction respects composition when abstract updates F̄_a exist satisfying q∘F_a = F̄_a∘q. In probabilistic settings the corresponding pushforward laws must agree. In quantum settings use physical maps and valid encodings rather than assuming every set-theoretic quotient is a quantum channel.
+
+### Proposition 2: restricted operational contraction
+
+Suppose a transformation Φ maps the compared processes to a new interface, and every admissible output tester composed with Φ is an admissible input tester. Then:
+
+```text
+d_out(Φx, Φx′) ≤ d_in(x, x′).
+```
+
+**Derivation.** Every difference visible after Φ already belongs to a test included in the input supremum. The output supremum therefore cannot exceed the input one.
+
+This statement concerns the corresponding tester domains. A reversible transformation with reversible access in both directions preserves distance. For closed unitary dynamics and unrestricted global measurements, distinguishability is preserved. Substantial compression then comes from a specified restriction, redundancy of representation, or effective description; it cannot be obtained by silently deleting globally accessible information.
+
+### Proposition 3: a covariance summary is not closed under continuation
+
+For x,y,z∈{−1,+1}, let P_t(x,y,z)=(1+txyz)/8, −1≤t≤1. Let q(P) retain the three means and their covariance. Then q(P_t)=(0,I₃) for every t. Under the fixed reversible transformation F(x,y,z)=(x,y,xyz):
+
+```text
+mean(F_*P_t) = (0,0,t)
+cov(F_*P_t)  = diag(1,1,1−t²).
+```
+
+**Derivation.** Every nonconstant product moment except E[XYZ]=t vanishes. Each initial squared coordinate is one. At the output, E[XYZ]=t is the last-coordinate mean, while its products with X and Y reduce to YZ and XZ and still have zero expectation. Thus equal q(P_t) have different q(F_*P_t), precluding any exact F̄ with q∘F_*=F̄∘q on this family.
+
+For these states, TV(P_t,P_s)=|t−s|/2, so the full probability laws already distinguish the preparations. Covariance loses a distinction retained by the full continuation object. This is a failure of sufficiency for exact update, not a proof that every scalar comparison must separate the states.
+
+### Observable completion from the permitted tests
+
+The functions 1,X,Y,Z,XY,XZ,YZ span seven dimensions of the eight-dimensional function space on the register. The future last-coordinate readout composed with F is XYZ, the missing eighth function. For S⊆{1,2,3}, write χ_S(x)=∏_(i∈S)x_i, with χ_∅=1. Their orthogonality gives:
+
+```text
+Σ_x χ_S(x)χ_T(x) = 8 if S=T, and 0 otherwise.
+P(x) = (1/8) Σ_S E_P[χ_S] χ_S(x).
+```
+
+Adding the observable required by the actual continuation therefore reconstructs every joint law in this finite classical domain. In larger classical or quantum models, start from the declared readouts and close their linear span under pullback through permitted operations. A quantum pullback is the dual map. Closure and the relevant conditioning branches determine what expectations must be retained; economical finite closure is not guaranteed. Adding a feature because a permitted continuation requires it differs from assigning that feature an evaluative bonus.
+
+### Proposition 4: conditional transfer in the three-bit device
+
+Let an independent input U first multiply Z. Apply the parity decoder and expose only W=UXYZ. Then:
+
+```text
+K_t(w|u) = (1+tuw)/2.
+TV(K_t(·|+1), K_t(·|−1)) = |t|.
+Best input recovery under fair U = (1+|t|)/2.
+```
+
+**Derivation.** The sign A=XYZ has mean t, hence P(A=a)=(1+ta)/2. Since W=UA, the response law follows. For binary fair-input discrimination the best success is one half plus one half of the output total variation.
+
+A balanced readout f after the input flip gives the same formula with t replaced by tc_f, where c_f=(1/8)Σ_xyz xyz f(x,y,z). Enumerating the 70 balanced functions gives 36 with c_f=0, 16 each with c_f=±1/2, and one each with c_f=±1. Every such readout extends to a reversible eight-state permutation. This exhausts that readout class, not all possible quantum interventions or added resources.
+
+For |s|≤|t| and t≠0, receiver postprocessing V=RW with an independent sign of mean s/t transforms K_t into K_s. The t=s=0 case is immediate. No receiver-only stochastic map can accomplish |s|>|t|: writing a=P(V=+1|W=+1) and b=P(V=+1|W=−1), the difference of conditional output probabilities is multiplied by a−b∈[−1,1]. This is a conditional simulation order for these channels.
+
+The entire register output is uniform after averaging over fair U, although the joint law retains E[UW]=t. This establishes the need for conditional response structure when assessing transfer. The full model retains U and every register output; unrestricted access to U trivially reveals the input for every t. The result concerns transfer to the specified receiver, with the interface restrictions in Part 13.
+
+## D. Consequence geometry and candidate lushness profiles
+
+Retain the family of Γ_H with its refinement relations, conditional updates, physical composition, and applicable weights. For a totally bounded Γ_H, let N_ε(Γ_H,d_H) be the minimum number of radius-ε balls required to cover it. Define the candidate support profile:
+
+```text
+L_support(H, ε) = log N_ε(Γ_H, d_H).
+```
+
+The domain whose cover is taken must be specified: all states permitted by resources, states reachable from a fixed boundary, or a physically supplied ensemble are different objects. A chosen ensemble over quantum states is not automatically a uniquely given branching decomposition.
+
+If decoherent alternatives or preparation statistics supply a probability measure μ, and a justified feature map φ takes values in R^d with finite second moments, define:
+
+```text
+m = ∫ φ(x) dμ(x)
+Σ = ∫ [φ(x)−m][φ(x)−m]ᵀ dμ(x)
+L_cov(β) = log det(I + βΣ),              β > 0.
+```
+
+Choose units so βΣ is dimensionless. Unless specified otherwise, logarithms here are natural. L_cov is invariant under orthogonal changes of feature coordinates, not arbitrary rescaling.
+
+For a declared positive-definite feature metric M, use the dimensionless symmetric product βM^(1/2)ΣM^(1/2):
+
+```text
+L_cov(β,M) = log det(I+βM^(1/2)ΣM^(1/2))
+           = log det(I+βΣM).
+```
+
+Under an invertible coordinate change φ′=Sφ, Σ′=SΣSᵀ and M′=S^(−T)MS^(−1). Then Σ′M′=SΣMS^(−1), so the determinant and score are invariant. Holding M fixed while changing units generally changes the modeled metric. Its physical justification remains separate from coordinate invariance.
+
+### Proposition 5: fixed-trace spread
+
+For eigenvalues λ_i ≥ 0 with Σ_i λ_i = M in a fixed d-dimensional feature space:
+
+```text
+Σ_i log(1 + βλ_i) ≤ d log(1 + βM/d).
+```
+
+**Derivation.** The function log(1+βλ) is concave, so Jensen's inequality gives the bound. Equality occurs when all λ_i=M/d. For r > 1 positive equal directions, strict concavity gives r log(1+βM/r) > log(1+βM) when M > 0.
+
+This is a result about the candidate statistic under its coordinate assumptions. It does not establish a value ordering.
+
+### A calibration boundary with explicit preparations
+
+Let C be uniform on (±2,0), D uniform on the four points (±1,±1), and E uniform on (±1,±1/2). Use the same coordinate readouts and M=diag(1,q), with β,q>0. Their covariances are diag(4,0), diag(1,1), and diag(1,1/4), respectively. Thus:
+
+```text
+exp L_C = 1+4β
+exp L_D = (1+β)(1+qβ)
+exp L_E = (1+β)(1+qβ/4)
+exp L_D − exp L_C = β[q(1+β)−3].
+```
+
+D wins when q(1+β)>3, C wins when it is smaller, and they tie on the boundary. E is strictly below D throughout this positive parameter domain. At q=1 the C/D crossover is β=2. These are explicit distributions on a common finite alphabet; equal preparation cost is not assumed. The result characterizes a candidate comparison's calibration dependence and its limits, rather than assigning the preparations ethical roles.
+
+### A rare-event bound and its cost
+
+Consider orthogonal records 0,1,…,m with weights P(0)=1−p and P(i)=p/m, where m≥1 and 0≤p≤1. For 0<p<1 the support contains m+1 records regardless of how small p is; its distance from the point mass at 0 is p in total variation. Shannon entropy is h₂(p)+p log₂m bits, which is not uniformly bounded in m at fixed positive p.
+
+Fix the feature convention φ(0)=0 and φ(i)=e_i, so each feature vector has norm at most one, and use M=I. Then:
+
+```text
+Σ = (p/m)I − (p²/m²)11ᵀ
+L_cov = (m−1)log(1+βp/m) + log(1+βp(1−p)/m)
+0 ≤ L_cov ≤ β Tr Σ = β(p−p²/m) ≤ βp.
+```
+
+**Derivation.** The covariance has eigenvalue p/m in the m−1 directions perpendicular to 1, and p(1−p)/m along 1. Apply log(1+x)≤x to its nonnegative eigenvalues. For fixed p and β, L_cov approaches βp as m→∞. The uniform tail bound therefore accompanies saturation with breadth. It depends on the bounded feature normalization and fixed β; it is not a bound on every physical consequence or value functional.
+
+### Probability-weighted covers
+
+For a declared domain Γ, metric d, and physical probability measure μ, define closed balls B_ε(x) with centers in Γ. For ε≥0 and 0≤δ<1:
+
+```text
+N_(ε,δ)(Γ,d,μ) = inf {|C| : C is a finite subset of Γ,
+                         μ(⋃_(c∈C) B_ε(c)) ≥ 1−δ}.
+```
+
+Set the result to infinity if no finite cover meets the requirement. Keep its dependence on ε,δ, horizon, and interface. Covering probability one is not in general the same as covering every point of the declared domain. For a finite positive-weight support, δ=0 does require every support point.
+
+For the two response laws K_t(·|±1) with equal physical input weights, centers in that response family, and closed balls:
+
+```text
+N_(ε,δ) = 1 when ε≥|t| or δ≥1/2;
+          2 otherwise.
+```
+
+The domain collapses to one response at t=0. Allowing centers outside the family would change the radius boundary, so the center convention is part of the construction.
+
+### Similarity-sensitive effective diversity
+
+For a finite ensemble {x_i,p_i}, p_i≥0 and Σ_i p_i=1, choose a symmetric similarity matrix Z with 0≤Z_ij≤1 and Z_ii=1. The Leinster–Cobbold order-two diversity is [R35]:
+
+```text
+D₂(p,Z) = 1/(pᵀZp).
+```
+
+With operational distance d∈[0,1], Z_ij=1−d(x_i,x_j) is one explicit choice. For identical responses D₂=1; for pairwise perfectly distinguished responses it is 1/Σ_i p_i². Splitting a weight among indistinguishable duplicate labels leaves the value unchanged when their similarities to every member also agree.
+
+For the fair-input parity response family:
+
+```text
+Z = [[1,1−|t|],[1−|t|,1]]
+D₂ = 1/(1−|t|/2).
+```
+
+It increases from 1 to 2 as the two responses become distinguishable. This agrees with the specified channel capability order. Neither this similarity choice nor an ensemble over all interventions is selected uniquely by physics. The test validates discrimination of a known response difference; it does not validate D₂ as global lushness or make higher-order correlation intrinsically valuable.
+
+## E. Recovery and compatibility
+
+For a transition model x_{t+1}=f(x_t,a_t,e_t), a target A, and admissible policy class Π, existential recovery means some allowed policy and contingency realization reaches A by H. Robust recovery requires one policy securing the registered recovery criterion for every allowed contingency sequence. A policy may condition on information actually available at its decision points.
+
+For requirements R_i on complete allowed continuations z, define:
+
+```text
+Real(F) = {z : R_i(z) holds for every i ∈ F}
+May(F)  iff Real(F) ≠ ∅
+Robust_E(F) iff ∃π ∈ Π ∀e ∈ E : outcome(π,e) ∈ Real(F).
+```
+
+Assume outcomes are valid continuations and E is nonempty. Robust_E(F) then implies May(F): choose any e from E and use the securing policy's outcome.
+
+Adding requirements shrinks Real(F). Enlarging E can only shrink the set of securing policies. The converse from May to Robust fails, as do the inferences from individual to joint recovery and from pairwise to full compatibility. Part 13 gives finite counterexamples.
+
+For success regions S_π={e : outcome(π,e) ∈ Real(F)}, define a policy-cover number:
+
+```text
+κ_F(E) = inf {|P| : P ⊆ Π and E ⊆ ⋃_{π∈P} S_π},
+```
+
+with infinity when no cover exists. A finite cover records complementary policy success. Its execution requires a realizable selector or an equivalent adaptive policy.
+
+## F. A finite decision frame
+
+Let A be a finite nonempty action set. Let C(a) be the declared corridor criterion, and J(a) the model-to-world justification criterion. ODT0 returns:
+
+```text
+A₀ = {a ∈ A : C(a) and J(a)}.
+```
+
+These predicates contain the substantive physical and normative work. Writing them down does not verify them.
+
+Given a preorder ≽ over A₀, ODT1 retains actions not strictly dominated. For finite nonempty A₀ this frontier is nonempty. ODT2 selects from it using registered arbitration. If A₀ is empty, an explicitly specified emergency procedure is required; the empty licensed set is itself an informative outcome.
+
+This formal core is sufficient to begin finite probes of focus, consequential equivalence, compression, recovery, compatibility, and candidate lushness. The extension to the full physical object remains the organizing research direction.
+
+---
+
+# 15 — Glossary
+
+Terms marked “framework” have the meaning specified by this program. Familiar technical terms retain their standard meaning in the stated mathematical domain.
+
+**Adapter — framework.** A mapping or realization linking a general generative description to a particular cosmophysical structure. Used at the Alpha–Logos level; embodied situations are called perspectives.
+
+**Agency.** Organized capacity to alter continuation through internally structured, circumstance-sensitive action. Its precise lower boundary is a research question.
+
+**Alpha — framework.** The generative possibility side of the generalized cosmology. It is not required to perform the quantum continuation analysis.
+
+**Apophasis.** A method of approaching a metaphysical horizon partly by specifying the limits of positive description.
+
+**Arbitration.** An explicit rule for selecting among options that the available comparisons do not uniquely settle.
+
+**Aseity.** Independence of being; a stronger metaphysical claim than constitution from one kind of substrate.
+
+**Awareness — framework usage.** Minimal phenomenal presence. The term does not imply reportability, reflective thought, or a particular physical realization.
+
+**Block viewpoint.** A completed description in which physical events and their relationships belong to one object, without a privileged externally advancing present.
+
+**Born weight.** Quantum probability weight assigned by the Born rule to the appropriate outcome or decoherent alternative. It is distinct from counting decomposition terms.
+
+**Branch.** A context-sensitive term for a history alternative. An interfering contribution and an approximately autonomous decohered history carry different mathematical structure.
+
+**Capacity.** The transformations or distinctions a system can support under specified physical inputs, resources, and interactions. It differs from what the system currently instantiates.
+
+**Coarse graining.** A description that combines or omits distinctions. Faithful consequence coarse graining preserves the distinctions required for its declared continuation domain.
+
+**Coherence.** Quantum structure, represented by appropriate off-diagonal relations, that can support interference relative to a specified decomposition and access setting.
+
+**Compatibility.** Joint realizability of a collection of requirements. May compatibility is existential; robust compatibility requires a securing policy across stated contingencies.
+
+**Compression.** An encoding into a reduced representation. Exact sufficiency preserves all relevant predictions; approximate sufficiency bounds their distortion.
+
+**Consciousness — framework usage.** Richer organizations associated with perception, integration, memory, attention, or report. Its relation to minimal awareness remains open.
+
+**Consequence — framework.** The difference a physical condition makes to continuation. It is descriptive before it is evaluative.
+
+**Consequence geometry.** The distinguishability, causal, compositional, conditional, and weighting structures carried by consequentially differentiated possibilities.
+
+**Continuation.** The physically supported extension of a situated process, including its response to admissible interactions and its correlations across boundaries.
+
+**Continuation equivalence.** Equality of continuation behavior under all admissible tests in a specified physical domain. It does not identify historical events or individuals.
+
+**Corridor — framework.** A region of states, processes, or policies satisfying stated viability, compatibility, recovery, or correction requirements.
+
+**Decoherence.** Suppression of relevant interference in a reduced description through physical correlation with other degrees of freedom.
+
+**Deformation / deformer.** A deformation is a difference in continuation. A deformer is a process whose condition, interaction, or existence produces such a difference. Neither term entails agency, valuation, or ethical significance.
+
+**Endogenous valuation.** Differentiation among continuations arising within the organization of a candidate valuer. What qualifies as sufficiently endogenous is part of the demarcation problem.
+
+**Excision — framework.** Removal or flattening of consequential alternatives, especially independent valuation, as a mode of securing control.
+
+**Focus — framework.** A condition or boundary relation through which compatible process or history contributions are organized. It is not intrinsically agentic or phenomenal.
+
+**Futures field — framework.** The structured physical possibility of continuation. The phrase does not designate an additional physical field.
+
+**Generativity.** Capacity to produce access to further differentiated structure or transformations. It is a phenomenon to explain through the consequence object, not an automatic term in the definition of lushness.
+
+**Gradient — framework usage.** Directional differentiation among continuations. In a particular model it may be an ordinary mathematical gradient, a partial ordering, or a constraint structure.
+
+**Gradient Ethics (GE).** The investigation of policy through its effects on value-capable continuation. It adopts consideration for the possibility of value under uncertainty and studies the conditions supporting rights-like protections, justice, cooperation, and defensive capability.
+
+**Identity invariant — framework.** Candidate organization or relation preserved through specified transformations of a continuing process. Classification, causal continuity, and numerical identity must be distinguished.
+
+**Interface.** The physically specified boundary, degrees of freedom, and interactions through which a process is accessed or composed.
+
+**Irreversibility.** Absence of a relevant return route under the specified physical conditions. Microscopic invertibility and feasible macroscopic recovery are different claims.
+
+**License — ODT.** A judgment that an action satisfies the declared corridor and the required model-to-world justification. It is relative to an explicit decision frame.
+
+**Logos — framework.** The lawful relational articulation of a physical realization. Theological uses are analogical.
+
+**Lushness — framework.** The proposed richness of value-capable possibility in the futures field. Physical consequence geometry supplies candidate descriptions. Whether these characterize value-generating capacity, value itself, or only aspects of the substrate is an active research question.
+
+**Memory.** Past dependence carried in present physical organization or correlation. Persistent addressable memory is a particular architecture.
+
+**Multiway graph.** A representation of alternative paths and their relations. Quantum applications require amplitude, interference, and composition information in addition to graph connectivity.
+
+**Normative bridge.** The commitment that the possibility of value warrants consideration in action, including uncertainty about its instantiation and enabling conditions. It does not independently require preserving every valuer or maximizing a lushness proxy.
+
+**Omega — framework.** Completed manifestation or the full realized structure considered globally. A proposed maximal-lushness ideal is a further evaluative question.
+
+**Omega Decision Theory (ODT).** The staged architecture of licensing, partial comparison, and explicit arbitration.
+
+**Perspective — framework.** A physically situated continuation process, specified through its interface, correlations, coupling, and continuation domain. It need not be an observer or agent.
+
+**Phenomenal coupling.** The correspondence between physical perspective occurrences and experiences; denoted schematically by κ.
+
+**Policy.** A rule or organized disposition for action based on available information. Adaptive policies include their sensing and information constraints.
+
+**Policy atlas.** A family of policies whose success regions cover contingencies. The cover alone does not supply a physically available policy selector.
+
+**Present membrane — framework.** A situated boundary for description, often represented by a relative spacelike section in an appropriate model. It need not be unique or global.
+
+**Process tensor / quantum comb.** A mathematical representation of a quantum process across intervention slots, retaining admissible response and memory structure.
+
+**Recovery.** An allowed continuation restoring a registered target. Function, lineage, and individual identity can be different targets.
+
+**Redundancy.** Either repeated representation of the same consequence, or repeated physical implementation. The latter can create new recovery and interaction routes.
+
+**Regeneration.** Restoration or development of organized capability after disturbance, potentially changing the available policy space.
+
+**Residual continuation.** The full continuation process remaining relative to a physically specified boundary condition or record.
+
+**Robustness.** Satisfaction of a requirement across the stated contingencies through an available policy or organization.
+
+**Standing.** The kind and strength of a valuer's claim to consideration. Identifying a valuer does not by itself settle aggregation or priority.
+
+**Support.** The alternatives permitted by the stated model and conditions, distinguished from how their weight is distributed.
+
+**Terminal solitude — framework.** Closure in which independent valuation has been excised and cannot be regenerated within the relevant continuation. It is not synonymous with a single controller.
+
+**Tester.** An admissible physical interaction and readout procedure used to characterize a state or process. Tests reveal distinctions within a specified domain.
+
+**Universal habitation — conjecture.** Every eligible perspective occurrence is phenomenally inhabited, without requiring an external moving present. Eligibility and phenomenal measure need a coupling account.
+
+**Value.** An open concept in the program. The dependence claim is that value requires valuers; its possibility in the substrate supplies the present proxy. Physical difference, persistence, preference, and a candidate lushness statistic are not installed as its definition.
+
+**Value-capable substrate.** The organized processes and relations through which value can be instantiated. The futures field describes their possible continuation and transformation. Its extent and connection to realized value are under investigation.
+
+**Valuer — framework.** Provisionally, a process for which distinctions among continuations matter endogenously. The concept is intentionally broad; maintenance, selective response, and related criteria are proposals rather than a settled demarcation. Candidate valuerhood does not fix ethical weight or guarantee generativity.
+
+**Viability.** The ability to remain within registered continuation requirements under the relevant dynamics, policies, and contingencies.
+
+**Vorticality.** Circulatory organization that can exemplify persistent patternhood. It is one possible realization of identity-bearing structure.
+
+---
+
+# 16 — Research program and claim map
+
+## The next decisive question
+
+The central question is how value relates to the physically structured possibilities for its instantiation. Lushness is the leading proposal for characterizing that possibility. The stronger ambition is to determine whether the complete object can also explain value itself.
+
+Two linked tasks support this inquiry: construct a faithful continuation object, and investigate the relation between its organization and valuation. The physical work can proceed without a completed theory of value. The value inquiry can examine concrete organizations and relationships without waiting for a universal numerical measure. A finite result should state which connection it establishes.
+
+## Completed finite probes
+
+The finite baseline establishes the following results. These are elementary consequences of the declared probability models, supported by exact enumeration and reproducible calculations.
+
+| Probe | Result | Consequence for the program |
+| --- | --- | --- |
+| Three-bit dependency | P_t=(1+tXYZ)/8 has identical means and covariance for all t while its joint law changes. | Covariance is not the full representation; a scalar tie alone does not establish a wrong value ranking. |
+| Calibration and coordinate transport | Explicit preparations exchange covariance-score rank at q(1+β)=3. Transporting the feature metric preserves the score under changes of units. | Separate a genuine evaluation parameter from arbitrary coordinate artifacts; not every preparation can win in a fixed family. |
+| Rare broad alternatives | Support remains m+1 as its rare mass p tends to zero. A fixed unit-feature covariance construction satisfies L_cov≤βp uniformly in m. | Retain occurrence weights; the tail bound is conditional and trades breadth sensitivity for saturation. |
+| Continuation dependency | Reversible composition exposes the missing XYZ dependency as receiver separation abs(t). All 70 balanced one-bit decoder readouts are classified. | The omission hides a real conditional capability; the full joint continuation object predicts it correctly. |
+| Observable completion and response profiles | Pullback of the future readout requires XYZ. Weighted covers and declared D₂ diversity detect the resulting response separation. | Let permitted tests determine sufficient observables before evaluating candidate comparisons. |
+
+The continuation package also verifies a receiver-only simulation order: stronger parity channels can reproduce weaker ones through stochastic postprocessing, with the converse excluded by contraction. The order concerns the specified transfer relation. It does not rank whole preparations, prove generativity, or assign moral status.
+
+The [research folder](https://drive.google.com/drive/folders/1GA_6q5ism9fQoU13AuaEfIITwizyVrW1) contains both runnable archives and the unrestricted-branch note. The downloadable primer includes the same files under `research/`, with an index describing assumptions, commands, results, and scope. Each probe archive contains its model specification, code, results, and checksum manifest.
+
+## The next structural tests
+
+Continue at the level of physical continuation before constructing policy ecologies. The next useful comparisons should ask:
+
+1. Does closure under the declared future tests yield a manageable sufficient observable space, and when does it require the full joint description?
+2. Do weighted covers and similarity-sensitive diversity retain the relevant response distinctions when interactions are composed or the horizon is extended? Test response families with equal pairwise distances and weights but different permitted future composition.
+3. Which rankings survive changes of coordinates, equivalent representations, physical input distribution, similarity calibration, and interface? These changes have different meanings and should be varied separately.
+4. Can one distinguish extensive random variation from structure that changes later attainable response families without adding a generativity bonus? If a candidate ties them, identify whether it omitted a tested capability or simply remains insufficient to settle an overall comparison.
+
+No canonical distribution over counterfactual actions is assumed. Use a declared physical source where available, or retain conditional and support profiles. An interface restriction specifies the tested physical relation; it does not turn bounded access into the global target.
+
+## Track A: build the physical carrier
+
+Start with finite quantum circuits and finite controlled stochastic systems. Specify an interface, initial joint state, dynamics, admissible interventions, conditioning records, and horizon. Construct the exact response object for systems small enough to enumerate or simulate.
+
+Use the worked examples as acceptance cases. A candidate must distinguish states whose phase becomes observable later and joint states with identical marginals but different continuation. It must preserve quantum eraser normalization and the equality of the recombined marginal. It should explain any equivalence through the physical access restriction that produces it.
+
+**Deliverable:** a documented residual-process representation with tested composition and conditioning operations, plus exact and approximate equivalence procedures for its declared domain.
+
+## Track B: investigate consequence geometry
+
+Apply several probes to the same carrier: discrimination distances, covering profiles, effective dimension, covariance-based summaries, memory structure, and reachable transformations. Keep the underlying process accessible so that a surprising score can be traced to a real structural difference.
+
+Vary horizon, resolution, input access, and resource assumptions independently. A change caused by opening a new physical interface is different from a change caused by rescaling a feature coordinate. Confirm which transformations each candidate treats as invariant.
+
+Include a maximally revealing case: closed unitary dynamics with unrestricted global access. Distinguishability is then preserved, so any claimed universal erasure of microscopic consequence must be examined closely. A useful reduced geometry must identify the physical or effective restriction supporting it.
+
+**Deliverable:** a family of geometry profiles with explicit domain maps and counterexamples to proposed invariances.
+
+## Track C: investigate value-capable lushness
+
+Investigate endogenous significance, the generation of new forms of valuation, coupled valuation, and the relationship between capacity and realization. These are live angles on an open concept of value, not replacement definitions. Candidate criteria for valuerhood should remain broad enough to encounter unfamiliar organizations.
+
+Compare systems under matched resource and interaction conditions. Useful cases include repetition, persistent memory, an adaptive process, a sterile replicator, and a generative ecology. Compare independent and commonly exposed copies, and centralized and distributed implementations with matched capabilities. Include cases where a concentrated realization depends on a broad supporting substrate, where immediate gains erode future capacity, and where indefinite preservation prevents the use of that capacity.
+
+Test whether generativity and persistence emerge in candidate lushness rather than being supplied as score components. Distinguish capacity from realization and low-weight support from substantial probability. Noise, mixing, and durable random records provide additional checks on overlap and situated consequence; a successful candidate need not declare gas universally valueless.
+
+**Deliverable:** a research report separating physical distinctions, candidate value-capable structure, and claims about value. Show what would favor identifying lushness with value, retaining it as a capacity measure, or using several structural properties. Preserve failed comparisons and unresolved cases rather than repairing the definition to fit preferred examples.
+
+## Track D: connect to agency and recovery
+
+Use explicit policy-sensitive systems with disturbances, limited resources, and repair actions. Identify which endogenous organizations create additional continuation routes. Compare individual, pairwise, and joint compatibility rather than relying on marginal scores.
+
+Study self-modification by allowing actions to alter the controller or its interface. Ask which identity and continuation relations remain preserved. Include cases in which an improved aggregate output destroys an individual's repair route or removes independent correction.
+
+**Deliverable:** finite models connecting process structure to viability corridors, policy atlases, regeneration, and excisive versus generative control.
+
+## Track E: develop Gradient Ethics and ODT
+
+Choose concrete ethical cases and state the commitment to consideration for possible value, the uncertainties about its instantiation, and the requirements adopted for the decision. Examine how rights-like protections, justice, cooperation, and defensive capability address recurring vulnerabilities in coupled continuation. Include the consequences of inaction and cases where protection of one process threatens the conditions of others.
+
+Compare ethical policy families through what they preserve, enable, overlook, or foreclose across regimes. Vary horizons, recoverability, dependence, coordination costs, and power asymmetry. Distinguish a policy's structural justification, an actor's motivation to adopt it, and the capability to enforce it. Familiar moral intuitions are hypotheses to investigate within these dynamics.
+
+Include the unrestricted lushness branch. Separate physical circumstances φ, candidate evaluation parameters θ, and information or approximation limits η. Map winner regions and ties rather than tuning one preferred outcome. Compare exact and bounded evaluation, with and without independent ethical protections, while retaining physical constraints and all modeled consequences. An exact restriction cannot improve the maximum of the same objective over the same action set; institutional commitments that alter the world must be represented as actions.
+
+Compare candidate value–valuer accounts independently of the lushness definition. Their agreement with a structural score can support a conditional interpretation; defining them to favor the score would make the test circular. Keep the permissibility of sacrifice, the role of plurality, and the capacity-versus-realization question open to the results.
+
+Evaluate ODT by error detection and decision transparency. Does it expose an unrealizable repair? Does it keep individual and joint feasibility separate? Does it preserve a genuine conflict rather than burying it in a score? Does it support proportionate action under urgency?
+
+**Deliverable:** a set of decision case studies with model-to-world obligations and clearly attributed arbitration rules. No universal capability advantage is required for this work to be useful.
+
+## Track F: extend perspective carefully
+
+After the finite carrier is stable, work on quantum reference-frame transformations, field-theoretic interfaces, and relative hypersurfaces. Identify what changes when the system/environment decomposition changes or when a convenient tensor factorization is unavailable.
+
+Awareness research should specify candidate κ relations and what observations or conceptual constraints distinguish them. Alpha–Omega generalization should specify structure-preserving mappings from broader possibility models into physical realizations. These tracks can inform the core without dictating its empirical conclusions.
+
+**Deliverable:** explicit extensions with inherited results, newly required assumptions, and concrete questions that the extension makes possible.
+
+## Claim map
+
+**Established tools:** quantum states, channels, instruments, Born probabilities, decoherence, process descriptions, relational constructions in their published domains, predictive equivalence, and viability methods. The references identify the borrowed machinery.
+
+**Framework vocabulary:** perspective as situated continuation; focus as a boundary or conditional organizer; consequence and deformation as differences in continuation; identity invariant; excisive and generative control; the ODT stages. Lushness names a research target concerning value-capable possibility. Valuerhood has provisional criteria; value itself is left open.
+
+**Direct finite results in this packet:** continuation equivalence; horizon refinement for nested testers; an encoding-error bound; operational contraction under tester closure; a covariance closure counterexample and its observable completion; conditional transfer and receiver simulation in a reversible three-bit model; fixed-trace covariance spread; an exact calibration boundary; a bounded-feature rare-event estimate; weighted-cover and D₂ calculations on an explicit response ensemble; elementary compatibility implications and counterexamples.
+
+**Hypotheses under investigation:** that physical consequence structure supports a faithful characterization of value-capable richness; that generative organization has characteristic contributions to it; that a stronger account may explain value itself; that identity invariants can be coherently transported across deep transformation; and that a broader Alpha–Logos construction can recover physical realizations. No universal maximization rule follows merely from identifying a physical profile.
+
+**Phenomenal and metaphysical conjectures:** universal habitation, candidate physical/phenomenal coupling, and theological redescriptions.
+
+**Foundational dependence claim:** value requires valuers. This motivates investigation of the substrate and its continuation without defining value by the proxy.
+
+**Normative commitment:** possible value warrants consideration in action, including uncertainty about its bearers and enabling conditions. GE investigates the consequences of this commitment for protection, justice, and defense. Particular requirements, authority, and arbitration still need justification; candidate valuerhood does not automatically establish a right to unlimited continuation.
+
+**Stronger research commitment:** maximize genuine possibility for value if it can be faithfully characterized. The unrestricted branch examines this proposal separately from the weaker commitment to consideration. No current structural probe establishes the stronger commitment, validates a universal lushness measure, or derives familiar rights from it.
+
+## Working discipline for collaborators
+
+Each probe should state its question, physical assumptions, representation, test domain, expected discriminations, and conditions for failure before choosing a scoring function. Keep exact calculations beside approximations. Record random seeds, tolerances, resource matching, and all normalization factors when they apply. The present exact tests establish comparisons under common interfaces and operation classes; they do not establish equal preparation costs.
+
+Use established mathematical machinery where it fits. Name the borrowed result and its domain. When a construction fails, classify the failure: physics, representation, approximation, candidate statistic, or normative interpretation. These failures call for different repairs.
+
+Do not quietly strengthen valuerhood to force cooperation, build generativity into lushness, or replace global consequence with a convenient accessible proxy. Do not install a formal theory of stakes as an unexamined intermediate layer. Conversely, do not demand a solved theory of consciousness before investigating physical continuation. The program advances by resolving dependencies in the order that the questions require.
+
+Neighboring work on endogenous normativity [R32], semantic information [R33], and causal effects on future trajectories [R34] supplies concrete constructions and related questions. Borrow results where their assumptions fit, while keeping the stronger value question explicit. Scope and formal maturity should be assessed claim by claim.
+
+A successful next paper could present a sound carrier, a few discriminating examples, and a precise map of remaining choices. The objective is to make the intuitive object inspectable enough that evidence can improve it.
+
+---
+
+# 17 — References and intellectual neighbors
+
+These sources identify the machinery and nearby ideas used in the primer. Their inclusion does not imply endorsement of Omega Cosmology by their authors. The brief notes state the connection; the main text develops the program's synthesis.
+
+## Quantum structure, perspective, and continuation
+
+**[R01] Murray Gell-Mann and James B. Hartle. “Classical Equations for Quantum Systems.”** Physical Review D 47, 3345–3382 (1993).
+https://arxiv.org/abs/gr-qc/9210010
+
+Decoherent histories and the emergence of quasiclassical descriptions. Relevant to the conditions under which history alternatives admit classical probability assignments.
+
+**[R02] Augustin Vanrietvelde, Philipp A. Höhn, Flaminia Giacomini, and Esteban Castro-Ruiz. “A change of perspective: switching quantum reference frames via a perspective-neutral framework.”** Quantum 4, 225 (2020).
+https://arxiv.org/abs/1809.00556
+
+An explicit perspective-neutral construction and frame changes in a restricted particle model. Borrow the transformation discipline rather than treating the example as a completed cosmology.
+
+**[R03] Flaminia Giacomini, Esteban Castro-Ruiz, and Časlav Brukner. “Quantum mechanics and the covariance of physical laws in quantum reference frames.”** Nature Communications 10, 494 (2019).
+https://arxiv.org/abs/1712.07207
+
+Quantum reference-frame transformations and covariance. A foundation for treating perspectival changes as physically structured transformations.
+
+**[R04] Philipp A. Höhn, Andrea Russo, and Alexander R. H. Smith. “Matter relative to quantum hypersurfaces.”** Physical Review D 109, 105011 (2024).
+https://arxiv.org/abs/2308.12912
+
+Relational field descriptions and hypersurfaces in a parameterized 1+1-dimensional model. Especially close to the relative-present question; its specific domain matters when extending it.
+
+**[R05] John S. Bell. “On the Einstein Podolsky Rosen Paradox.”** Physics Physique Fizika 1, 195–200 (1964).
+https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195
+
+Constraints on local hidden-variable accounts. Shared history in a block description does not remove the theorem's requirements.
+
+**[R06] John Preskill. “Quantum Channels.”** Ph/CS 219A lecture materials (2020).
+https://www.preskill.caltech.edu/ph219/Ph-CS-219A-Slides-2020/Ph-CS-219A-Lecture-4-Channels.pdf
+
+States, channels, instruments, and physical implementation. Used for the finite quantum backbone.
+
+**[R07] John Watrous. The Theory of Quantum Information.** Cambridge University Press (2018); author-hosted text.
+https://cs.uwaterloo.ca/~watrous/TQI/
+
+Quantum operations and distinguishability. A technical reference for precise finite-dimensional formulations.
+
+**[R08] Søren Gammelmark, Brian Julsgaard, and Klaus Mølmer. “Past quantum states.”** Physical Review Letters 111, 160401 (2013).
+https://arxiv.org/abs/1305.0681
+
+Forward states and backward effects for inference conditioned on records. A direct neighbor of focus, without requiring a consciousness-driven collapse.
+
+**[R09] Wojciech H. Zurek. “Decoherence, einselection, and the quantum origins of the classical.”** Reviews of Modern Physics 75, 715–775 (2003).
+https://arxiv.org/abs/quant-ph/0105127
+
+Environmental decoherence and stable pointer structure. Supplies the interaction-based account of emergent classical records.
+
+**[R10] T. Baumgratz, M. Cramer, and M. B. Plenio. “Quantifying Coherence.”** Physical Review Letters 113, 140401 (2014).
+https://arxiv.org/abs/1311.0275
+
+A resource-theoretic treatment relative to a reference basis. Helps keep coherence claims tied to a specified decomposition.
+
+**[R11] Christian Weedbrook et al. “Gaussian Quantum Information.”** Reviews of Modern Physics 84, 621–669 (2012).
+https://arxiv.org/abs/1110.3234
+
+Canonical covariance structure, uncertainty, and Gaussian processes. Useful for controlled many-mode realizations.
+
+**[R12] Yoon-Ho Kim, Rong Yu, Sergei P. Kulik, Yanhua Shih, and Marlan O. Scully. “A Delayed Choice Quantum Eraser.”** Physical Review Letters 84, 1–5 (2000).
+https://arxiv.org/abs/quant-ph/9903047
+
+The experimental reference for conditional interference and complementary subensembles.
+
+**[R13] Paolo Zanardi, Daniel A. Lidar, and Seth Lloyd. “Quantum tensor product structures are observable induced.”** Physical Review Letters 92, 060402 (2004).
+https://arxiv.org/abs/quant-ph/0308043
+
+The relationship between accessible observables and subsystem structure. Relevant when defining the physical interface of a perspective.
+
+**[R14] Carlo Rovelli. “Relational Quantum Mechanics.”** International Journal of Theoretical Physics 35, 1637–1678 (1996).
+https://arxiv.org/abs/quant-ph/9609002
+
+A foundational neighbor for relational state attribution. Omega's perspective concept also includes the full continuation process and is not identified with this interpretation alone.
+
+**[R15] Felix A. Pollock, César Rodríguez-Rosario, Thomas Frauenheim, Mauro Paternostro, and Kavan Modi. “Non-Markovian quantum processes: Complete framework and efficient characterization.”** Physical Review A 97, 012127 (2018).
+https://arxiv.org/abs/1512.00589
+
+Process tensors and multi-time operational structure. Central machinery for residual continuation with environmental memory.
+
+**[R16] Felix A. Pollock, César Rodríguez-Rosario, Thomas Frauenheim, Mauro Paternostro, and Kavan Modi. “Operational Markov Condition for Quantum Processes.”** Physical Review Letters 120, 040405 (2018).
+https://arxiv.org/abs/1801.09811
+
+Operational characterization of memory. Helps distinguish a local instantaneous state from a sufficient process description.
+
+**[R17] Sean M. Carroll. “Lecture Notes on General Relativity.”** (1997).
+https://arxiv.org/abs/gr-qc/9712019
+
+Spacetime geometry, causal structure, and timelike versus null descriptions.
+
+**[R18] Xavier Bekaert and Nicolas Boulanger. “The unitary representations of the Poincaré group in any spacetime dimension.”** Lecture notes (2006).
+https://arxiv.org/abs/hep-th/0611263
+
+Massive and massless representation theory. Relevant to physical orientation and classification without a universal rest-frame picture.
+
+## Prediction, physical resolution, and persistent organization
+
+**[R19] Cosma Rohilla Shalizi and James P. Crutchfield. “Computational Mechanics: Pattern and Prediction, Structure and Simplicity.”** Journal of Statistical Physics 104, 817–879 (2001).
+https://arxiv.org/abs/cond-mat/9907176
+
+Predictive equivalence of classical histories and causal-state organization. A foundation for the consequence-preserving compression question.
+
+**[R20] Max Planck. “Ueber das Gesetz der Energieverteilung im Normalspectrum.”** Annalen der Physik 309, 553–563 (1901).
+https://doi.org/10.1002/andp.19013090310
+
+Primary source for the quantum treatment of blackbody energy distribution. Its role here is a physically specific analogy about counting and weighting, not a universal cutoff theorem.
+
+**[R21] Wojciech H. Zurek. “Topological relics of symmetry breaking: Winding numbers and scaling tilts from random vortex-antivortex pairs.”** (2013).
+https://arxiv.org/abs/1305.4695
+
+An example of concrete topological-defect mathematics relevant to vortical persistence and classification.
+
+**[R22] Stephen Wolfram. “The Wolfram Physics Project: A One-Year Update.”** (2021).
+https://wolframinstitute.org/output/the-wolfram-physics-project-a-one-year-update
+
+Author's account of the proposed rewriting-based physical program, including particle-like structural features. An intellectual neighbor, with its physical identification still part of that proposal.
+
+**[R23] Jean-Pierre Aubin, Alexandre M. Bayen, and Patrick Saint-Pierre. Viability Theory: New Directions.** Springer (2011).
+https://link.springer.com/book/10.1007/978-3-642-16684-6
+
+Viability kernels, reachability, and constrained evolution. Supplies established tools for the corridor and recovery questions.
+
+**[R24] W. Ross Ashby. An Introduction to Cybernetics.** Chapman & Hall (1956).
+https://ashby.info/Ashby-Introduction-to-Cybernetics.pdf
+
+Regulation and requisite variety. Relevant to generative versus excisive control, policy diversity, and the demands imposed by environmental contingency.
+
+## Awareness, timeless description, and wider generalization
+
+**[R25] Don N. Page. “Sensible Quantum Mechanics: Are Only Perceptions Probabilistic?”** (1995).
+https://arxiv.org/abs/quant-ph/9506010
+
+The closest foundation for relating a global quantum account to measures on conscious perceptions. Omega borrows the architectural distinction while developing its own physical and ethical program.
+
+**[R26] Don N. Page. “Consciousness and the Quantum.”** (2011).
+https://arxiv.org/abs/1102.5339
+
+Further treatment of awareness operators and phenomenal measure. Identifying an actual correspondence remains a substantive task.
+
+**[R27] Don N. Page and William K. Wootters. “Evolution without evolution: Dynamics described by stationary observables.”** Physical Review D 27, 2885–2892 (1983).
+https://doi.org/10.1103/PhysRevD.27.2885
+
+Relational time through internal-clock correlations. Distinct from Page's later consciousness program.
+
+**[R28] Hugh Everett III. “Relative State” Formulation of Quantum Mechanics.** Reviews of Modern Physics 29, 454–462 (1957).
+https://doi.org/10.1103/RevModPhys.29.454
+
+The relative-state foundation for a universal quantum description. Modern decoherence machinery is also needed when discussing approximately classical branching.
+
+**[R29] Stephen Wolfram. “The Concept of the Ruliad.”** (2021).
+https://writings.stephenwolfram.com/2021/11/the-concept-of-the-ruliad/
+
+The broad possibility-totality and observer-situatedness analogy behind the Alpha–Logos extension.
+
+**[R30] Yann Ollivier, Ludovic Arnold, Anne Auger, and Nikolaus Hansen. “Information-Geometric Optimization Algorithms: A Unifying Picture via Invariance Principles.”** Journal of Machine Learning Research 18(18), 1–65 (2017).
+https://jmlr.csail.mit.edu/papers/v18/14-467.html
+
+A rigorous example of geometry and invariance guiding optimization. It motivates specific comparisons, not a conclusion that arbitrary search spaces share a guaranteed global optimizer.
+
+**[R31] Giulio Chiribella, Giacomo Mauro D'Ariano, and Paolo Perinotti. “Theoretical framework for quantum networks.”** Physical Review A 80, 022339 (2009).
+https://arxiv.org/abs/0904.4483
+
+Quantum combs and the composition of networks. A complementary formalism for processes, testers, and continuation across multiple interaction slots.
+
+## Valuation, endogenous organization, and future consequence
+
+**[R32] Xabier E. Barandiaran and Matthew D. Egbert. “Norm-Establishing and Norm-Following in Autonomous Agency.”** Artificial Life 20(1), 5–28 (2014).
+https://doi.org/10.1162/ARTL_a_00094
+https://xabier.barandiaran.net/wp-content/uploads/2014/07/barandiaran_and_egbert_-_2014_-_norm-establishing_and_norm-following_-_alj_pub.pdf
+
+A metabolic model deriving viable and precarious regions and a normative field. A close neighbor for investigating endogenous significance and continuation without supplying a general account of value.
+
+**[R33] Artemy Kolchinsky and David H. Wolpert. “Semantic information, autonomous agency and non-equilibrium statistical physics.”** Interface Focus 8(6), 20180041 (2018).
+https://arxiv.org/abs/1806.08053
+
+Interventions on system–environment correlations identify information contributing to a selected viability function. Relevant causal machinery; the viability criterion and the passage from functional contribution to value remain substantive questions.
+
+**[R34] Stuart J. Bartlett. “Causal Leverage Density: A General Approach to Semantic Information.”** arXiv preprint (2024).
+https://arxiv.org/abs/2407.07335
+
+Studies how informational erasure changes distributions of future trajectories, extending the intervention approach beyond viability. A close structural neighbor of consequence-based continuation, with causal significance still distinct from value.
+
+## Diversity and interactive process comparison
+
+**[R35] Tom Leinster and Christina A. Cobbold. “Measuring diversity: the importance of species similarity.”** Ecology 93(3), 477–489 (2012).
+https://doi.org/10.1890/10-2402.1
+https://www.pure.ed.ac.uk/ws/portalfiles/portal/16566744/Measuring_diversity_the_importance_of_species_similarity.pdf
+
+Similarity-sensitive effective diversity with explicit abundance weights. The primer borrows the order-two formula and tests it on conditional response laws. Choosing a physically justified similarity and ensemble, and relating this diversity to value-capable possibility, are additional research tasks.
+
+**[R36] Gus Gutoski. “On a measure of distance for quantum strategies.”** Journal of Mathematical Physics 53, 032202 (2012).
+https://arxiv.org/abs/1008.4636
+https://doi.org/10.1063/1.3693621
+
+Operational distances for multi-round quantum strategies. Supports comparison of interactive continuation through allowed testers rather than through instantaneous state summaries alone.
+
+## How these foundations fit together
+
+Everett, decoherence, histories, and relational constructions ground the shared quantum object and its situated descriptions. Channels, combs, and process tensors supply the continuation machinery. Computational mechanics motivates exact predictive compression. Viability and cybernetics help characterize persistence, control, and compatibility. Page supplies a close phenomenal architecture; Wolfram supplies a broad possibility-space neighbor.
+
+Omega's proposed contribution is to connect these resources through a consequence object, investigate lushness as value-capable richness, and examine how policies alter the conditions of valuation. The stronger question is whether that structure can also explain value itself. The neighboring work identifies an active research area and particular tools; each connection must be evaluated through its construction.

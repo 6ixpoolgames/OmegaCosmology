@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "name": "sources",
+      "command": [
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\Omega\\.venv\\Scripts\\python.exe",
+        "scripts/check_sources.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "archive",
+      "command": [
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\Omega\\.venv\\Scripts\\python.exe",
+        "scripts/check_archive.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "repository",
+      "command": [
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\Omega\\.venv\\Scripts\\python.exe",
+        "scripts/check_repository.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "command": [
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\Omega\\.venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "baseline",
+      "command": [
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\Omega\\.venv\\Scripts\\python.exe",
+        "scripts/run_baseline.py",
+        "--out-dir",
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\omega-cosmology\\runs\\repository-preparation-2026-10-24\\baseline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "P001",
+      "command": [
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\Omega\\.venv\\Scripts\\python.exe",
+        "scripts/run_feedback_probe.py",
+        "--out-dir",
+        "<LOCAL_HOME>\\Documents\\ChatGPT\\Test\\omega-cosmology\\runs\\repository-preparation-2026-10-24\\P001"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "P001_full_object_equal": true,
+  "P001_scientific_summary_equal": true,
+  "current_input_hashes_verified": true,
+  "limits": "v4.1 repository/archive integrity plus inherited finite evidence; no new platform, cosmological or ethical validation"
+}
