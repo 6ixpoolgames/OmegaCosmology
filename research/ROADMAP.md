@@ -18,6 +18,13 @@ six passing occupied-catalysis smoke cases. Donor certificates remain unresolved
 that does not prevent designing S3's physical interaction map. S3 is the next
 scientific proposal, not a completed run.
 
+The [S3 review addendum](platform/specs/S3_INTERACTION_AND_HARM_ADDENDUM_r1.md)
+adds repair-capacity versus repaired-component damage and a finite
+foreclosure/suppression proposal. It recommends ending E1's same-method
+certification effort, preserves all signs for costly-help tests, and keeps
+evidence-quality axes separate. This is a local design draft; no new run follows
+from the review alone.
+
 ## Immediate engineering
 
 [Task 002: M0–M2](tasks/002-next-generation-platform.md): six semantic records,

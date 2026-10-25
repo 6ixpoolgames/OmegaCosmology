@@ -19,6 +19,10 @@ Projected-history readouts have separate contracts:
   including exact-mean controls and approximate versus distribution-free intervals.
 
 An estimated interval must not be passed off as an analytic projection bound.
+The [foreclosure/suppression proposal](foreclosure-resolution-proposal-r1.md)
+preserves exact finite support loss and proposes a separate finite-law
+probability-suppression diagnostic. It is a review draft, not a new objective
+or a solution to the universal physical-resolution problem.
 The [S1 confidence design](../../research/platform/specs/PROJECTED_CONFIDENCE_FEASIBILITY_r1.md)
 specifies finite-sample family coverage separately from numerical error, using
 the proven path-score support width and a fixed sampling plan.
