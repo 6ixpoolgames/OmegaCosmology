@@ -1,5 +1,6 @@
 """Port competition, thermodynamics and passive ancestry in finite chemistry."""
 
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -30,6 +31,32 @@ def state(m, **changes):
 
 
 class OccupancyTests(unittest.TestCase):
+    def test_default_adapter_keeps_published_reciprocal_world(self):
+        base = Path(__file__).resolve().parents[1]
+        plan = json.loads(
+            (
+                base
+                / "research/platform/models/occupied-assistance/ENGINEERING_PLAN.json"
+            ).read_text()
+        )
+        old = LocalModel.from_record(
+            next(c for c in plan["cases"] if c["id"] == "reciprocal_pair")["law"][
+                "model"
+            ]
+        )
+        pair = [
+            {"id": g, "members": [g + ".x", g + ".y"], "access_member": g + ".x"}
+            for g in ("A", "B")
+        ]
+        current = occupied_ecology(
+            pair,
+            extra_assistance=[("A.x", "B.y"), ("B.x", "A.y")],
+            bank_quantum=".5",
+            formation_energy=".5",
+            construction_bill_ticks=2,
+        )
+        self.assertEqual(current.fingerprint(), old.fingerprint())
+
     def test_port_competition_and_capture_are_native(self):
         m = occupied_ecology(
             group(("p", "q", "r")),

@@ -1,0 +1,1056 @@
+{
+  "schema": "omega.finite-study-case/1",
+  "status": "passed",
+  "law": "fast_RX",
+  "cadence": 0.5,
+  "states": 256,
+  "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+  "state_order_hash": "3d00677d0099876b0050cc54f709718c43821a65f448e1ec10e6c87c023f9303",
+  "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+  "equilibrium_audit": {
+    "status": "passed",
+    "edge_flux_residual": 3.2526065174565133e-19,
+    "stationary_residual": 1.6263032587282567e-18,
+    "reference_scope": "Gibbs on the enumerated conserved/reachable sector; sector weights fixed"
+  },
+  "kernel_residual": 6.661338147750939e-16,
+  "stationary_residual": 2.5608580028399757e-16,
+  "full_positive_sampled_support": true,
+  "setup_seconds": 0.9851631000638008,
+  "worker_seconds": 1.669868699973449,
+  "rows": [
+    {
+      "law": "fast_RX",
+      "preparation": "present",
+      "horizon": 16,
+      "cadence": 0.5,
+      "history": {
+        "quantity": "history.full_given_present",
+        "ell_bits": 42.50251768011867,
+        "scope": "whole_modeled_field",
+        "conditioning": "full_present",
+        "horizon": 16,
+        "cadence": 0.5,
+        "guarantee": "numerical_full_model",
+        "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+        "state_order_hash": "3d00677d0099876b0050cc54f709718c43821a65f448e1ec10e6c87c023f9303",
+        "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+        "resolution": {
+          "faithfulness": "open",
+          "certification": [],
+          "reversal": "none",
+          "governing_status": "provisional"
+        },
+        "boundary_history_limit": "External bath/source histories are unresolved"
+      },
+      "projected_histories": {
+        "body": {
+          "lower_bits": 27.163698101859985,
+          "upper_bits": 27.490500911138128,
+          "width_bits": 0.3268028092781421,
+          "steps": 32,
+          "memory": 1,
+          "observation_values": 32,
+          "workspace_bound_bytes": 6428672,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location",
+            "body.signal"
+          ],
+          "cadence": 0.5,
+          "horizon": 16,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        },
+        "body_signal_merged": {
+          "lower_bits": 23.28139482324642,
+          "upper_bits": 24.158129386056924,
+          "width_bits": 0.8767345628105048,
+          "steps": 32,
+          "memory": 1,
+          "observation_values": 16,
+          "workspace_bound_bytes": 1644544,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location"
+          ],
+          "cadence": 0.5,
+          "horizon": 16,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        }
+      },
+      "asymptotic": {
+        "rate_bits_per_time": 1.6777734154066262,
+        "offset_bits": 27.947186325727035,
+        "residual": 1.0880185641326534e-14,
+        "scope": "finite irreducible sampled CTMC; numerical, not a persistence claim"
+      },
+      "horizon_diagnostics": {
+        "endpoint_total_variation_to_stationary": 0.4541132096433741,
+        "rate_offset_profile_residual_bits": -12.289043292114382
+      },
+      "physical": {
+        "work_net": 3.034059959064857,
+        "heat_export": 3.2924477213782364,
+        "delta_energy": -0.25838776231338345,
+        "energy_residual": -3.9968028886505635e-15,
+        "entropy_production": 10.592800964846678,
+        "free_energy_excess_initial": 4.004204145187984,
+        "free_energy_excess_final": 1.741863621829499,
+        "kl_availability": 1.7418636218294985,
+        "availability_identity_residual": 4.440892098500626e-16,
+        "expected_jumps": 7.488805018081996,
+        "integrated_channels": {
+          "source.forward": 1.235450467774097,
+          "hazard_toggle.reverse": 0.3942767785062218,
+          "basal_restore.reverse": 0.05003745327443606,
+          "hazard_damage.forward": 1.0299370637635676,
+          "metabolism.forward": 0.38593102054890954,
+          "barrier_toggle.forward": 0.599525870501336,
+          "capture_0.reverse": 0.005462431740358497,
+          "signal_write_0_1.forward": 0.9449721279013964,
+          "signal_relax.reverse": 0.14825912472704572,
+          "source.reverse": 0.22409714808581155,
+          "hazard_toggle.forward": 0.08572322149377798,
+          "signal_write_0_0.forward": 0.14333264780379856,
+          "basal_restore.forward": 0.01088638026489464,
+          "paid_restore.forward": 0.14781925811191937,
+          "hazard_damage.reverse": 0.24190413180286358,
+          "metabolism.reverse": 0.13046532008972636,
+          "signal_reset_0_1.reverse": 0.03837118922022216,
+          "barrier_toggle.reverse": 0.20047412949866383,
+          "native_move_0.forward": 0.004996329553493153,
+          "capture_0.forward": 0.05511374687997695,
+          "paid_restore.reverse": 0.11157136029714182,
+          "signal_write_0_1.reverse": 0.2753103701024245,
+          "signal_reset_0_1.forward": 0.2391912121268945,
+          "signal_relax.forward": 0.25647842363127976,
+          "signal_upkeep.forward": 0.06794735514856964,
+          "signal_upkeep.reverse": 0.034515935925934535,
+          "blocked_effort.forward": 0.13550907104651488,
+          "blocked_effort.reverse": 0.06852028697441827,
+          "signal_reset_0_0.reverse": 0.010571365316029757,
+          "signal_write_0_0.reverse": 0.06399091434752673,
+          "signal_reset_0_0.forward": 0.0528505995421646,
+          "native_move_1.reverse": 0.0017761092982490007,
+          "capture_1.reverse": 0.0016195376713037776,
+          "native_move_0.reverse": 0.0003955553447402267,
+          "native_move_1.forward": 0.0007230572486883928,
+          "signal_write_1_1.forward": 0.006444336458452788,
+          "signal_reset_1_1.reverse": 0.0005298559180550949,
+          "escape.forward": 0.03138182204556808,
+          "capture_1.forward": 0.029286259837997396,
+          "signal_write_1_0.forward": 0.0026446516817529363,
+          "signal_reset_1_0.reverse": 0.0002210901442454376,
+          "signal_write_1_1.reverse": 0.005788463308129995,
+          "escape.reverse": 0.005413454741772286,
+          "signal_reset_1_1.forward": 0.004734065105389795,
+          "signal_write_1_0.reverse": 0.002322235991405553,
+          "signal_reset_1_0.forward": 0.002031787284829072
+        },
+        "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work",
+        "known_root_average_availability_initial": 4.004204145187984,
+        "known_root_average_availability_final": 1.7418636218294994,
+        "work_accepted_gross": 3.7063514033222917,
+        "work_returned_gross": 0.6722914442574346
+      },
+      "activity": {
+        "expected_jumps": 7.488805018081996,
+        "finite_coefficient_bits": 36.36833483220581,
+        "reference_time": 1.0,
+        "scope": "Asymptotic fine-cadence diagnostic, not an exact finite-cadence decomposition"
+      },
+      "coordinate_shares_bits": {
+        "body.working": 7.835798505909355,
+        "body.bank": 15.168295937202938,
+        "body.location": 0.14251469331345237,
+        "hazard": 3.543775895265454,
+        "barrier": 5.281155684604778,
+        "carrier": 6.592096852236288,
+        "body.signal": 3.9388801115864185
+      },
+      "observables": {
+        "bank_energy": {
+          "endpoint": 0.43517126240364934,
+          "integrated": 11.995508318470018,
+          "stationary": 0.29243455544973584
+        },
+        "signal_on": {
+          "endpoint": 0.3926483177309546,
+          "integrated": 6.222481099485455,
+          "stationary": 0.28165720593015636
+        },
+        "exposed_hazard": {
+          "endpoint": 0.6717884744089156,
+          "integrated": 12.955703464599793,
+          "stationary": 0.29887480630076946
+        },
+        "signal_and_exposed_hazard": {
+          "endpoint": 0.2585436997041242,
+          "integrated": 4.883355748164027,
+          "stationary": 0.08137425817837707
+        },
+        "sheltered": {
+          "endpoint": 0.031622193562109324,
+          "integrated": 0.2639842003654806,
+          "stationary": 0.40270724421364756
+        },
+        "barrier_open": {
+          "endpoint": 0.39905174100267216,
+          "integrated": 4.009482589973276,
+          "stationary": 0.4999999999999998
+        },
+        "signal_blocked": {
+          "endpoint": 0.231569540642792,
+          "integrated": 4.5084553549293425,
+          "stationary": 0.08121353991649731
+        }
+      },
+      "event_readouts": {
+        "capture_forward": 0.08440000671797435,
+        "capture_reverse": 0.007081969411662274,
+        "paid_repair_forward": 0.14781925811191937,
+        "paid_repair_reverse": 0.11157136029714182,
+        "hazard_damage_forward": 1.0299370637635676,
+        "hazard_damage_reverse": 0.24190413180286358,
+        "escape_forward": 0.03138182204556808,
+        "escape_reverse": 0.005413454741772286,
+        "blocked_effort_forward": 0.13550907104651488,
+        "blocked_effort_reverse": 0.06852028697441827,
+        "signal_write_forward": 1.0973937638454005,
+        "signal_write_reverse": 0.3474119837494868,
+        "signal_relax_forward": 0.25647842363127976,
+        "signal_relax_reverse": 0.14825912472704572,
+        "signal_upkeep_forward": 0.06794735514856964,
+        "signal_upkeep_reverse": 0.034515935925934535,
+        "signal_reset_forward": 0.298807664059278,
+        "signal_reset_reverse": 0.04969350059855245
+      },
+      "witnesses": {},
+      "functional_profiles": {
+        "body": {
+          "id": "body",
+          "definition": "Working apparatus, regardless of bank or location",
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+          "horizon": 16,
+          "initial_functional_probability": 1.0,
+          "endpoint_functional_probability": 0.20906389284453208,
+          "integrated_functional_time": 6.135916782747233,
+          "ever_functional_probability": 1.0,
+          "uninterrupted_initial_function_probability": 0.08143611630188963,
+          "initial_function_lost_probability": 0.9185638836981104,
+          "initial_function_lost_then_returned_probability": 0.34723667938207237,
+          "returned_and_functional_at_deadline_probability": 0.12762777654264246,
+          "expected_entries": 0.4006097701796776,
+          "expected_exits": 1.1915458773351455,
+          "structural_closure_by_deadline_probability": 0.0,
+          "structural_closure_state_count": 0,
+          "closure_definition": "No native directed path to the declared functional set; closed set is forward invariant",
+          "physical_marginal_residual": 5.551115123125783e-17,
+          "scope": "Unconditional functional profile; return is not causal reconstruction, ancestry or foreclosure"
+        }
+      },
+      "assistance_ancestry": {},
+      "validation": {
+        "history_accumulation_residual": 2.1316282072803006e-14,
+        "coordinate_share_residual": 1.4210854715202004e-14,
+        "continuous_propagation_residual": 1.7763568394002505e-15,
+        "monitor_marginal_residual": 0.0
+      },
+      "measurement_seconds": 0.0353956000180915,
+      "history_profile_seconds": 0.3193395999260247
+    },
+    {
+      "law": "fast_RX",
+      "preparation": "present",
+      "horizon": 64,
+      "cadence": 0.5,
+      "history": {
+        "quantity": "history.full_given_present",
+        "ell_bits": 128.1359644145578,
+        "scope": "whole_modeled_field",
+        "conditioning": "full_present",
+        "horizon": 64,
+        "cadence": 0.5,
+        "guarantee": "numerical_full_model",
+        "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+        "state_order_hash": "3d00677d0099876b0050cc54f709718c43821a65f448e1ec10e6c87c023f9303",
+        "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+        "resolution": {
+          "faithfulness": "open",
+          "certification": [],
+          "reversal": "none",
+          "governing_status": "provisional"
+        },
+        "boundary_history_limit": "External bath/source histories are unresolved"
+      },
+      "projected_histories": {
+        "body": {
+          "lower_bits": 76.04391693710821,
+          "upper_bits": 77.34554921299595,
+          "width_bits": 1.3016322758877408,
+          "steps": 128,
+          "memory": 1,
+          "observation_values": 32,
+          "workspace_bound_bytes": 6428672,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location",
+            "body.signal"
+          ],
+          "cadence": 0.5,
+          "horizon": 64,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        },
+        "body_signal_merged": {
+          "lower_bits": 62.22351888950905,
+          "upper_bits": 65.90218676386608,
+          "width_bits": 3.678667874357032,
+          "steps": 128,
+          "memory": 1,
+          "observation_values": 16,
+          "workspace_bound_bytes": 1644544,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location"
+          ],
+          "cadence": 0.5,
+          "horizon": 64,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        }
+      },
+      "asymptotic": {
+        "rate_bits_per_time": 1.6777734154066262,
+        "offset_bits": 27.947186325727035,
+        "residual": 1.0880185641326534e-14,
+        "scope": "finite irreducible sampled CTMC; numerical, not a persistence claim"
+      },
+      "horizon_diagnostics": {
+        "endpoint_total_variation_to_stationary": 0.3362245953702122,
+        "rate_offset_profile_residual_bits": -7.188720497193305
+      },
+      "physical": {
+        "work_net": 3.864345890982815,
+        "heat_export": 4.388970940309001,
+        "delta_energy": -0.5246250493262035,
+        "energy_residual": -1.7763568394002505e-14,
+        "entropy_production": 12.599772608668067,
+        "free_energy_excess_initial": 4.004204145187984,
+        "free_energy_excess_final": 1.5686637318367473,
+        "kl_availability": 1.5686637318367385,
+        "availability_identity_residual": 8.881784197001252e-15,
+        "expected_jumps": 20.789370437870282,
+        "integrated_channels": {
+          "source.forward": 2.3152711537331694,
+          "hazard_toggle.reverse": 1.2046265996637204,
+          "basal_restore.reverse": 0.11356462548970711,
+          "hazard_damage.forward": 1.7348656807696246,
+          "metabolism.forward": 1.0562232465310988,
+          "barrier_toggle.forward": 1.849584610681696,
+          "capture_0.reverse": 0.006483472699508921,
+          "signal_write_0_1.forward": 1.4493364233618964,
+          "signal_relax.reverse": 0.6505218435325035,
+          "source.reverse": 1.027155856738898,
+          "hazard_toggle.forward": 0.715373400336269,
+          "signal_write_0_0.forward": 0.5384229051714085,
+          "basal_restore.forward": 0.05526355194860717,
+          "paid_restore.forward": 0.38826563682790166,
+          "hazard_damage.reverse": 0.9032449251046497,
+          "metabolism.reverse": 0.6817571724708907,
+          "signal_reset_0_1.reverse": 0.205782828144006,
+          "barrier_toggle.reverse": 1.3504153893182878,
+          "native_move_0.forward": 0.013374211486818412,
+          "capture_0.forward": 0.17534974740380516,
+          "paid_restore.reverse": 0.3560740561098585,
+          "signal_write_0_1.reverse": 0.735955943818146,
+          "signal_reset_0_1.forward": 0.46096262638545127,
+          "signal_relax.forward": 0.8696523268301095,
+          "signal_upkeep.forward": 0.16876337179528994,
+          "signal_upkeep.reverse": 0.11999674878122724,
+          "blocked_effort.forward": 0.19504640499640763,
+          "blocked_effort.reverse": 0.11859957629244944,
+          "signal_reset_0_0.reverse": 0.13983117637280038,
+          "signal_write_0_0.reverse": 0.41521534289750917,
+          "signal_reset_0_0.forward": 0.2225808198344905,
+          "native_move_1.reverse": 0.008478884753407363,
+          "capture_1.reverse": 0.012531439739050916,
+          "native_move_0.reverse": 0.0020805689011851006,
+          "native_move_1.forward": 0.004905556267332373,
+          "signal_write_1_1.forward": 0.05756428949527555,
+          "signal_reset_1_1.reverse": 0.006286825191438695,
+          "escape.forward": 0.07440144487988876,
+          "capture_1.forward": 0.19349571140114918,
+          "signal_write_1_0.forward": 0.04868943607788421,
+          "signal_reset_1_0.reverse": 0.00544169416384147,
+          "signal_write_1_1.reverse": 0.031203071681189246,
+          "escape.reverse": 0.022755747812305088,
+          "signal_reset_1_1.forward": 0.03196759082559601,
+          "signal_write_1_0.reverse": 0.025357835371438795,
+          "signal_reset_1_0.forward": 0.026648665781093497
+        },
+        "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work",
+        "known_root_average_availability_initial": 4.004204145187984,
+        "known_root_average_availability_final": 1.5686637318367498,
+        "work_accepted_gross": 6.945813461199509,
+        "work_returned_gross": 3.0814675702166943
+      },
+      "activity": {
+        "expected_jumps": 20.789370437870282,
+        "finite_coefficient_bits": 111.75164585356828,
+        "reference_time": 1.0,
+        "scope": "Asymptotic fine-cadence diagnostic, not an exact finite-cadence decomposition"
+      },
+      "coordinate_shares_bits": {
+        "body.working": 18.98081062644601,
+        "body.bank": 42.3923915528319,
+        "body.location": 0.42608218163734674,
+        "hazard": 14.177972219669595,
+        "barrier": 21.152939363625627,
+        "carrier": 17.008566673663097,
+        "body.signal": 13.997201796684276
+      },
+      "observables": {
+        "bank_energy": {
+          "endpoint": 0.28451147417701006,
+          "integrated": 27.28051568973813,
+          "stationary": 0.29243455544973584
+        },
+        "signal_on": {
+          "endpoint": 0.2823331980860271,
+          "integrated": 21.09883198051572,
+          "stationary": 0.28165720593015636
+        },
+        "exposed_hazard": {
+          "endpoint": 0.4772868821355481,
+          "integrated": 38.66869604636081,
+          "stationary": 0.29887480630076946
+        },
+        "signal_and_exposed_hazard": {
+          "endpoint": 0.1303446525309407,
+          "integrated": 12.675408448967795,
+          "stationary": 0.08137425817837707
+        },
+        "sheltered": {
+          "endpoint": 0.06651266813929194,
+          "integrated": 2.7383478367364056,
+          "stationary": 0.40270724421364756
+        },
+        "barrier_open": {
+          "endpoint": 0.49916922136341013,
+          "integrated": 27.008307786365748,
+          "stationary": 0.4999999999999998
+        },
+        "signal_blocked": {
+          "endpoint": 0.12920883304222358,
+          "integrated": 11.839476104446009,
+          "stationary": 0.08121353991649731
+        }
+      },
+      "event_readouts": {
+        "capture_forward": 0.36884545880495434,
+        "capture_reverse": 0.019014912438559836,
+        "paid_repair_forward": 0.38826563682790166,
+        "paid_repair_reverse": 0.3560740561098585,
+        "hazard_damage_forward": 1.7348656807696246,
+        "hazard_damage_reverse": 0.9032449251046497,
+        "escape_forward": 0.07440144487988876,
+        "escape_reverse": 0.022755747812305088,
+        "blocked_effort_forward": 0.19504640499640763,
+        "blocked_effort_reverse": 0.11859957629244944,
+        "signal_write_forward": 2.0940130541064645,
+        "signal_write_reverse": 1.2077321937682832,
+        "signal_relax_forward": 0.8696523268301095,
+        "signal_relax_reverse": 0.6505218435325035,
+        "signal_upkeep_forward": 0.16876337179528994,
+        "signal_upkeep_reverse": 0.11999674878122724,
+        "signal_reset_forward": 0.7421597028266312,
+        "signal_reset_reverse": 0.35734252387208654
+      },
+      "witnesses": {},
+      "functional_profiles": {
+        "body": {
+          "id": "body",
+          "definition": "Working apparatus, regardless of bank or location",
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+          "horizon": 64,
+          "initial_functional_probability": 1.0,
+          "endpoint_functional_probability": 0.14226975151196586,
+          "integrated_functional_time": 13.926030320665866,
+          "ever_functional_probability": 1.0,
+          "uninterrupted_initial_function_probability": 0.0069192121401449105,
+          "initial_function_lost_probability": 0.9930807878598551,
+          "initial_function_lost_then_returned_probability": 0.7370235354185115,
+          "returned_and_functional_at_deadline_probability": 0.1353505393718218,
+          "expected_entries": 1.3467741138811586,
+          "expected_exits": 2.20450436236919,
+          "structural_closure_by_deadline_probability": 0.0,
+          "structural_closure_state_count": 0,
+          "closure_definition": "No native directed path to the declared functional set; closed set is forward invariant",
+          "physical_marginal_residual": 6.661338147750939e-16,
+          "scope": "Unconditional functional profile; return is not causal reconstruction, ancestry or foreclosure"
+        }
+      },
+      "assistance_ancestry": {},
+      "validation": {
+        "history_accumulation_residual": 3.979039320256561e-13,
+        "coordinate_share_residual": 2.842170943040401e-14,
+        "continuous_propagation_residual": 3.730349362740526e-14,
+        "monitor_marginal_residual": 0.0
+      },
+      "measurement_seconds": 0.056310500018298626,
+      "history_profile_seconds": 0.3193395999260247
+    },
+    {
+      "law": "fast_RX",
+      "preparation": "present",
+      "horizon": 256,
+      "cadence": 0.5,
+      "history": {
+        "quantity": "history.full_given_present",
+        "ell_bits": 452.45868435894346,
+        "scope": "whole_modeled_field",
+        "conditioning": "full_present",
+        "horizon": 256,
+        "cadence": 0.5,
+        "guarantee": "numerical_full_model",
+        "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+        "state_order_hash": "3d00677d0099876b0050cc54f709718c43821a65f448e1ec10e6c87c023f9303",
+        "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+        "resolution": {
+          "faithfulness": "open",
+          "certification": [],
+          "reversal": "none",
+          "governing_status": "provisional"
+        },
+        "boundary_history_limit": "External bath/source histories are unresolved"
+      },
+      "projected_histories": {
+        "body": {
+          "lower_bits": 253.62401441305653,
+          "upper_bits": 258.38338535022604,
+          "width_bits": 4.759370937169507,
+          "steps": 512,
+          "memory": 1,
+          "observation_values": 32,
+          "workspace_bound_bytes": 6428672,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location",
+            "body.signal"
+          ],
+          "cadence": 0.5,
+          "horizon": 256,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        },
+        "body_signal_merged": {
+          "lower_bits": 201.56013819695409,
+          "upper_bits": 215.5455719796492,
+          "width_bits": 13.985433782695111,
+          "steps": 512,
+          "memory": 1,
+          "observation_values": 16,
+          "workspace_bound_bytes": 1644544,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location"
+          ],
+          "cadence": 0.5,
+          "horizon": 256,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        }
+      },
+      "asymptotic": {
+        "rate_bits_per_time": 1.6777734154066262,
+        "offset_bits": 27.947186325727035,
+        "residual": 1.0880185641326534e-14,
+        "scope": "finite irreducible sampled CTMC; numerical, not a persistence claim"
+      },
+      "horizon_diagnostics": {
+        "endpoint_total_variation_to_stationary": 0.24950662074350072,
+        "rate_offset_profile_residual_bits": -4.998496310879876
+      },
+      "physical": {
+        "work_net": 7.037015160314679,
+        "heat_export": 7.57622825165263,
+        "delta_energy": -0.5392130913379227,
+        "energy_residual": 2.842170943040401e-14,
+        "entropy_production": 19.1495841567222,
+        "free_energy_excess_initial": 4.004204145187984,
+        "free_energy_excess_final": 1.4664272271415923,
+        "kl_availability": 1.4664272271416097,
+        "availability_identity_residual": 1.7319479184152442e-14,
+        "expected_jumps": 70.76298931386202,
+        "integrated_channels": {
+          "source.forward": 6.587409588399999,
+          "hazard_toggle.reverse": 4.0899999466448484,
+          "basal_restore.reverse": 0.3266527768732824,
+          "hazard_damage.forward": 3.924354137841234,
+          "metabolism.forward": 3.478921660891829,
+          "barrier_toggle.forward": 6.649999999998178,
+          "capture_0.reverse": 0.00956563378047206,
+          "signal_write_0_1.forward": 2.8745328344053296,
+          "signal_relax.reverse": 2.7522852532342004,
+          "source.reverse": 4.241737868295107,
+          "hazard_toggle.forward": 3.5900000533552467,
+          "signal_write_0_0.forward": 1.9520963589379625,
+          "basal_restore.forward": 0.2383237647414994,
+          "paid_restore.forward": 1.2082430893103608,
+          "hazard_damage.reverse": 3.120773560326332,
+          "metabolism.reverse": 2.913592643377096,
+          "signal_reset_0_1.reverse": 0.7970755510771349,
+          "barrier_toggle.reverse": 6.1500000000019845,
+          "native_move_0.forward": 0.0390530288116042,
+          "capture_0.forward": 0.5544216321717719,
+          "paid_restore.reverse": 1.1808997194159494,
+          "signal_write_0_1.reverse": 2.1229201807483795,
+          "signal_reset_0_1.forward": 1.0671485206914657,
+          "signal_relax.forward": 3.0703291418786294,
+          "signal_upkeep.forward": 0.509132034194016,
+          "signal_upkeep.reverse": 0.42896407144712084,
+          "blocked_effort.forward": 0.3414129677790527,
+          "blocked_effort.reverse": 0.24984188389712084,
+          "signal_reset_0_0.reverse": 0.7288860516605753,
+          "signal_write_0_0.reverse": 1.7960158421385795,
+          "signal_reset_0_0.forward": 0.825204213504198,
+          "native_move_1.reverse": 0.03104497180932543,
+          "capture_1.reverse": 0.0612950677938697,
+          "native_move_0.reverse": 0.008796968131114937,
+          "native_move_1.forward": 0.02169269076956869,
+          "signal_write_1_1.forward": 0.35220383266975586,
+          "signal_reset_1_1.reverse": 0.06889445172963762,
+          "escape.forward": 0.1999110615564215,
+          "capture_1.forward": 0.9251466775762955,
+          "signal_write_1_0.forward": 0.3428487603597137,
+          "signal_reset_1_0.reverse": 0.06797043525942646,
+          "signal_write_1_1.reverse": 0.21844134587827674,
+          "escape.reverse": 0.08625954301326123,
+          "signal_reset_1_1.forward": 0.1760200641134622,
+          "signal_write_1_0.reverse": 0.2120654017123386,
+          "signal_reset_1_0.forward": 0.17060403165899207
+        },
+        "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work",
+        "known_root_average_availability_initial": 4.004204145187984,
+        "known_root_average_availability_final": 1.4664272271415835,
+        "work_accepted_gross": 19.7622287652,
+        "work_returned_gross": 12.725213604885319
+      },
+      "activity": {
+        "expected_jumps": 70.76298931386202,
+        "finite_coefficient_bits": 397.53971110965995,
+        "reference_time": 1.0,
+        "scope": "Asymptotic fine-cadence diagnostic, not an exact finite-cadence decomposition"
+      },
+      "coordinate_shares_bits": {
+        "body.working": 56.36821326075146,
+        "body.bank": 142.3268508389765,
+        "body.location": 1.359373683839199,
+        "hazard": 56.723266120624096,
+        "barrier": 84.64733740220315,
+        "carrier": 58.32997421922874,
+        "body.signal": 52.70366883331976
+      },
+      "observables": {
+        "bank_energy": {
+          "endpoint": 0.2808845670128859,
+          "integrated": 81.02919441200709,
+          "stationary": 0.29243455544973584
+        },
+        "signal_on": {
+          "endpoint": 0.2780447870094156,
+          "integrated": 74.48995039834273,
+          "stationary": 0.28165720593015636
+        },
+        "exposed_hazard": {
+          "endpoint": 0.42336984774200015,
+          "integrated": 124.08539083697971,
+          "stationary": 0.29887480630076946
+        },
+        "signal_and_exposed_hazard": {
+          "endpoint": 0.11415400033568462,
+          "integrated": 35.714282329228794,
+          "stationary": 0.08137425817837707
+        },
+        "sheltered": {
+          "endpoint": 0.15325986026340643,
+          "integrated": 24.2473742122337,
+          "stationary": 0.40270724421364756
+        },
+        "barrier_open": {
+          "endpoint": 0.49999999999619493,
+          "integrated": 123.00000000003968,
+          "stationary": 0.4999999999999998
+        },
+        "signal_blocked": {
+          "endpoint": 0.11496032677188697,
+          "integrated": 35.02325658972302,
+          "stationary": 0.08121353991649731
+        }
+      },
+      "event_readouts": {
+        "capture_forward": 1.4795683097480674,
+        "capture_reverse": 0.07086070157434177,
+        "paid_repair_forward": 1.2082430893103608,
+        "paid_repair_reverse": 1.1808997194159494,
+        "hazard_damage_forward": 3.924354137841234,
+        "hazard_damage_reverse": 3.120773560326332,
+        "escape_forward": 0.1999110615564215,
+        "escape_reverse": 0.08625954301326123,
+        "blocked_effort_forward": 0.3414129677790527,
+        "blocked_effort_reverse": 0.24984188389712084,
+        "signal_write_forward": 5.521681786372762,
+        "signal_write_reverse": 4.349442770477573,
+        "signal_relax_forward": 3.0703291418786294,
+        "signal_relax_reverse": 2.7522852532342004,
+        "signal_upkeep_forward": 0.509132034194016,
+        "signal_upkeep_reverse": 0.42896407144712084,
+        "signal_reset_forward": 2.2389768299681183,
+        "signal_reset_reverse": 1.6628264897267744
+      },
+      "witnesses": {},
+      "functional_profiles": {
+        "body": {
+          "id": "body",
+          "definition": "Working apparatus, regardless of bank or location",
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+          "horizon": 256,
+          "initial_functional_probability": 1.0,
+          "endpoint_functional_probability": 0.13543378024773806,
+          "integrated_functional_time": 40.05628033774767,
+          "ever_functional_probability": 1.0,
+          "uninterrupted_initial_function_probability": 8.277063359566121e-06,
+          "initial_function_lost_probability": 0.9999917229366404,
+          "initial_function_lost_then_returned_probability": 0.9825059186610124,
+          "returned_and_functional_at_deadline_probability": 0.13542550318437682,
+          "expected_entries": 4.567340414378192,
+          "expected_exits": 5.431906634130466,
+          "structural_closure_by_deadline_probability": 0.0,
+          "structural_closure_state_count": 0,
+          "closure_definition": "No native directed path to the declared functional set; closed set is forward invariant",
+          "physical_marginal_residual": 9.575673587391975e-16,
+          "scope": "Unconditional functional profile; return is not causal reconstruction, ancestry or foreclosure"
+        }
+      },
+      "assistance_ancestry": {},
+      "validation": {
+        "history_accumulation_residual": 6.59383658785373e-12,
+        "coordinate_share_residual": 5.115907697472721e-13,
+        "continuous_propagation_residual": 3.517186542012496e-13,
+        "monitor_marginal_residual": 0.0
+      },
+      "measurement_seconds": 0.08401689992751926,
+      "history_profile_seconds": 0.3193395999260247
+    },
+    {
+      "law": "fast_RX",
+      "preparation": "present",
+      "horizon": 1024,
+      "cadence": 0.5,
+      "history": {
+        "quantity": "history.full_given_present",
+        "ell_bits": 1744.4767699073625,
+        "scope": "whole_modeled_field",
+        "conditioning": "full_present",
+        "horizon": 1024,
+        "cadence": 0.5,
+        "guarantee": "numerical_full_model",
+        "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+        "state_order_hash": "3d00677d0099876b0050cc54f709718c43821a65f448e1ec10e6c87c023f9303",
+        "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+        "resolution": {
+          "faithfulness": "open",
+          "certification": [],
+          "reversal": "none",
+          "governing_status": "provisional"
+        },
+        "boundary_history_limit": "External bath/source histories are unresolved"
+      },
+      "projected_histories": {
+        "body": {
+          "lower_bits": 954.6141408319941,
+          "upper_bits": 971.5836389200206,
+          "width_bits": 16.969498088026512,
+          "steps": 2048,
+          "memory": 1,
+          "observation_values": 32,
+          "workspace_bound_bytes": 6428672,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location",
+            "body.signal"
+          ],
+          "cadence": 0.5,
+          "horizon": 1024,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        },
+        "body_signal_merged": {
+          "lower_bits": 749.2171203693182,
+          "upper_bits": 802.9817561914093,
+          "width_bits": 53.76463582209112,
+          "steps": 2048,
+          "memory": 1,
+          "observation_values": 16,
+          "workspace_bound_bytes": 1644544,
+          "method": "observed_memory_with_hidden_boundary_lower_and_observed_memory_upper",
+          "guarantee": "numerical_full_model",
+          "limits": "Analytic entropy inequalities, float64 evaluation; not rigorous numerical intervals or physical-grain certification",
+          "quantity": "history.projected_given_full_present",
+          "conditioning": "full_present",
+          "scope": [
+            "body.working",
+            "body.bank",
+            "body.location"
+          ],
+          "cadence": 0.5,
+          "horizon": 1024,
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2"
+        }
+      },
+      "asymptotic": {
+        "rate_bits_per_time": 1.6777734154066262,
+        "offset_bits": 27.947186325727035,
+        "residual": 1.0880185641326534e-14,
+        "scope": "finite irreducible sampled CTMC; numerical, not a persistence claim"
+      },
+      "horizon_diagnostics": {
+        "endpoint_total_variation_to_stationary": 0.07540748420659488,
+        "rate_offset_profile_residual_bits": -1.510393794749735
+      },
+      "physical": {
+        "work_net": 23.124765093712032,
+        "heat_export": 23.660531054233132,
+        "delta_energy": -0.5357659605211218,
+        "energy_residual": -2.1316282072803006e-14,
+        "entropy_production": 51.547613327022376,
+        "free_energy_excess_initial": 4.004204145187984,
+        "free_energy_excess_final": 1.355162575388806,
+        "kl_availability": 1.3551625753887955,
+        "availability_identity_residual": 1.0436096431476471e-14,
+        "expected_jumps": 270.4033470185234,
+        "integrated_channels": {
+          "source.forward": 24.754617896941237,
+          "hazard_toggle.reverse": 15.609999999999904,
+          "basal_restore.reverse": 1.1805236712241953,
+          "hazard_damage.forward": 11.29376995482978,
+          "metabolism.forward": 13.289861615782185,
+          "barrier_toggle.forward": 25.849999999999856,
+          "capture_0.reverse": 0.02025704531605177,
+          "signal_write_0_1.forward": 7.647607377612948,
+          "signal_relax.reverse": 11.14223767089942,
+          "source.reverse": 17.046362865703898,
+          "hazard_toggle.forward": 15.10999999999991,
+          "signal_write_0_0.forward": 6.708417420840386,
+          "basal_restore.forward": 0.9703591378660114,
+          "paid_restore.forward": 4.469950337114316,
+          "hazard_damage.reverse": 10.519657894538437,
+          "metabolism.reverse": 11.814577243960265,
+          "signal_reset_0_1.reverse": 2.7693924532065335,
+          "barrier_toggle.reverse": 25.349999999999852,
+          "native_move_0.forward": 0.128897736716941,
+          "capture_0.forward": 1.8369199490234258,
+          "paid_restore.reverse": 4.348718933729163,
+          "signal_write_0_1.reverse": 6.757954859526806,
+          "signal_reset_0_1.forward": 3.111150749632432,
+          "signal_relax.forward": 11.91952234074532,
+          "signal_upkeep.forward": 1.9115356638463816,
+          "signal_upkeep.reverse": 1.665360596894494,
+          "blocked_effort.forward": 0.8398759016606867,
+          "blocked_effort.reverse": 0.6927549920548556,
+          "signal_reset_0_0.reverse": 2.7006427927311227,
+          "signal_write_0_0.reverse": 6.425272994506688,
+          "signal_reset_0_0.forward": 2.8640740404409932,
+          "native_move_1.reverse": 0.10814698554295589,
+          "capture_1.reverse": 0.35257444914607294,
+          "native_move_0.reverse": 0.04628704825014364,
+          "native_move_1.forward": 0.11481599166552688,
+          "signal_write_1_1.forward": 2.5630913327238805,
+          "signal_reset_1_1.reverse": 0.6964890435270481,
+          "escape.forward": 0.6653567185732383,
+          "capture_1.forward": 5.3121283994020345,
+          "signal_write_1_0.forward": 2.5593666203467325,
+          "signal_reset_1_0.reverse": 0.6960647039921235,
+          "signal_write_1_1.reverse": 1.8488733645324844,
+          "escape.reverse": 0.41398068732255877,
+          "signal_reset_1_1.forward": 1.2157980682052698,
+          "signal_write_1_0.reverse": 1.8448862743454444,
+          "signal_reset_1_0.forward": 1.2152131936033386
+        },
+        "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work",
+        "known_root_average_availability_initial": 4.004204145187984,
+        "known_root_average_availability_final": 1.3551625753887997,
+        "work_accepted_gross": 74.26385369082371,
+        "work_returned_gross": 51.139088597111694
+      },
+      "activity": {
+        "expected_jumps": 270.40334701852333,
+        "finite_coefficient_bits": 1534.9524981049674,
+        "reference_time": 1.0,
+        "scope": "Asymptotic fine-cadence diagnostic, not an exact finite-cadence decomposition"
+      },
+      "coordinate_shares_bits": {
+        "body.working": 190.41552733528246,
+        "body.bank": 547.6644628905105,
+        "body.location": 5.297537318951721,
+        "hazard": 226.95657832059376,
+        "barrier": 338.6234175516698,
+        "carrier": 227.75878858053724,
+        "body.signal": 207.7604579098204
+      },
+      "observables": {
+        "bank_energy": {
+          "endpoint": 0.28894019866152654,
+          "integrated": 300.44121712382196,
+          "stationary": 0.29243455544973584
+        },
+        "signal_on": {
+          "endpoint": 0.2805635303414452,
+          "integrated": 289.1822299516693,
+          "stationary": 0.28165720593015636
+        },
+        "exposed_hazard": {
+          "endpoint": 0.336500370714522,
+          "integrated": 409.37675845038984,
+          "stationary": 0.29887480630076946
+        },
+        "signal_and_exposed_hazard": {
+          "endpoint": 0.09128097708836369,
+          "integrated": 112.89001999541364,
+          "stationary": 0.08137425817837707
+        },
+        "sheltered": {
+          "endpoint": 0.32731771359490847,
+          "integrated": 221.81043189195816,
+          "stationary": 0.40270724421364756
+        },
+        "barrier_open": {
+          "endpoint": 0.49999999999999667,
+          "integrated": 506.999999999997,
+          "stationary": 0.4999999999999998
+        },
+        "signal_blocked": {
+          "endpoint": 0.09141262155011501,
+          "integrated": 112.50879057127759,
+          "stationary": 0.08121353991649731
+        }
+      },
+      "event_readouts": {
+        "capture_forward": 7.14904834842546,
+        "capture_reverse": 0.3728314944621247,
+        "paid_repair_forward": 4.469950337114316,
+        "paid_repair_reverse": 4.348718933729163,
+        "hazard_damage_forward": 11.29376995482978,
+        "hazard_damage_reverse": 10.519657894538437,
+        "escape_forward": 0.6653567185732383,
+        "escape_reverse": 0.41398068732255877,
+        "blocked_effort_forward": 0.8398759016606867,
+        "blocked_effort_reverse": 0.6927549920548556,
+        "signal_write_forward": 19.47848275152395,
+        "signal_write_reverse": 16.876987492911425,
+        "signal_relax_forward": 11.91952234074532,
+        "signal_relax_reverse": 11.14223767089942,
+        "signal_upkeep_forward": 1.9115356638463816,
+        "signal_upkeep_reverse": 1.665360596894494,
+        "signal_reset_forward": 8.406236051882033,
+        "signal_reset_reverse": 6.8625889934568285
+      },
+      "witnesses": {},
+      "functional_profiles": {
+        "body": {
+          "id": "body",
+          "definition": "Working apparatus, regardless of bank or location",
+          "model_hash": "2a558d607dd4c73242ec91f07f50c96788451ba0d01ec6bb56fa897ccd2f3442",
+          "generator_hash": "898b013b0c9d75dea252f36126f809284f268337080212f10115eae6a0d176e2",
+          "horizon": 1024,
+          "initial_functional_probability": 1.0,
+          "endpoint_functional_probability": 0.13695480973560292,
+          "integrated_functional_time": 144.76346281987222,
+          "ever_functional_probability": 1.0,
+          "uninterrupted_initial_function_probability": 3.95239198376647e-17,
+          "initial_function_lost_probability": 1.0,
+          "initial_function_lost_then_returned_probability": 0.9998425866487759,
+          "returned_and_functional_at_deadline_probability": 0.13695480973560872,
+          "expected_entries": 15.959967369518765,
+          "expected_exits": 16.823012559783137,
+          "structural_closure_by_deadline_probability": 0.0,
+          "structural_closure_state_count": 0,
+          "closure_definition": "No native directed path to the declared functional set; closed set is forward invariant",
+          "physical_marginal_residual": 2.8171909249863347e-15,
+          "scope": "Unconditional functional profile; return is not causal reconstruction, ancestry or foreclosure"
+        }
+      },
+      "assistance_ancestry": {},
+      "validation": {
+        "history_accumulation_residual": 9.640643838793039e-11,
+        "coordinate_share_residual": 3.410605131648481e-12,
+        "continuous_propagation_residual": 5.968558980384842e-13,
+        "monitor_marginal_residual": 0.0
+      },
+      "measurement_seconds": 0.18927590001840144,
+      "history_profile_seconds": 0.3193395999260247
+    }
+  ],
+  "structural_analysis": {
+    "transition_audits": [],
+    "paired_state_probes": [],
+    "scope": "Structural opportunity diagnostics; no causal ancestry inferred"
+  },
+  "foreclosure_comparisons": [],
+  "scope": "Finite functional aversive-response proxy; no phenomenal valence, mortality, optimizer or ethical verdict",
+  "manifest_sha256": "d6cc1b86f106a8a036d691bd3e3e9309e005c1b23baf22b6880eff21af1ffb82",
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  }
+}

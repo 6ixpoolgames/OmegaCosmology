@@ -18,6 +18,7 @@ def occupied_ecology(
     binding_energy="-.25",
     binding_conductance=0.04,
     assistance_edges=None,
+    converting_edges=None,
     **kwargs,
 ):
     """Replace instantaneous assisted construction by binding then conversion.
@@ -42,6 +43,13 @@ def occupied_ecology(
     )
     if len(set(chosen)) != len(chosen) or any(e not in available for e in chosen):
         raise ValueError("Distinct declared assistance edges required")
+    conversions = (
+        chosen if converting_edges is None else list(map(tuple, converting_edges))
+    )
+    if len(set(conversions)) != len(conversions) or any(
+        e not in chosen for e in conversions
+    ):
+        raise ValueError("Conversion edges must be distinct bound assistance edges")
     rational(binding_energy)
     contacts = {
         edge: "contact." + available[edge].id.removeprefix("assisted_construct_")
@@ -108,23 +116,24 @@ def occupied_ecology(
             )
     for (parent, child), contact in contacts.items():
         original = available[parent, child]
-        rules.extend(
-            [
-                Rule(
-                    "bind." + contact,
-                    (C(parent, "eq", 1), C(child, "eq", 0)) + free((parent, child)),
-                    ((contact, 1),),
-                    binding_conductance,
-                    mechanism="reversible binding sequesters a finite helper and substrate port",
-                ),
+        rules.append(
+            Rule(
+                "bind." + contact,
+                (C(parent, "eq", 1), C(child, "eq", 0)) + free((parent, child)),
+                ((contact, 1),),
+                binding_conductance,
+                mechanism="reversible binding sequesters a finite helper and substrate port",
+            )
+        )
+        if (parent, child) in conversions:
+            rules.append(
                 replace(
                     original,
                     guards=original.guards + (C(contact, "eq", 1),),
                     changes=original.changes + ((contact, -1),),
                     mechanism="occupied native helper assists recipient-paid construction then releases",
-                ),
-            ]
-        )
+                )
+            )
     model = LocalModel(
         "autocatalytic-ecology-occupied-v1",
         coords,

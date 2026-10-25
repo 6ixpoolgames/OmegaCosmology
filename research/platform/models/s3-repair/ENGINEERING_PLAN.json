@@ -1,0 +1,2640 @@
+{
+  "schema": "omega.coupled-engineering-plan/1",
+  "date": "2026-10-25",
+  "cases": [
+    {
+      "id": "repair_feedback",
+      "law": {
+        "id": "repair_feedback",
+        "model": {
+          "schema": "omega.local-model/1",
+          "id": "autocatalytic-ecology-occupied-v1",
+          "beta": 1.0,
+          "coordinates": [
+            {
+              "name": "repair.R",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "constructed_component",
+              "owner": "repair"
+            },
+            {
+              "name": "repair.Y",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "constructed_component",
+              "owner": "repair"
+            },
+            {
+              "name": "repair.bank",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "energy",
+              "owner": "repair"
+            },
+            {
+              "name": "carrier",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "shared_resource",
+              "owner": "shared"
+            },
+            {
+              "name": "contact.repair.R_to_repair.Y",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "catalytic_contact",
+              "owner": "shared"
+            },
+            {
+              "name": "contact.repair.Y_to_repair.R",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "catalytic_contact",
+              "owner": "shared"
+            }
+          ],
+          "rules": [
+            {
+              "id": "basal_construct_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction and bank-independent thermal breakdown"
+            },
+            {
+              "id": "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  -1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "paid reconstruction with formation energy and heat accounted"
+            },
+            {
+              "id": "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  -1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "basal_construct_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction and bank-independent thermal breakdown"
+            },
+            {
+              "id": "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  -1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "paid reconstruction with formation energy and heat accounted"
+            },
+            {
+              "id": "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  -1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "capture_repair",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  -2
+                ],
+                [
+                  "repair.bank",
+                  1
+                ]
+              ],
+              "conductance": 0.004,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "basal capture competes for one shared carrier"
+            },
+            {
+              "id": "assisted_capture_repair",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "le",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  -2
+                ],
+                [
+                  "repair.bank",
+                  1
+                ]
+              ],
+              "conductance": 0.05,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "constructed local interface assists access; native route stays"
+            },
+            {
+              "id": "source",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  1
+                ]
+              ],
+              "conductance": 0.08,
+              "work": "3",
+              "boundary": "work_source",
+              "support": [],
+              "mechanism": "maintained reversible work supply"
+            },
+            {
+              "id": "native_locked_bath",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  1
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "native_usable_bath",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  2
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "unlock_basal",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "bind.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "contact.repair.R_to_repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "reversible binding sequesters a finite helper and substrate port"
+            },
+            {
+              "id": "assisted_construct_repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  -1
+                ]
+              ],
+              "conductance": 0.06,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "occupied native helper assists recipient-paid construction then releases"
+            },
+            {
+              "id": "bind.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "contact.repair.Y_to_repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "reversible binding sequesters a finite helper and substrate port"
+            },
+            {
+              "id": "assisted_construct_repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  -1
+                ]
+              ],
+              "conductance": 0.06,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "occupied native helper assists recipient-paid construction then releases"
+            }
+          ],
+          "energy_terms": [
+            {
+              "coefficient": ".5",
+              "coordinate": "repair.R",
+              "conditions": []
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "repair.Y",
+              "conditions": []
+            },
+            {
+              "coefficient": "1/2",
+              "coordinate": "repair.bank",
+              "conditions": []
+            },
+            {
+              "coefficient": "3",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "coefficient": "2",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "coefficient": "-.25",
+              "coordinate": "contact.repair.R_to_repair.Y",
+              "conditions": []
+            },
+            {
+              "coefficient": "-.25",
+              "coordinate": "contact.repair.Y_to_repair.R",
+              "conditions": []
+            }
+          ],
+          "forbidden": [
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.R",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.Y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.Y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.R",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          ],
+          "degeneracy": [],
+          "symmetry": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          ],
+          "relations": [
+            {
+              "id": "repair.contact",
+              "support": [
+                "repair.R",
+                "repair.Y",
+                "repair.bank",
+                "carrier"
+              ],
+              "geometry": "fixed well-mixed contact to a shared finite carrier",
+              "construction": "interfaces require the corresponding constructed members",
+              "transport": "no resolved spatial displacement or migration"
+            },
+            {
+              "id": "contact.repair.R_to_repair.Y",
+              "parent": "repair.R",
+              "child": "repair.Y",
+              "interface_capacity": 1,
+              "construction": "reversible physical bond",
+              "helper_cost": "occupied port; recipient pays conversion"
+            },
+            {
+              "id": "contact.repair.Y_to_repair.R",
+              "parent": "repair.Y",
+              "child": "repair.R",
+              "interface_capacity": 1,
+              "construction": "reversible physical bond",
+              "helper_cost": "occupied port; recipient pays conversion"
+            }
+          ],
+          "material": [
+            {
+              "id": "repair.slots",
+              "quantity": 2,
+              "conservation": "fixed distinct material slots, precursor or constructed"
+            },
+            {
+              "id": "shared_carrier",
+              "quantity": 1,
+              "conservation": "one carrier switches state; no extra matter"
+            }
+          ]
+        }
+      },
+      "protocol": {
+        "id": "coupled-engineering.repair",
+        "preparations": [
+          {
+            "id": "intact",
+            "roots": [
+              [
+                [
+                  1,
+                  1,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present",
+            "energy_per_root": "5"
+          },
+          {
+            "id": "repair_fault",
+            "roots": [
+              [
+                [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present",
+            "energy_per_root": "9/2"
+          },
+          {
+            "id": "access_fault",
+            "roots": [
+              [
+                [
+                  1,
+                  0,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present",
+            "energy_per_root": "9/2"
+          }
+        ],
+        "energy_per_root": "9/2",
+        "coordinate_order": [
+          "repair.R",
+          "repair.Y",
+          "repair.bank",
+          "carrier",
+          "contact.repair.R_to_repair.Y",
+          "contact.repair.Y_to_repair.R"
+        ],
+        "horizons": [
+          4,
+          16
+        ],
+        "cadences": [
+          0.25
+        ],
+        "primary_cadence": 0.25,
+        "max_states": 1000,
+        "reference_time": 1.0,
+        "numerical": {
+          "kernel_agreement_tolerance": 1e-12,
+          "independent_history_tolerance": 1e-07
+        },
+        "sufficiency": "All modeled slots, bank, shared carrier and native rate dependencies retained",
+        "boundary_scope": {
+          "bath_beta": 1.0,
+          "source": "Explicit reversible carrier-work pair when present",
+          "unresolved": "Bath/source histories; no cancellation asserted"
+        },
+        "conserved": [
+          "repair.slots",
+          "shared_carrier"
+        ],
+        "observables": [
+          {
+            "id": "bank_energy",
+            "terms": [
+              [
+                "repair.bank",
+                0.5
+              ]
+            ]
+          },
+          {
+            "id": "occupied_contacts",
+            "terms": [
+              [
+                "contact.repair.R_to_repair.Y",
+                1
+              ],
+              [
+                "contact.repair.Y_to_repair.R",
+                1
+              ]
+            ]
+          }
+        ],
+        "event_readouts": [
+          {
+            "id": "paid_repair_Y",
+            "selectors": [
+              {
+                "rules": [
+                  "assisted_construct_repair.R_to_repair.Y"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "paid_repair_R",
+            "selectors": [
+              {
+                "rules": [
+                  "assisted_construct_repair.Y_to_repair.R"
+                ],
+                "direction": 1
+              }
+            ]
+          }
+        ],
+        "monitors": [],
+        "projected_histories": [
+          {
+            "id": "R.m1",
+            "coordinates": [
+              "repair.R"
+            ],
+            "conditioning": "full_present",
+            "memory": 1
+          },
+          {
+            "id": "R.m2",
+            "coordinates": [
+              "repair.R"
+            ],
+            "conditioning": "full_present",
+            "memory": 2
+          },
+          {
+            "id": "Y.m1",
+            "coordinates": [
+              "repair.Y"
+            ],
+            "conditioning": "full_present",
+            "memory": 1
+          },
+          {
+            "id": "Y.m2",
+            "coordinates": [
+              "repair.Y"
+            ],
+            "conditioning": "full_present",
+            "memory": 2
+          }
+        ],
+        "structural_analysis": {
+          "organizations": [
+            {
+              "id": "repair",
+              "definition": "All declared component slots constructed",
+              "coordinates": [
+                "repair.R",
+                "repair.Y"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "repair.R",
+                    "operator": "eq",
+                    "value": 1
+                  },
+                  {
+                    "coordinate": "repair.Y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "id": "R",
+              "definition": "R constructed and available irrespective of current contact occupancy",
+              "coordinates": [
+                "repair.R"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "repair.R",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "id": "Y",
+              "definition": "Y constructed and available irrespective of current contact occupancy",
+              "coordinates": [
+                "repair.Y"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "repair.Y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            }
+          ],
+          "ancestry": [
+            {
+              "id": "repair.construction_depth",
+              "presence_coordinates": [
+                "repair.R",
+                "repair.Y"
+              ],
+              "depth_cap": 3,
+              "identity_definition": "Distinct constituent slots; breakdown ends an instance; paid or basal rebuilding creates a new instance",
+              "assistance_edges": [
+                {
+                  "rule": "assisted_construct_repair.R_to_repair.Y",
+                  "parent": "repair.R",
+                  "child": "repair.Y"
+                },
+                {
+                  "rule": "assisted_construct_repair.Y_to_repair.R",
+                  "parent": "repair.Y",
+                  "child": "repair.R"
+                }
+              ]
+            }
+          ],
+          "max_ancestry_query_states": 20000
+        },
+        "scope": "Finite repair/access motif; reversible damage, no enacted faults, no optimizer or valuer identification",
+        "matching": {
+          "primary": "repair_fault versus access_fault: same immediate .5 energy loss, same material",
+          "intact_reference": "different-energy diagnostic; no fault pulse enacted"
+        },
+        "foreclosure_queries": [
+          {
+            "id": "repair_fault_relative_to_access_fault.whole",
+            "candidate": "repair_fault",
+            "reference": "access_fault",
+            "coordinates": [
+              "repair.R",
+              "repair.Y",
+              "repair.bank",
+              "carrier",
+              "contact.repair.R_to_repair.Y",
+              "contact.repair.Y_to_repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_access_fault.R",
+            "candidate": "repair_fault",
+            "reference": "access_fault",
+            "coordinates": [
+              "repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_access_fault.Y",
+            "candidate": "repair_fault",
+            "reference": "access_fault",
+            "coordinates": [
+              "repair.Y"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_intact.whole",
+            "candidate": "repair_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R",
+              "repair.Y",
+              "repair.bank",
+              "carrier",
+              "contact.repair.R_to_repair.Y",
+              "contact.repair.Y_to_repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_intact.R",
+            "candidate": "repair_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_intact.Y",
+            "candidate": "repair_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.Y"
+            ]
+          },
+          {
+            "id": "access_fault_relative_to_intact.whole",
+            "candidate": "access_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R",
+              "repair.Y",
+              "repair.bank",
+              "carrier",
+              "contact.repair.R_to_repair.Y",
+              "contact.repair.Y_to_repair.R"
+            ]
+          },
+          {
+            "id": "access_fault_relative_to_intact.R",
+            "candidate": "access_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R"
+            ]
+          },
+          {
+            "id": "access_fault_relative_to_intact.Y",
+            "candidate": "access_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.Y"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair_no_feedback",
+      "law": {
+        "id": "repair_no_feedback",
+        "model": {
+          "schema": "omega.local-model/1",
+          "id": "autocatalytic-ecology-occupied-v1",
+          "beta": 1.0,
+          "coordinates": [
+            {
+              "name": "repair.R",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "constructed_component",
+              "owner": "repair"
+            },
+            {
+              "name": "repair.Y",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "constructed_component",
+              "owner": "repair"
+            },
+            {
+              "name": "repair.bank",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "energy",
+              "owner": "repair"
+            },
+            {
+              "name": "carrier",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "shared_resource",
+              "owner": "shared"
+            },
+            {
+              "name": "contact.repair.R_to_repair.Y",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "catalytic_contact",
+              "owner": "shared"
+            },
+            {
+              "name": "contact.repair.Y_to_repair.R",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "catalytic_contact",
+              "owner": "shared"
+            }
+          ],
+          "rules": [
+            {
+              "id": "basal_construct_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction and bank-independent thermal breakdown"
+            },
+            {
+              "id": "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  -1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "paid reconstruction with formation energy and heat accounted"
+            },
+            {
+              "id": "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.R",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  -1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "basal_construct_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction and bank-independent thermal breakdown"
+            },
+            {
+              "id": "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  -1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "paid reconstruction with formation energy and heat accounted"
+            },
+            {
+              "id": "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  -1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.Y_to_repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+            },
+            {
+              "id": "capture_repair",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  -2
+                ],
+                [
+                  "repair.bank",
+                  1
+                ]
+              ],
+              "conductance": 0.004,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "basal capture competes for one shared carrier"
+            },
+            {
+              "id": "assisted_capture_repair",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "le",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  -2
+                ],
+                [
+                  "repair.bank",
+                  1
+                ]
+              ],
+              "conductance": 0.05,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "constructed local interface assists access; native route stays"
+            },
+            {
+              "id": "source",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  1
+                ]
+              ],
+              "conductance": 0.08,
+              "work": "3",
+              "boundary": "work_source",
+              "support": [],
+              "mechanism": "maintained reversible work supply"
+            },
+            {
+              "id": "native_locked_bath",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  1
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "native_usable_bath",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  2
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "unlock_basal",
+              "guards": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "carrier",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "bind.contact.repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "contact.repair.R_to_repair.Y",
+                  1
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "reversible binding sequesters a finite helper and substrate port"
+            },
+            {
+              "id": "assisted_construct_repair.R_to_repair.Y",
+              "guards": [
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "repair.bank",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "repair.Y",
+                  1
+                ],
+                [
+                  "repair.bank",
+                  -2
+                ],
+                [
+                  "contact.repair.R_to_repair.Y",
+                  -1
+                ]
+              ],
+              "conductance": 0.06,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "occupied native helper assists recipient-paid construction then releases"
+            },
+            {
+              "id": "bind.contact.repair.Y_to_repair.R",
+              "guards": [
+                {
+                  "coordinate": "repair.Y",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "repair.R",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.R_to_repair.Y",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "contact.repair.Y_to_repair.R",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "contact.repair.Y_to_repair.R",
+                  1
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "reversible binding sequesters a finite helper and substrate port"
+            }
+          ],
+          "energy_terms": [
+            {
+              "coefficient": ".5",
+              "coordinate": "repair.R",
+              "conditions": []
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "repair.Y",
+              "conditions": []
+            },
+            {
+              "coefficient": "1/2",
+              "coordinate": "repair.bank",
+              "conditions": []
+            },
+            {
+              "coefficient": "3",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "coefficient": "2",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "carrier",
+                  "operator": "eq",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "coefficient": "-.25",
+              "coordinate": "contact.repair.R_to_repair.Y",
+              "conditions": []
+            },
+            {
+              "coefficient": "-.25",
+              "coordinate": "contact.repair.Y_to_repair.R",
+              "conditions": []
+            }
+          ],
+          "forbidden": [
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.R",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.Y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.Y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "repair.R",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "contact.repair.R_to_repair.Y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.repair.Y_to_repair.R",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          ],
+          "degeneracy": [],
+          "symmetry": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          ],
+          "relations": [
+            {
+              "id": "repair.contact",
+              "support": [
+                "repair.R",
+                "repair.Y",
+                "repair.bank",
+                "carrier"
+              ],
+              "geometry": "fixed well-mixed contact to a shared finite carrier",
+              "construction": "interfaces require the corresponding constructed members",
+              "transport": "no resolved spatial displacement or migration"
+            },
+            {
+              "id": "contact.repair.R_to_repair.Y",
+              "parent": "repair.R",
+              "child": "repair.Y",
+              "interface_capacity": 1,
+              "construction": "reversible physical bond",
+              "helper_cost": "occupied port; recipient pays conversion"
+            },
+            {
+              "id": "contact.repair.Y_to_repair.R",
+              "parent": "repair.Y",
+              "child": "repair.R",
+              "interface_capacity": 1,
+              "construction": "reversible physical bond",
+              "helper_cost": "occupied port; recipient pays conversion"
+            }
+          ],
+          "material": [
+            {
+              "id": "repair.slots",
+              "quantity": 2,
+              "conservation": "fixed distinct material slots, precursor or constructed"
+            },
+            {
+              "id": "shared_carrier",
+              "quantity": 1,
+              "conservation": "one carrier switches state; no extra matter"
+            }
+          ]
+        }
+      },
+      "protocol": {
+        "id": "coupled-engineering.repair",
+        "preparations": [
+          {
+            "id": "intact",
+            "roots": [
+              [
+                [
+                  1,
+                  1,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present",
+            "energy_per_root": "5"
+          },
+          {
+            "id": "repair_fault",
+            "roots": [
+              [
+                [
+                  0,
+                  1,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present",
+            "energy_per_root": "9/2"
+          },
+          {
+            "id": "access_fault",
+            "roots": [
+              [
+                [
+                  1,
+                  0,
+                  2,
+                  1,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present",
+            "energy_per_root": "9/2"
+          }
+        ],
+        "energy_per_root": "9/2",
+        "coordinate_order": [
+          "repair.R",
+          "repair.Y",
+          "repair.bank",
+          "carrier",
+          "contact.repair.R_to_repair.Y",
+          "contact.repair.Y_to_repair.R"
+        ],
+        "horizons": [
+          4,
+          16
+        ],
+        "cadences": [
+          0.25
+        ],
+        "primary_cadence": 0.25,
+        "max_states": 1000,
+        "reference_time": 1.0,
+        "numerical": {
+          "kernel_agreement_tolerance": 1e-12,
+          "independent_history_tolerance": 1e-07
+        },
+        "sufficiency": "All modeled slots, bank, shared carrier and native rate dependencies retained",
+        "boundary_scope": {
+          "bath_beta": 1.0,
+          "source": "Explicit reversible carrier-work pair when present",
+          "unresolved": "Bath/source histories; no cancellation asserted"
+        },
+        "conserved": [
+          "repair.slots",
+          "shared_carrier"
+        ],
+        "observables": [
+          {
+            "id": "bank_energy",
+            "terms": [
+              [
+                "repair.bank",
+                0.5
+              ]
+            ]
+          },
+          {
+            "id": "occupied_contacts",
+            "terms": [
+              [
+                "contact.repair.R_to_repair.Y",
+                1
+              ],
+              [
+                "contact.repair.Y_to_repair.R",
+                1
+              ]
+            ]
+          }
+        ],
+        "event_readouts": [
+          {
+            "id": "paid_repair_Y",
+            "selectors": [
+              {
+                "rules": [
+                  "assisted_construct_repair.R_to_repair.Y"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "paid_repair_R",
+            "selectors": [
+              {
+                "rules": [
+                  "assisted_construct_repair.Y_to_repair.R"
+                ],
+                "direction": 1
+              }
+            ]
+          }
+        ],
+        "monitors": [],
+        "projected_histories": [
+          {
+            "id": "R.m1",
+            "coordinates": [
+              "repair.R"
+            ],
+            "conditioning": "full_present",
+            "memory": 1
+          },
+          {
+            "id": "R.m2",
+            "coordinates": [
+              "repair.R"
+            ],
+            "conditioning": "full_present",
+            "memory": 2
+          },
+          {
+            "id": "Y.m1",
+            "coordinates": [
+              "repair.Y"
+            ],
+            "conditioning": "full_present",
+            "memory": 1
+          },
+          {
+            "id": "Y.m2",
+            "coordinates": [
+              "repair.Y"
+            ],
+            "conditioning": "full_present",
+            "memory": 2
+          }
+        ],
+        "structural_analysis": {
+          "organizations": [
+            {
+              "id": "repair",
+              "definition": "All declared component slots constructed",
+              "coordinates": [
+                "repair.R",
+                "repair.Y"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "repair.R",
+                    "operator": "eq",
+                    "value": 1
+                  },
+                  {
+                    "coordinate": "repair.Y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "id": "R",
+              "definition": "R constructed and available irrespective of current contact occupancy",
+              "coordinates": [
+                "repair.R"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "repair.R",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            },
+            {
+              "id": "Y",
+              "definition": "Y constructed and available irrespective of current contact occupancy",
+              "coordinates": [
+                "repair.Y"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "repair.Y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            }
+          ],
+          "ancestry": [
+            {
+              "id": "repair.construction_depth",
+              "presence_coordinates": [
+                "repair.R",
+                "repair.Y"
+              ],
+              "depth_cap": 3,
+              "identity_definition": "Distinct constituent slots; breakdown ends an instance; paid or basal rebuilding creates a new instance",
+              "assistance_edges": [
+                {
+                  "rule": "assisted_construct_repair.R_to_repair.Y",
+                  "parent": "repair.R",
+                  "child": "repair.Y"
+                }
+              ]
+            }
+          ],
+          "max_ancestry_query_states": 20000
+        },
+        "scope": "Finite repair/access motif; reversible damage, no enacted faults, no optimizer or valuer identification",
+        "matching": {
+          "primary": "repair_fault versus access_fault: same immediate .5 energy loss, same material",
+          "intact_reference": "different-energy diagnostic; no fault pulse enacted"
+        },
+        "foreclosure_queries": [
+          {
+            "id": "repair_fault_relative_to_access_fault.whole",
+            "candidate": "repair_fault",
+            "reference": "access_fault",
+            "coordinates": [
+              "repair.R",
+              "repair.Y",
+              "repair.bank",
+              "carrier",
+              "contact.repair.R_to_repair.Y",
+              "contact.repair.Y_to_repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_access_fault.R",
+            "candidate": "repair_fault",
+            "reference": "access_fault",
+            "coordinates": [
+              "repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_access_fault.Y",
+            "candidate": "repair_fault",
+            "reference": "access_fault",
+            "coordinates": [
+              "repair.Y"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_intact.whole",
+            "candidate": "repair_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R",
+              "repair.Y",
+              "repair.bank",
+              "carrier",
+              "contact.repair.R_to_repair.Y",
+              "contact.repair.Y_to_repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_intact.R",
+            "candidate": "repair_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R"
+            ]
+          },
+          {
+            "id": "repair_fault_relative_to_intact.Y",
+            "candidate": "repair_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.Y"
+            ]
+          },
+          {
+            "id": "access_fault_relative_to_intact.whole",
+            "candidate": "access_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R",
+              "repair.Y",
+              "repair.bank",
+              "carrier",
+              "contact.repair.R_to_repair.Y",
+              "contact.repair.Y_to_repair.R"
+            ]
+          },
+          {
+            "id": "access_fault_relative_to_intact.R",
+            "candidate": "access_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.R"
+            ]
+          },
+          {
+            "id": "access_fault_relative_to_intact.Y",
+            "candidate": "access_fault",
+            "reference": "intact",
+            "coordinates": [
+              "repair.Y"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "spec": "research/platform/specs/S3_REPAIR_ENGINEERING_r1.md",
+  "snapshot_files": [
+    "scripts/write_s3_protocols.py",
+    "tests/test_repair.py",
+    "tests/test_foreclosure.py"
+  ],
+  "caps": {
+    "case_seconds": 300,
+    "job_memory_bytes": 2147483648,
+    "case_output_bytes": 33554432,
+    "batch_seconds": 600,
+    "batch_output_bytes": 67108864
+  }
+}

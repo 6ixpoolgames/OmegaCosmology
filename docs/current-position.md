@@ -43,6 +43,51 @@ assumptions hold. A stationary calculation does not replace a finite query.
 
 ## Platform status
 
+the author's26 October "Push" authorizes publishing the pending S3 structural-harm/
+foreclosure work, S4/S4b warning studies, readiness smoke/fidelity pilot and
+powered-register calibration with their compact evidence and interpretations.
+Delivery reports retain their historical local/uncommitted wording. This
+publication does not launch the proposed cost–supply–opening map or authorize
+automatic publication of subsequent work.
+
+The [powered register successor](../research/platform/engineering/powered-readiness-2026-10-26/REPORT.md)
+has completed seven capped cases/53 profiles locally. Existing carrier fuel
+now pays for cue writing/resetting and memory clearing. Cue balanced accuracy
+improves from .504 to .699 atT256; non-attempt re-engage mark writes fall from
+72.5% to37.2%. Errors and greater fuel/work demand remain explicit. Native-v1
+results are unchanged. This calibrates noisy physical readiness circuits;
+no broad map, clinical learning claim or publication follows automatically.
+
+The authorized [readiness fidelity pilot](../research/platform/engineering/readiness-fidelity-2026-10-26/REPORT.md)
+has completed locally: five cases at T64/T256, including the full2688-state
+quarter-energy world, pass in421.438s with peak2.422GiB. The compute fits;
+the intended sensor/memory interpretation needs physical repair. About73%
+of re-engage mark writes do not come from failed attempts, and the opening
+cue tracks weakly. No native physics or prior results changed. See the
+[repair guidance](../research/platform/specs/READINESS_FIDELITY_REPAIR_GUIDANCE_r1.md)
+before widening the scientific map. New results remain uncommitted.
+
+The subsequent "Proceed" completed the
+[paid readiness engineering slice](../research/platform/engineering/readiness-2026-10-26/REPORT.md):
+four physical response circuits, reserve-dependent/effort damage, noisy paid
+failure memory, paid opening cues and exact fractional bills. Five smoke cases
+(four1536-state worlds and one672-state fractional case) pass in170.310s with
+peak898.37MiB;120 tests pass. This is a smoke, not a full policy-ranking map.
+Full-body bounds remain broad and cue/memory reverse errors are explicit.
+Long-horizon fidelity and larger common-quarter-quantum feasibility precede
+the broad map. Prior studies and current changes remain local/uncommitted.
+
+The [chapter18 warning/obstruction companion](../research/studies/S4b-paid-warning/README.md)
+completed locally on26 October after the author's "Run it". Both the initial kinetic
+sensor audit and the paid write/reset successor are retained:96 scientific
+cases/384 profiles in total, plus separate calibration/smokes. Useful warning-
+response interaction depends on escape availability and horizon; futile effort
+also raises full history through reserve cycling. See the
+[chapter-facing handoff](../research/studies/S4b-paid-warning/CHAPTER_18_EVIDENCE.md).
+No phenomenal-suffering, full T-and-D, permanent-death or ethical verdict follows.
+S4/S4b here are assay IDs, not completion of the roadmap's niche/population
+stage. New studies and previous S3 work remain local/uncommitted.
+
 The reviewed [architecture](../research/platform/specs/ARCHITECTURE_VISION_SPEC_r3.md)
 and [handoff](../research/platform/specs/SOL_IMPLEMENTATION_HANDOFF_r2.md) define
 a new compositional test bed. Its first M0–M2 engineering slice is implemented
@@ -143,3 +188,17 @@ Donor estimates agree in sign at two cadences but finite-sample family bounds
 remain unresolved; no rigorous numerical sign or ethical conflict is claimed.
 This sprint includes publication of the pending precision refinement. It does
 not run S3's wider interaction map or introduce population/ML controllers.
+
+## S3 completed locally,26 October
+
+After publishing the pending design notes at b13ded3, the next authorized work
+implemented and ran the [S3 repair/interaction map](../research/studies/S3-repair-and-interaction/README.md).
+It adds projected structural foreclosure, graph closure, matched repair/access
+faults and occupied-contact conversion controls. Twenty cases produce168
+profiles. The early donor/whole opposition resolves at two cadences using
+analytic inequalities evaluated numerically; later donor signs remain unresolved.
+Repair feedback changes the fault ordering; fault preparations also exceed the
+different-energy intact diagnostic. See the interpretation for these important
+limits. No enacted damage, permanent repair loss or ethical verdict is claimed.
+The new implementation/results are local; the preceding push did not publish
+this subsequent work. No jobs remain once final validation completes.

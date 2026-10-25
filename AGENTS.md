@@ -44,6 +44,47 @@ entire legacy simulator or hardcode experiment-specific component counts.
 
 ## Workflow
 
+The user's26 October "Push" authorizes the pending completed S3/S4 and readiness
+code, interpretations and compact retained evidence to the existing origin and
+branch. It does not authorize a new run or recurring future publication. Reports
+retain their original delivery-status wording; docs/current-position.md records
+the publication scope.
+
+The latest Proceed authorized a versioned powered-register successor and capped
+calibration, now under research/platform/engineering/powered-readiness-2026-10-26/.
+Seven cases/53 profiles pass; v1 laws/results are unchanged. RegisterPayment
+composes existing bank/carrier costs, with exact thermal reverses. Cue fidelity
+improves but errors and increased accepted work remain substantial. Do not
+interpret it as error-free learning or an equal-work efficiency result. A wider
+cost/supply/opening map is the next scope, not automatically launched here.
+All current work stays local until publication is explicitly authorized.
+
+The next Proceed authorized the readiness fidelity/resource pilot, now retained
+under research/platform/engineering/readiness-fidelity-2026-10-26/. Five full
+cases atT64/T256 pass, including2688states atquarterenergy. No native law
+changed. Weak cue tracking and reverse-clear false marks limit the learning
+interpretation. Keep that result and the raw higher re-engage history visible;
+repair physical fidelity independently before a broader map. This is local,
+not a publication instruction. The user allowed up to4GiB/job if needed;
+the completed run peaked2.422GiB undera2.75GiB cap withhostreservepreserved.
+
+The later26 October "Proceed" authorized the struggle/readiness specification,
+implementation and capped smoke, now retained under
+research/platform/engineering/readiness-2026-10-26/. Five cases pass. This is
+not a publication instruction or an unlimited policy search. Full-body
+memory/cue registers remain counted; failure marks can reverse or be false.
+Preserve the engineering scope and recorded feasibility limits before any
+larger scientific map. S4/S4b source laws and results remain unchanged.
+
+On26 October the user authorized the chapter18 warning/blocked-response batch
+with "Run it". S4's kinetic control and S4b's bank-paid write/reset successor
+are retained separately. The correction followed a measured sensor limitation,
+after initial rankings were seen; all original results remain visible. This
+authorizes local implementation, smoke, feasible science and interpretation,
+not commits/pushes or an unlimited search for favorable suffering rankings.
+No full T-and-D or phenomenal-suffering instantiation is claimed. The existing
+S3 work also remains local until publication is explicitly requested.
+
 Proceed with authorized routine reversible local work. Do not spawn subagents
 without explicit user authorization. Keep changes on the current branch unless
 the user requests otherwise. A specification is not an instruction to run it.
@@ -109,3 +150,12 @@ Six occupied-assistance smoke cases pass; donor sign certification remains
 unresolved after two fixed cadence runs. The S3 interaction map, population,
 spatial niches and physical controllers remain subsequent work. Do not treat
 the publication instruction as recurring permission for later studies.
+
+The next "Push unpushed and go next" authorized publishing the pending S3/
+foreclosure proposals (b13ded3) then proceeding with repair/foreclosure engineering
+and the compact S3 map if feasible. Those subsequent results stay local until
+a later publication instruction. See research/studies/S3-repair-and-interaction/.
+Repair faults are reversible, matched to each other; intact comparisons have
+different energy and are labeled diagnostics. Strict support loss, graph closure,
+recovery and entropy differences remain distinct. No further E1 tiny-effect
+certification campaign or physical controller/ML layer is included.

@@ -142,3 +142,9 @@ loss; projected memory; refinement pullback; tiny positive reverse probability;
 identical-law diagonal; empty window; different physical state alphabets.
 
 No code implementation or scientific run is performed by this proposal.
+
+Implementation update,26 October: the subsequent S3 work implements finite
+projected support propagation and short finite-word suppression, with independent
+reference tests. It integrates support-zero queries into the repair study.
+This does not close the universal physical-resolution issue or certify the
+physical faithfulness of the studied grain; see the S3 study's scope and quality axes.

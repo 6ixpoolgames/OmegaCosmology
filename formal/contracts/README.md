@@ -23,6 +23,11 @@ The [foreclosure/suppression proposal](foreclosure-resolution-proposal-r1.md)
 preserves exact finite support loss and proposes a separate finite-law
 probability-suppression diagnostic. It is a review draft, not a new objective
 or a solution to the universal physical-resolution problem.
+The finite foreclosure query is now implemented in testbed/foreclosure.py:
+candidate-state subset memory retains projected support, reference hidden-state
+mass supplies the weight, and full candidate support gives a structural zero.
+The suppression LP remains restricted to finite enumerated word laws. Neither
+implementation proves a physical resolution faithful or removes rare futures.
 The [S1 confidence design](../../research/platform/specs/PROJECTED_CONFIDENCE_FEASIBILITY_r1.md)
 specifies finite-sample family coverage separately from numerical error, using
 the proven path-score support width and a fixed sampling plan.

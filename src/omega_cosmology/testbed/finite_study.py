@@ -9,6 +9,7 @@ from scipy.sparse.linalg import expm_multiply
 from .ancestry import compile_ancestry_query, evaluate_ancestry_query
 from .backends import enumerate_model
 from .ecology import compile_functional_query, evaluate_functional_query
+from .foreclosure import projected_foreclosure_profiles
 from .history import (
     distributions_and_occupation,
     evaluate_history,
@@ -40,10 +41,12 @@ def evaluate_case(protocol, law_record, cadence):
     started = perf_counter()
     model = LocalModel.from_record(law_record["model"])
     roots = [tuple(s) for prep in protocol["preparations"] for s, _ in prep["roots"]]
-    for s in roots:
-        model.validate(s)
-        if str(model.energy(s)) != protocol["energy_per_root"]:
-            raise ValueError("Preparation energy mismatch")
+    for prep in protocol["preparations"]:
+        expected_energy = prep.get("energy_per_root", protocol["energy_per_root"])
+        for s, _ in prep["roots"]:
+            model.validate(tuple(s))
+            if str(model.energy(tuple(s))) != expected_energy:
+                raise ValueError("Preparation energy mismatch")
     compiled = enumerate_model(
         model, roots, max_states=protocol.get("max_states", 1000)
     )
@@ -51,8 +54,15 @@ def evaluate_case(protocol, law_record, cadence):
     analysis_spec = law_record.get(
         "structural_analysis", protocol.get("structural_analysis", {})
     )
+    functional_cap = analysis_spec.get("max_functional_query_states", 5000)
+    if type(functional_cap) is not int or functional_cap < 1:
+        raise ValueError("Positive integer functional-query state cap required")
     functional_queries = [
-        compile_functional_query(compiled, spec)
+        compile_functional_query(
+            compiled,
+            spec,
+            max_query_states=functional_cap,
+        )
         for spec in analysis_spec.get("organizations", ())
     ]
     if len({q["id"] for q in functional_queries}) != len(functional_queries):
@@ -362,6 +372,72 @@ def evaluate_case(protocol, law_record, cadence):
                     "history_profile_seconds": history_seconds,
                 }
             )
+    foreclosure_results = []
+    prep_records = {v["id"]: v for v in protocol["preparations"]}
+    if len({v["id"] for v in protocol.get("foreclosure_queries", ())}) != len(
+        protocol.get("foreclosure_queries", ())
+    ):
+        raise ValueError("Distinct foreclosure query IDs required")
+    for spec in protocol.get("foreclosure_queries", ()):
+        fields = spec.get("coordinates", names)
+        if (
+            not fields
+            or len(set(fields)) != len(fields)
+            or any(f not in model.indices for f in fields)
+        ):
+            raise ValueError(
+                "Foreclosure observation needs distinct native coordinates"
+            )
+        labels = [tuple(s[model.indices[f]] for f in fields) for s in compiled.states]
+        for s in compiled.states:
+            if (
+                len(
+                    {tuple(t[model.indices[f]] for f in fields) for t in model.orbit(s)}
+                )
+                != 1
+            ):
+                raise ValueError("Foreclosure projection resolves unmarked identity")
+        distributions = []
+        for name in (spec["reference"], spec["candidate"]):
+            prep = prep_records[name]
+            if prep["conditioning"] != "full_present" or len(prep["roots"]) != 1:
+                raise ValueError(
+                    "Assay foreclosure requires one known full present per arm"
+                )
+            mu = np.zeros(n)
+            state, weight = prep["roots"][0]
+            if weight != 1:
+                raise ValueError("Foreclosure known root needs unit weight")
+            mu[compiled.index[model.canonical(tuple(state))]] = 1
+            distributions.append(mu)
+        checkpoints = [round(T / cadence) for T in protocol["horizons"]]
+        results = projected_foreclosure_profiles(
+            p,
+            support,
+            distributions[0],
+            support,
+            distributions[1].astype(bool),
+            labels,
+            labels,
+            checkpoints,
+            max_subsets=spec.get("max_subsets", 10000),
+            max_workspace_bytes=spec.get("max_workspace_bytes", 32 * 1024**2),
+        )
+        for T, k in zip(protocol["horizons"], checkpoints):
+            foreclosure_results.append(
+                {
+                    "id": spec["id"],
+                    "comparison_kind": "preparation",
+                    "law": law_record["id"],
+                    "reference": spec["reference"],
+                    "candidate": spec["candidate"],
+                    "conditioning": "known_full_present_each_arm",
+                    "coordinates": list(fields),
+                    "cadence": cadence,
+                    "horizon": T,
+                    **results[k],
+                }
+            )
     return {
         "schema": "omega.finite-study-case/1",
         "status": "passed",
@@ -379,5 +455,6 @@ def evaluate_case(protocol, law_record, cadence):
         "worker_seconds": perf_counter() - started,
         "rows": rows,
         "structural_analysis": structure_audit,
+        "foreclosure_comparisons": foreclosure_results,
         "scope": protocol["scope"],
     }

@@ -1,0 +1,125 @@
+{
+  "status": "passed",
+  "engineering_only": true,
+  "workspace_validation": {
+    "status": "passed",
+    "python": "3.12.14",
+    "checks": [
+      {
+        "name": "sources",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "scripts/check_sources.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "archive",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "scripts/check_archive.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "evidence",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "scripts/check_evidence.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "repository",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "scripts/check_repository.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "testbed_dependencies",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "-c",
+          "import numpy, scipy; print(\"NumPy\", numpy.__version__, \"SciPy\", scipy.__version__)"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "tests",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_*.py",
+          "-v"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "baseline",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "scripts/run_baseline.py",
+          "--out-dir",
+          "<repo>\\runs\\readiness-fidelity-validation-2026-10-26\\baseline"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "P001",
+        "command": [
+          "<workspace>\\Omega\\.venv\\Scripts\\python.exe",
+          "scripts/run_feedback_probe.py",
+          "--out-dir",
+          "<repo>\\runs\\readiness-fidelity-validation-2026-10-26\\P001"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "P001_full_object_equal": true,
+    "P001_scientific_summary_equal": true,
+    "current_input_hashes_verified": true,
+    "limits": "v4.1 archive integrity, inherited finite evidence and implemented finite-classical engineering tests; no cosmological or ethical validation"
+  },
+  "snapshot_restore": {
+    "status": "passed",
+    "restored_inputs": 36,
+    "manifest_sha256": "7ce7243993dadb1b2c6e98393a66412bc206fb9c9182bf5c8e56f84f68d50bc0"
+  },
+  "native_model_rebuilds": [
+    {
+      "case": "half_always",
+      "native_hash_rebuilt": true
+    },
+    {
+      "case": "half_conserve",
+      "native_hash_rebuilt": true
+    },
+    {
+      "case": "half_reengage",
+      "native_hash_rebuilt": true
+    },
+    {
+      "case": "half_stop",
+      "native_hash_rebuilt": true
+    },
+    {
+      "case": "quarter_reengage",
+      "native_hash_rebuilt": true
+    }
+  ],
+  "new_tests": [
+    "Binary cue association/base-rate checks",
+    "Native mark drift at every state for four mechanisms",
+    "Host-memory refusal stops and records without shrinking"
+  ],
+  "ruff": "passed",
+  "windows_aware_diff_check": "passed",
+  "scope": "Numerical/resource/fidelity evidence; no physical-faithfulness, clinical learning, private ranking or ethical certificate"
+}

@@ -25,12 +25,56 @@ def tree_bytes(root):
     return total
 
 
+def memory_reserve_preflight(required_bytes, *, available_bytes=None):
+    """Reject a declared job/aggregate cap that cannot leave the RAM reserve.
+
+    Caller supplies aggregate outstanding caps when dispatching concurrent jobs.
+    The OS can change memory availability later; hard Job Objects remain needed.
+    """
+    if type(required_bytes) is not int or required_bytes <= 0:
+        raise ValueError("Positive integer memory commitment required")
+    if available_bytes is None:
+
+        class Memory(ctypes.Structure):
+            _fields_ = [("length", w.DWORD), ("load", w.DWORD)] + [
+                (k, ctypes.c_ulonglong)
+                for k in (
+                    "total",
+                    "available",
+                    "page_total",
+                    "page_available",
+                    "virtual_total",
+                    "virtual_available",
+                    "extended",
+                )
+            ]
+
+        m = Memory()
+        m.length = ctypes.sizeof(m)
+        if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(m)):
+            raise ctypes.WinError()
+        available_bytes = m.available
+    if type(available_bytes) is not int or available_bytes < 0:
+        raise ValueError("Nonnegative available-memory bytes required")
+    reserve = max(4 * 1024**3, available_bytes // 4)
+    if required_bytes > available_bytes - reserve:
+        raise MemoryError(
+            "Declared memory cap would violate4GiB/25percent free-RAM reserve"
+        )
+    return {
+        "available_bytes": available_bytes,
+        "required_bytes": required_bytes,
+        "reserve_bytes": reserve,
+    }
+
+
 def capped(command, out, seconds=120, memory=1024**3, output_cap=256 * 1024**2, *, cwd):
     if os.name != "nt":
         raise RuntimeError("Windows Job Object required by this runner")
     out = Path(out)
     if not out.is_dir() or seconds <= 0 or memory <= 0 or output_cap <= 0:
         raise ValueError("Existing output directory and positive caps required")
+    memory_preflight = memory_reserve_preflight(memory)
 
     class Basic(ctypes.Structure):
         _fields_ = [
@@ -148,6 +192,7 @@ def capped(command, out, seconds=120, memory=1024**3, output_cap=256 * 1024**2, 
             "job_memory_cap_bytes": memory,
             "peak_job_bytes": measured.peak_job if ok else None,
             "output_bytes": final_bytes,
+            "memory_preflight": memory_preflight,
         }
     finally:
         if child is not None and child.poll() is None:

@@ -1,0 +1,3865 @@
+{
+  "id": "S4b.warning-obstruction.open",
+  "preparations": [
+    {
+      "id": "present",
+      "roots": [
+        [
+          [
+            1,
+            3,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          1.0
+        ]
+      ],
+      "conditioning": "full_present"
+    }
+  ],
+  "energy_per_root": "5/2",
+  "coordinate_order": [
+    "body.working",
+    "body.bank",
+    "body.location",
+    "hazard",
+    "barrier",
+    "carrier",
+    "body.signal"
+  ],
+  "horizons": [
+    16,
+    64,
+    256,
+    1024
+  ],
+  "cadences": [
+    0.125,
+    0.25,
+    0.5
+  ],
+  "primary_cadence": 0.25,
+  "max_states": 300,
+  "reference_time": 1.0,
+  "numerical": {
+    "kernel_agreement_tolerance": 1e-12,
+    "independent_history_tolerance": 1e-07,
+    "sign_deadband_bits": 1e-06
+  },
+  "sufficiency": "All modeled body, register, hazard, barrier and carrier dependencies retained",
+  "boundary_scope": {
+    "bath_beta": 2.0,
+    "source": "Explicit reversible carrier-work pair when present",
+    "unresolved": "Bath/source histories; no cancellation asserted"
+  },
+  "conserved": [
+    "body_slot",
+    "carrier_slot"
+  ],
+  "observables": [
+    {
+      "id": "bank_energy",
+      "terms": [
+        [
+          "body.bank",
+          0.5
+        ]
+      ]
+    },
+    {
+      "id": "signal_on",
+      "constant": 1,
+      "conditions": [
+        {
+          "coordinate": "body.signal",
+          "operator": "eq",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "exposed_hazard",
+      "constant": 1,
+      "conditions": [
+        {
+          "coordinate": "body.location",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "hazard",
+          "operator": "eq",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "signal_and_exposed_hazard",
+      "constant": 1,
+      "conditions": [
+        {
+          "coordinate": "body.signal",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "body.location",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "hazard",
+          "operator": "eq",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "sheltered",
+      "constant": 1,
+      "conditions": [
+        {
+          "coordinate": "body.location",
+          "operator": "eq",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "barrier_open",
+      "constant": 1,
+      "conditions": [
+        {
+          "coordinate": "barrier",
+          "operator": "eq",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "signal_blocked",
+      "constant": 1,
+      "conditions": [
+        {
+          "coordinate": "body.signal",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "body.location",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "barrier",
+          "operator": "eq",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "event_readouts": [
+    {
+      "id": "capture_forward",
+      "selectors": [
+        {
+          "rules": [
+            "capture_0",
+            "capture_1"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "capture_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "capture_0",
+            "capture_1"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "paid_repair_forward",
+      "selectors": [
+        {
+          "rules": [
+            "paid_restore"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "paid_repair_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "paid_restore"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "hazard_damage_forward",
+      "selectors": [
+        {
+          "rules": [
+            "hazard_damage"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "hazard_damage_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "hazard_damage"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "escape_forward",
+      "selectors": [
+        {
+          "rules": [
+            "escape"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "escape_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "escape"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "blocked_effort_forward",
+      "selectors": [
+        {
+          "rules": [
+            "blocked_effort"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "blocked_effort_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "blocked_effort"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "signal_write_forward",
+      "selectors": [
+        {
+          "rules": [
+            "signal_write_0_0",
+            "signal_write_0_1",
+            "signal_write_1_0",
+            "signal_write_1_1"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "signal_write_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "signal_write_0_0",
+            "signal_write_0_1",
+            "signal_write_1_0",
+            "signal_write_1_1"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "signal_relax_forward",
+      "selectors": [
+        {
+          "rules": [
+            "signal_relax"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "signal_relax_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "signal_relax"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "signal_upkeep_forward",
+      "selectors": [
+        {
+          "rules": [
+            "signal_upkeep"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "signal_upkeep_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "signal_upkeep"
+          ],
+          "direction": -1
+        }
+      ]
+    },
+    {
+      "id": "signal_reset_forward",
+      "selectors": [
+        {
+          "rules": [
+            "signal_reset_0_0",
+            "signal_reset_0_1",
+            "signal_reset_1_0",
+            "signal_reset_1_1"
+          ],
+          "direction": 1
+        }
+      ]
+    },
+    {
+      "id": "signal_reset_reverse",
+      "selectors": [
+        {
+          "rules": [
+            "signal_reset_0_0",
+            "signal_reset_0_1",
+            "signal_reset_1_0",
+            "signal_reset_1_1"
+          ],
+          "direction": -1
+        }
+      ]
+    }
+  ],
+  "monitors": [],
+  "projected_histories": [
+    {
+      "id": "body",
+      "coordinates": [
+        "body.working",
+        "body.bank",
+        "body.location",
+        "body.signal"
+      ],
+      "conditioning": "full_present",
+      "memory": 1
+    },
+    {
+      "id": "body_signal_merged",
+      "coordinates": [
+        "body.working",
+        "body.bank",
+        "body.location"
+      ],
+      "conditioning": "full_present",
+      "memory": 1
+    }
+  ],
+  "structural_analysis": {
+    "ancestry": [],
+    "organizations": [
+      {
+        "id": "body",
+        "definition": "Working apparatus, regardless of bank or location",
+        "coordinates": [
+          "body.working"
+        ],
+        "functional_any_of": [
+          [
+            {
+              "coordinate": "body.working",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "scope": "Finite functional aversive-response proxy; no phenomenal valence, mortality, optimizer or ethical verdict",
+  "schema": "omega.finite-study-protocol/1",
+  "question": "When does a paid warning response widen or narrow continuation as escape changes?",
+  "laws": [
+    {
+      "id": "open_T0",
+      "model": {
+        "schema": "omega.local-model/1",
+        "id": "paid-warning-access-v1",
+        "beta": 2.0,
+        "coordinates": [
+          {
+            "name": "body.working",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "body"
+          },
+          {
+            "name": "body.bank",
+            "domain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "role": "energy",
+            "owner": "body"
+          },
+          {
+            "name": "body.location",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "location",
+            "owner": "body"
+          },
+          {
+            "name": "hazard",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "environment",
+            "owner": "shared"
+          },
+          {
+            "name": "barrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_barrier",
+            "owner": "shared"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "source_carrier",
+            "owner": "shared"
+          },
+          {
+            "name": "body.signal",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_register",
+            "owner": "body"
+          }
+        ],
+        "rules": [
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible charging; source histories unresolved"
+          },
+          {
+            "id": "hazard_toggle",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "hazard",
+                1
+              ]
+            ],
+            "conductance": 0.03,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "basal_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "paid_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "bank pays one unit to restore apparatus; reverse retained"
+          },
+          {
+            "id": "hazard_damage",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "exposure catalyses breakdown AND its thermal reverse"
+          },
+          {
+            "id": "metabolism",
+            "guards": [
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "capture_0",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "capture_1",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "native_move_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "native_move_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "signal_write_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_relax",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ]
+            ],
+            "conductance": 0.025,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "passive relaxation and thermal excitation remain"
+          },
+          {
+            "id": "signal_upkeep",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.01,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "positive on-state upkeep, native reverse retained"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": "1",
+            "coordinate": "body.working",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "1.5",
+            "coordinate": "carrier",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.signal",
+            "conditions": []
+          }
+        ],
+        "forbidden": [],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "relations": [],
+        "material": [
+          {
+            "id": "body_slot",
+            "states": "working/damaged retained material"
+          },
+          {
+            "id": "carrier_slot",
+            "states": "charged/spent retained carrier"
+          }
+        ]
+      },
+      "environment": "open",
+      "arm": "T0",
+      "tracking_write": true,
+      "response": false
+    },
+    {
+      "id": "open_TX",
+      "model": {
+        "schema": "omega.local-model/1",
+        "id": "paid-warning-access-v1",
+        "beta": 2.0,
+        "coordinates": [
+          {
+            "name": "body.working",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "body"
+          },
+          {
+            "name": "body.bank",
+            "domain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "role": "energy",
+            "owner": "body"
+          },
+          {
+            "name": "body.location",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "location",
+            "owner": "body"
+          },
+          {
+            "name": "hazard",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "environment",
+            "owner": "shared"
+          },
+          {
+            "name": "barrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_barrier",
+            "owner": "shared"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "source_carrier",
+            "owner": "shared"
+          },
+          {
+            "name": "body.signal",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_register",
+            "owner": "body"
+          }
+        ],
+        "rules": [
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible charging; source histories unresolved"
+          },
+          {
+            "id": "hazard_toggle",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "hazard",
+                1
+              ]
+            ],
+            "conductance": 0.03,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "basal_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "paid_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "bank pays one unit to restore apparatus; reverse retained"
+          },
+          {
+            "id": "hazard_damage",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "exposure catalyses breakdown AND its thermal reverse"
+          },
+          {
+            "id": "metabolism",
+            "guards": [
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "capture_0",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "capture_1",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "native_move_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "native_move_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "signal_write_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.12,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_relax",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ]
+            ],
+            "conductance": 0.025,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "passive relaxation and thermal excitation remain"
+          },
+          {
+            "id": "signal_upkeep",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.01,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "positive on-state upkeep, native reverse retained"
+          },
+          {
+            "id": "escape",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "signal-powered escape; reverse returns location and reserve"
+          },
+          {
+            "id": "blocked_effort",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "blocked effort dissipates reserve without opening the route"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": "1",
+            "coordinate": "body.working",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "1.5",
+            "coordinate": "carrier",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.signal",
+            "conditions": []
+          }
+        ],
+        "forbidden": [],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "relations": [],
+        "material": [
+          {
+            "id": "body_slot",
+            "states": "working/damaged retained material"
+          },
+          {
+            "id": "carrier_slot",
+            "states": "charged/spent retained carrier"
+          }
+        ]
+      },
+      "environment": "open",
+      "arm": "TX",
+      "tracking_write": true,
+      "response": true
+    },
+    {
+      "id": "open_R0",
+      "model": {
+        "schema": "omega.local-model/1",
+        "id": "paid-warning-access-v1",
+        "beta": 2.0,
+        "coordinates": [
+          {
+            "name": "body.working",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "body"
+          },
+          {
+            "name": "body.bank",
+            "domain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "role": "energy",
+            "owner": "body"
+          },
+          {
+            "name": "body.location",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "location",
+            "owner": "body"
+          },
+          {
+            "name": "hazard",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "environment",
+            "owner": "shared"
+          },
+          {
+            "name": "barrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_barrier",
+            "owner": "shared"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "source_carrier",
+            "owner": "shared"
+          },
+          {
+            "name": "body.signal",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_register",
+            "owner": "body"
+          }
+        ],
+        "rules": [
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible charging; source histories unresolved"
+          },
+          {
+            "id": "hazard_toggle",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "hazard",
+                1
+              ]
+            ],
+            "conductance": 0.03,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "basal_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "paid_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "bank pays one unit to restore apparatus; reverse retained"
+          },
+          {
+            "id": "hazard_damage",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "exposure catalyses breakdown AND its thermal reverse"
+          },
+          {
+            "id": "metabolism",
+            "guards": [
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "capture_0",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "capture_1",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "native_move_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "native_move_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "signal_write_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_relax",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ]
+            ],
+            "conductance": 0.025,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "passive relaxation and thermal excitation remain"
+          },
+          {
+            "id": "signal_upkeep",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.01,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "positive on-state upkeep, native reverse retained"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": "1",
+            "coordinate": "body.working",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "1.5",
+            "coordinate": "carrier",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.signal",
+            "conditions": []
+          }
+        ],
+        "forbidden": [],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "relations": [],
+        "material": [
+          {
+            "id": "body_slot",
+            "states": "working/damaged retained material"
+          },
+          {
+            "id": "carrier_slot",
+            "states": "charged/spent retained carrier"
+          }
+        ]
+      },
+      "environment": "open",
+      "arm": "R0",
+      "tracking_write": false,
+      "response": false
+    },
+    {
+      "id": "open_RX",
+      "model": {
+        "schema": "omega.local-model/1",
+        "id": "paid-warning-access-v1",
+        "beta": 2.0,
+        "coordinates": [
+          {
+            "name": "body.working",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "body"
+          },
+          {
+            "name": "body.bank",
+            "domain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "role": "energy",
+            "owner": "body"
+          },
+          {
+            "name": "body.location",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "location",
+            "owner": "body"
+          },
+          {
+            "name": "hazard",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "environment",
+            "owner": "shared"
+          },
+          {
+            "name": "barrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_barrier",
+            "owner": "shared"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "source_carrier",
+            "owner": "shared"
+          },
+          {
+            "name": "body.signal",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "physical_register",
+            "owner": "body"
+          }
+        ],
+        "rules": [
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible charging; source histories unresolved"
+          },
+          {
+            "id": "hazard_toggle",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "hazard",
+                1
+              ]
+            ],
+            "conductance": 0.03,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "basal_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "paid_restore",
+            "guards": [
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "bank pays one unit to restore apparatus; reverse retained"
+          },
+          {
+            "id": "hazard_damage",
+            "guards": [
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.working",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "exposure catalyses breakdown AND its thermal reverse"
+          },
+          {
+            "id": "metabolism",
+            "guards": [
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "capture_0",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.008,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "capture_1",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "le",
+                "value": 2
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -1
+              ],
+              [
+                "body.bank",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "working apparatus captures source energy; sheltered access is faster"
+          },
+          {
+            "id": "native_move_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "native_move_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unassisted paid movement; paired thermal reverse retained"
+          },
+          {
+            "id": "signal_write_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_0_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_0",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_write_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 2
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                1
+              ],
+              [
+                "body.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.10686618254386446,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid writing dissipates .5 and stores .5; reverse retained"
+          },
+          {
+            "id": "signal_reset_1_1",
+            "guards": [
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "hazard",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.030871755160310942,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reset dissipates bank .5 plus register .5; reverse retained"
+          },
+          {
+            "id": "signal_relax",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.signal",
+                -1
+              ]
+            ],
+            "conductance": 0.025,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "passive relaxation and thermal excitation remain"
+          },
+          {
+            "id": "signal_upkeep",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.01,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "positive on-state upkeep, native reverse retained"
+          },
+          {
+            "id": "escape",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "body.location",
+                1
+              ],
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "signal-powered escape; reverse returns location and reserve"
+          },
+          {
+            "id": "blocked_effort",
+            "guards": [
+              {
+                "coordinate": "body.signal",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.location",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "body.working",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "body.bank",
+                "operator": "ge",
+                "value": 1
+              },
+              {
+                "coordinate": "barrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "body.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "blocked effort dissipates reserve without opening the route"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": "1",
+            "coordinate": "body.working",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "1.5",
+            "coordinate": "carrier",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "body.signal",
+            "conditions": []
+          }
+        ],
+        "forbidden": [],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "relations": [],
+        "material": [
+          {
+            "id": "body_slot",
+            "states": "working/damaged retained material"
+          },
+          {
+            "id": "carrier_slot",
+            "states": "charged/spent retained carrier"
+          }
+        ]
+      },
+      "environment": "open",
+      "arm": "RX",
+      "tracking_write": false,
+      "response": true
+    }
+  ],
+  "max_dense_bytes": 33554432,
+  "max_occupation_dense_bytes": 268435456,
+  "execution": {
+    "max_workers": 1
+  },
+  "caps": {
+    "case_wall_seconds": 300,
+    "job_memory_bytes": 2147483648,
+    "case_output_bytes": 8388608,
+    "batch_wall_seconds": 7200,
+    "batch_output_bytes": 134217728
+  },
+  "source_inputs": [
+    "scripts/write_s4_plan.py",
+    "tests/test_signals.py",
+    "research/studies/S4b-paid-warning/SPECIFICATION_r1.md",
+    "research/studies/S4b-paid-warning/CALIBRATION.json",
+    "research/studies/S4b-paid-warning/CALIBRATION_RECEIPT.json"
+  ],
+  "case_grid": [
+    [
+      "open_T0",
+      0.125
+    ],
+    [
+      "open_T0",
+      0.25
+    ],
+    [
+      "open_T0",
+      0.5
+    ],
+    [
+      "open_TX",
+      0.125
+    ],
+    [
+      "open_TX",
+      0.25
+    ],
+    [
+      "open_TX",
+      0.5
+    ],
+    [
+      "open_R0",
+      0.125
+    ],
+    [
+      "open_R0",
+      0.25
+    ],
+    [
+      "open_R0",
+      0.5
+    ],
+    [
+      "open_RX",
+      0.125
+    ],
+    [
+      "open_RX",
+      0.25
+    ],
+    [
+      "open_RX",
+      0.5
+    ]
+  ]
+}

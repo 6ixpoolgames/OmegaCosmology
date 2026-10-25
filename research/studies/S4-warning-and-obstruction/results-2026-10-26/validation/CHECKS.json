@@ -1,0 +1,113 @@
+{
+  "status": "passed",
+  "workspace": {
+    "status": "passed",
+    "python": "3.12.14",
+    "checks": [
+      {
+        "name": "sources",
+        "command": [
+          "<python>",
+          "scripts/check_sources.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "archive",
+        "command": [
+          "<python>",
+          "scripts/check_archive.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "evidence",
+        "command": [
+          "<python>",
+          "scripts/check_evidence.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "repository",
+        "command": [
+          "<python>",
+          "scripts/check_repository.py"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "testbed_dependencies",
+        "command": [
+          "<python>",
+          "-c",
+          "import numpy, scipy; print(\"NumPy\", numpy.__version__, \"SciPy\", scipy.__version__)"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "tests",
+        "command": [
+          "<python>",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_*.py",
+          "-v"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "baseline",
+        "command": [
+          "<python>",
+          "scripts/run_baseline.py",
+          "--out-dir",
+          "<repo>\\runs\\s4-validation-2026-10-26\\baseline"
+        ],
+        "exit_code": 0
+      },
+      {
+        "name": "P001",
+        "command": [
+          "<python>",
+          "scripts/run_feedback_probe.py",
+          "--out-dir",
+          "<repo>\\runs\\s4-validation-2026-10-26\\P001"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "P001_full_object_equal": true,
+    "P001_scientific_summary_equal": true,
+    "current_input_hashes_verified": true,
+    "limits": "v4.1 archive integrity, inherited finite evidence and implemented finite-classical engineering tests; no cosmological or ethical validation"
+  },
+  "original_receipt_sha256": "cea6647bee58e1c64e3da93e759c9a9a41753583dc60af5602fb4241f2fa855f",
+  "test_count": 112,
+  "inherited_checks": 233,
+  "archives_byte_verified": [
+    {
+      "path": "calibration/SNAPSHOT.zip",
+      "inputs": 26
+    },
+    {
+      "path": "dynamic/SNAPSHOT.zip",
+      "inputs": 33
+    },
+    {
+      "path": "open/SNAPSHOT.zip",
+      "inputs": 33
+    },
+    {
+      "path": "engineering/s4-smoke-2026-10-26/SNAPSHOT.zip",
+      "inputs": 35
+    }
+  ],
+  "native_models_rebuilt": 16,
+  "binary_information_reference_cases": "independent=0, perfectly coupled balanced bits=1",
+  "frozen_source_note": "Current default selects .008 reset for push_pull; explicit frozen law records reproduce unchanged."
+}

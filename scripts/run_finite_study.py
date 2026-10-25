@@ -85,7 +85,11 @@ def main():
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     if not all(digest(ROOT / r["path"]) == r["sha256"] for r in manifest["files"]):
         raise RuntimeError("Live inputs changed during snapshot")
-    from omega_cosmology.testbed.workflow import capped, tree_bytes
+    from omega_cosmology.testbed.workflow import (
+        capped,
+        memory_reserve_preflight,
+        tree_bytes,
+    )
 
     cases = study_cases(protocol)
     if args.feasibility_only:
@@ -93,6 +97,9 @@ def main():
     workers = protocol.get("execution", {}).get("max_workers", 1)
     if type(workers) is not int or not 1 <= workers <= 3:
         raise ValueError("This runner supports one to three capped workers")
+    memory_preflight = memory_reserve_preflight(
+        workers * protocol["caps"]["job_memory_bytes"]
+    )
     receipts = []
     started = perf_counter()
     complete = True
@@ -164,7 +171,7 @@ def main():
     def safe_execute(i, law, dt):
         try:
             return execute(i, law, dt)
-        except (OSError, ValueError, RuntimeError, ArithmeticError) as error:
+        except (OSError, ValueError, RuntimeError, ArithmeticError, MemoryError) as error:
             return {
                 "case": law + "__dt" + str(dt).replace(".", "p"),
                 "law": law,
@@ -217,6 +224,7 @@ def main():
         "status": "passed" if complete and verified else "failed",
         "feasibility_only": args.feasibility_only,
         "max_workers": workers,
+        "memory_preflight": memory_preflight,
         "manifest_sha256": digest(manifest_path),
         "protocol_sha256": manifest["protocol_sha256"],
         "frozen_inputs_verified_after_run": verified,

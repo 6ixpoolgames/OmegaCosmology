@@ -12,6 +12,24 @@ from .history import validate_distribution
 from .monitors import conditions_hold
 
 
+def structural_closure_mask(q, functional_mask):
+    """States with no native directed path back to the functional target set."""
+    mask = np.asarray(functional_mask, dtype=bool)
+    if q.shape != (len(mask), len(mask)):
+        raise ValueError("Generator and functional target must agree")
+    reverse = q.tocsc()
+    reachable = mask.copy()
+    pending = list(np.flatnonzero(mask))
+    while pending:
+        target = pending.pop()
+        for k in range(reverse.indptr[target], reverse.indptr[target + 1]):
+            source = reverse.indices[k]
+            if source != target and reverse.data[k] > 0 and not reachable[source]:
+                reachable[source] = True
+                pending.append(source)
+    return ~reachable
+
+
 def compile_functional_query(compiled, spec, *, max_query_states=5000):
     compiled.require_complete()
     model, n = compiled.model, len(compiled.states)
@@ -73,6 +91,7 @@ def compile_functional_query(compiled, spec, *, max_query_states=5000):
         "state_order_hash": compiled.state_order_hash,
         "generator_hash": compiled.generator_hash,
         "mask": mask,
+        "closure_mask": structural_closure_mask(compiled.q, mask),
         "q": compiled.q,
         "lifted": lifted,
         "entry_rate": entry_rate,
@@ -126,6 +145,11 @@ def evaluate_functional_query(query, initial, horizon, endpoint, occupation):
         "returned_and_functional_at_deadline_probability": float(result[2] @ mask),
         "expected_entries": float(occupation @ query["entry_rate"]),
         "expected_exits": float(occupation @ query["exit_rate"]),
+        "structural_closure_by_deadline_probability": float(
+            endpoint @ query["closure_mask"]
+        ),
+        "structural_closure_state_count": int(query["closure_mask"].sum()),
+        "closure_definition": "No native directed path to the declared functional set; closed set is forward invariant",
         "physical_marginal_residual": marginal_residual,
         "scope": "Unconditional functional profile; return is not causal reconstruction, ancestry or foreclosure",
     }

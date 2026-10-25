@@ -109,7 +109,7 @@ def main():
     frozen = out / "frozen"
     manifest = {
         "schema": "omega.coupled-engineering-snapshot/1",
-        "date": "2026-10-25",
+        "date": plan.get("date", "2026-10-25"),
         "plan": plan_path.relative_to(ROOT).as_posix(),
         "caps": plan["caps"],
         "files": [],
@@ -138,25 +138,38 @@ def main():
             break
         folder = out / case["id"]
         folder.mkdir()
-        receipt = capped(
-            [
-                sys.executable,
-                str(frozen / "scripts/run_coupled_smoke.py"),
-                "--out-dir",
-                str(folder),
-                "--plan",
-                manifest["plan"],
-                "--worker-case",
-                case["id"],
-                "--manifest",
-                str(manifest_path),
-            ],
-            folder,
-            seconds=min(remaining, plan["caps"]["case_seconds"]),
-            memory=plan["caps"]["job_memory_bytes"],
-            output_cap=plan["caps"]["case_output_bytes"],
-            cwd=ROOT,
-        )
+        try:
+            receipt = capped(
+                [
+                    sys.executable,
+                    str(frozen / "scripts/run_coupled_smoke.py"),
+                    "--out-dir",
+                    str(folder),
+                    "--plan",
+                    manifest["plan"],
+                    "--worker-case",
+                    case["id"],
+                    "--manifest",
+                    str(manifest_path),
+                ],
+                folder,
+                seconds=min(remaining, plan["caps"]["case_seconds"]),
+                memory=plan["caps"]["job_memory_bytes"],
+                output_cap=plan["caps"]["case_output_bytes"],
+                cwd=ROOT,
+            )
+        except MemoryError as error:
+            # A host-memory refusal happens before the child exists. Preserve
+            # a capped-batch receipt instead of leaving only a partial snapshot.
+            receipt = {
+                "exit_code": None,
+                "cap_reason": "host_memory_preflight",
+                "error": str(error),
+                "worker_started": False,
+                "job_memory_cap_bytes": plan["caps"]["job_memory_bytes"],
+                "peak_job_bytes": None,
+                "wall_seconds": 0.0,
+            }
         result_path = folder / "RESULT.json"
         passed = (
             receipt["exit_code"] == 0
