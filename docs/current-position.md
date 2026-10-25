@@ -98,9 +98,11 @@ is not isolated damage, and source-off catalytic gains retain the activity
 confound. T4096 retains a small transient in slow regimes. See the scoped
 [interpretation](../research/studies/E1-coupled-autocatalysis/INTERPRETATION_r1.md).
 
-The public preparation branch was pushed at e2da4f1 after the authorized
-sensitive-data review. Subsequent engine work remains local and uncommitted;
-publication does not follow automatically from a passing run.
+The public preparation branch now includes the finite platform, R1/R2, analysis
+corrections and E1 through43167a8, pushed on the user's instruction. Research
+inputs/evidence retain exact bytes across Git checkouts; workspace checks verify
+their evidence manifests. Subsequent analysis refinements remain local until
+publication is authorized; passing checks alone do not publish new work.
 
 Historical P001 and finite quantum tooling remain executable. Their results
 retain their original limited claims; they are not the current platform engine.
