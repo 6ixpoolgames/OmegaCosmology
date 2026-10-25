@@ -85,6 +85,11 @@ archive intake route (scripts/materialize_drive_archive.py), not retyped.
 | C_TEST_BED_MODELS_r6.md | 1ifq0CMJmylY1Swwoz_uBSf4YGb9kvNyh | 66588 | 2026-10-24 11:30 |
 | D_EVIDENCE_MAP_r7.md | 1KNTT6_5g92PAijl58C1Xx9A-6bPLLxqZ | 43301 | 2026-10-24 11:23 |
 
+**Drive, 25 October.** Chapters 23 r4, 24 r2, 25 r4 and 26 r2 and outline
+r31 were uploaded to the Drive v4.1 folder, each checked against the local
+byte count. Outline r30 was uploaded to `deprecated/`, and outline r28 was
+moved there; the r28 row above keeps its ID for intake.
+
 ## Rules
 
 Future editorial changes belong here, with explicit status and provenance.

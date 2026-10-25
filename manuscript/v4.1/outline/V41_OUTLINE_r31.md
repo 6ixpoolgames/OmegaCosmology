@@ -1,21 +1,27 @@
 # Omega Cosmology v4.1: skeletal outline — r31
 
 **Date:** 25 October 2026. **Status:** canonical. Outline r25 was approved by
-the originator on 24 October ("do the full sprint", working position [117]);
-r26 and r27 record it as drafted; r28 records the originator's decisions of
+Paolo on 24 October ("do the full sprint", working position [117]);
+r26 and r27 record it as drafted; r28 records Paolo's decisions of
 24 October on scope, working positions [129]–[136]; r29 records those of
-25 October on Part VII, [141]–[144]; r30 applies Sol's review of r29; r31 records the originator's decision of
-25 October to remove consequence flux. Outline r22 is superseded.
+25 October on Part VII, [141]–[144]; r30 applies Sol's review of r29; r31
+records Paolo's decision of 25 October to remove consequence flux.
+Outline r22 is superseded.
 
 **Changes from r30:**
-- **Consequence flux is removed from the manuscript** (originator, 25
+- **Consequence flux is removed from the manuscript** (Paolo, 25
   October). Chapter 25 (r4) proposes no quantitative marker of agency; it
   keeps agency as physical feedback control, with agency, influence,
   leverage and standing kept distinct, and lists measuring agency on the
   field as open. The chapter 25 entry also drops the second transition,
   already removed in chapter 25 r2 [145].
 - **Chapter 26 is drafted** (r2), with Sol's review of the proposal
-  applied.
+  applied; its entry below follows the draft.
+- **Banned words** (Paolo, 25 October): only "ledger", "I" (the
+  afterword excepted), "the book" for this manuscript, and "originator".
+  The earlier lists of attractor words and ornaments become defaults, not
+  bans (style sheet r27). This outline now names Paolo where it said
+  "originator".
 
 **Changes from r29 (Sol's review):**
 - **Measure and ranking kept apart.** The planning rules arise from
@@ -802,11 +808,14 @@ meet a target (absorbing or suppressing variety); selection rewards share.
 *Formal:* A.3.11–A.3.12, A.8.3, A.13.2.
 
 ### 26. Alignment
-*Formerly 27; narrowed; drafted (r2).* What the framework offers artificial agents: an
-objective that does not depend on whose preferences trained them; one
-measure, two scopes, and misappropriation by self-directed optimizers; risk
-neutrality; the compression boundary. Corrigibility and deference policy are
-Book Two's.
+*Formerly 27; narrowed; drafted (r2).* What the framework offers artificial
+agents, and where an agent pursuing it could still go wrong: an objective
+that does not privilege its designers' preferences, with chapter 1's two
+lists of requirements met at their actual status; one measure, two scopes,
+and misappropriation; naming the whole field is not modelling it
+(Prediction 26.1, proposed); risk neutrality in trained systems; what
+optimization exposes (failures of the model, the measurement or the thesis).
+Corrigibility and deference policy are Book Two's.
 
 ---
 
@@ -885,8 +894,8 @@ demonstration, not reassurance: each premise of the nihilist's case turns
 out to be a reason the hill is there. Personal and casual, suddenly letting
 the reader in; exempt from the "never I" rule and the house voice. Answers
 cosmic nihilism only; moral error theory is met in chapters 3 and 10. No
-mention of Alpha. Drafted last, after the Overview, workshopped with the
-originator and reviewed in its own rounds. It ends: "A gradient — its ethics
+mention of Alpha. Drafted last, after the Overview, workshopped with
+Paolo and reviewed in its own rounds. It ends: "A gradient — its ethics
 come next." End mark: End of Book One. Seed notes:
 v41/notes/AFTERWORD_SEED.md.
 
