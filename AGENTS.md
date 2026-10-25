@@ -94,3 +94,18 @@ or automatic publication. Native turnover changes both thermal construction
 and breakdown; don't relabel it pure damage. Overlapping projected intervals
 remain unresolved. Rate/offset and T4096 convergence checks do not replace the
 finite continuation profiles.
+
+The subsequent "Push and go next" authorized publishing the pending platform,
+R1/R2 corrections and E1, then refining projected-history precision. Publication
+includes43167a8 and the55db381 byte-preservation/evidence-check repair. The
+precision follow-up is local. It introduces separate statistical estimates,
+not stronger claims for the unchanged analytic bounds. Preserve pointwise versus
+simultaneous coverage, fixed sampling plans and unchanged E1 physical scores.
+
+The user's subsequent "Proceed. Push on completion" authorized the scoped
+S0/S1-feasibility/S2 sprint and publication of the pending refinement with it.
+See research/platform/engineering/occupied-sprint-2026-10-25/README.md.
+Six occupied-assistance smoke cases pass; donor sign certification remains
+unresolved after two fixed cadence runs. The S3 interaction map, population,
+spatial niches and physical controllers remain subsequent work. Do not treat
+the publication instruction as recurring permission for later studies.

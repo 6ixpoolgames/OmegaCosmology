@@ -1,0 +1,52 @@
+{
+  "schema": "omega.projection-filter-plan/1",
+  "protocol": "research/studies/E1-coupled-autocatalysis/PROTOCOL.json",
+  "reference_law": "S0p02_C1_D0p001__local",
+  "candidate_law": "S0p02_C1_D0p001__AtoB",
+  "cadence": 0.25,
+  "projections": {
+    "A": [
+      "A.x",
+      "A.y",
+      "A.bank"
+    ],
+    "B": [
+      "B.x",
+      "B.y",
+      "B.bank"
+    ]
+  },
+  "retained_cases": {
+    "S0p02_C1_D0p001__local": "research/studies/E1-coupled-autocatalysis/results-2026-10-25/cases/S0p02_C1_D0p001__local__dt0p25.json",
+    "S0p02_C1_D0p001__AtoB": "research/studies/E1-coupled-autocatalysis/results-2026-10-25/cases/S0p02_C1_D0p001__AtoB__dt0p25.json"
+  },
+  "source_inputs": [
+    "tests/test_filtering.py",
+    "formal/contracts/projected-filter-estimator-r1.md",
+    "research/studies/E1-coupled-autocatalysis/refinement-2026-10-25/PLAN.md",
+    "tests/test_filter_confidence.py",
+    "research/platform/specs/PROJECTED_CONFIDENCE_FEASIBILITY_r1.md"
+  ],
+  "caps": {
+    "case_seconds": 600,
+    "job_memory_bytes": 4294967296,
+    "case_output_bytes": 67108864
+  },
+  "cases": [
+    {
+      "id": "donor_unassembled",
+      "preparation": "unassembled",
+      "projection": "A",
+      "horizons": [
+        16,
+        64,
+        256
+      ],
+      "samples": 8192,
+      "seed": 2026102504,
+      "batch_size": 256,
+      "control_variate": "memory1_exact_mean"
+    }
+  ],
+  "confidence_family_size": 6
+}

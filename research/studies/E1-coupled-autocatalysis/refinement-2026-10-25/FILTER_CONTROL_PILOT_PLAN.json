@@ -1,0 +1,109 @@
+{
+  "schema": "omega.projection-filter-plan/1",
+  "protocol": "research/studies/E1-coupled-autocatalysis/PROTOCOL.json",
+  "reference_law": "S0p02_C1_D0p001__local",
+  "candidate_law": "S0p02_C1_D0p001__AtoB",
+  "cadence": 0.25,
+  "projections": {
+    "A": [
+      "A.x",
+      "A.y",
+      "A.bank"
+    ],
+    "B": [
+      "B.x",
+      "B.y",
+      "B.bank"
+    ]
+  },
+  "retained_cases": {
+    "S0p02_C1_D0p001__local": "research/studies/E1-coupled-autocatalysis/results-2026-10-25/cases/S0p02_C1_D0p001__local__dt0p25.json",
+    "S0p02_C1_D0p001__AtoB": "research/studies/E1-coupled-autocatalysis/results-2026-10-25/cases/S0p02_C1_D0p001__AtoB__dt0p25.json"
+  },
+  "source_inputs": [
+    "tests/test_filtering.py",
+    "formal/contracts/projected-filter-estimator-r1.md",
+    "research/studies/E1-coupled-autocatalysis/refinement-2026-10-25/PLAN.md"
+  ],
+  "caps": {
+    "case_seconds": 240,
+    "job_memory_bytes": 1073741824,
+    "case_output_bytes": 1048576
+  },
+  "cases": [
+    {
+      "id": "calibration_assembled_A",
+      "preparation": "assembled",
+      "projection": "A",
+      "horizons": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "samples": 8192,
+      "seed": 2026102501,
+      "batch_size": 128,
+      "exact_memory": 3,
+      "control_variate": "memory1_exact_mean"
+    },
+    {
+      "id": "calibration_assembled_B",
+      "preparation": "assembled",
+      "projection": "B",
+      "horizons": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "samples": 8192,
+      "seed": 2026102501,
+      "batch_size": 128,
+      "exact_memory": 3,
+      "control_variate": "memory1_exact_mean"
+    },
+    {
+      "id": "calibration_unassembled_A",
+      "preparation": "unassembled",
+      "projection": "A",
+      "horizons": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "samples": 8192,
+      "seed": 2026102501,
+      "batch_size": 128,
+      "exact_memory": 3,
+      "control_variate": "memory1_exact_mean"
+    },
+    {
+      "id": "calibration_unassembled_B",
+      "preparation": "unassembled",
+      "projection": "B",
+      "horizons": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "samples": 8192,
+      "seed": 2026102501,
+      "batch_size": 128,
+      "exact_memory": 3,
+      "control_variate": "memory1_exact_mean"
+    },
+    {
+      "id": "cost_smoke_assembled_A",
+      "preparation": "assembled",
+      "projection": "A",
+      "horizons": [
+        16,
+        64,
+        256
+      ],
+      "samples": 64,
+      "seed": 2026102502,
+      "batch_size": 64,
+      "control_variate": "memory1_exact_mean"
+    }
+  ]
+}

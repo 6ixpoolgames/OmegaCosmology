@@ -101,6 +101,11 @@ def main():
         ROOT / "tests/test_coupled_physics.py",
         ROOT / "tests/test_projection_bounds.py",
     ]
+    for name in plan.get("snapshot_files", ()):
+        extra = (ROOT / name).resolve()
+        if not extra.is_relative_to(ROOT) or not extra.is_file():
+            raise ValueError("Snapshot input must be a repository file")
+        files.append(extra)
     frozen = out / "frozen"
     manifest = {
         "schema": "omega.coupled-engineering-snapshot/1",

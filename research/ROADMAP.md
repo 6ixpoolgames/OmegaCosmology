@@ -3,6 +3,21 @@
 The next leg builds a reusable instrument around the reviewed
 [architecture](platform/specs/ARCHITECTURE_VISION_SPEC_r3.md).
 
+The 25 October [interacting-ecology programme scope](platform/specs/ECOLOGY_PROGRAMME_SCOPE_r1.md)
+maps the manuscript's evidence requests onto reusable capabilities. Its proposed
+next sprint packages retained R1/R2/E1 evidence, benchmarks donor-sign
+certification, and adds finite catalytic occupancy through engineering smoke.
+Transport, niches, population and embodied control follow as dependent stages.
+This is a scoped proposal; writing it does not launch those studies or publish
+the existing local precision refinement.
+
+The following Proceed authorized its first sprint and push on completion.
+[S0/S1/S2 delivery](platform/engineering/occupied-sprint-2026-10-25/README.md)
+now includes the evidence handoff, finite-sample confidence feasibility and
+six passing occupied-catalysis smoke cases. Donor certificates remain unresolved;
+that does not prevent designing S3's physical interaction map. S3 is the next
+scientific proposal, not a completed run.
+
 ## Immediate engineering
 
 [Task 002: M0–M2](tasks/002-next-generation-platform.md): six semantic records,
@@ -41,6 +56,12 @@ the physical interactions needed for new questions (saturation, resource transfe
 material loss or niches). Do not repeat the base autocatalytic demonstration as
 an automatic gate for each expansion. Whole/model/subject scope and the residual
 kinetic-activity confound remain explicit.
+The [precision follow-up](studies/E1-coupled-autocatalysis/refinement-2026-10-25/INTERPRETATION.md)
+benchmarks deeper exact memory and adds a separately typed filtering estimator
+with exact-mean controls. Small donor effects can be estimated, but rigorous
+signs and their cadence robustness remain open. The next physical interaction
+should represent catalytic occupancy/sequestration and competing uses before
+interpreting help as costly; native reverse/release routes must remain.
 Broader physics and controller work follow a
 measured need rather than empty abstractions or silent changes of objective.
 

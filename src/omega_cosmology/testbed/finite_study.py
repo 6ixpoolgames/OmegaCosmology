@@ -74,7 +74,8 @@ def evaluate_case(protocol, law_record, cadence):
         raise ValueError("Declared coordinate order mismatch")
     eq_audit = audit_equilibrium(compiled)
     support = sampled_support(compiled)
-    p = sampled_kernel(compiled, cadence)
+    dense_cap = protocol.get("max_dense_bytes", 32 * 1024**2)
+    p = sampled_kernel(compiled, cadence, max_dense_bytes=dense_cap)
     projection_specs = protocol.get("projected_histories", ())
     if len({s["id"] for s in projection_specs}) != len(projection_specs):
         raise ValueError("Distinct projected-history query IDs required")
@@ -133,6 +134,12 @@ def evaluate_case(protocol, law_record, cadence):
     stationary_residual = float(np.max(abs(compiled.q.T @ stationary)))
     if stationary.min() < -1e-12 or stationary_residual > 1e-10:
         raise ArithmeticError("Stationary physical readout failed")
+    # Include retained operators plus conservative exponential workspace.
+    occupation_cap = protocol.get("max_occupation_dense_bytes", 512 * 1024**2)
+    if 8 * (2 * n) ** 2 * (4 + len(protocol["horizons"])) > occupation_cap:
+        raise MemoryError(
+            "Continuous occupation reference exceeds declared dense workspace"
+        )
     block = np.zeros((2 * n, 2 * n))
     block[:n, :n] = compiled.q.toarray()
     block[:n, n:] = np.eye(n)
@@ -200,7 +207,9 @@ def evaluate_case(protocol, law_record, cadence):
         lifted[:n, :n] = p
         lifted[:n, n] = shares.sum(axis=1)
         lifted[n, n] = 1
-        asymptotic = irreducible_asymptotics(compiled, cadence, mu)
+        asymptotic = irreducible_asymptotics(
+            compiled, cadence, mu, max_dense_bytes=dense_cap
+        )
         history_seconds = perf_counter() - t0
         for T in protocol["horizons"]:
             t0 = perf_counter()
@@ -212,7 +221,9 @@ def evaluate_case(protocol, law_record, cadence):
                 cadence,
                 {"law": law_record["id"], "preparation": prep["id"]},
             )
-            query = evaluate_history(compiled, present, law, obs, comparison, qty)
+            query = evaluate_history(
+                compiled, present, law, obs, comparison, qty, max_dense_bytes=dense_cap
+            )
             accumulation_residual = abs(
                 query["ell_bits"]
                 - float(mu @ np.linalg.matrix_power(lifted, steps)[:n, n])

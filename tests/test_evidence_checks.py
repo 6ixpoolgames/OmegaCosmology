@@ -20,9 +20,20 @@ class EvidenceCheckTests(unittest.TestCase):
             raw = b"physical result\r\n"
             target = folder / "data.txt"
             target.write_bytes(raw)
-            (folder / "EVIDENCE.json").write_text(json.dumps({"files": [
-                {"path": "data.txt", "sha256": sha256(raw).hexdigest(), "bytes": len(raw)}
-            ]}), encoding="utf-8")
+            (folder / "EVIDENCE.json").write_text(
+                json.dumps(
+                    {
+                        "files": [
+                            {
+                                "path": "data.txt",
+                                "sha256": sha256(raw).hexdigest(),
+                                "bytes": len(raw),
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
             self.assertEqual(check(root)["status"], "passed")
             target.write_bytes(raw.replace(b"\r\n", b"\n"))
             self.assertEqual(check(root)["status"], "failed")

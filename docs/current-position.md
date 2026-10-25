@@ -98,6 +98,13 @@ is not isolated damage, and source-off catalytic gains retain the activity
 confound. T4096 retains a small transient in slow regimes. See the scoped
 [interpretation](../research/studies/E1-coupled-autocatalysis/INTERPRETATION_r1.md).
 
+The [precision follow-up](../research/studies/E1-coupled-autocatalysis/refinement-2026-10-25/INTERPRETATION.md)
+keeps E1 physics unchanged. Memory3 remains inconclusive for the donor example;
+a separately validated filtering estimator finds small late donor gains and
+early part/whole opposition from the unassembled root. Those are approximate
+statistical findings at cadence .25; analytic and distribution-free intervals
+remain unresolved. They do not establish an ethical correspondence.
+
 The public preparation branch now includes the finite platform, R1/R2, analysis
 corrections and E1 through43167a8, pushed on the user's instruction. Research
 inputs/evidence retain exact bytes across Git checkouts; workspace checks verify
@@ -111,8 +118,28 @@ claiming that all old code or runs were imported or rerun here.
 
 ## How changes become current
 
+The user's subsequent scoping request is answered by the
+[interacting-ecology programme scope](../research/platform/specs/ECOLOGY_PROGRAMME_SCOPE_r1.md).
+It ties manuscript requests to current evidence, numerical gaps and missing
+physics. The next proposed physical addition is occupied catalytic assistance
+with competing uses; no new run or code implementation accompanies the scope.
+
 Record user rulings, source revision and affected claims. Preserve old reference
 bytes, revise working text explicitly, and update the claim/evidence map.
 Definitions, ordinary proofs, numerical evidence and normative interpretations
 remain distinct. Avoid a framework of externally rewarded goals for a preselected
 chooser; investigate deformations of the continuation field itself.
+
+## Subsequent scoped sprint
+
+The next Proceed authorized implementation and push on completion. The
+[S0 evidence handoff](../research/evidence/manuscript-handoff-2026-10-25/README.md)
+packages retained R1/R2/E1 without rerunning their physics. The
+[S1/S2 engineering report](../research/platform/engineering/occupied-sprint-2026-10-25/README.md)
+records six passing occupied-assistance cases and two donor-confidence runs.
+The helper now has a finite physical port and competing uses; native release,
+bound failure and thermodynamic reverses remain. These are new versioned laws.
+Donor estimates agree in sign at two cadences but finite-sample family bounds
+remain unresolved; no rigorous numerical sign or ethical conflict is claimed.
+This sprint includes publication of the pending precision refinement. It does
+not run S3's wider interaction map or introduce population/ML controllers.

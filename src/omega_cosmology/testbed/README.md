@@ -19,13 +19,15 @@ The first engineering slice of the reviewed design is implemented here.
 | ecology | Functional persistence, loss/return and occupancy queries; no ancestry inferred |
 | ancestry | Native marked assistance genealogy for distinct binary component slots |
 | physical_modules | Versioned storage/damage repair and generic costed cycles sharing a resource |
+| occupancy | Reversible finite catalytic contacts, shared ports, bound failure and opportunity costs |
 | projections | Known-root projected-history bounds retaining hidden-state memory |
+| filtering | Paired full-past projection estimates, exact-mean controls and explicit statistical uncertainty |
 | workflow | Windows process-tree caps used by the snapshot runner |
 
 Install the testbed extra, then use scripts/run_testbed_calibration.py. The
 engineering report and worked models are under research/platform/. This package
 does not yet implement population ecology, generic graph matching, spatial
-transport or an optimizer. A sampler path is not an entropy estimator. No
+transport or an optimizer. A Gillespie path alone is not an entropy estimator. No
 physical-faithfulness or ethical-correspondence claim follows from these tests.
 
 See the [ecology analysis contract](../../../research/platform/specs/ECOLOGY_ANALYSIS_SPEC_r1.md).
@@ -40,3 +42,10 @@ uses these modules; it does not change retained R1/R2-v1 laws. The projection
 bound adapter reports interval width and rejects over-budget words and unsupported
 conditioning. Its analytic inequalities are evaluated numerically, not with
 rigorous interval arithmetic.
+
+The [occupied assistance design](../../../research/platform/specs/OCCUPIED_ASSISTANCE_DESIGN_r1.md)
+replaces instantaneous assistance only in its new adapter. Kernel and continuous
+occupation reference workspaces are explicit per-protocol caps; existing kernel
+defaults remain unchanged. The filtering estimator also reports a separately
+typed empirical-Bernstein family interval under ideal iid/exact arithmetic;
+this is not a rigorous floating-point entropy certificate.

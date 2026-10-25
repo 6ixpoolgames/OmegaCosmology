@@ -102,7 +102,7 @@ def sampled_support(compiled, *, max_bytes=32 * 1024**2):
     return result
 
 
-def irreducible_asymptotics(compiled, cadence, mu):
+def irreducible_asymptotics(compiled, cadence, mu, *, max_dense_bytes=32 * 1024**2):
     """Numerical rate/offset of a small irreducible sampled CTMC only.
 
     The finite profile remains the query. Reducible chains are deliberately
@@ -115,7 +115,7 @@ def irreducible_asymptotics(compiled, cadence, mu):
         raise ValueError(
             "Reducible asymptotics require class/absorption accounting; unsupported here"
         )
-    p = sampled_kernel(compiled, cadence)
+    p = sampled_kernel(compiled, cadence, max_dense_bytes=max_dense_bytes)
     n = len(p)
     mu = validate_distribution(mu, n)
     system = p.T - np.eye(n)
@@ -238,7 +238,15 @@ def refinement_certificate(coarse_gap_lower, added_b_upper, *, refinement):
 
 
 def evaluate_history(
-    compiled, present, law, observation, comparison, quantity, *, max_words=100000
+    compiled,
+    present,
+    law,
+    observation,
+    comparison,
+    quantity,
+    *,
+    max_words=100000,
+    max_dense_bytes=32 * 1024**2,
 ):
     from .semantics import validate_query
 
@@ -279,7 +287,7 @@ def evaluate_history(
             "Own-present hidden roots disagree on the observed initial present"
         )
     steps = round(comparison.horizon / comparison.cadence)
-    p = sampled_kernel(compiled, comparison.cadence)
+    p = sampled_kernel(compiled, comparison.cadence, max_dense_bytes=max_dense_bytes)
     mu = np.zeros(len(compiled.states))
     for i, w in roots:
         mu[i] += w

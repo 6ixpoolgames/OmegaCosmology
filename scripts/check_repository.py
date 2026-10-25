@@ -13,9 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     errors, checked = [], 0
     active = [ROOT / 'README.md', ROOT / 'AGENTS.md', ROOT / 'manuscript/README.md', ROOT / 'manuscript/v4.1/README.md']
-    for folder in ('docs', 'formal', 'research/platform', 'research/studies'):
+    for folder in ('docs', 'formal', 'research/platform', 'research/studies', 'research/evidence'):
         active.extend((ROOT / folder).rglob('*.md'))
     active += [ROOT / 'research/ROADMAP.md', ROOT / 'research/tasks/002-next-generation-platform.md', ROOT / 'sources/v4.1/README.md', ROOT / 'archive/README.md']
+    # Snapshot links refer to their original hierarchy, not their storage folder.
+    active = [path for path in active if 'frozen_differences' not in path.parts]
     for path in active:
         text = path.read_text(encoding='utf-8')
         if text.count('```') % 2:

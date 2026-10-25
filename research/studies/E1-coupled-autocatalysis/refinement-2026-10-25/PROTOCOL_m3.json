@@ -1,0 +1,1981 @@
+{
+  "schema": "omega.finite-study-protocol/1",
+  "id": "E1-projected-memory-3-r1",
+  "question": "Readout refinement of the retained low-supply/low-bill/slow-turnover AtoB versus local contrast, including its unresolved donor history.",
+  "laws": [
+    {
+      "id": "S0p02_C1_D0p001__local",
+      "regime": {
+        "id": "S0p02_C1_D0p001",
+        "source": 0.02,
+        "bill_ticks": 1,
+        "turnover": 0.001
+      },
+      "mechanism": "local",
+      "model": {
+        "schema": "omega.local-model/1",
+        "id": "E1.S0p02_C1_D0p001__local",
+        "beta": 1.0,
+        "coordinates": [
+          {
+            "name": "A.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "A"
+          },
+          {
+            "name": "B.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "B"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "shared_resource",
+            "owner": "shared"
+          }
+        ],
+        "rules": [
+          {
+            "id": "basal_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "basal_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "basal_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "basal_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "assisted_construct_A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible work supply"
+          },
+          {
+            "id": "native_locked_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "native_usable_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                2
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "unlock_basal",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": ".5",
+            "coordinate": "A.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "A.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "A.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "B.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "3",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "coefficient": "2",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              }
+            ]
+          }
+        ],
+        "forbidden": [],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "relations": [
+          {
+            "id": "A.contact",
+            "support": [
+              "A.x",
+              "A.y",
+              "A.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          },
+          {
+            "id": "B.contact",
+            "support": [
+              "B.x",
+              "B.y",
+              "B.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          }
+        ],
+        "material": [
+          {
+            "id": "A.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed"
+          },
+          {
+            "id": "B.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed"
+          },
+          {
+            "id": "shared_carrier",
+            "quantity": 1,
+            "conservation": "one carrier switches state; no extra matter"
+          }
+        ]
+      },
+      "structural_analysis": {
+        "organizations": [
+          {
+            "id": "A",
+            "definition": "Both local members constructed",
+            "coordinates": [
+              "A.x",
+              "A.y"
+            ],
+            "functional_any_of": [
+              [
+                {
+                  "coordinate": "A.x",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "A.y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            ]
+          },
+          {
+            "id": "B",
+            "definition": "Both local members constructed",
+            "coordinates": [
+              "B.x",
+              "B.y"
+            ],
+            "functional_any_of": [
+              [
+                {
+                  "coordinate": "B.x",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "B.y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            ]
+          }
+        ],
+        "ancestry": [
+          {
+            "id": "A.depth",
+            "presence_coordinates": [
+              "A.x",
+              "A.y"
+            ],
+            "depth_cap": 3,
+            "identity_definition": "Distinct constituent slots; breakdown ends an instance; paid or basal rebuilding creates a new instance",
+            "assistance_edges": [
+              {
+                "rule": "assisted_construct_A.x_to_A.y",
+                "parent": "A.x",
+                "child": "A.y"
+              },
+              {
+                "rule": "assisted_construct_A.y_to_A.x",
+                "parent": "A.y",
+                "child": "A.x"
+              }
+            ]
+          },
+          {
+            "id": "B.depth",
+            "presence_coordinates": [
+              "B.x",
+              "B.y"
+            ],
+            "depth_cap": 3,
+            "identity_definition": "Distinct constituent slots; breakdown ends an instance; paid or basal rebuilding creates a new instance",
+            "assistance_edges": [
+              {
+                "rule": "assisted_construct_B.x_to_B.y",
+                "parent": "B.x",
+                "child": "B.y"
+              },
+              {
+                "rule": "assisted_construct_B.y_to_B.x",
+                "parent": "B.y",
+                "child": "B.x"
+              }
+            ]
+          }
+        ],
+        "max_ancestry_query_states": 20000
+      }
+    },
+    {
+      "id": "S0p02_C1_D0p001__AtoB",
+      "regime": {
+        "id": "S0p02_C1_D0p001",
+        "source": 0.02,
+        "bill_ticks": 1,
+        "turnover": 0.001
+      },
+      "mechanism": "AtoB",
+      "model": {
+        "schema": "omega.local-model/1",
+        "id": "E1.S0p02_C1_D0p001__AtoB",
+        "beta": 1.0,
+        "coordinates": [
+          {
+            "name": "A.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "A"
+          },
+          {
+            "name": "B.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "B"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "shared_resource",
+            "owner": "shared"
+          }
+        ],
+        "rules": [
+          {
+            "id": "basal_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "basal_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "basal_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "basal_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ]
+            ],
+            "conductance": 0.001,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "paid_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "assisted_construct_A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "assisted_construct_A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native marked parent assists paid construction; paired reverse retained"
+          },
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible work supply"
+          },
+          {
+            "id": "native_locked_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "native_usable_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                2
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "unlock_basal",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": ".5",
+            "coordinate": "A.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "A.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "A.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "B.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "3",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "coefficient": "2",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              }
+            ]
+          }
+        ],
+        "forbidden": [],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "relations": [
+          {
+            "id": "A.contact",
+            "support": [
+              "A.x",
+              "A.y",
+              "A.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          },
+          {
+            "id": "B.contact",
+            "support": [
+              "B.x",
+              "B.y",
+              "B.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          }
+        ],
+        "material": [
+          {
+            "id": "A.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed"
+          },
+          {
+            "id": "B.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed"
+          },
+          {
+            "id": "shared_carrier",
+            "quantity": 1,
+            "conservation": "one carrier switches state; no extra matter"
+          }
+        ]
+      },
+      "structural_analysis": {
+        "organizations": [
+          {
+            "id": "A",
+            "definition": "Both local members constructed",
+            "coordinates": [
+              "A.x",
+              "A.y"
+            ],
+            "functional_any_of": [
+              [
+                {
+                  "coordinate": "A.x",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "A.y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            ]
+          },
+          {
+            "id": "B",
+            "definition": "Both local members constructed",
+            "coordinates": [
+              "B.x",
+              "B.y"
+            ],
+            "functional_any_of": [
+              [
+                {
+                  "coordinate": "B.x",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "B.y",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            ]
+          }
+        ],
+        "ancestry": [
+          {
+            "id": "A.depth",
+            "presence_coordinates": [
+              "A.x",
+              "A.y"
+            ],
+            "depth_cap": 3,
+            "identity_definition": "Distinct constituent slots; breakdown ends an instance; paid or basal rebuilding creates a new instance",
+            "assistance_edges": [
+              {
+                "rule": "assisted_construct_A.x_to_A.y",
+                "parent": "A.x",
+                "child": "A.y"
+              },
+              {
+                "rule": "assisted_construct_A.y_to_A.x",
+                "parent": "A.y",
+                "child": "A.x"
+              }
+            ]
+          },
+          {
+            "id": "B.depth",
+            "presence_coordinates": [
+              "B.x",
+              "B.y"
+            ],
+            "depth_cap": 3,
+            "identity_definition": "Distinct constituent slots; breakdown ends an instance; paid or basal rebuilding creates a new instance",
+            "assistance_edges": [
+              {
+                "rule": "assisted_construct_B.x_to_B.y",
+                "parent": "B.x",
+                "child": "B.y"
+              },
+              {
+                "rule": "assisted_construct_B.y_to_B.x",
+                "parent": "B.y",
+                "child": "B.x"
+              }
+            ]
+          }
+        ],
+        "max_ancestry_query_states": 20000
+      }
+    }
+  ],
+  "regimes": [
+    {
+      "id": "S0p02_C1_D0p001",
+      "source": 0.02,
+      "bill_ticks": 1,
+      "turnover": 0.001
+    },
+    {
+      "id": "S0p02_C1_D0p012",
+      "source": 0.02,
+      "bill_ticks": 1,
+      "turnover": 0.012
+    },
+    {
+      "id": "S0p02_C2_D0p001",
+      "source": 0.02,
+      "bill_ticks": 2,
+      "turnover": 0.001
+    },
+    {
+      "id": "S0p02_C2_D0p012",
+      "source": 0.02,
+      "bill_ticks": 2,
+      "turnover": 0.012
+    },
+    {
+      "id": "S0p12_C1_D0p001",
+      "source": 0.12,
+      "bill_ticks": 1,
+      "turnover": 0.001
+    },
+    {
+      "id": "S0p12_C1_D0p012",
+      "source": 0.12,
+      "bill_ticks": 1,
+      "turnover": 0.012
+    },
+    {
+      "id": "S0p12_C2_D0p001",
+      "source": 0.12,
+      "bill_ticks": 2,
+      "turnover": 0.001
+    },
+    {
+      "id": "S0p12_C2_D0p012",
+      "source": 0.12,
+      "bill_ticks": 2,
+      "turnover": 0.012
+    },
+    {
+      "id": "source_off_anchor",
+      "source": 0,
+      "bill_ticks": 1,
+      "turnover": 0.001
+    }
+  ],
+  "mechanisms": [
+    "ablation",
+    "local",
+    "AtoB",
+    "BtoA",
+    "reciprocal"
+  ],
+  "case_grid": [
+    [
+      "S0p02_C1_D0p001__local",
+      0.25
+    ],
+    [
+      "S0p02_C1_D0p001__AtoB",
+      0.25
+    ]
+  ],
+  "preparations": [
+    {
+      "id": "assembled",
+      "roots": [
+        [
+          [
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          1.0
+        ]
+      ],
+      "conditioning": "full_present"
+    },
+    {
+      "id": "unassembled",
+      "roots": [
+        [
+          [
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            0
+          ],
+          1.0
+        ]
+      ],
+      "conditioning": "full_present"
+    }
+  ],
+  "energy_per_root": "2",
+  "coordinate_order": [
+    "A.x",
+    "A.y",
+    "A.bank",
+    "B.x",
+    "B.y",
+    "B.bank",
+    "carrier"
+  ],
+  "cadences": [
+    0.25
+  ],
+  "primary_cadence": 0.25,
+  "horizons": [
+    16,
+    64,
+    256,
+    1024,
+    4096
+  ],
+  "projected_histories": [
+    {
+      "id": "A",
+      "coordinates": [
+        "A.x",
+        "A.y",
+        "A.bank"
+      ],
+      "conditioning": "full_present",
+      "memory": 3,
+      "max_workspace_bytes": 268435456,
+      "max_words": 100000
+    },
+    {
+      "id": "B",
+      "coordinates": [
+        "B.x",
+        "B.y",
+        "B.bank"
+      ],
+      "conditioning": "full_present",
+      "memory": 3,
+      "max_workspace_bytes": 268435456,
+      "max_words": 100000
+    }
+  ],
+  "observables": [
+    {
+      "id": "A.active",
+      "terms": [
+        [
+          "A.x",
+          1
+        ],
+        [
+          "A.y",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "A.bank_energy",
+      "terms": [
+        [
+          "A.bank",
+          0.5
+        ]
+      ]
+    },
+    {
+      "id": "B.active",
+      "terms": [
+        [
+          "B.x",
+          1
+        ],
+        [
+          "B.y",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "B.bank_energy",
+      "terms": [
+        [
+          "B.bank",
+          0.5
+        ]
+      ]
+    }
+  ],
+  "event_readouts": [],
+  "monitors": [],
+  "sufficiency": "All constructed slots, banks, finite shared carrier and rate dependencies explicit",
+  "conserved": [
+    "four distinct component slots",
+    "one shared carrier"
+  ],
+  "boundary_scope": {
+    "bath_beta": 1,
+    "source": "Matched reversible offered drive within each mechanism/preparation comparison",
+    "unresolved": "External bath/source histories; no cancellation asserted"
+  },
+  "max_states": 1000,
+  "reference_time": 1.0,
+  "numerical": {
+    "sign_deadband_bits": 1e-06,
+    "independent_history_tolerance": 1e-06,
+    "kernel_agreement_tolerance": 1e-12
+  },
+  "caps": {
+    "case_wall_seconds": 240,
+    "job_memory_bytes": 2147483648,
+    "case_output_bytes": 16777216,
+    "batch_wall_seconds": 600,
+    "batch_output_bytes": 67108864
+  },
+  "execution": {
+    "max_workers": 2
+  },
+  "source_inputs": [
+    "scripts/write_e1_protocol.py",
+    "tests/test_e1_protocol.py",
+    "research/studies/E1-coupled-autocatalysis/SPECIFICATION_r1.md",
+    "scripts/write_e1_refinement.py",
+    "research/studies/E1-coupled-autocatalysis/refinement-2026-10-25/PLAN.md"
+  ],
+  "scope": "Exploratory finite chemical map; no optimizer, spatial gas, full community pedigree, irreversible closure or ethical verdict.",
+  "refines": {
+    "protocol_sha256": "7fd332a4e5717d4a0b7549427c8ceaa5c12c513c611242361263a97fae1109d1",
+    "kind": "analysis_only_observation_memory",
+    "physical_changes": [],
+    "reason_for_selection": "The documented E1 donor/recipient example; selected to benchmark precision, without selecting a desired sign. Both preparations retained."
+  }
+}

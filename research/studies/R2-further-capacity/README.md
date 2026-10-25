@@ -1,6 +1,6 @@
 # R2: paid construction of further capacity
 
-Completed 24 October 2026. Local/uncommitted. Uses the existing R2 physical
+Completed 24 October 2026; published 25 October. Uses the existing R2 physical
 grammar with explicit preparation, construction-assistance, capacity-sham and
 source-off controls. No optimizer or semantic reward is added.
 

@@ -10,6 +10,8 @@ Exploratory physical map; no policy optimizer or ethical verdict.
 - [Interpretation](INTERPRETATION_r1.md).
 - [Evidence hashes](results-2026-10-25/EVIDENCE.json).
 - [Validation and reconstruction](VALIDATION.md).
+- [Local-history precision follow-up](refinement-2026-10-25/INTERPRETATION.md):
+  deeper analytic bounds and a separately labelled filtering estimator.
 
 45 laws,65 law/cadence cases,650 complete profiles. Eight supplied regimes
 cross supply, paid bill and native turnover; one source-off anchor. Five arms
@@ -29,4 +31,5 @@ python scripts/report_e1.py --run-dir runs/e1-fresh --out-dir research/studies/E
 The largest full-horizon case gates three capped workers. All computed signs,
 unresolved local intervals and finite transients remain. Source snapshots and
 compact cases are retained; no dense kernels or paths are published. Nothing
-has been committed, pushed or uploaded by this step.
+was committed, pushed or uploaded during the scientific run itself; the user
+subsequently authorized publication on25 October.

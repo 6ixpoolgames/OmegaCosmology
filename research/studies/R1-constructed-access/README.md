@@ -1,7 +1,7 @@
 # R1 constructed access
 
-Status: completed first finite modeled-world batch, 24 October 2026. Local and
-uncommitted. The earlier [proposal](../R1-constructed-access-PROPOSAL.md) defines
+Status: completed first finite modeled-world batch, 24 October 2026; published
+on 25 October. The earlier [proposal](../R1-constructed-access-PROPOSAL.md) defines
 the question; [PROTOCOL.json](PROTOCOL.json) fixes the executed inputs.
 
 - [Results and resource profile](results-2026-10-24/RESULTS.md).

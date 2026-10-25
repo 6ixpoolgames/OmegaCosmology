@@ -1,0 +1,120 @@
+{
+  "status": "passed",
+  "case": {
+    "id": "cost_smoke_assembled_A",
+    "preparation": "assembled",
+    "projection": "A",
+    "horizons": [
+      16,
+      64,
+      256
+    ],
+    "samples": 64,
+    "seed": 2026102502,
+    "batch_size": 64,
+    "control_variate": "memory1_exact_mean"
+  },
+  "physical_checks": [
+    {
+      "law": "S0p02_C1_D0p001__local",
+      "model_hash": "de9811e91007d3c90010752b5c9bbeaa1e381427a7248814124bacfac7293c01",
+      "max_retained_whole_history_residual_bits": 0.0
+    },
+    {
+      "law": "S0p02_C1_D0p001__AtoB",
+      "model_hash": "68ca3ac6f8f0d50327d8ceb32623b01e0e035a669a1404709e799c95bb35cb10",
+      "max_retained_whole_history_residual_bits": 0.0
+    }
+  ],
+  "rows": [
+    {
+      "horizon": 16,
+      "steps": 64,
+      "reference_estimate_bits": 15.765550352347573,
+      "candidate_estimate_bits": 15.808797934868988,
+      "difference_estimate_bits": 0.043247582521414224,
+      "paired_standard_error_bits": 0.003870602790501864,
+      "uncontrolled_paired_standard_error_bits": 0.10716954380410833,
+      "control_variate": "memory1_exact_mean",
+      "approximate_t_interval_bits": [
+        0.03551280004116043,
+        0.050982365001668015
+      ],
+      "distribution_free_hoeffding_interval_bits": [
+        -155.75652861276444,
+        155.84302377780728
+      ],
+      "confidence": 0.95,
+      "coverage_scope": "pointwise per requested horizon; no simultaneous guarantee",
+      "samples": 64,
+      "seed": 2026102502,
+      "batch_size": 64,
+      "workspace_bound_bytes": 7836672,
+      "conditioning": "known_full_present_each_arm",
+      "quantity": "history.projected_given_full_present.difference",
+      "method": "paired_iid_predictive_entropy_filter_sampling",
+      "guarantee": "statistical_estimate_not_analytic_projection_bound",
+      "limits": "Paired t coverage is approximate; Hoeffding is distribution-free for ideal iid samples and exact arithmetic. Float64/PRNG evaluation is not a rigorous numerical certificate. No physical-grain certification."
+    },
+    {
+      "horizon": 64,
+      "steps": 256,
+      "reference_estimate_bits": 55.60194568791072,
+      "candidate_estimate_bits": 55.62536990360705,
+      "difference_estimate_bits": 0.023424215696330797,
+      "paired_standard_error_bits": 0.1741958289931424,
+      "uncontrolled_paired_standard_error_bits": 0.7400242902797033,
+      "control_variate": "memory1_exact_mean",
+      "approximate_t_interval_bits": [
+        -0.3246783717186756,
+        0.3715268031113372
+      ],
+      "distribution_free_hoeffding_interval_bits": [
+        -623.1756805654471,
+        623.2225289968397
+      ],
+      "confidence": 0.95,
+      "coverage_scope": "pointwise per requested horizon; no simultaneous guarantee",
+      "samples": 64,
+      "seed": 2026102502,
+      "batch_size": 64,
+      "workspace_bound_bytes": 7836672,
+      "conditioning": "known_full_present_each_arm",
+      "quantity": "history.projected_given_full_present.difference",
+      "method": "paired_iid_predictive_entropy_filter_sampling",
+      "guarantee": "statistical_estimate_not_analytic_projection_bound",
+      "limits": "Paired t coverage is approximate; Hoeffding is distribution-free for ideal iid samples and exact arithmetic. Float64/PRNG evaluation is not a rigorous numerical certificate. No physical-grain certification."
+    },
+    {
+      "horizon": 256,
+      "steps": 1024,
+      "reference_estimate_bits": 195.7020385519458,
+      "candidate_estimate_bits": 195.62123250312138,
+      "difference_estimate_bits": -0.08080604882445463,
+      "paired_standard_error_bits": 0.31767232984181826,
+      "uncontrolled_paired_standard_error_bits": 2.695551411349637,
+      "control_variate": "memory1_exact_mean",
+      "approximate_t_interval_bits": [
+        -0.7156235447843815,
+        0.5540114471354722
+      ],
+      "distribution_free_hoeffding_interval_bits": [
+        -2492.877225173398,
+        2492.7156130757494
+      ],
+      "confidence": 0.95,
+      "coverage_scope": "pointwise per requested horizon; no simultaneous guarantee",
+      "samples": 64,
+      "seed": 2026102502,
+      "batch_size": 64,
+      "workspace_bound_bytes": 7836672,
+      "conditioning": "known_full_present_each_arm",
+      "quantity": "history.projected_given_full_present.difference",
+      "method": "paired_iid_predictive_entropy_filter_sampling",
+      "guarantee": "statistical_estimate_not_analytic_projection_bound",
+      "limits": "Paired t coverage is approximate; Hoeffding is distribution-free for ideal iid samples and exact arithmetic. Float64/PRNG evaluation is not a rigorous numerical certificate. No physical-grain certification."
+    }
+  ],
+  "manifest_sha256": "93cff26f15b5cb47471c87e9b285a58aebcac65c86c31b3b8334b0f3f3bc8d70",
+  "worker_seconds": 4.1656333999708295
+}
