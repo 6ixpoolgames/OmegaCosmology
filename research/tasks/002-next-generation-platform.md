@@ -1,6 +1,7 @@
 # Task002 — Build the next-generation instrument through M0–M2
 
-Status: ready for engineering authorization; not started by repo preparation.
+Status: first engineering slice implemented and capped calibration passed.
+Local/uncommitted following the separately completed preparation push.
 
 Use [architecture r3](../platform/specs/ARCHITECTURE_VISION_SPEC_r3.md) and
 [handoff r2](../platform/specs/SOL_IMPLEMENTATION_HANDOFF_r2.md).
@@ -21,3 +22,10 @@ Deliver runnable examples, focused tests, compact source-frozen engineering
 evidence and the next R1 configuration proposal. Do not launch a broad ecology
 or policy grid as an incidental engineering check. No commit, push or upload
 follows automatically.
+
+Delivered: [engineering report](../platform/engineering/m0-m2-2026-10-24/ENGINEERING_REPORT.md),
+[decisions](../platform/engineering/m0-m2-2026-10-24/ENGINEERING_DECISIONS.md),
+[data-level models](../platform/models/README.md),
+[formal reference map](../../formal/verification/reference-suite-r1.md),
+and [next R1 proposal](../studies/R1-constructed-access-PROPOSAL.md).
+The report explicitly retains the unsupported architecture/formal queries.

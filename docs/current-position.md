@@ -1,4 +1,4 @@
-# Current position — 24 October 2026
+# Current position — 25 October 2026
 
 **Canonical starting reference: v4.1**, selected by Paolo. The immutable
 [reference snapshot](../sources/v4.1/README.md) replaces the September v2 seed
@@ -45,9 +45,62 @@ assumptions hold. A stationary calculation does not replace a finite query.
 
 The reviewed [architecture](../research/platform/specs/ARCHITECTURE_VISION_SPEC_r3.md)
 and [handoff](../research/platform/specs/SOL_IMPLEMENTATION_HANDOFF_r2.md) define
-a new compositional test bed. M0–M2 is ready for engineering but has not begun.
+a new compositional test bed. Its first M0–M2 engineering slice is implemented
+locally and has passed the capped calibration. See the
+[engineering report](../research/platform/engineering/m0-m2-2026-10-24/ENGINEERING_REPORT.md)
+and [formal reference map](../formal/verification/reference-suite-r1.md).
 Exact reference worlds precede broader ecology, population, space, cross-scale
 composition and bounded/ML controllers.
+
+The first [R1 scientific batch](../research/studies/R1-constructed-access/README.md)
+is complete: 144 profiles across four laws, three preparations, three cadences
+and four horizons. Matched same-law preparations have offset differences;
+the access mechanism has a positive rate increment across the tested cadences.
+The interpretation records costs, function, activity and comparator limitations.
+These are scoped finite-world results, without an optimizer or ethical verdict.
+
+[R2 further capacity](../research/studies/R2-further-capacity/README.md) is also
+complete: 216 profiles, a costed nonfunctional construction sham, actual use of
+expanded storage, and a passive construction-to-repair/rebinding witness.
+Useful capacity raises history breadth and functioning under these laws.
+Total use and first-episode completion differ, and both remain reported.
+
+The [25 October analysis repair](../research/platform/specs/ECOLOGY_ANALYSIS_SPEC_r1.md)
+adds native-route audits, legal-state rate probes, functional persistence/return
+profiles and separate cadence/horizon diagnostics. R2's
+[corrected interpretation](../research/studies/R2-further-capacity/INTERPRETATION_r2.md)
+limits its witness to event ordering and identifies the loaded-store dissolution
+restriction, non-maintaining upkeep, and native capture substitutes. Nine
+comparison/cadence groups reverse with horizon despite no cadence reversals.
+No original result or law was changed. A separate native-marked ancestry query
+now passes connected/unconnected/replace-parent tests on distinct binary slots.
+Its use in costed ecological fixtures, general population identity and interacting-
+niche physics remain subsequent work; sequence monitors cannot claim them.
+
+The [next engineering slice](../research/platform/engineering/coupled-slice-2026-10-25/REPORT.md)
+has now completed its capped smoke: R2-v2 adds load-independent storage spill
+and bound damage, while new generic costed cycles support two organizations
+sharing one finite carrier. A separate three-member case exercises connected
+construction ancestry. Projected local-history bounds use hidden-state word
+operators, not a projected Markov approximation; short exact references verify
+the inequalities. Five cases finish at cadence .25 and horizons 4/16. This is
+engineering readiness, not an ecological ranking, a repayment-window assessment
+or a scientific parameter sweep. Full cross-community genealogy, moving niches
+and general populations remain future physical/query work.
+
+The subsequent [E1 scientific map](../research/studies/E1-coupled-autocatalysis/README.md)
+is complete:650 profiles across45 laws and65 capped cases. At T4096/cadence .25,
+catalytic and cross-assistance mechanism comparisons raise whole history, while
+assembled preparations beat unassembled in30 cases and lose in15. Cross-edge
+effects are non-additive. Local intervals resolve recipient gains but many donor
+effects remain unresolved; no private/whole conflict is resolved. Native turnover
+is not isolated damage, and source-off catalytic gains retain the activity
+confound. T4096 retains a small transient in slow regimes. See the scoped
+[interpretation](../research/studies/E1-coupled-autocatalysis/INTERPRETATION_r1.md).
+
+The public preparation branch was pushed at e2da4f1 after the authorized
+sensitive-data review. Subsequent engine work remains local and uncommitted;
+publication does not follow automatically from a passing run.
 
 Historical P001 and finite quantum tooling remain executable. Their results
 retain their original limited claims; they are not the current platform engine.

@@ -7,4 +7,5 @@ proofs, proof-assistant checks, finite examples and empirical observations disti
 Use the architecture's reference suite and source-check corrections as the
 initial mapping. Numerical agreement is not an all-horizon proof. Exact finite
 history-support statements require structural positivity, not arbitrary cutoffs.
-No v4.1 conformance suite has yet been implemented in this new repository.
+The [first executable map](reference-suite-r1.md) records the implemented
+finite classical reference cases, inspected versions and remaining gaps.

@@ -20,7 +20,7 @@ omega-cosmology/
     tasks/                    bounded implementation/scientific tasks
     claims.json               claim status and evidence pointers
   src/omega_cosmology/
-    testbed/                  next-generation engine home; not implemented yet
+    testbed/                  finite classical kernel and continuation queries
   tests/                      conformance, physics, backend and workflow checks
   scripts/                    reproducible entry points and integrity tooling
   sources/v4.1/               immutable canonical-start reference snapshot
@@ -68,7 +68,9 @@ replicated in the new substrate, with the relationship labelled.
 
 ## Publication
 
-Preparation is local only; no remote or commit is configured by this task.
+The preparation archive was published, with explicit user authorization and a
+sensitive-data pass, to the existing public OmegaCosmology repository on branch
+codex/repository-preparation, commit e2da4f1. The existing MIT license remains.
 The archive contains historical contextual documents as well as manuscripts.
-Keep download references and private handoff ignored. A future publication,
-visibility choice and licensing decision need their actual user authorization.
+Keep signed download references and unredacted local backups ignored.
+Subsequent implementation remains local until an authorized publication.

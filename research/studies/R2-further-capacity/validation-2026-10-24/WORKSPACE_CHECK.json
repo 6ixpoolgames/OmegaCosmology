@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "name": "sources",
+      "command": [
+        "<PYTHON>",
+        "scripts/check_sources.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "archive",
+      "command": [
+        "<PYTHON>",
+        "scripts/check_archive.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "repository",
+      "command": [
+        "<PYTHON>",
+        "scripts/check_repository.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "testbed_dependencies",
+      "command": [
+        "<PYTHON>",
+        "-c",
+        "import numpy, scipy; print(\"NumPy\", numpy.__version__, \"SciPy\", scipy.__version__)"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "command": [
+        "<PYTHON>",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "baseline",
+      "command": [
+        "<PYTHON>",
+        "scripts/run_baseline.py",
+        "--out-dir",
+        "<REPO>\\runs\\r2-workspace-check-20261024-r1\\baseline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "P001",
+      "command": [
+        "<PYTHON>",
+        "scripts/run_feedback_probe.py",
+        "--out-dir",
+        "<REPO>\\runs\\r2-workspace-check-20261024-r1\\P001"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "P001_full_object_equal": true,
+  "P001_scientific_summary_equal": true,
+  "current_input_hashes_verified": true,
+  "limits": "v4.1 archive integrity, inherited finite evidence and implemented finite-classical engineering tests; no cosmological or ethical validation",
+  "representation": {
+    "type": "redacted_derivative",
+    "source_sha256": "8c3b614f6d87c466dc25efc17ec3f8c0d5abe7fb53a87d86cbd4912849e63e9f",
+    "changes": "Absolute interpreter and repository paths replaced; results unchanged"
+  }
+}

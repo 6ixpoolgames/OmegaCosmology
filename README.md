@@ -40,10 +40,27 @@ See the [forward-looking layout](docs/repository-plan.md) for extension rules.
 
 ## Current implementation status
 
-The repository has inherited finite reference tooling and a **reviewed design**
-for the new test bed. The new compositional engine is not implemented. The next
-engineering task is [M0–M2](research/tasks/002-next-generation-platform.md).
-Preparation does not launch that task or a scientific survey.
+The first finite classical [M0–M2 engineering slice](research/tasks/002-next-generation-platform.md)
+is implemented locally: one rule kernel, two numerical backends, explicit
+continuation queries and physical/formal reference checks. The
+[engineering report](research/platform/engineering/m0-m2-2026-10-24/ENGINEERING_REPORT.md)
+records the capped calibration and limits. The
+[first R1 batch](research/studies/R1-constructed-access/README.md) now evaluates
+costed access and reconstruction with matched preparations and explicit
+mechanism/source controls. The
+[R2 batch](research/studies/R2-further-capacity/README.md) tests useful further
+capacity against costed construction churn, including actual repair/rebinding
+readouts. No broad ecology survey or ethical result is claimed.
+The [analysis repair for interacting ecologies](research/platform/specs/ECOLOGY_ANALYSIS_SPEC_r1.md)
+adds functional persistence/return, native-route audits and bounded assistance
+ancestry. R2's [corrected interpretation](research/studies/R2-further-capacity/INTERPRETATION_r2.md)
+records the physical limitations without changing its original scores.
+The [coupled engineering slice](research/platform/engineering/coupled-slice-2026-10-25/REPORT.md)
+exercises repaired storage/damage, costed construction ancestry, shared-resource
+cycles and local projected-history bounds. All five capped smoke cases passed.
+The first [E1 coupled-autocatalysis map](research/studies/E1-coupled-autocatalysis/README.md)
+has completed locally:650 profiles, matched preparations and
+cost/source/turnover factors, with separate local and whole-model readouts.
 The [repository preparation report](research/platform/engineering/repository-preparation-2026-10-24/REPORT.md)
 records the import scope and completed integrity/reproduction checks.
 
@@ -52,13 +69,20 @@ historical evidence. They do not validate the new platform or ethical thesis.
 
 ## Check the workspace
 
-Use Python 3.10+; preparation checks use the standard library:
+Use Python 3.10+ and install the small numerical extra for the complete checks:
 
 ```text
+python -m pip install -e ".[testbed]"
 python scripts/check_workspace.py --out-dir runs/workspace-check-001
 ```
 
-Use a fresh output directory. The command checks source/archive bytes, reference
+For the source-frozen Windows capped engineering calibration:
+
+```text
+python scripts/run_testbed_calibration.py --out-dir runs/calibration-001
+```
+
+Use a fresh output directory. Workspace checks cover source/archive bytes, reference
 links/layout, focused tests and the inherited exact reproductions. No automatic
 publication is implied by a scientific run. The authorized publication destination
 is [OmegaCosmology](https://github.com/6ixpoolgames/OmegaCosmology). Its existing

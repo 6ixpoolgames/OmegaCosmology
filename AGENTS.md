@@ -65,3 +65,32 @@ pushes after every run. Do not create a new remote destination or
 assign a license silently. Signed download plans and raw private handoff stay
 ignored. Historical archives may contain private contextual material: any later
 publication follows its actual authorization and destination.
+
+The user subsequently authorized implementing and running the first R1
+constructed-access batch, which completed locally. That does not authorize
+automatic publication or launching every later roadmap study.
+The user then authorized R2's paid further-capacity study. It completed locally;
+the next three-type study remains a proposal until authorized.
+
+On 25 October the user authorized repairing the analysis machinery for future
+interacting autocatalytic setups (competition, parasitism, symbiosis, plurality
+and interacting niches). The active contract is
+research/platform/specs/ECOLOGY_ANALYSIS_SPEC_r1.md. Preserve R2's original
+physics/results and use INTERPRETATION_r2.md for its corrected causal scope.
+Analysis queries and engineering references do not authorize a new ecology
+parameter campaign or publication. Ordinary local fixes and validation remain
+authorized; do not ask for approval again for that work.
+
+The subsequent Proceed authorized the physical repair, costed construction
+ancestry, smallest coupled shared-resource world and local/whole measurement
+upgrade, stopping at a capped smoke. That slice completed locally; see
+research/platform/engineering/coupled-slice-2026-10-25/REPORT.md. R2-v1 stays
+unchanged. A wider scientific map or publication is not part of that smoke scope.
+
+The user's following Proceed authorized the next small scientific map. E1
+completed locally: research/studies/E1-coupled-autocatalysis/. Its 650 profiles
+and parameter/subject interpretations do not authorize another unrelated study
+or automatic publication. Native turnover changes both thermal construction
+and breakdown; don't relabel it pure damage. Overlapping projected intervals
+remain unresolved. Rate/offset and T4096 convergence checks do not replace the
+finite continuation profiles.
