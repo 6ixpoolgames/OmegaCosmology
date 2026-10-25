@@ -25,4 +25,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Verify sources, tests, baseline and retained P001 result
-        run: python scripts/check_workspace.py --out-dir runs/ci
+        # Small reference physics/queries use NumPy and SciPy; historical tools remain stdlib-only.
+        run: |
+          python -m pip install -e ".[testbed]"
+          python scripts/check_workspace.py --out-dir runs/ci

@@ -36,6 +36,7 @@ def main():
         run('sources', ['scripts/check_sources.py'])
         run('archive', ['scripts/check_archive.py'])
         run('repository', ['scripts/check_repository.py'])
+        run('testbed_dependencies', ['-c', 'import numpy, scipy; print("NumPy", numpy.__version__, "SciPy", scipy.__version__)'])
         run('tests', ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py', '-v'])
         run('baseline', ['scripts/run_baseline.py', '--out-dir', str(out / 'baseline')])
         run('P001', ['scripts/run_feedback_probe.py', '--out-dir', str(out / 'P001')])
@@ -63,7 +64,7 @@ def main():
                   'checks': checks, 'P001_full_object_equal': True,
                   'P001_scientific_summary_equal': True,
                   'current_input_hashes_verified': True,
-                  'limits': 'v4.1 repository/archive integrity plus inherited finite evidence; no new platform, cosmological or ethical validation'}
+                  'limits': 'v4.1 archive integrity, inherited finite evidence and implemented finite-classical engineering tests; no cosmological or ethical validation'}
     except (RuntimeError, subprocess.TimeoutExpired) as exc:
         result = {'status': 'failed', 'checks': checks, 'error': str(exc)}
     (out / 'CHECKS.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')

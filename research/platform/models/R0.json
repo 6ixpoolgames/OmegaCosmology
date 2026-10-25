@@ -1,0 +1,369 @@
+{
+  "schema": "omega.engineering-fixture/1",
+  "id": "R0",
+  "model": {
+    "schema": "omega.local-model/1",
+    "id": "R0-binding-access",
+    "beta": 1.0,
+    "coordinates": [
+      {
+        "name": "bond",
+        "domain": [
+          0,
+          1
+        ],
+        "role": "relation",
+        "owner": "shared"
+      },
+      {
+        "name": "carrier",
+        "domain": [
+          0,
+          1,
+          2
+        ],
+        "role": "resource",
+        "owner": "shared"
+      },
+      {
+        "name": "bank",
+        "domain": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "role": "energy",
+        "owner": "shared"
+      }
+    ],
+    "rules": [
+      {
+        "id": "source",
+        "guards": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 0
+          }
+        ],
+        "changes": [
+          [
+            "carrier",
+            1
+          ]
+        ],
+        "conductance": 0.08,
+        "work": "3",
+        "boundary": "work_source",
+        "support": [],
+        "mechanism": "maintained carrier drive"
+      },
+      {
+        "id": "native_locked_bath",
+        "guards": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 0
+          }
+        ],
+        "changes": [
+          [
+            "carrier",
+            1
+          ]
+        ],
+        "conductance": 0.002,
+        "work": "0",
+        "boundary": "native",
+        "support": [],
+        "mechanism": "unspecified"
+      },
+      {
+        "id": "native_usable_bath",
+        "guards": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 0
+          }
+        ],
+        "changes": [
+          [
+            "carrier",
+            2
+          ]
+        ],
+        "conductance": 0.002,
+        "work": "0",
+        "boundary": "native",
+        "support": [],
+        "mechanism": "unspecified"
+      },
+      {
+        "id": "unlock_basal",
+        "guards": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 1
+          }
+        ],
+        "changes": [
+          [
+            "carrier",
+            1
+          ]
+        ],
+        "conductance": 0.02,
+        "work": "0",
+        "boundary": "native",
+        "support": [],
+        "mechanism": "unspecified"
+      },
+      {
+        "id": "capture",
+        "guards": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 2
+          },
+          {
+            "coordinate": "bank",
+            "operator": "le",
+            "value": 2
+          }
+        ],
+        "changes": [
+          [
+            "carrier",
+            -2
+          ],
+          [
+            "bank",
+            2
+          ]
+        ],
+        "conductance": 0.06,
+        "work": "0",
+        "boundary": "native",
+        "support": [
+          "carrier",
+          "bank"
+        ],
+        "mechanism": "capture stores 1 native energy unit"
+      },
+      {
+        "id": "binding",
+        "guards": [
+          {
+            "coordinate": "bond",
+            "operator": "eq",
+            "value": 0
+          }
+        ],
+        "changes": [
+          [
+            "bond",
+            1
+          ]
+        ],
+        "conductance": 0.04,
+        "work": "0",
+        "boundary": "native",
+        "support": [],
+        "mechanism": "two component reversible binding"
+      },
+      {
+        "id": "unlock_motif",
+        "guards": [
+          {
+            "coordinate": "bond",
+            "operator": "eq",
+            "value": 1
+          },
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 1
+          }
+        ],
+        "changes": [
+          [
+            "carrier",
+            1
+          ]
+        ],
+        "conductance": 0.12,
+        "work": "0",
+        "boundary": "native",
+        "support": [
+          "bond",
+          "carrier"
+        ],
+        "mechanism": "bonded local interface assists conversion"
+      }
+    ],
+    "energy_terms": [
+      {
+        "coefficient": "3",
+        "coordinate": null,
+        "conditions": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "coefficient": "2",
+        "coordinate": null,
+        "conditions": [
+          {
+            "coordinate": "carrier",
+            "operator": "eq",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "coefficient": ".5",
+        "coordinate": "bank",
+        "conditions": []
+      },
+      {
+        "coefficient": "-.5",
+        "coordinate": "bond",
+        "conditions": []
+      }
+    ],
+    "forbidden": [],
+    "degeneracy": [],
+    "symmetry": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "relations": [
+      {
+        "id": "bond",
+        "support": [
+          "component_a",
+          "component_b"
+        ],
+        "geometry": "one local contact",
+        "capacity": 1,
+        "transit": "no resolved transport"
+      }
+    ],
+    "material": [
+      {
+        "id": "component_slots",
+        "quantity": 2,
+        "conservation": "fixed material constituents"
+      }
+    ]
+  },
+  "present": {
+    "id": "R0.present",
+    "roots": [
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        1.0
+      ]
+    ],
+    "conditioning": "full_present",
+    "section": "synchronous_classical_state",
+    "sufficiency": "All local domains, energy, guards, constraints and Markov boundary variables retained; no delayed callback",
+    "hidden_root_provenance": null,
+    "version": "1"
+  },
+  "law": {
+    "id": "R0.law",
+    "physical_model_hash": "9b2d48f2e521b92d56b7fde42cd9b590ad4ba36f0df431854016833e300707ce",
+    "boundary": {
+      "bath": {
+        "beta": 1.0,
+        "heat_sign": "positive out"
+      },
+      "source": {
+        "pair": "spent-to-locked",
+        "forward_work": "3",
+        "reverse_work": "-3"
+      },
+      "unresolved": "Bath/source histories; no exterior cancellation asserted"
+    },
+    "conserved": [
+      "fixed constituent slots",
+      "one carrier",
+      "bank tick parity"
+    ],
+    "adapter": "finite_local_ctmc",
+    "version": "1"
+  },
+  "observation": {
+    "id": "R0.whole",
+    "coordinates": [
+      "bond",
+      "carrier",
+      "bank"
+    ],
+    "scope": "whole_modeled_field",
+    "conditioning": "full_present",
+    "resolution": {
+      "faithfulness": "open",
+      "certification": [],
+      "reversal": "none",
+      "governing_status": "provisional"
+    },
+    "version": "1"
+  },
+  "comparison": {
+    "id": "R0.engineering",
+    "kind": "single_query",
+    "horizon": 16,
+    "cadence": 0.25,
+    "matched": {
+      "kind": "one law and one exact root; no comparative scientific conclusion"
+    },
+    "implementation": "",
+    "common_present": null,
+    "invariance_status": "required_unproved",
+    "orientation": "adapter_forward",
+    "version": "1"
+  },
+  "quantity": {
+    "id": "history.full_given_present",
+    "definition": "H(X_1,...,X_n | X_0=x)",
+    "units": "bits",
+    "conditioning": "full_present",
+    "version": "1",
+    "functional": "sampled_history_entropy"
+  },
+  "evidence": {
+    "id": "R0.numerical",
+    "method": "Complete reachable enumeration, matrix exponentials, direct short-word cross-check",
+    "guarantee": "numerical_full_model",
+    "source_versions": [
+      "Appendix A r19 targeted definitions",
+      "foundations r4"
+    ],
+    "uncertainty": {
+      "arithmetic": "float64",
+      "identity_tolerance": 1e-10,
+      "faithfulness": "open"
+    },
+    "scope": "Finite modeled field; thermodynamic bath/source histories unresolved",
+    "version": "1"
+  }
+}
