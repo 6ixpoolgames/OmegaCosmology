@@ -35,6 +35,7 @@ def main():
     try:
         run('sources', ['scripts/check_sources.py'])
         run('archive', ['scripts/check_archive.py'])
+        run('evidence', ['scripts/check_evidence.py'])
         run('repository', ['scripts/check_repository.py'])
         run('testbed_dependencies', ['-c', 'import numpy, scipy; print("NumPy", numpy.__version__, "SciPy", scipy.__version__)'])
         run('tests', ['-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py', '-v'])
