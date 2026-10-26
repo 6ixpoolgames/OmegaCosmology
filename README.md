@@ -1,5 +1,7 @@
 # Omega Cosmology
 
+Official attribution: **S. Poole**. See [privacy and source sanitization](docs/privacy.md).
+
 Omega studies physical continuation: how organization, access, composition and
 control change what can follow from a present. Gradient Ethics investigates the
 proposed correspondence between the continuation substrate and prospective value.

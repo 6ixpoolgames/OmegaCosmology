@@ -27,6 +27,14 @@ starting reference is v4.1, not the historical v2 seed. The parent workspace's
 
 ## Repository and source precedence
 
+The user's26 October privacy instruction supersedes identifying original bytes:
+official attribution is S. Poole; other owner references use anonymous roles.
+Keep personal contact details, home paths, account handles and original Drive
+identifiers out of publication files and archives. Preserve third-party science
+citations. The initial privacy migration rebases affected integrity manifests;
+afterward preserve the sanitized evidence bytes. Recovery maps/bundles stay in
+ignored .local/ only. See docs/privacy.md and scripts/check_anonymity.py.
+
 `sources/v4.1/` is the canonical-start snapshot. Its manifest records available
 revisions, proposal statuses and missing r20 verification. User rulings and
 explicit later revisions can supersede it. Latest filenames do not by themselves
