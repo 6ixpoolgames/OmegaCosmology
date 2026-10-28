@@ -79,6 +79,7 @@ def calibration_world():
             {
                 "id": "component_slots",
                 "quantity": 2,
+                "inventory": [{"coefficient": "2"}],
                 "conservation": "fixed material constituents",
             },
         ),
@@ -154,6 +155,7 @@ def enabling_world(*, expansion=False):
         {
             "id": "constituent_slots",
             "quantity": 2,
+            "inventory": [{"coefficient": "2"}],
             "conservation": "each precursor/active state retains its material slot",
         }
     ]
@@ -192,6 +194,7 @@ def enabling_world(*, expansion=False):
             {
                 "id": "latent_storage_slot",
                 "quantity": 1,
+                "inventory": [{"coefficient": "1"}],
                 "conservation": "precursor or built, never free new material",
             }
         )

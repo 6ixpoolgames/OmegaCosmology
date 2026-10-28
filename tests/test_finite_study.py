@@ -133,7 +133,13 @@ class FiniteStudyTests(unittest.TestCase):
                 },
             ],
         }
-        result = evaluate_monitor(compile_monitor(c, spec), np.array([1.0, 0]), 3)
+        with self.assertRaisesRegex(ValueError, "Unknown query rule"):
+            compile_monitor(c, spec)
+        result = evaluate_monitor(
+            compile_monitor(c, spec, absent_rules=["absent_in_this_law"]),
+            np.array([1.0, 0]),
+            3,
+        )
         self.assertEqual(result["completed_probability"], 0)
         self.assertAlmostEqual(
             result["failed_probability"], 1 - exp(-0.6) * (1 + 0.6), places=12

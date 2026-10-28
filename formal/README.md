@@ -1,5 +1,10 @@
 # Formal arm
 
+The [module-binding contract](contracts/MODULE_BINDINGS_r1.md) describes explicit
+coordinate ports in the distinct-slot classical adapter. It is exercised by the
+R2 construction/transduction smoke, not a claim of general graph composition or
+physical faithfulness.
+
 The available formal starting source is [Appendix A r19](../sources/v4.1/A_FORMAL_CORE_r19.md),
 read with [foundations r4](../sources/v4.1/FOUNDATIONS_r4.md) and current user
 clarifications. The supplied Opus review referred to r20; that version was not
@@ -23,3 +28,10 @@ record families or a joint space-time limit.
 No new proof assistant package or formal conformance implementation is introduced
 by this repository preparation. Historical proofs and finite checks retain
 their exact evidence type.
+
+The [scheduled-continuation contract](contracts/SCHEDULED_CONTINUATION_r1.md)
+extends finite classical engineering queries to externally prescribed barrier
+phases. It keeps the complete operation history, hidden-state projection memory
+and native energy ledger. Tiny exhaustive history checks validate this new path;
+it does not establish physical-resolution faithfulness or a later Appendix A
+revision's conformance.

@@ -28,13 +28,10 @@ def occupied_ecology(
     unassisted substrate construction dissolve the contact, with paired reverses.
     """
     base = autocatalytic_ecology(groups, **kwargs)
-    originals = [r for r in base.rules if r.id.startswith("assisted_construct_")]
+    originals = [r for r in base.rules if "construction.assisted" in r.roles]
     available = {}
     for rule in originals:
-        parent = next(
-            c.coordinate for c in rule.guards if c.operator == "eq" and c.value == 1
-        )
-        child = next(k for k, d in rule.changes if d == 1)
+        parent, child = rule.parent, rule.child
         available[parent, child] = rule
     chosen = (
         list(available)
@@ -51,10 +48,7 @@ def occupied_ecology(
     ):
         raise ValueError("Conversion edges must be distinct bound assistance edges")
     rational(binding_energy)
-    contacts = {
-        edge: "contact." + available[edge].id.removeprefix("assisted_construct_")
-        for edge in chosen
-    }
+    contacts = {edge: "contact." + edge[0] + "_to_" + edge[1] for edge in chosen}
     incident = {
         c.name: [] for c in base.coordinates if c.role == "constructed_component"
     }
@@ -89,15 +83,14 @@ def occupied_ecology(
             continue
         # A component-changing event or capture catalysis needs its own port.
         fields = {k for k, _ in rule.changes if k in incident}
-        if rule.id.startswith("assisted_capture_"):
+        if "capture.assisted" in rule.roles:
             fields.update(c.coordinate for c in rule.guards if c.coordinate in incident)
         rules.append(replace(rule, guards=rule.guards + free(fields)))
         if not (
-            rule.id.startswith("basal_construct_")
-            or rule.id.startswith("paid_construct_")
+            "construction.basal" in rule.roles or "construction.paid" in rule.roles
         ):
             continue
-        field = next(k for k, d in rule.changes if k in incident and d == 1)
+        field = rule.child
         for (parent, child), contact in contacts.items():
             if field not in (parent, child):
                 continue

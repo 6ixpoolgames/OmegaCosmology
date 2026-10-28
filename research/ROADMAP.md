@@ -1,5 +1,46 @@
 # Research roadmap — v4.1 starting reference
 
+The latest28 October “Proceed please” authorized the final
+[v4.2 evidence reconciliation](evidence/evidence-reconciliation-v42-2026-10-28/EVIDENCE_RECONCILIATION_V42_r1.md).
+It is complete as proposed replacement passages and separate verification axes,
+based on all32 active working Markdown files and four context notes. Canonical
+manuscripts and scientific records are unchanged. No new experiment or substrate
+change was performed. Activity controls, compression, population/spatial studies
+and broader mechanism catalogues remain deferred. Publication and applying the
+proposed manuscript edits are separate actions; neither follows automatically.
+
+The user's28 October “Please proceed” authorized one fixed
+[C.7 verification replay](platform/engineering/c7-replay-2026-10-28/REPORT.md).
+The capacity-4 middle-work-target pair reproduces from verified frozen source,
+with independent history/accounting checks and no fitting. Same stationary
+accepted work does not mean identical source boundaries or equal finite work.
+Report that explicit historical contrast; do not weaken the current paired
+validator or claim all12 points were replayed. This bounded verification is
+complete; further empirical work and R2 comparator searches remain paused.
+
+28 October checkpoint: the [bounded control repair](platform/engineering/r2-bank-load-2026-10-28/REPORT.md)
+is complete locally. The final candidate matches both T64 moments but refunds
+net bank energy, so its physical qualification fails and the runner stops before
+history scoring. The preceding activity-only and joint B-gated attempts remain
+retained with their profiles and refunds. All 166 tests pass. Stop the current
+family search; review comparator physics before another run. No larger campaign
+or publication follows automatically. A clean net-consuming work/activity
+control remains open; matching moment values alone is insufficient.
+
+Earlier checkpoint: [R2 construction/transduction](platform/engineering/r2-transduction-2026-10-27/REPORT.md)
+has completed its authorized capped smoke. Explicit module ports and the
+two-function chain are implemented. The calibrated rotor remains unmatched
+on work and thermally dominated; repair that control family before claiming
+activity/work-independent gain or starting a larger map. No broader run follows
+automatically. Earlier stage descriptions below retain their dated context.
+
+Current engineering checkpoint, 27 October: the
+[machinery audit repairs](platform/reviews/machinery-audit-2026-10-27/REPAIRS.md)
+harden the shared engine without launching a new study. Before integrating the
+R2 successor and work/activity controls, migrate its actual paired inputs to the
+new inventory, comparison, selector and physical-moment contracts. This is the
+current direction; older stage descriptions below retain their dated context.
+
 The next leg builds a reusable instrument around the reviewed
 [architecture](platform/specs/ARCHITECTURE_VISION_SPEC_r3.md).
 
@@ -41,6 +82,15 @@ repair loss/substitutes and meaningful work/activity controls, before broader
 niche/population claims. More sampling of the tiny E1 effect is not needed.
 
 ## Immediate engineering
+
+The user's “Go for sprint” authorized the
+[enacted-damage and moment-control slice](platform/specs/ENACTED_DAMAGE_SPRINT_r1.md),
+now [smoked locally](platform/engineering/enacted-damage-2026-10-26/REPORT.md).
+Generic phase composition preserves the operation prefix, energy accounting and
+projected-history memory. Both physical shams match work/activity at T16; the
+two damage-minus-sham signs differ. Next size a scoped law/horizon map or the
+small audited blocker from measured feasibility; neither is automatically run.
+Permanent loss, formal T and external-controller embodiment remain separate.
 
 The [powered readiness calibration](platform/engineering/powered-readiness-2026-10-26/REPORT.md)
 is complete: seven cases/53 profiles, including held-sector, depleted-bank,

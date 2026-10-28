@@ -1,0 +1,1346 @@
+{
+  "schema": "omega.scheduled-study-result/1",
+  "status": "passed",
+  "id": "damage_R",
+  "states": 108,
+  "state_order_hash": "84cb6d16be8d742af777f1c1ede95015201ae159731506b8c9287ca704557f32",
+  "phase_model_hashes": [
+    "78c9aeb372be7fca7369fbaa7833d6d16f8289330b8cc42462d53f71b0b32a99",
+    "9ae69b0e04834cc6ef200fad4e6cd2e24326e1cd1fbf435e730474d699122b7d"
+  ],
+  "equilibrium_audits": [
+    {
+      "status": "passed",
+      "edge_flux_residual": 2.6020852139652106e-18,
+      "stationary_residual": 4.391018798566293e-18,
+      "reference_scope": "Gibbs on the enumerated conserved/reachable sector; sector weights fixed"
+    },
+    {
+      "status": "passed",
+      "edge_flux_residual": 6.505213034913027e-19,
+      "stationary_residual": 1.463672932855431e-18,
+      "reference_scope": "Gibbs on the enumerated conserved/reachable sector; sector weights fixed"
+    }
+  ],
+  "present": {
+    "id": "enacted-damage.intact-common-present",
+    "roots": [
+      [
+        [
+          1,
+          1,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        1.0
+      ]
+    ],
+    "conditioning": "full_present",
+    "section": "synchronous_classical_state",
+    "sufficiency": "Full finite component, contact, bank, carrier and actuator state; externally fixed phase schedule determines native Markov law",
+    "hidden_root_provenance": null,
+    "version": "1"
+  },
+  "law": {
+    "id": "damage_R",
+    "physical_model_hash": "7c06252a3a8e8465315a77e78fe935ce7d1ad02ee97a37c9669ede74746c7fa9",
+    "boundary": {
+      "bath": "beta1; heat ledger, unresolved histories",
+      "source": "same reversible maintained carrier work source in every arm",
+      "pulse": "barrier schedule; unresolved external setting apparatus; unchanged Hamiltonian"
+    },
+    "conserved": [],
+    "adapter": "finite_local_ctmc",
+    "version": "1"
+  },
+  "observation": {
+    "id": "whole.modeled",
+    "coordinates": [
+      "repair.R",
+      "repair.Y",
+      "repair.bank",
+      "carrier",
+      "contact.repair.R_to_repair.Y",
+      "contact.repair.Y_to_repair.R",
+      "operation.displaced"
+    ],
+    "scope": "whole_modeled_field",
+    "conditioning": "full_present",
+    "resolution": {
+      "faithfulness": "open",
+      "certification": [],
+      "reversal": "none",
+      "governing_status": "provisional"
+    },
+    "version": "1"
+  },
+  "quantity": {
+    "id": "history.full_given_present",
+    "definition": "Complete sampled history under declared native phase schedule",
+    "units": "bits",
+    "conditioning": "full_present",
+    "version": "1",
+    "functional": "sampled_history_entropy"
+  },
+  "rows": [
+    {
+      "horizon": 1,
+      "cadence": 0.25,
+      "contract": {
+        "status": "validated_contract",
+        "physical_sufficiency": "declared_not_empirically_proved",
+        "model_hash": "7c06252a3a8e8465315a77e78fe935ce7d1ad02ee97a37c9669ede74746c7fa9",
+        "quantity": "history.full_given_present"
+      },
+      "history": {
+        "ell_bits": 2.6279619999846795,
+        "operation_prefix_bits": 2.6279619999846795,
+        "recovery_bits": 0.0
+      },
+      "coordinate_entropy_shares": {
+        "repair.R": 1.3999050407146774,
+        "repair.Y": 0.0803178386984217,
+        "repair.bank": 0.06379570223303938,
+        "carrier": 0.8548252355913881,
+        "contact.repair.R_to_repair.Y": 0.007767967932797293,
+        "contact.repair.Y_to_repair.R": 0.053609763999511256,
+        "operation.displaced": 0.16774045081484315
+      },
+      "physical": {
+        "work_net": -0.2162933525151844,
+        "work_accepted_gross": 0.009929262005961465,
+        "work_returned_gross": 0.22622261452114586,
+        "heat_export": 0.2381423093952348,
+        "expected_jumps": 0.427589292817156,
+        "finite_coefficient_bits": 1.8325431678310016,
+        "entropy_production": 1.4173493959351542,
+        "delta_energy": -0.4544356619104202,
+        "energy_residual": -9.71445146547012e-16
+      },
+      "channels": {
+        "basal_construct_repair.R.reverse": 0.0033469570196739107,
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": 0.003785676630742425,
+        "basal_construct_repair.Y.reverse": 0.003822500342446715,
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": 0.003785676630742425,
+        "source.reverse": 0.07540753817371526,
+        "native_locked_bath.reverse": 0.008448828491356012,
+        "unlock_basal.forward": 0.031081503039534077,
+        "operation.thermal.forward": 0.015306798371260599,
+        "operation.stroke.repair.R.00.forward": 0.2504768261116563,
+        "basal_construct_repair.R.forward": 0.00029320855657574295,
+        "paid_construct_repair.R.forward": 4.642313813164022e-05,
+        "bind.contact.repair.Y_to_repair.R.forward": 0.005667423838139516,
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": 7.929897041010134e-06,
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": 4.362160456283916e-05,
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": 1.3074189925975413e-05,
+        "bind.contact.repair.Y_to_repair.R.reverse": 0.00013576252469831907,
+        "assisted_construct_repair.Y_to_repair.R.forward": 0.00013086481368851746,
+        "basal_construct_repair.Y.forward": 4.776951292416271e-06,
+        "paid_construct_repair.Y.forward": 4.093079169113335e-05,
+        "bind.contact.repair.R_to_repair.Y.forward": 7.188371291569789e-05,
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": 6.076033818206397e-06,
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": 3.6853008001929965e-06,
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": 4.048421998766682e-05,
+        "bind.contact.repair.R_to_repair.Y.reverse": 6.309359860783309e-05,
+        "assisted_construct_repair.R_to_repair.Y.forward": 0.00012145265996300044,
+        "operation.stroke.repair.R.10.forward": 0.00045316805892081527,
+        "capture_repair.reverse": 7.815384304317173e-05,
+        "assisted_capture_repair.reverse": 0.00096676429453187,
+        "source.forward": 0.003309754001987156,
+        "native_locked_bath.forward": 1.8462648512882522e-05,
+        "native_usable_bath.forward": 3.0439761316649504e-05,
+        "native_usable_bath.reverse": 8.71690342502564e-05,
+        "unlock_basal.reverse": 0.00019450040572243662,
+        "operation.thermal.reverse": 0.0030086509045233888,
+        "operation.stroke.repair.R.00.reverse": 0.016871022957731033,
+        "paid_construct_repair.R.reverse": 2.177125112991098e-06,
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": 2.4635583319184642e-06,
+        "paid_construct_repair.Y.reverse": 3.1385453417670376e-06,
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": 2.4635583319184642e-06,
+        "assisted_construct_repair.R_to_repair.Y.reverse": 7.390674995755395e-06,
+        "assisted_construct_repair.Y_to_repair.R.reverse": 7.390674995755395e-06,
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": 1.2142630742151587e-06,
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": 2.559843520722466e-07,
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": 1.2142630742151587e-06,
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": 2.559843520722466e-07,
+        "operation.stroke.repair.R.10.reverse": 6.951077885095757e-05,
+        "capture_repair.forward": 2.419623063787462e-05,
+        "assisted_capture_repair.forward": 0.0002965239133297228,
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": 1.1658661964811141e-08,
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": 3.0502057320026818e-09
+      },
+      "channel_physical": {
+        "basal_construct_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.0016734785098369558,
+          "delta_energy": -0.0016734785098369558
+        },
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.0028392574730568185,
+          "delta_energy": -0.0028392574730568185
+        },
+        "basal_construct_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.0019112501712233573,
+          "delta_energy": -0.0019112501712233573
+        },
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.0028392574730568185,
+          "delta_energy": -0.0028392574730568185
+        },
+        "source.reverse": {
+          "work": -0.22622261452114586,
+          "heat": 0.0,
+          "delta_energy": -0.22622261452114586
+        },
+        "native_locked_bath.reverse": {
+          "work": 0.0,
+          "heat": 0.025346485474068026,
+          "delta_energy": -0.025346485474068026
+        },
+        "unlock_basal.forward": {
+          "work": 0.0,
+          "heat": 0.031081503039534084,
+          "delta_energy": -0.031081503039534084
+        },
+        "operation.thermal.forward": {
+          "work": 0.0,
+          "heat": -0.0038266995928151496,
+          "delta_energy": 0.0038266995928151496
+        },
+        "operation.stroke.repair.R.00.forward": {
+          "work": 0.0,
+          "heat": 0.18785761958374222,
+          "delta_energy": -0.18785761958374222
+        },
+        "basal_construct_repair.R.forward": {
+          "work": 0.0,
+          "heat": -0.00014660427828787147,
+          "delta_energy": 0.00014660427828787147
+        },
+        "paid_construct_repair.R.forward": {
+          "work": 0.0,
+          "heat": 2.3211569065820106e-05,
+          "delta_energy": -2.3211569065820106e-05
+        },
+        "bind.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.0014168559595348787,
+          "delta_energy": -0.0014168559595348787
+        },
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": -5.947422780757599e-06,
+          "delta_energy": 5.947422780757599e-06
+        },
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 1.090540114070979e-05,
+          "delta_energy": -1.090540114070979e-05
+        },
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 3.2685474814938527e-06,
+          "delta_energy": -3.2685474814938527e-06
+        },
+        "bind.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -3.3940631174579775e-05,
+          "delta_energy": 3.3940631174579775e-05
+        },
+        "assisted_construct_repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 3.2716203422129364e-05,
+          "delta_energy": -3.2716203422129364e-05
+        },
+        "basal_construct_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -2.3884756462081355e-06,
+          "delta_energy": 2.3884756462081355e-06
+        },
+        "paid_construct_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 2.0465395845566674e-05,
+          "delta_energy": -2.0465395845566674e-05
+        },
+        "bind.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 1.7970928228924482e-05,
+          "delta_energy": -1.7970928228924482e-05
+        },
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 1.5190084545515988e-06,
+          "delta_energy": -1.5190084545515988e-06
+        },
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -2.7639756001447483e-06,
+          "delta_energy": 2.7639756001447483e-06
+        },
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 1.0121054996916706e-05,
+          "delta_energy": -1.0121054996916706e-05
+        },
+        "bind.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -1.5773399651958272e-05,
+          "delta_energy": 1.5773399651958272e-05
+        },
+        "assisted_construct_repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 3.0363164990750114e-05,
+          "delta_energy": -3.0363164990750114e-05
+        },
+        "operation.stroke.repair.R.10.forward": {
+          "work": 0.0,
+          "heat": 0.00022658402946040764,
+          "delta_energy": -0.00022658402946040764
+        },
+        "capture_repair.reverse": {
+          "work": 0.0,
+          "heat": -0.00011723076456475755,
+          "delta_energy": 0.00011723076456475755
+        },
+        "assisted_capture_repair.reverse": {
+          "work": 0.0,
+          "heat": -0.0014501464417978048,
+          "delta_energy": 0.0014501464417978048
+        },
+        "source.forward": {
+          "work": 0.009929262005961465,
+          "heat": 0.0,
+          "delta_energy": 0.009929262005961465
+        },
+        "native_locked_bath.forward": {
+          "work": 0.0,
+          "heat": -5.538794553864757e-05,
+          "delta_energy": 5.538794553864757e-05
+        },
+        "native_usable_bath.forward": {
+          "work": 0.0,
+          "heat": -6.087952263329901e-05,
+          "delta_energy": 6.087952263329901e-05
+        },
+        "native_usable_bath.reverse": {
+          "work": 0.0,
+          "heat": 0.00017433806850051273,
+          "delta_energy": -0.00017433806850051273
+        },
+        "unlock_basal.reverse": {
+          "work": 0.0,
+          "heat": -0.00019450040572243662,
+          "delta_energy": 0.00019450040572243662
+        },
+        "operation.thermal.reverse": {
+          "work": 0.0,
+          "heat": 0.000752162726130847,
+          "delta_energy": -0.000752162726130847
+        },
+        "operation.stroke.repair.R.00.reverse": {
+          "work": 0.0,
+          "heat": -0.012653267218298276,
+          "delta_energy": 0.012653267218298276
+        },
+        "paid_construct_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -1.0885625564955487e-06,
+          "delta_energy": 1.0885625564955487e-06
+        },
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -6.158895829796161e-07,
+          "delta_energy": 6.158895829796161e-07
+        },
+        "paid_construct_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -1.5692726708835186e-06,
+          "delta_energy": 1.5692726708835186e-06
+        },
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -6.158895829796161e-07,
+          "delta_energy": 6.158895829796161e-07
+        },
+        "assisted_construct_repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -1.8476687489388484e-06,
+          "delta_energy": 1.8476687489388484e-06
+        },
+        "assisted_construct_repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -1.8476687489388484e-06,
+          "delta_energy": 1.8476687489388484e-06
+        },
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -3.035657685537897e-07,
+          "delta_energy": 3.035657685537897e-07
+        },
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 1.9198826405418495e-07,
+          "delta_energy": -1.9198826405418495e-07
+        },
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": -3.035657685537897e-07,
+          "delta_energy": 3.035657685537897e-07
+        },
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 1.9198826405418495e-07,
+          "delta_energy": -1.9198826405418495e-07
+        },
+        "operation.stroke.repair.R.10.reverse": {
+          "work": 0.0,
+          "heat": -3.4755389425478784e-05,
+          "delta_energy": 3.4755389425478784e-05
+        },
+        "capture_repair.forward": {
+          "work": 0.0,
+          "heat": 3.629434595681193e-05,
+          "delta_energy": -3.629434595681193e-05
+        },
+        "assisted_capture_repair.forward": {
+          "work": 0.0,
+          "heat": 0.00044478586999458425,
+          "delta_energy": -0.00044478586999458425
+        },
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -8.743996473608355e-09,
+          "delta_energy": 8.743996473608355e-09
+        },
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -2.2876542990020113e-09,
+          "delta_energy": 2.2876542990020113e-09
+        }
+      },
+      "segments": [
+        {
+          "model_hash": "78c9aeb372be7fca7369fbaa7833d6d16f8289330b8cc42462d53f71b0b32a99",
+          "duration": 1,
+          "energy_residual": -9.71445146547012e-16,
+          "entropy_production": 1.4173493959351542
+        }
+      ],
+      "operation_monitor": {
+        "any_forward_operation_probability": 0.24934851726028054,
+        "no_forward_operation_probability": 0.7506514827397192,
+        "operation_then_functional_return_probability": 0.01705081010684266,
+        "scope": "Unconditional probabilities; event followed by return, not permanent restoration"
+      },
+      "observables": {
+        "repair.R": {
+          "endpoint": 0.7593833137305498,
+          "integrated": 0.8706582762843147
+        },
+        "repair.Y": {
+          "endpoint": 0.9925785445707141,
+          "integrated": 0.9961680640338973
+        },
+        "repair.bank": {
+          "endpoint": 1.764487840870895,
+          "integrated": 1.8736653473553029
+        },
+        "operation.displaced": {
+          "endpoint": 0.2462876079007323,
+          "integrated": 0.13275625521001155
+        },
+        "both_working": {
+          "endpoint": 0.753242116638538,
+          "integrated": 0.8672849870929331
+        },
+        "empty_bank": {
+          "endpoint": 0.0006330401191349395,
+          "integrated": 0.00020285873853909464
+        },
+        "usable_capture_interface": {
+          "endpoint": 0.9834453843096569,
+          "integrated": 0.9923220866627387
+        }
+      },
+      "projected_histories": {
+        "repair_body.m0": {
+          "lower_bits": 1.605444448358215,
+          "upper_bits": 2.6279619999846795,
+          "width_bits": 1.0225175516264644,
+          "memory": 0,
+          "workspace_bound_bytes": 79488,
+          "method": "scheduled_hidden_boundary_lower_observed_memory_upper",
+          "conditioning": "full_present",
+          "limits": "Analytic inequalities evaluated in float64; not numerical intervals or physical-resolution certification"
+        },
+        "repair_body.m1": {
+          "lower_bits": 1.6087478538370812,
+          "upper_bits": 1.6115870552271971,
+          "width_bits": 0.002839201390115953,
+          "memory": 1,
+          "workspace_bound_bytes": 1137888,
+          "method": "scheduled_hidden_boundary_lower_observed_memory_upper",
+          "conditioning": "full_present",
+          "limits": "Analytic inequalities evaluated in float64; not numerical intervals or physical-resolution certification"
+        }
+      },
+      "support": {
+        "closure_probability_under_common_recovery": 0.0,
+        "all_phase_sampled_kernels_full_support": true,
+        "scope": "Exact graph support at positive cadence, not low-probability cutoff or weighted access"
+      },
+      "validation": {
+        "continuous_sampled_endpoint_residual": 2.220446049250313e-16,
+        "event_monitor_marginal_residual": 2.7755575615628914e-17
+      }
+    },
+    {
+      "horizon": 4,
+      "cadence": 0.25,
+      "contract": {
+        "status": "validated_contract",
+        "physical_sufficiency": "declared_not_empirically_proved",
+        "model_hash": "7c06252a3a8e8465315a77e78fe935ce7d1ad02ee97a37c9669ede74746c7fa9",
+        "quantity": "history.full_given_present"
+      },
+      "history": {
+        "ell_bits": 6.409156122650666,
+        "operation_prefix_bits": 2.6279619999846795,
+        "recovery_bits": 3.7811941226659864
+      },
+      "coordinate_entropy_shares": {
+        "repair.R": 1.6328633593928688,
+        "repair.Y": 0.32215420042500686,
+        "repair.bank": 0.22089542687855487,
+        "carrier": 3.181357663990314,
+        "contact.repair.R_to_repair.Y": 0.03922404947363885,
+        "contact.repair.Y_to_repair.R": 0.3271794719698368,
+        "operation.displaced": 0.685481950520444
+      },
+      "physical": {
+        "work_net": -0.6434577463414372,
+        "work_accepted_gross": 0.1303010777356028,
+        "work_returned_gross": 0.7737588240770402,
+        "heat_export": 0.39009237664753715,
+        "expected_jumps": 0.9075734378729716,
+        "finite_coefficient_bits": 4.697605580673301,
+        "entropy_production": 2.483913350020787,
+        "delta_energy": -1.0335501229889759,
+        "energy_residual": -1.5543122344752192e-15
+      },
+      "channels": {
+        "basal_construct_repair.R.reverse": 0.011951025364684873,
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": 0.013444947700957537,
+        "basal_construct_repair.Y.reverse": 0.01486853542805243,
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": 0.013444947700957537,
+        "source.reverse": 0.25791960802568004,
+        "native_locked_bath.reverse": 0.028897887207864216,
+        "unlock_basal.forward": 0.10630938597064456,
+        "operation.thermal.forward": 0.05462645475087942,
+        "operation.stroke.repair.R.00.forward": 0.2504768261116563,
+        "basal_construct_repair.R.forward": 0.001841691079545636,
+        "paid_construct_repair.R.forward": 0.0007631217695195091,
+        "bind.contact.repair.Y_to_repair.R.forward": 0.03534000884487707,
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": 0.00017540877028666247,
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": 0.0005762188637523028,
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": 0.000289200170638973,
+        "bind.contact.repair.Y_to_repair.R.reverse": 0.003003057591440217,
+        "assisted_construct_repair.Y_to_repair.R.forward": 0.0017286565912569083,
+        "basal_construct_repair.Y.forward": 7.213177609306476e-05,
+        "paid_construct_repair.Y.forward": 0.0005821006794858136,
+        "bind.contact.repair.R_to_repair.Y.forward": 0.0010107609224603074,
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": 8.219369000077458e-05,
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": 4.985299302038549e-05,
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": 0.0005443358291095129,
+        "bind.contact.repair.R_to_repair.Y.reverse": 0.000853500135148421,
+        "assisted_construct_repair.R_to_repair.Y.forward": 0.001633007487328538,
+        "operation.stroke.repair.R.10.forward": 0.00045316805892081527,
+        "capture_repair.reverse": 0.0010230950843854248,
+        "assisted_capture_repair.reverse": 0.012197256120711705,
+        "source.forward": 0.04343369257853425,
+        "native_locked_bath.forward": 0.00024228416952215055,
+        "native_usable_bath.forward": 0.00039945906384508516,
+        "native_usable_bath.reverse": 0.0012671746032075616,
+        "unlock_basal.reverse": 0.002827448721497261,
+        "operation.thermal.reverse": 0.020510119921674088,
+        "operation.stroke.repair.R.00.reverse": 0.016871022957731033,
+        "paid_construct_repair.R.reverse": 0.00010423359171244016,
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": 0.00011741055840351829,
+        "paid_construct_repair.Y.reverse": 0.0001592225021820558,
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": 0.00011741055840351829,
+        "assisted_construct_repair.R_to_repair.Y.reverse": 0.00035223167521055494,
+        "assisted_construct_repair.Y_to_repair.R.reverse": 0.00035223167521055494,
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": 2.269740565356432e-05,
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": 1.47591909394711e-05,
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": 2.269740565356432e-05,
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": 1.47591909394711e-05,
+        "operation.stroke.repair.R.10.reverse": 6.951077885095757e-05,
+        "capture_repair.forward": 0.0005230949667111528,
+        "assisted_capture_repair.forward": 0.005989789992130134,
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": 3.176420655455369e-06,
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": 6.252249446846119e-07
+      },
+      "channel_physical": {
+        "basal_construct_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.0059755126823424366,
+          "delta_energy": -0.0059755126823424366
+        },
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.010083710775718154,
+          "delta_energy": -0.010083710775718154
+        },
+        "basal_construct_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.007434267714026214,
+          "delta_energy": -0.007434267714026214
+        },
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.010083710775718154,
+          "delta_energy": -0.010083710775718154
+        },
+        "source.reverse": {
+          "work": -0.7737588240770403,
+          "heat": 0.0,
+          "delta_energy": -0.7737588240770403
+        },
+        "native_locked_bath.reverse": {
+          "work": 0.0,
+          "heat": 0.08669366162359263,
+          "delta_energy": -0.08669366162359263
+        },
+        "unlock_basal.forward": {
+          "work": 0.0,
+          "heat": 0.10630938597064458,
+          "delta_energy": -0.10630938597064458
+        },
+        "operation.thermal.forward": {
+          "work": 0.0,
+          "heat": -0.013656613687719853,
+          "delta_energy": 0.013656613687719853
+        },
+        "operation.stroke.repair.R.00.forward": {
+          "work": 0.0,
+          "heat": 0.18785761958374222,
+          "delta_energy": -0.18785761958374222
+        },
+        "basal_construct_repair.R.forward": {
+          "work": 0.0,
+          "heat": -0.0009208455397728179,
+          "delta_energy": 0.0009208455397728179
+        },
+        "paid_construct_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.0003815608847597546,
+          "delta_energy": -0.0003815608847597546
+        },
+        "bind.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.008835002211219268,
+          "delta_energy": -0.008835002211219268
+        },
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": -0.0001315565777149969,
+          "delta_energy": 0.0001315565777149969
+        },
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.0001440547159380757,
+          "delta_energy": -0.0001440547159380757
+        },
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 7.230004265974327e-05,
+          "delta_energy": -7.230004265974327e-05
+        },
+        "bind.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -0.000750764397860054,
+          "delta_energy": 0.000750764397860054
+        },
+        "assisted_construct_repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.0004321641478142272,
+          "delta_energy": -0.0004321641478142272
+        },
+        "basal_construct_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -3.606588804653238e-05,
+          "delta_energy": 3.606588804653238e-05
+        },
+        "paid_construct_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.0002910503397429068,
+          "delta_energy": -0.0002910503397429068
+        },
+        "bind.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.00025269023061507697,
+          "delta_energy": -0.00025269023061507697
+        },
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 2.0548422500193645e-05,
+          "delta_energy": -2.0548422500193645e-05
+        },
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -3.738974476528912e-05,
+          "delta_energy": 3.738974476528912e-05
+        },
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.00013608395727737825,
+          "delta_energy": -0.00013608395727737825
+        },
+        "bind.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -0.00021337503378710527,
+          "delta_energy": 0.00021337503378710527
+        },
+        "assisted_construct_repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.00040825187183213463,
+          "delta_energy": -0.00040825187183213463
+        },
+        "operation.stroke.repair.R.10.forward": {
+          "work": 0.0,
+          "heat": 0.00022658402946040764,
+          "delta_energy": -0.00022658402946040764
+        },
+        "capture_repair.reverse": {
+          "work": 0.0,
+          "heat": -0.001534642626578137,
+          "delta_energy": 0.001534642626578137
+        },
+        "assisted_capture_repair.reverse": {
+          "work": 0.0,
+          "heat": -0.01829588418106756,
+          "delta_energy": 0.01829588418106756
+        },
+        "source.forward": {
+          "work": 0.13030107773560273,
+          "heat": 0.0,
+          "delta_energy": 0.13030107773560273
+        },
+        "native_locked_bath.forward": {
+          "work": 0.0,
+          "heat": -0.0007268525085664516,
+          "delta_energy": 0.0007268525085664516
+        },
+        "native_usable_bath.forward": {
+          "work": 0.0,
+          "heat": -0.0007989181276901701,
+          "delta_energy": 0.0007989181276901701
+        },
+        "native_usable_bath.reverse": {
+          "work": 0.0,
+          "heat": 0.0025343492064151215,
+          "delta_energy": -0.0025343492064151215
+        },
+        "unlock_basal.reverse": {
+          "work": 0.0,
+          "heat": -0.0028274487214972597,
+          "delta_energy": 0.0028274487214972597
+        },
+        "operation.thermal.reverse": {
+          "work": 0.0,
+          "heat": 0.005127529980418523,
+          "delta_energy": -0.005127529980418523
+        },
+        "operation.stroke.repair.R.00.reverse": {
+          "work": 0.0,
+          "heat": -0.012653267218298276,
+          "delta_energy": 0.012653267218298276
+        },
+        "paid_construct_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -5.211679585622008e-05,
+          "delta_energy": 5.211679585622008e-05
+        },
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -2.9352639600879576e-05,
+          "delta_energy": 2.9352639600879576e-05
+        },
+        "paid_construct_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -7.961125109102789e-05,
+          "delta_energy": 7.961125109102789e-05
+        },
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -2.9352639600879576e-05,
+          "delta_energy": 2.9352639600879576e-05
+        },
+        "assisted_construct_repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -8.805791880263874e-05,
+          "delta_energy": 8.805791880263874e-05
+        },
+        "assisted_construct_repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -8.805791880263874e-05,
+          "delta_energy": 8.805791880263874e-05
+        },
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -5.67435141339108e-06,
+          "delta_energy": 5.67435141339108e-06
+        },
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 1.1069393204603324e-05,
+          "delta_energy": -1.1069393204603324e-05
+        },
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": -5.67435141339108e-06,
+          "delta_energy": 5.67435141339108e-06
+        },
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 1.1069393204603324e-05,
+          "delta_energy": -1.1069393204603324e-05
+        },
+        "operation.stroke.repair.R.10.reverse": {
+          "work": 0.0,
+          "heat": -3.4755389425478784e-05,
+          "delta_energy": 3.4755389425478784e-05
+        },
+        "capture_repair.forward": {
+          "work": 0.0,
+          "heat": 0.0007846424500667294,
+          "delta_energy": -0.0007846424500667294
+        },
+        "assisted_capture_repair.forward": {
+          "work": 0.0,
+          "heat": 0.0089846849881952,
+          "delta_energy": -0.0089846849881952
+        },
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -2.3823154915915263e-06,
+          "delta_energy": 2.3823154915915263e-06
+        },
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -4.6891870851345884e-07,
+          "delta_energy": 4.6891870851345884e-07
+        }
+      },
+      "segments": [
+        {
+          "model_hash": "78c9aeb372be7fca7369fbaa7833d6d16f8289330b8cc42462d53f71b0b32a99",
+          "duration": 1.0,
+          "energy_residual": -9.71445146547012e-16,
+          "entropy_production": 1.4173493959351542
+        },
+        {
+          "model_hash": "9ae69b0e04834cc6ef200fad4e6cd2e24326e1cd1fbf435e730474d699122b7d",
+          "duration": 3.0,
+          "energy_residual": -2.7755575615628914e-16,
+          "entropy_production": 1.0665639540856326
+        }
+      ],
+      "operation_monitor": {
+        "any_forward_operation_probability": 0.24934851726028048,
+        "no_forward_operation_probability": 0.7506514827397195,
+        "operation_then_functional_return_probability": 0.018832752254108354,
+        "scope": "Unconditional probabilities; event followed by return, not permanent restoration"
+      },
+      "observables": {
+        "repair.R": {
+          "endpoint": 0.7450804254310442,
+          "integrated": 3.1266678631201628
+        },
+        "repair.Y": {
+          "endpoint": 0.9736841609055297,
+          "integrated": 3.944948429769331
+        },
+        "repair.bank": {
+          "endpoint": 1.7500022385285312,
+          "integrated": 7.148250196338507
+        },
+        "operation.displaced": {
+          "endpoint": 0.2681057952632004,
+          "integrated": 0.9050058651257992
+        },
+        "both_working": {
+          "endpoint": 0.7229221963754205,
+          "integrated": 3.080189469591149
+        },
+        "empty_bank": {
+          "endpoint": 0.007111549445174956,
+          "integrated": 0.01055762178810955
+        },
+        "usable_capture_interface": {
+          "endpoint": 0.9301678239375185,
+          "integrated": 3.8598756781640544
+        }
+      },
+      "projected_histories": {
+        "repair_body.m0": {
+          "lower_bits": 2.5423647845630986,
+          "upper_bits": 6.409156122650666,
+          "width_bits": 3.8667913380875674,
+          "memory": 0,
+          "workspace_bound_bytes": 79488,
+          "method": "scheduled_hidden_boundary_lower_observed_memory_upper",
+          "conditioning": "full_present",
+          "limits": "Analytic inequalities evaluated in float64; not numerical intervals or physical-resolution certification"
+        },
+        "repair_body.m1": {
+          "lower_bits": 2.5537489685865022,
+          "upper_bits": 2.5906101892303264,
+          "width_bits": 0.03686122064382413,
+          "memory": 1,
+          "workspace_bound_bytes": 1137888,
+          "method": "scheduled_hidden_boundary_lower_observed_memory_upper",
+          "conditioning": "full_present",
+          "limits": "Analytic inequalities evaluated in float64; not numerical intervals or physical-resolution certification"
+        }
+      },
+      "support": {
+        "closure_probability_under_common_recovery": 0.0,
+        "all_phase_sampled_kernels_full_support": true,
+        "scope": "Exact graph support at positive cadence, not low-probability cutoff or weighted access"
+      },
+      "validation": {
+        "continuous_sampled_endpoint_residual": 2.220446049250313e-16,
+        "event_monitor_marginal_residual": 5.551115123125783e-17
+      }
+    },
+    {
+      "horizon": 16,
+      "cadence": 0.25,
+      "contract": {
+        "status": "validated_contract",
+        "physical_sufficiency": "declared_not_empirically_proved",
+        "model_hash": "7c06252a3a8e8465315a77e78fe935ce7d1ad02ee97a37c9669ede74746c7fa9",
+        "quantity": "history.full_given_present"
+      },
+      "history": {
+        "ell_bits": 21.139999202604614,
+        "operation_prefix_bits": 2.6279619999846795,
+        "recovery_bits": 18.512037202619933
+      },
+      "coordinate_entropy_shares": {
+        "repair.R": 2.8324456898187997,
+        "repair.Y": 1.5269414255025422,
+        "repair.bank": 1.497030365153608,
+        "carrier": 10.734769976187645,
+        "contact.repair.R_to_repair.Y": 0.30284635991090264,
+        "contact.repair.Y_to_repair.R": 1.4684552562129476,
+        "operation.displaced": 2.777510129818172
+      },
+      "physical": {
+        "work_net": -0.9644370389272034,
+        "work_accepted_gross": 1.1175080572227618,
+        "work_returned_gross": 2.081945096149965,
+        "heat_export": 0.7704013246144273,
+        "expected_jumps": 2.7621296490183402,
+        "finite_coefficient_bits": 15.901649680510882,
+        "entropy_production": 4.053520924880373,
+        "delta_energy": -1.7348383635416316,
+        "energy_residual": -7.771561172376096e-16
+      },
+      "channels": {
+        "basal_construct_repair.R.reverse": 0.04423115181689848,
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": 0.04878474943376146,
+        "basal_construct_repair.Y.reverse": 0.05430217860051241,
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": 0.04878474943376146,
+        "source.reverse": 0.693981698716655,
+        "native_locked_bath.reverse": 0.07775525485382696,
+        "unlock_basal.forward": 0.2860455970376892,
+        "operation.thermal.forward": 0.2021941773732589,
+        "operation.stroke.repair.R.00.forward": 0.2504768261116563,
+        "basal_construct_repair.R.forward": 0.0071267502364124775,
+        "paid_construct_repair.R.forward": 0.01156528486962148,
+        "bind.contact.repair.Y_to_repair.R.forward": 0.1323720447678934,
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": 0.002356415451329008,
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": 0.007561652447542667,
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": 0.003885072277212578,
+        "bind.contact.repair.Y_to_repair.R.reverse": 0.04034263109042884,
+        "assisted_construct_repair.Y_to_repair.R.forward": 0.022684957342627998,
+        "basal_construct_repair.Y.forward": 0.001018363717363526,
+        "paid_construct_repair.Y.forward": 0.008080672404887487,
+        "bind.contact.repair.R_to_repair.Y.forward": 0.013870045536082893,
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": 0.001102838585724757,
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": 0.0006689054149561848,
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": 0.006944048223349345,
+        "bind.contact.repair.R_to_repair.Y.reverse": 0.011451887388850696,
+        "assisted_construct_repair.R_to_repair.Y.forward": 0.02083214467004803,
+        "operation.stroke.repair.R.10.forward": 0.00045316805892081527,
+        "capture_repair.reverse": 0.008605361486669351,
+        "assisted_capture_repair.reverse": 0.0919429272402744,
+        "source.forward": 0.3725026857409206,
+        "native_locked_bath.forward": 0.002077914598127297,
+        "native_usable_bath.forward": 0.003425901996630784,
+        "native_usable_bath.reverse": 0.014509890445530478,
+        "unlock_basal.reverse": 0.03237594178847386,
+        "operation.thermal.reverse": 0.10298504212785038,
+        "operation.stroke.repair.R.00.reverse": 0.016871022957731033,
+        "paid_construct_repair.R.reverse": 0.0035533087980570456,
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": 0.003917806911717335,
+        "paid_construct_repair.Y.reverse": 0.004609755010238369,
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": 0.003917806911717335,
+        "assisted_construct_repair.R_to_repair.Y.reverse": 0.011753420735152008,
+        "assisted_construct_repair.Y_to_repair.R.reverse": 0.011753420735152008,
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": 0.0003438070966345575,
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": 0.000700700106394966,
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": 0.0003438070966345575,
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": 0.000700700106394966,
+        "operation.stroke.repair.R.10.reverse": 6.951077885095757e-05,
+        "capture_repair.forward": 0.007059604086219124,
+        "assisted_capture_repair.forward": 0.06882046385424574,
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": 0.0003163904384456251,
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": 9.919210900555882e-05
+      },
+      "channel_physical": {
+        "basal_construct_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.022115575908449238,
+          "delta_energy": -0.022115575908449238
+        },
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.03658856207532108,
+          "delta_energy": -0.03658856207532108
+        },
+        "basal_construct_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.027151089300256205,
+          "delta_energy": -0.027151089300256205
+        },
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.03658856207532108,
+          "delta_energy": -0.03658856207532108
+        },
+        "source.reverse": {
+          "work": -2.0819450961499655,
+          "heat": 0.0,
+          "delta_energy": -2.0819450961499655
+        },
+        "native_locked_bath.reverse": {
+          "work": 0.0,
+          "heat": 0.2332657645614809,
+          "delta_energy": -0.2332657645614809
+        },
+        "unlock_basal.forward": {
+          "work": 0.0,
+          "heat": 0.2860455970376892,
+          "delta_energy": -0.2860455970376892
+        },
+        "operation.thermal.forward": {
+          "work": 0.0,
+          "heat": -0.050548544343314725,
+          "delta_energy": 0.050548544343314725
+        },
+        "operation.stroke.repair.R.00.forward": {
+          "work": 0.0,
+          "heat": 0.18785761958374222,
+          "delta_energy": -0.18785761958374222
+        },
+        "basal_construct_repair.R.forward": {
+          "work": 0.0,
+          "heat": -0.0035633751182062383,
+          "delta_energy": 0.0035633751182062383
+        },
+        "paid_construct_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.00578264243481074,
+          "delta_energy": -0.00578264243481074
+        },
+        "bind.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.03309301119197335,
+          "delta_energy": -0.03309301119197335
+        },
+        "basal_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": -0.0017673115884967558,
+          "delta_energy": 0.0017673115884967558
+        },
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.0018904131118856666,
+          "delta_energy": -0.0018904131118856666
+        },
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": 0.0009712680693031442,
+          "delta_energy": -0.0009712680693031442
+        },
+        "bind.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -0.010085657772607209,
+          "delta_energy": 0.010085657772607209
+        },
+        "assisted_construct_repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.005671239335657,
+          "delta_energy": -0.005671239335657
+        },
+        "basal_construct_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -0.0005091818586817631,
+          "delta_energy": 0.0005091818586817631
+        },
+        "paid_construct_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.004040336202443743,
+          "delta_energy": -0.004040336202443743
+        },
+        "bind.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.0034675113840207227,
+          "delta_energy": -0.0034675113840207227
+        },
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": 0.0002757096464311893,
+          "delta_energy": -0.0002757096464311893
+        },
+        "basal_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -0.0005016790612171388,
+          "delta_energy": 0.0005016790612171388
+        },
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.0017360120558373362,
+          "delta_energy": -0.0017360120558373362
+        },
+        "bind.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -0.0028629718472126735,
+          "delta_energy": 0.0028629718472126735
+        },
+        "assisted_construct_repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.005208036167512007,
+          "delta_energy": -0.005208036167512007
+        },
+        "operation.stroke.repair.R.10.forward": {
+          "work": 0.0,
+          "heat": 0.00022658402946040764,
+          "delta_energy": -0.00022658402946040764
+        },
+        "capture_repair.reverse": {
+          "work": 0.0,
+          "heat": -0.012908042230004028,
+          "delta_energy": 0.012908042230004028
+        },
+        "assisted_capture_repair.reverse": {
+          "work": 0.0,
+          "heat": -0.13791439086041163,
+          "delta_energy": 0.13791439086041163
+        },
+        "source.forward": {
+          "work": 1.1175080572227616,
+          "heat": 0.0,
+          "delta_energy": 1.1175080572227616
+        },
+        "native_locked_bath.forward": {
+          "work": 0.0,
+          "heat": -0.006233743794381891,
+          "delta_energy": 0.006233743794381891
+        },
+        "native_usable_bath.forward": {
+          "work": 0.0,
+          "heat": -0.006851803993261566,
+          "delta_energy": 0.006851803993261566
+        },
+        "native_usable_bath.reverse": {
+          "work": 0.0,
+          "heat": 0.029019780891060967,
+          "delta_energy": -0.029019780891060967
+        },
+        "unlock_basal.reverse": {
+          "work": 0.0,
+          "heat": -0.03237594178847387,
+          "delta_energy": 0.03237594178847387
+        },
+        "operation.thermal.reverse": {
+          "work": 0.0,
+          "heat": 0.025746260531962602,
+          "delta_energy": -0.025746260531962602
+        },
+        "operation.stroke.repair.R.00.reverse": {
+          "work": 0.0,
+          "heat": -0.012653267218298276,
+          "delta_energy": 0.012653267218298276
+        },
+        "paid_construct_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -0.0017766543990285228,
+          "delta_energy": 0.0017766543990285228
+        },
+        "paid_construct_repair.R.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -0.0009794517279293335,
+          "delta_energy": 0.0009794517279293335
+        },
+        "paid_construct_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -0.002304877505119185,
+          "delta_energy": 0.002304877505119185
+        },
+        "paid_construct_repair.Y.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -0.0009794517279293335,
+          "delta_energy": 0.0009794517279293335
+        },
+        "assisted_construct_repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -0.0029383551837880027,
+          "delta_energy": 0.0029383551837880027
+        },
+        "assisted_construct_repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -0.0029383551837880027,
+          "delta_energy": 0.0029383551837880027
+        },
+        "basal_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": -8.595177415863939e-05,
+          "delta_energy": 8.595177415863939e-05
+        },
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.forward": {
+          "work": 0.0,
+          "heat": 0.0005255250797962245,
+          "delta_energy": -0.0005255250797962245
+        },
+        "basal_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": -8.595177415863939e-05,
+          "delta_energy": 8.595177415863939e-05
+        },
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.forward": {
+          "work": 0.0,
+          "heat": 0.0005255250797962245,
+          "delta_energy": -0.0005255250797962245
+        },
+        "operation.stroke.repair.R.10.reverse": {
+          "work": 0.0,
+          "heat": -3.4755389425478784e-05,
+          "delta_energy": 3.4755389425478784e-05
+        },
+        "capture_repair.forward": {
+          "work": 0.0,
+          "heat": 0.010589406129328688,
+          "delta_energy": -0.010589406129328688
+        },
+        "assisted_capture_repair.forward": {
+          "work": 0.0,
+          "heat": 0.1032306957813686,
+          "delta_energy": -0.1032306957813686
+        },
+        "paid_construct_repair.Y.bound.contact.repair.Y_to_repair.R.reverse": {
+          "work": 0.0,
+          "heat": -0.00023729282883421882,
+          "delta_energy": 0.00023729282883421882
+        },
+        "paid_construct_repair.R.bound.contact.repair.R_to_repair.Y.reverse": {
+          "work": 0.0,
+          "heat": -7.439408175416909e-05,
+          "delta_energy": 7.439408175416909e-05
+        }
+      },
+      "segments": [
+        {
+          "model_hash": "78c9aeb372be7fca7369fbaa7833d6d16f8289330b8cc42462d53f71b0b32a99",
+          "duration": 1.0,
+          "energy_residual": -9.71445146547012e-16,
+          "entropy_production": 1.4173493959351542
+        },
+        {
+          "model_hash": "9ae69b0e04834cc6ef200fad4e6cd2e24326e1cd1fbf435e730474d699122b7d",
+          "duration": 15.0,
+          "energy_residual": 8.881784197001252e-16,
+          "entropy_production": 2.636171528945219
+        }
+      ],
+      "operation_monitor": {
+        "any_forward_operation_probability": 0.24934851726028046,
+        "no_forward_operation_probability": 0.7506514827397194,
+        "operation_then_functional_return_probability": 0.03027175430196343,
+        "scope": "Unconditional probabilities; event followed by return, not permanent restoration"
+      },
+      "observables": {
+        "repair.R": {
+          "endpoint": 0.7049076387262513,
+          "integrated": 11.806835769034537
+        },
+        "repair.Y": {
+          "endpoint": 0.9110192682265943,
+          "integrated": 15.239714489173247
+        },
+        "repair.bank": {
+          "endpoint": 1.6630442017367626,
+          "integrated": 27.624402537912708
+        },
+        "operation.displaced": {
+          "endpoint": 0.3331985956794036,
+          "integrated": 4.544199034518603
+        },
+        "both_working": {
+          "endpoint": 0.6318524457850969,
+          "integrated": 11.176411751442737
+        },
+        "empty_bank": {
+          "endpoint": 0.04724752672898059,
+          "integrated": 0.33456965372497577
+        },
+        "usable_capture_interface": {
+          "endpoint": 0.7902938582226272,
+          "integrated": 14.09685973885412
+        }
+      },
+      "projected_histories": {
+        "repair_body.m0": {
+          "lower_bits": 7.6277683937170755,
+          "upper_bits": 21.139999202604614,
+          "width_bits": 13.512230808887537,
+          "memory": 0,
+          "workspace_bound_bytes": 79488,
+          "method": "scheduled_hidden_boundary_lower_observed_memory_upper",
+          "conditioning": "full_present",
+          "limits": "Analytic inequalities evaluated in float64; not numerical intervals or physical-resolution certification"
+        },
+        "repair_body.m1": {
+          "lower_bits": 7.658504391721539,
+          "upper_bits": 7.890586499482145,
+          "width_bits": 0.2320821077606059,
+          "memory": 1,
+          "workspace_bound_bytes": 1137888,
+          "method": "scheduled_hidden_boundary_lower_observed_memory_upper",
+          "conditioning": "full_present",
+          "limits": "Analytic inequalities evaluated in float64; not numerical intervals or physical-resolution certification"
+        }
+      },
+      "support": {
+        "closure_probability_under_common_recovery": 0.0,
+        "all_phase_sampled_kernels_full_support": true,
+        "scope": "Exact graph support at positive cadence, not low-probability cutoff or weighted access"
+      },
+      "validation": {
+        "continuous_sampled_endpoint_residual": 1.942890293094024e-16,
+        "event_monitor_marginal_residual": 2.7755575615628914e-17
+      }
+    }
+  ],
+  "wall_seconds": 1.3916184999980032,
+  "scope": "Finite externally scheduled classical whole modeled field. Thermal/external apparatus histories unresolved. No stationary rate assigned to finite pulse, no ethical verdict."
+}

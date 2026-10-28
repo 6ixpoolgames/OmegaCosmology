@@ -55,7 +55,9 @@ class OccupancyTests(unittest.TestCase):
             formation_energy=".5",
             construction_bill_ticks=2,
         )
-        self.assertEqual(current.fingerprint(), old.fingerprint())
+        from physical_equivalence import assert_metadata_only_upgrade
+
+        assert_metadata_only_upgrade(self, current, old)
 
     def test_port_competition_and_capture_are_native(self):
         m = occupied_ecology(

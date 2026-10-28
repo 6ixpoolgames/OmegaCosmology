@@ -69,13 +69,11 @@ def powered_readiness_world(
         payment.terms(base, bank_quantum)
     rules = []
     for rule in base.rules:
-        if rule.id.startswith(
-            ("cue_write_", "cue_reset_", "cue_clear_")
-        ) or rule.id in ("cue_relax", "cue_upkeep"):
+        if "register.cue" in rule.roles:
             continue
         if not source_enabled and rule.boundary != "native":
             continue
-        if rule.id.startswith(("escape_", "blocked_effort_", "effort_damage_")):
+        if "response.attempt" in rule.roles:
             if not attempts_enabled:
                 continue
             rule = replace(

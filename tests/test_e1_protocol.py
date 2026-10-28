@@ -104,9 +104,10 @@ class E1ProtocolTests(unittest.TestCase):
             {"id": g, "members": [g + ".x", g + ".y"], "access_member": g + ".x"}
             for g in ("A", "B")
         ]
-        self.assertEqual(
-            autocatalytic_ecology(groups).fingerprint(),
-            LocalModel.from_record(retained).fingerprint(),
+        from physical_equivalence import assert_metadata_only_upgrade
+
+        assert_metadata_only_upgrade(
+            self, autocatalytic_ecology(groups), LocalModel.from_record(retained)
         )
 
 

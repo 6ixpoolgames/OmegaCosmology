@@ -21,6 +21,30 @@ def event_matches(model, source, event, selector):
     )
 
 
+def validate_selectors(model, selectors, *, absent_rules=()):
+    """An intentionally ablated channel is different from an unknown name."""
+    known = {r.id for r in model.rules}
+    absent = set(absent_rules)
+    if absent & known:
+        raise ValueError("Declared absent query rules exist in this law")
+    for selector in selectors:
+        rules = selector.get("rules")
+        if rules is not None and (not rules or len(set(rules)) != len(rules)):
+            raise ValueError(
+                "Explicit rule selectors need distinct nonempty references"
+            )
+        if rules is not None and set(rules) - known - absent:
+            raise ValueError(
+                "Unknown query rule; declare intended ablations explicitly"
+            )
+        if selector.get("direction", 1) not in (-1, 1):
+            raise ValueError("Event direction must be forward or reverse")
+        for side in ("source", "target"):
+            model._validate_conditions(
+                tuple(Condition(**c) for c in selector.get(side, ()))
+            )
+
+
 def state_value(model, state, expression):
     """A numerical observable, never an added objective or physical rule."""
     if not conditions_hold(model, state, expression.get("conditions", ())):
@@ -37,12 +61,12 @@ def state_value(model, state, expression):
     return value
 
 
-def compile_monitor(compiled, spec, *, max_query_states=5000):
+def compile_monitor(compiled, spec, *, max_query_states=5000, absent_rules=()):
     """Stages advance on matching events; abort is absorbing, never restarted.
 
     Advancement takes priority over abort for that event. This allows an event
     consuming high stored energy to finish a stage before its target is low.
-    Missing rule IDs in a selector are permitted for shared ablation queries.
+    Absent rule IDs must be explicitly declared for shared ablation queries.
     """
     compiled.require_complete()
     if spec.get("evidence_kind", "ordered_event_sequence") != "ordered_event_sequence":
@@ -56,6 +80,16 @@ def compile_monitor(compiled, spec, *, max_query_states=5000):
     stages = spec["stages"]
     if not stages:
         raise ValueError("A path witness needs at least one stage")
+    validate_selectors(
+        compiled.model,
+        [
+            selector
+            for stage in stages
+            for kind in ("advance", "abort")
+            for selector in stage.get(kind, ())
+        ],
+        absent_rules=absent_rules,
+    )
     n = len(compiled.states)
     phase_count = len(stages) + 2
     if n * phase_count > max_query_states:
@@ -120,7 +154,13 @@ def evaluate_monitor(monitor, initial, horizon):
     }
 
 
-def event_rewards(compiled, descriptors):
+def event_rewards(compiled, descriptors, *, absent_rules=()):
+    compiled.require_complete()
+    validate_selectors(
+        compiled.model,
+        [s for d in descriptors for s in d["selectors"]],
+        absent_rules=absent_rules,
+    )
     if descriptors and len(compiled.model.symmetry) > 1:
         raise ValueError(
             "Marked event readouts on a symmetry quotient require an equivariance audit"

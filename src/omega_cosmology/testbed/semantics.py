@@ -37,6 +37,17 @@ class PresentSpec(Record):
     hidden_root_provenance: str | None = None
     version: str = "1"
 
+    def content_fingerprint(self):
+        """Identity of conditioning, not its editable display name or prose."""
+        return fingerprint(
+            {
+                "roots": sorted(self.roots),
+                "conditioning": self.conditioning,
+                "section": self.section,
+                "hidden_root_provenance": self.hidden_root_provenance,
+            }
+        )
+
     def __post_init__(self):
         object.__setattr__(
             self, "roots", tuple((tuple(s), float(p)) for s, p in self.roots)
@@ -136,6 +147,7 @@ class ComparisonSpec(Record):
     invariance_status: str = "required_unproved"
     orientation: str = "adapter_forward"
     version: str = "1"
+    common_present_hash: str | None = None
 
     def __post_init__(self):
         if self.kind not in ("single_query", "preparation", "mechanism", "process"):
@@ -212,11 +224,135 @@ def validate_query(present, law, observation, comparison, quantity):
         raise ValueError("Present, observation and quantity conditioning disagree")
     if comparison.kind == "process" and comparison.common_present != present.id:
         raise ValueError("Process comparison uses a different present")
+    if (
+        comparison.kind == "process"
+        and comparison.common_present_hash != present.content_fingerprint()
+    ):
+        raise ValueError(
+            "Process query requires the actual common-present content hash"
+        )
     if law.adapter != "finite_local_ctmc":
         raise ValueError("This query adapter supports finite classical CTMCs only")
     return {
-        "status": "validated_contract",
+        "status": "validated_query_contract",
+        "comparison_status": "not_validated_without_both_arms",
+        "conservation_declaration": "descriptive_only_use_executable_model_inventory",
         "physical_sufficiency": "declared_not_empirically_proved",
         "model_hash": law.physical_model_hash,
         "quantity": quantity.id,
+    }
+
+
+def validate_comparison(comparison, left, right):
+    """Validate both executable arms, rather than trust matching prose.
+
+    Each arm supplies compiled, present, law, observation, quantity and its
+    own comparison/window. Current adapter requires a common named coordinate
+    grammar; coordinate renamings require an explicit future mapping adapter.
+    """
+    if comparison.kind == "single_query":
+        raise ValueError("A single query is not a paired comparison")
+    for arm in (left, right):
+        compiled = arm["compiled"]
+        compiled.require_complete()
+        validate_query(
+            arm["present"],
+            arm["law"],
+            arm["observation"],
+            arm["comparison"],
+            arm["quantity"],
+        )
+        if arm["law"].physical_model_hash != compiled.model_hash:
+            raise ValueError("Comparison arm does not execute its declared law")
+        window = arm["comparison"]
+        if (window.horizon, window.cadence, window.orientation) != (
+            comparison.horizon,
+            comparison.cadence,
+            comparison.orientation,
+        ):
+            raise ValueError("Comparison windows differ")
+        for root, _ in arm["present"].roots:
+            compiled.model.validate(root)
+            if compiled.model.canonical(root) not in compiled.index:
+                raise ValueError("Comparison root outside compiled law")
+        names = tuple(c.name for c in compiled.model.coordinates)
+        observed = arm["observation"]
+        if any(k not in names for k in observed.coordinates) or (
+            observed.scope == "whole_modeled_field"
+            and set(observed.coordinates) != set(names)
+        ):
+            raise ValueError(
+                "Comparison observation omits or invents physical coordinates"
+            )
+    for name in ("observation", "quantity"):
+        a, b = left[name].record(), right[name].record()
+        # Human-readable identity and description do not determine the quantity.
+        for k in ("id", "definition"):
+            a.pop(k, None)
+            b.pop(k, None)
+        if a != b:
+            raise ValueError("Comparison observations/quantities differ")
+    if left["law"].boundary != right["law"].boundary:
+        raise ValueError(
+            "Boundary prescriptions differ; not a matched-boundary comparison"
+        )
+    lp, rp = left["present"], right["present"]
+    lm, rm = left["compiled"].model, right["compiled"].model
+    if (lp.conditioning, lp.section, lp.hidden_root_provenance) != (
+        rp.conditioning,
+        rp.section,
+        rp.hidden_root_provenance,
+    ):
+        raise ValueError("Present conditioning differs")
+    if comparison.kind == "preparation":
+        if lm.fingerprint() != rm.fingerprint():
+            raise ValueError("A preparation contrast must use one law")
+    else:
+        if lp.content_fingerprint() != rp.content_fingerprint():
+            raise ValueError("Process/mechanism arms require the same physical present")
+        a, b = lm.record(), rm.record()
+        for k in ("id", "rules"):
+            a.pop(k)
+            b.pop(k)
+        if a != b:
+            raise ValueError(
+                "Physical grammar/endowment differs; explicit mapping required"
+            )
+
+    def endowments(model, present):
+        values = {}
+        for root, weight in present.roots:
+            key = (
+                str(model.energy(root)),
+                tuple(sorted(model.inventory(root).items())),
+            )
+            values[key] = values.get(key, 0.0) + weight
+        return values
+
+    a, b = endowments(lm, lp), endowments(rm, rp)
+    if a.keys() != b.keys() or any(abs(a[k] - b[k]) > 1e-12 for k in a):
+        raise ValueError("Energy/material endowment distributions differ")
+    if (
+        lm.material_status == "legacy_unverified"
+        or rm.material_status == "legacy_unverified"
+    ):
+        raise ValueError(
+            "Matched material claim needs executable inventory definitions"
+        )
+    if (
+        comparison.kind == "process"
+        and comparison.common_present_hash != lp.content_fingerprint()
+    ):
+        raise ValueError("Paired process has a different common present")
+    return {
+        "status": "validated_paired_comparison",
+        "kind": comparison.kind,
+        "left_model": lm.fingerprint(),
+        "right_model": rm.fingerprint(),
+        "left_present": lp.content_fingerprint(),
+        "right_present": rp.content_fingerprint(),
+        "process_enactment": "declared_requires_encompassing_process_audit"
+        if comparison.kind == "process"
+        else "not_a_process_contrast",
+        "scope": "Declared finite grammar/endowment checked; exterior cancellation and physical faithfulness not established",
     }

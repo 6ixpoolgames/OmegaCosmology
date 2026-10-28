@@ -2,7 +2,7 @@
 
 import math
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from hashlib import sha256
 from time import perf_counter
 
@@ -27,6 +27,48 @@ class Compilation:
         self.model_hash = self.model.fingerprint()
         self.state_order_hash = fingerprint(self.states)
         self.generator_hash = self._generator_hash()
+        self.ledger_hash = self._ledger_hash()
+        if self.complete:
+            self._audit_ledger()
+
+    def _ledger_hash(self):
+        return fingerprint([(i, j, asdict(e)) for i, j, e in self.ledger])
+
+    def _audit_ledger(self):
+        """The marked physical law must aggregate to the scored state law."""
+        entries = defaultdict(float)
+        for i, j, e in self.ledger:
+            if (
+                not 0 <= i < len(self.states)
+                or not 0 <= j < len(self.states)
+                or i == j
+                or not math.isfinite(e.rate)
+                or e.rate <= 0
+                or e.direction not in (-1, 1)
+                or self.model.canonical(e.target) != self.states[j]
+                or not all(math.isfinite(v) for v in (e.work, e.heat, e.delta_energy))
+            ):
+                raise ValueError("Invalid marked physical event ledger")
+            delta = float(
+                self.model.energy(self.states[j]) - self.model.energy(self.states[i])
+            )
+            if (
+                abs(delta - e.delta_energy) > 1e-12
+                or abs(e.work - e.heat - delta) > 1e-12
+            ):
+                raise ValueError("Event energy ledger disagrees with physical states")
+            entries[i, j] += e.rate
+            entries[i, i] -= e.rate
+        keys = tuple(entries)
+        aggregate = coo_matrix(
+            ([entries[k] for k in keys], ([k[0] for k in keys], [k[1] for k in keys])),
+            shape=self.q.shape,
+        ).tocsr()
+        error = aggregate - self.q
+        if max(abs(error.data), default=0) > 1e-12 * max(
+            1, max(abs(self.q.data), default=0)
+        ):
+            raise ValueError("Marked event ledger does not aggregate to generator")
 
     def _generator_hash(self):
         if self.q is None:
@@ -48,6 +90,7 @@ class Compilation:
             self.model.fingerprint() != self.model_hash
             or fingerprint(self.states) != self.state_order_hash
             or self._generator_hash() != self.generator_hash
+            or self._ledger_hash() != self.ledger_hash
             or self.index != {s: i for i, s in enumerate(self.states)}
         ):
             raise ValueError(

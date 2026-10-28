@@ -124,8 +124,16 @@ def hazard_access_world(*, barrier_conductance=0.02, beta=2.0):
         [E("1", "body.working"), E(".5", "body.bank"), E("1.5", "carrier")],
         beta=beta,
         material=[
-            {"id": "body_slot", "states": "working/damaged retained material"},
-            {"id": "carrier_slot", "states": "charged/spent retained carrier"},
+            {
+                "id": "body_slot",
+                "states": "working/damaged retained material",
+                "inventory": [{"coefficient": "1"}],
+            },
+            {
+                "id": "carrier_slot",
+                "states": "charged/spent retained carrier",
+                "inventory": [{"coefficient": "1"}],
+            },
         ],
     )
 

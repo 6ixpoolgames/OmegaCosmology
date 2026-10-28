@@ -15,6 +15,7 @@ def equilibrium(compiled):
 
 
 def source_off_matrix(compiled):
+    compiled.require_complete()
     q = compiled.q.copy().tolil()
     for i, j, e in compiled.ledger:
         if e.boundary != "native":
@@ -46,6 +47,7 @@ def free_energy(p, energies, log_g, beta):
 
 
 def flow_rewards(compiled):
+    compiled.require_complete()
     n = len(compiled.states)
     work, heat, jumps = np.zeros(n), np.zeros(n), np.zeros(n)
     channels = {}
@@ -62,7 +64,10 @@ def audit_equilibrium(compiled):
     compiled.require_complete()
     pi, _, _ = equilibrium(compiled)
     # Same states, remove registered source channels only; do not rebuild roots.
-    q = require_single_reference_sector(compiled)
+    from scipy.sparse.csgraph import connected_components
+
+    q = source_off_matrix(compiled)
+    sectors = connected_components(q, directed=True, connection="strong")[0]
     flux = q.multiply(pi[:, None])
     difference = flux - flux.T
     residual = float(max(abs(difference.data), default=0.0))
@@ -73,12 +78,24 @@ def audit_equilibrium(compiled):
         "status": "passed",
         "edge_flux_residual": residual,
         "stationary_residual": stationary,
-        "reference_scope": "Gibbs on the enumerated conserved/reachable sector; sector weights fixed",
+        "reference_sectors": sectors,
+        "availability_status": "supported"
+        if sectors == 1
+        else "unsupported_sector_weights",
+        "material_conservation": compiled.model.material_status,
+        "reference_scope": "Gibbs edge-balance reference on enumerated states; availability requires a single connected source-off sector",
     }
 
 
 def balance(compiled, initial, endpoint, occupation):
-    require_single_reference_sector(compiled)
+    from scipy.sparse.csgraph import connected_components
+
+    reference_ok = (
+        connected_components(
+            source_off_matrix(compiled), directed=True, connection="strong"
+        )[0]
+        == 1
+    )
     model = compiled.model
     pi, energies, log_g = equilibrium(compiled)
     f0, s0 = free_energy(initial, energies, log_g, model.beta)
@@ -106,10 +123,15 @@ def balance(compiled, initial, endpoint, occupation):
         "delta_energy": delta_e,
         "energy_residual": residual,
         "entropy_production": sigma,
-        "free_energy_excess_initial": f0 - feq,
-        "free_energy_excess_final": ft - feq,
-        "kl_availability": kl,
-        "availability_identity_residual": abs(kl - (ft - feq)),
+        "free_energy_excess_initial": f0 - feq if reference_ok else None,
+        "free_energy_excess_final": ft - feq if reference_ok else None,
+        "kl_availability": kl if reference_ok else None,
+        "availability_identity_residual": abs(kl - (ft - feq))
+        if reference_ok
+        else None,
+        "availability_status": "supported"
+        if reference_ok
+        else "unsupported_sector_weights",
         "expected_jumps": float(occupation @ nr),
         "integrated_channels": {k: float(occupation @ v) for k, v in channels.items()},
         "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work",

@@ -88,6 +88,9 @@ def two_event_monitor(compiled, initial, horizon, first, second):
     Selectors are (rule_id, direction); no reset/restart is performed.
     """
     compiled.require_complete()
+    from .query_validation import require_marked_identity
+
+    require_marked_identity(compiled)
     n = len(compiled.states)
     initial = validate_distribution(initial, n)
     entries = {}

@@ -1,0 +1,3447 @@
+{
+  "schema": "omega.r2-paid-cycle-control/1",
+  "spec": "research/platform/specs/R2_BANK_LOAD_CONTROL_r1.md",
+  "support_scripts": [
+    "scripts/write_r2_paid_cycle_plan.py"
+  ],
+  "test_files": [
+    "tests/test_paid_cycle.py"
+  ],
+  "snapshot_inputs": [
+    "research/platform/engineering/r2-transduction-2026-10-27/retained/EXECUTION_CASES.json"
+  ],
+  "control_id": "bank_load_candidate",
+  "cases": [
+    {
+      "id": "productive",
+      "parameters": {
+        "gated": false
+      },
+      "law": {
+        "id": "productive",
+        "model": {
+          "schema": "omega.local-model/1",
+          "id": "R2-fixed-thermal-paid-cycle-v1",
+          "beta": 1.0,
+          "coordinates": [
+            {
+              "name": "bank.ticks",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "energy",
+              "owner": "bank"
+            },
+            {
+              "name": "primary.state",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "resource",
+              "owner": "primary"
+            },
+            {
+              "name": "secondary.state",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "resource",
+              "owner": "secondary"
+            },
+            {
+              "name": "A.active",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "A"
+            },
+            {
+              "name": "products.precursor",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "products"
+            },
+            {
+              "name": "products.B",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "products"
+            },
+            {
+              "name": "products.C",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "products"
+            },
+            {
+              "name": "rotor.state",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "rotor",
+              "owner": "rotor"
+            }
+          ],
+          "rules": [
+            {
+              "id": "primary.source",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.08,
+              "work": "3",
+              "boundary": "work_source",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary.locked_bath",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary.usable_bath",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  2
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary.unlock",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.source",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.08,
+              "work": "3",
+              "boundary": "work_source",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.locked_bath",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.usable_bath",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  2
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.unlock",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "A.basal_build",
+              "guards": [
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "A.active",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.basal"
+              ],
+              "child": "A.active"
+            },
+            {
+              "id": "A.paid_build",
+              "guards": [
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                }
+              ],
+              "changes": [
+                [
+                  "A.active",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.paid"
+              ],
+              "child": "A.active"
+            },
+            {
+              "id": "A.unlock",
+              "guards": [
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.12,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "access.assisted"
+              ]
+            },
+            {
+              "id": "products.basal_B",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.B",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.basal"
+              ],
+              "child": "products.B"
+            },
+            {
+              "id": "products.paid_B",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.B",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.004,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.paid"
+              ],
+              "child": "products.B"
+            },
+            {
+              "id": "products.assisted_B",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.B",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.assisted"
+              ],
+              "parent": "A.active",
+              "child": "products.B"
+            },
+            {
+              "id": "products.basal_C",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.C",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.basal"
+              ],
+              "child": "products.C"
+            },
+            {
+              "id": "products.paid_C",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.C",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.004,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.paid"
+              ],
+              "child": "products.C"
+            },
+            {
+              "id": "products.assisted_C",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.C",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.assisted"
+              ],
+              "parent": "A.active",
+              "child": "products.C"
+            },
+            {
+              "id": "primary_capture.capture",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  -2
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary_capture.assisted_capture",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  -2
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.06,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "capture.assisted"
+              ]
+            },
+            {
+              "id": "secondary_capture.capture",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  -2
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary_access.transduce",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.12,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "access.transduction"
+              ]
+            },
+            {
+              "id": "rotor.stroke",
+              "guards": [
+                {
+                  "coordinate": "rotor.state",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "rotor.state",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "churn.paid",
+                "rotor.charge"
+              ]
+            },
+            {
+              "id": "rotor.reset",
+              "guards": [
+                {
+                  "coordinate": "rotor.state",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "rotor.state",
+                  -1
+                ],
+                [
+                  "bank.ticks",
+                  -1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "churn.paid",
+                "rotor.reset"
+              ]
+            },
+            {
+              "id": "rotor.relax",
+              "guards": [
+                {
+                  "coordinate": "rotor.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "rotor.state",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "churn.thermal"
+              ]
+            }
+          ],
+          "energy_terms": [
+            {
+              "coefficient": ".5",
+              "coordinate": "bank.ticks",
+              "conditions": []
+            },
+            {
+              "coefficient": "3",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "coefficient": "2",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "coefficient": "3",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "coefficient": "2",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "A.active",
+              "conditions": []
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "products.B",
+              "conditions": []
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "products.C",
+              "conditions": []
+            },
+            {
+              "coefficient": ".25",
+              "coordinate": "rotor.state",
+              "conditions": []
+            }
+          ],
+          "forbidden": [
+            [
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.C",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "products.precursor",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "products.precursor",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.C",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "products.precursor",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "products.C",
+                "operator": "eq",
+                "value": 0
+              }
+            ]
+          ],
+          "degeneracy": [],
+          "symmetry": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          ],
+          "relations": [],
+          "material": [
+            {
+              "id": "primary.carrier",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "secondary.carrier",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "A.slot",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "products.shared_precursor",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": "products.precursor",
+                  "conditions": []
+                },
+                {
+                  "coefficient": "1",
+                  "coordinate": "products.B",
+                  "conditions": []
+                },
+                {
+                  "coefficient": "1",
+                  "coordinate": "products.C",
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "rotor.slot",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            }
+          ]
+        },
+        "absent_query_rules": []
+      },
+      "protocol": {
+        "id": "R2-fixed-thermal-paid-cycle",
+        "preparations": [
+          {
+            "id": "common_unbuilt",
+            "roots": [
+              [
+                [
+                  2,
+                  1,
+                  1,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present"
+          }
+        ],
+        "energy_per_root": "7",
+        "coordinate_order": [
+          "bank.ticks",
+          "primary.state",
+          "secondary.state",
+          "A.active",
+          "products.precursor",
+          "products.B",
+          "products.C",
+          "rotor.state"
+        ],
+        "horizons": [
+          4,
+          16,
+          64
+        ],
+        "cadences": [
+          0.25,
+          0.5
+        ],
+        "max_states": 400,
+        "max_dense_bytes": 67108864,
+        "validation_mode": "sampled_endpoint_crosscheck",
+        "sufficiency": "All distinct constituent, precursor, rotor, carrier and bank states; fixed native Markov law",
+        "boundary_scope": {
+          "bath_beta": 1,
+          "sources": {
+            "primary": {
+              "work": "3",
+              "conductance": 0.08
+            },
+            "secondary": {
+              "work": "3",
+              "conductance": 0.08
+            }
+          },
+          "exterior": "bath and source histories unresolved"
+        },
+        "conserved": [
+          "A material slot",
+          "shared B/C precursor",
+          "two carriers",
+          "rotor material slot"
+        ],
+        "observables": [
+          {
+            "id": "A.active",
+            "terms": [
+              [
+                "A.active",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "products.B",
+            "terms": [
+              [
+                "products.B",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "products.C",
+            "terms": [
+              [
+                "products.C",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "bank.ticks",
+            "terms": [
+              [
+                "bank.ticks",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "rotor.state",
+            "terms": [
+              [
+                "rotor.state",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "A_and_B",
+            "constant": 1,
+            "conditions": [
+              {
+                "coordinate": "A.active",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "event_readouts": [
+          {
+            "id": "A_paid.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "A.paid_build"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "A_paid.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "A.paid_build"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "A_basal.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "A.basal_build"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "A_basal.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "A.basal_build"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "B_paid.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.paid_B"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "B_paid.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.paid_B"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "B_basal.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.basal_B"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "B_basal.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.basal_B"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "B_assisted.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_B"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "B_assisted.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_B"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "C_assisted.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_C"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "C_assisted.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_C"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "secondary_access.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_access.transduce"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "secondary_access.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_access.transduce"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "primary_access.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "A.unlock"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "primary_access.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "A.unlock"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "primary_capture.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.capture"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "primary_capture.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.capture"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "C_capture.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.assisted_capture"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "C_capture.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.assisted_capture"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "secondary_capture.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_capture.capture"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "secondary_capture.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_capture.capture"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "rotor_stroke.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.stroke"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "rotor_stroke.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.stroke"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "rotor_relax.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.relax"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "rotor_relax.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.relax"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "rotor_reset.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.reset"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "rotor_reset.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.reset"
+                ],
+                "direction": -1
+              }
+            ]
+          }
+        ],
+        "monitors": [
+          {
+            "id": "paid_connected_chain",
+            "stages": [
+              {
+                "name": "build_A",
+                "advance": [
+                  {
+                    "rules": [
+                      "A.paid_build"
+                    ],
+                    "direction": 1
+                  }
+                ]
+              },
+              {
+                "name": "A_builds_B",
+                "advance": [
+                  {
+                    "rules": [
+                      "products.assisted_B"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "A.active",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "B_unlocks",
+                "advance": [
+                  {
+                    "rules": [
+                      "secondary_access.transduce"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "products.B",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "capture_release",
+                "advance": [
+                  {
+                    "rules": [
+                      "secondary_capture.capture"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "products.B",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  {
+                    "target": [
+                      {
+                        "coordinate": "secondary.state",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  {
+                    "target": [
+                      {
+                        "coordinate": "secondary.state",
+                        "operator": "eq",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "first_paid_cycle",
+            "stages": [
+              {
+                "name": "charge",
+                "advance": [
+                  {
+                    "rules": [
+                      "rotor.stroke"
+                    ],
+                    "direction": 1
+                  }
+                ]
+              },
+              {
+                "name": "reset",
+                "advance": [
+                  {
+                    "rules": [
+                      "rotor.reset"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "rotor.state",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "structural_analysis": {
+          "organizations": [
+            {
+              "id": "both_interfaces",
+              "definition": "A and B physically present",
+              "coordinates": [
+                "A.active",
+                "products.B"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "A.active",
+                    "operator": "eq",
+                    "value": 1
+                  },
+                  {
+                    "coordinate": "products.B",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        "numerical": {
+          "kernel_agreement_tolerance": 1e-10,
+          "independent_history_tolerance": 1e-08
+        },
+        "scope": "Finite construction/access mechanisms; no thermal spatial baseline, packet provenance, optimal policy or ethical verdict"
+      },
+      "bindings": [
+        {
+          "module": "energy_bank",
+          "namespace": "bank",
+          "ports": {}
+        },
+        {
+          "module": "metastable_carrier",
+          "namespace": "primary",
+          "ports": {}
+        },
+        {
+          "module": "metastable_carrier",
+          "namespace": "secondary",
+          "ports": {}
+        },
+        {
+          "module": "first_interface",
+          "namespace": "A",
+          "ports": {
+            "bank": "bank.ticks",
+            "fuel": "primary.state"
+          }
+        },
+        {
+          "module": "competing_products",
+          "namespace": "products",
+          "ports": {
+            "bank": "bank.ticks",
+            "helper": "A.active"
+          }
+        },
+        {
+          "module": "capture",
+          "namespace": "primary_capture",
+          "ports": {
+            "bank": "bank.ticks",
+            "fuel": "primary.state",
+            "helper": "products.C"
+          }
+        },
+        {
+          "module": "capture",
+          "namespace": "secondary_capture",
+          "ports": {
+            "bank": "bank.ticks",
+            "fuel": "secondary.state"
+          }
+        },
+        {
+          "module": "second_access",
+          "namespace": "secondary_access",
+          "ports": {
+            "fuel": "secondary.state",
+            "helper": "products.B",
+            "bank": "bank.ticks"
+          }
+        },
+        {
+          "module": "paid_two_stroke_rotor",
+          "namespace": "rotor",
+          "ports": {
+            "bank": "bank.ticks"
+          }
+        }
+      ]
+    },
+    {
+      "id": "no_secondary_access",
+      "parameters": {
+        "access": false,
+        "gated": false
+      },
+      "law": {
+        "id": "no_secondary_access",
+        "model": {
+          "schema": "omega.local-model/1",
+          "id": "R2-fixed-thermal-paid-cycle-v1",
+          "beta": 1.0,
+          "coordinates": [
+            {
+              "name": "bank.ticks",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "energy",
+              "owner": "bank"
+            },
+            {
+              "name": "primary.state",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "resource",
+              "owner": "primary"
+            },
+            {
+              "name": "secondary.state",
+              "domain": [
+                0,
+                1,
+                2
+              ],
+              "role": "resource",
+              "owner": "secondary"
+            },
+            {
+              "name": "A.active",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "A"
+            },
+            {
+              "name": "products.precursor",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "products"
+            },
+            {
+              "name": "products.B",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "products"
+            },
+            {
+              "name": "products.C",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "material_state",
+              "owner": "products"
+            },
+            {
+              "name": "rotor.state",
+              "domain": [
+                0,
+                1
+              ],
+              "role": "rotor",
+              "owner": "rotor"
+            }
+          ],
+          "rules": [
+            {
+              "id": "primary.source",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.08,
+              "work": "3",
+              "boundary": "work_source",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary.locked_bath",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary.usable_bath",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  2
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary.unlock",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.source",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.08,
+              "work": "3",
+              "boundary": "work_source",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.locked_bath",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.usable_bath",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  2
+                ]
+              ],
+              "conductance": 0.002,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "secondary.unlock",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.02,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "A.basal_build",
+              "guards": [
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "A.active",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.basal"
+              ],
+              "child": "A.active"
+            },
+            {
+              "id": "A.paid_build",
+              "guards": [
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                }
+              ],
+              "changes": [
+                [
+                  "A.active",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.paid"
+              ],
+              "child": "A.active"
+            },
+            {
+              "id": "A.unlock",
+              "guards": [
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  1
+                ]
+              ],
+              "conductance": 0.12,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "access.assisted"
+              ]
+            },
+            {
+              "id": "products.basal_B",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.B",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.basal"
+              ],
+              "child": "products.B"
+            },
+            {
+              "id": "products.paid_B",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.B",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.004,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.paid"
+              ],
+              "child": "products.B"
+            },
+            {
+              "id": "products.assisted_B",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.B",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.B",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.assisted"
+              ],
+              "parent": "A.active",
+              "child": "products.B"
+            },
+            {
+              "id": "products.basal_C",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.C",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.basal"
+              ],
+              "child": "products.C"
+            },
+            {
+              "id": "products.paid_C",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.C",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.004,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.paid"
+              ],
+              "child": "products.C"
+            },
+            {
+              "id": "products.assisted_C",
+              "guards": [
+                {
+                  "coordinate": "products.precursor",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 2
+                },
+                {
+                  "coordinate": "A.active",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "products.precursor",
+                  -1
+                ],
+                [
+                  "products.C",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -2
+                ]
+              ],
+              "conductance": 0.04,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "construction.assisted"
+              ],
+              "parent": "A.active",
+              "child": "products.C"
+            },
+            {
+              "id": "primary_capture.capture",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  -2
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "primary_capture.assisted_capture",
+              "guards": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                },
+                {
+                  "coordinate": "products.C",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "primary.state",
+                  -2
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.06,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "capture.assisted"
+              ]
+            },
+            {
+              "id": "secondary_capture.capture",
+              "guards": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 2
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "le",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "secondary.state",
+                  -2
+                ],
+                [
+                  "bank.ticks",
+                  1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified"
+            },
+            {
+              "id": "rotor.stroke",
+              "guards": [
+                {
+                  "coordinate": "rotor.state",
+                  "operator": "eq",
+                  "value": 0
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "rotor.state",
+                  1
+                ],
+                [
+                  "bank.ticks",
+                  -1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "churn.paid",
+                "rotor.charge"
+              ]
+            },
+            {
+              "id": "rotor.reset",
+              "guards": [
+                {
+                  "coordinate": "rotor.state",
+                  "operator": "eq",
+                  "value": 1
+                },
+                {
+                  "coordinate": "bank.ticks",
+                  "operator": "ge",
+                  "value": 1
+                }
+              ],
+              "changes": [
+                [
+                  "rotor.state",
+                  -1
+                ],
+                [
+                  "bank.ticks",
+                  -1
+                ]
+              ],
+              "conductance": 0.01,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "churn.paid",
+                "rotor.reset"
+              ]
+            },
+            {
+              "id": "rotor.relax",
+              "guards": [
+                {
+                  "coordinate": "rotor.state",
+                  "operator": "eq",
+                  "value": 0
+                }
+              ],
+              "changes": [
+                [
+                  "rotor.state",
+                  1
+                ]
+              ],
+              "conductance": 0.003,
+              "work": "0",
+              "boundary": "native",
+              "support": [],
+              "mechanism": "unspecified",
+              "roles": [
+                "churn.thermal"
+              ]
+            }
+          ],
+          "energy_terms": [
+            {
+              "coefficient": ".5",
+              "coordinate": "bank.ticks",
+              "conditions": []
+            },
+            {
+              "coefficient": "3",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "coefficient": "2",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "primary.state",
+                  "operator": "eq",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "coefficient": "3",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "coefficient": "2",
+              "coordinate": null,
+              "conditions": [
+                {
+                  "coordinate": "secondary.state",
+                  "operator": "eq",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "A.active",
+              "conditions": []
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "products.B",
+              "conditions": []
+            },
+            {
+              "coefficient": ".5",
+              "coordinate": "products.C",
+              "conditions": []
+            },
+            {
+              "coefficient": ".25",
+              "coordinate": "rotor.state",
+              "conditions": []
+            }
+          ],
+          "forbidden": [
+            [
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.C",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "products.precursor",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "products.precursor",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.C",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            [
+              {
+                "coordinate": "products.precursor",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "products.C",
+                "operator": "eq",
+                "value": 0
+              }
+            ]
+          ],
+          "degeneracy": [],
+          "symmetry": [
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          ],
+          "relations": [],
+          "material": [
+            {
+              "id": "primary.carrier",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "secondary.carrier",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "A.slot",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "products.shared_precursor",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": "products.precursor",
+                  "conditions": []
+                },
+                {
+                  "coefficient": "1",
+                  "coordinate": "products.B",
+                  "conditions": []
+                },
+                {
+                  "coefficient": "1",
+                  "coordinate": "products.C",
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            },
+            {
+              "id": "rotor.slot",
+              "inventory": [
+                {
+                  "coefficient": "1",
+                  "coordinate": null,
+                  "conditions": []
+                }
+              ],
+              "exchange_by_rule": {}
+            }
+          ]
+        },
+        "absent_query_rules": [
+          "secondary_access.transduce"
+        ]
+      },
+      "protocol": {
+        "id": "R2-fixed-thermal-paid-cycle",
+        "preparations": [
+          {
+            "id": "common_unbuilt",
+            "roots": [
+              [
+                [
+                  2,
+                  1,
+                  1,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                1.0
+              ]
+            ],
+            "conditioning": "full_present"
+          }
+        ],
+        "energy_per_root": "7",
+        "coordinate_order": [
+          "bank.ticks",
+          "primary.state",
+          "secondary.state",
+          "A.active",
+          "products.precursor",
+          "products.B",
+          "products.C",
+          "rotor.state"
+        ],
+        "horizons": [
+          4,
+          16,
+          64
+        ],
+        "cadences": [
+          0.25,
+          0.5
+        ],
+        "max_states": 400,
+        "max_dense_bytes": 67108864,
+        "validation_mode": "sampled_endpoint_crosscheck",
+        "sufficiency": "All distinct constituent, precursor, rotor, carrier and bank states; fixed native Markov law",
+        "boundary_scope": {
+          "bath_beta": 1,
+          "sources": {
+            "primary": {
+              "work": "3",
+              "conductance": 0.08
+            },
+            "secondary": {
+              "work": "3",
+              "conductance": 0.08
+            }
+          },
+          "exterior": "bath and source histories unresolved"
+        },
+        "conserved": [
+          "A material slot",
+          "shared B/C precursor",
+          "two carriers",
+          "rotor material slot"
+        ],
+        "observables": [
+          {
+            "id": "A.active",
+            "terms": [
+              [
+                "A.active",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "products.B",
+            "terms": [
+              [
+                "products.B",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "products.C",
+            "terms": [
+              [
+                "products.C",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "bank.ticks",
+            "terms": [
+              [
+                "bank.ticks",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "rotor.state",
+            "terms": [
+              [
+                "rotor.state",
+                1
+              ]
+            ]
+          },
+          {
+            "id": "A_and_B",
+            "constant": 1,
+            "conditions": [
+              {
+                "coordinate": "A.active",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "products.B",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "event_readouts": [
+          {
+            "id": "A_paid.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "A.paid_build"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "A_paid.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "A.paid_build"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "A_basal.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "A.basal_build"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "A_basal.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "A.basal_build"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "B_paid.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.paid_B"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "B_paid.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.paid_B"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "B_basal.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.basal_B"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "B_basal.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.basal_B"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "B_assisted.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_B"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "B_assisted.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_B"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "C_assisted.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_C"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "C_assisted.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "products.assisted_C"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "secondary_access.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_access.transduce"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "secondary_access.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_access.transduce"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "primary_access.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "A.unlock"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "primary_access.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "A.unlock"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "primary_capture.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.capture"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "primary_capture.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.capture"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "C_capture.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.assisted_capture"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "C_capture.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "primary_capture.assisted_capture"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "secondary_capture.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_capture.capture"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "secondary_capture.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "secondary_capture.capture"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "rotor_stroke.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.stroke"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "rotor_stroke.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.stroke"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "rotor_relax.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.relax"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "rotor_relax.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.relax"
+                ],
+                "direction": -1
+              }
+            ]
+          },
+          {
+            "id": "rotor_reset.forward",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.reset"
+                ],
+                "direction": 1
+              }
+            ]
+          },
+          {
+            "id": "rotor_reset.reverse",
+            "selectors": [
+              {
+                "rules": [
+                  "rotor.reset"
+                ],
+                "direction": -1
+              }
+            ]
+          }
+        ],
+        "monitors": [
+          {
+            "id": "paid_connected_chain",
+            "stages": [
+              {
+                "name": "build_A",
+                "advance": [
+                  {
+                    "rules": [
+                      "A.paid_build"
+                    ],
+                    "direction": 1
+                  }
+                ]
+              },
+              {
+                "name": "A_builds_B",
+                "advance": [
+                  {
+                    "rules": [
+                      "products.assisted_B"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "A.active",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "B_unlocks",
+                "advance": [
+                  {
+                    "rules": [
+                      "secondary_access.transduce"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "products.B",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "capture_release",
+                "advance": [
+                  {
+                    "rules": [
+                      "secondary_capture.capture"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "products.B",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  {
+                    "target": [
+                      {
+                        "coordinate": "secondary.state",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  {
+                    "target": [
+                      {
+                        "coordinate": "secondary.state",
+                        "operator": "eq",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "first_paid_cycle",
+            "stages": [
+              {
+                "name": "charge",
+                "advance": [
+                  {
+                    "rules": [
+                      "rotor.stroke"
+                    ],
+                    "direction": 1
+                  }
+                ]
+              },
+              {
+                "name": "reset",
+                "advance": [
+                  {
+                    "rules": [
+                      "rotor.reset"
+                    ],
+                    "direction": 1
+                  }
+                ],
+                "abort": [
+                  {
+                    "target": [
+                      {
+                        "coordinate": "rotor.state",
+                        "operator": "eq",
+                        "value": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "structural_analysis": {
+          "organizations": [
+            {
+              "id": "both_interfaces",
+              "definition": "A and B physically present",
+              "coordinates": [
+                "A.active",
+                "products.B"
+              ],
+              "functional_any_of": [
+                [
+                  {
+                    "coordinate": "A.active",
+                    "operator": "eq",
+                    "value": 1
+                  },
+                  {
+                    "coordinate": "products.B",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        "numerical": {
+          "kernel_agreement_tolerance": 1e-10,
+          "independent_history_tolerance": 1e-08
+        },
+        "scope": "Finite construction/access mechanisms; no thermal spatial baseline, packet provenance, optimal policy or ethical verdict"
+      },
+      "bindings": [
+        {
+          "module": "energy_bank",
+          "namespace": "bank",
+          "ports": {}
+        },
+        {
+          "module": "metastable_carrier",
+          "namespace": "primary",
+          "ports": {}
+        },
+        {
+          "module": "metastable_carrier",
+          "namespace": "secondary",
+          "ports": {}
+        },
+        {
+          "module": "first_interface",
+          "namespace": "A",
+          "ports": {
+            "bank": "bank.ticks",
+            "fuel": "primary.state"
+          }
+        },
+        {
+          "module": "competing_products",
+          "namespace": "products",
+          "ports": {
+            "bank": "bank.ticks",
+            "helper": "A.active"
+          }
+        },
+        {
+          "module": "capture",
+          "namespace": "primary_capture",
+          "ports": {
+            "bank": "bank.ticks",
+            "fuel": "primary.state",
+            "helper": "products.C"
+          }
+        },
+        {
+          "module": "capture",
+          "namespace": "secondary_capture",
+          "ports": {
+            "bank": "bank.ticks",
+            "fuel": "secondary.state"
+          }
+        },
+        {
+          "module": "second_access",
+          "namespace": "secondary_access",
+          "ports": {
+            "fuel": "secondary.state",
+            "helper": "products.B",
+            "bank": "bank.ticks"
+          }
+        },
+        {
+          "module": "paid_two_stroke_rotor",
+          "namespace": "rotor",
+          "ports": {
+            "bank": "bank.ticks"
+          }
+        }
+      ]
+    }
+  ],
+  "cadences": [
+    0.25,
+    0.5
+  ],
+  "physical_diagnostics": {
+    "bank_coordinate": "bank.ticks",
+    "paid_role": "churn.paid",
+    "thermal_role": "churn.thermal"
+  },
+  "calibration": {
+    "horizon": 64,
+    "target": "productive",
+    "control": "no_secondary_access",
+    "bounds": {
+      "charge": [
+        1e-05,
+        0.5
+      ],
+      "reset": [
+        1e-05,
+        0.5
+      ]
+    },
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 0.001,
+    "fit_evaluations": 24
+  },
+  "caps": {
+    "seconds": 900,
+    "memory_bytes": 1073741824,
+    "output_bytes": 67108864
+  },
+  "control_parameters": {
+    "gated": false
+  },
+  "require_net_paying_control_before_history": true
+}

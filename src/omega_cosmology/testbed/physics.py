@@ -82,11 +82,19 @@ class Rule:
     boundary: str = "native"
     support: tuple[str, ...] = ()
     mechanism: str = "unspecified"
+    roles: tuple[str, ...] = ()
+    parent: str | None = None
+    child: str | None = None
 
     def __post_init__(self):
         object.__setattr__(self, "guards", tuple(self.guards))
         object.__setattr__(self, "changes", tuple(tuple(x) for x in self.changes))
         object.__setattr__(self, "support", tuple(self.support))
+        object.__setattr__(self, "roles", tuple(self.roles))
+        if len(set(self.roles)) != len(self.roles) or any(
+            not isinstance(v, str) or not v for v in self.roles
+        ):
+            raise ValueError("Rule roles must be distinct nonempty names")
         if (
             not self.id
             or not self.changes
@@ -130,6 +138,7 @@ class LocalModel:
         symmetry=(),
         relations=(),
         material=(),
+        legacy_material=False,
     ):
         self.id = id
         self.coordinates = tuple(coordinates)
@@ -140,6 +149,8 @@ class LocalModel:
         self.degeneracy_terms = tuple(degeneracy)
         self.relations = tuple(relations)
         self.material = tuple(material)
+        self.material_status = "not_declared" if not material else "executable"
+        self._inventories = {}
         self.indices = {c.name: i for i, c in enumerate(self.coordinates)}
         self.domains = tuple(frozenset(c.domain) for c in self.coordinates)
         n = len(self.coordinates)
@@ -176,6 +187,77 @@ class LocalModel:
                 raise ValueError("Energy/degeneracy references an unknown coordinate")
         for pattern in self.forbidden:
             self._validate_conditions(pattern)
+        material_ids = set()
+        for item in self.material:
+            name = item.get("id")
+            if not name or name in material_ids:
+                raise ValueError("Material declarations require distinct IDs")
+            material_ids.add(name)
+            if "inventory" not in item:
+                if not legacy_material:
+                    raise ValueError(
+                        "Material conservation requires an executable inventory; prose is not a constraint"
+                    )
+                self.material_status = "legacy_unverified"
+                continue
+            terms = tuple(
+                EnergyTerm(
+                    t["coefficient"],
+                    t.get("coordinate"),
+                    tuple(Condition(**c) for c in t.get("conditions", ())),
+                )
+                for t in item["inventory"]
+            )
+            for term in terms:
+                self._validate_conditions(term.conditions)
+                if term.coordinate and term.coordinate not in self.indices:
+                    raise ValueError("Inventory references unknown coordinate")
+            exchanges = item.get("exchange_by_rule", {})
+            known = {r.id: r for r in self.rules}
+            if any(k not in known or known[k].boundary == "native" for k in exchanges):
+                raise ValueError("Material exchange requires a declared boundary rule")
+            self._inventories[name] = (
+                terms,
+                {k: rational(v) for k, v in exchanges.items()},
+            )
+        for rule in self.rules:
+            if rule.parent is not None or rule.child is not None:
+                guards = {(c.coordinate, c.operator, c.value) for c in rule.guards}
+                changes = dict(rule.changes)
+                if (
+                    rule.child not in self.indices
+                    or changes.get(rule.child) != 1
+                    or (rule.child, "eq", 0) not in guards
+                ):
+                    raise ValueError(
+                        "Construction role requires an absent child and a birth"
+                    )
+                if rule.parent is not None and (
+                    rule.parent not in self.indices
+                    or rule.parent == rule.child
+                    or rule.parent in changes
+                    or (rule.parent, "eq", 1) not in guards
+                ):
+                    raise ValueError(
+                        "Assistance role requires a present, preserved parent"
+                    )
+
+    def inventory(self, state):
+        self.validate(state)
+        return {
+            k: str(self._value(state, terms))
+            for k, (terms, _) in self._inventories.items()
+        }
+
+    def audit_material_pair(self, rule, source, target):
+        for name, (terms, exchanges) in self._inventories.items():
+            before, after = self._value(source, terms), self._value(target, terms)
+            if (
+                before < 0
+                or after < 0
+                or after - before != exchanges.get(rule.id, Fraction())
+            ):
+                raise ValueError(f"Rule {rule.id} violates material inventory {name}")
 
     def _validate_conditions(self, conditions):
         if any(
@@ -200,6 +282,10 @@ class LocalModel:
             raise ValueError(
                 "State violates its declared physical domains or constraints"
             )
+        if any(
+            self._value(state, terms) < 0 for terms, _ in self._inventories.values()
+        ):
+            raise ValueError("State has a negative material inventory")
 
     def _value(self, state, terms):
         return sum(
@@ -251,6 +337,7 @@ class LocalModel:
         return tuple(c.name for c in self.coordinates if c.name in dependencies)
 
     def pair_rates(self, rule, source, target):
+        self.audit_material_pair(rule, source, target)
         delta = self.energy(target) - self.energy(source)
         lr = (
             self.log_degeneracy(target)
@@ -326,10 +413,11 @@ class LocalModel:
             self.validate(s)
             if (
                 self.energy(s) != self.energy(state)
+                or self.inventory(s) != self.inventory(state)
                 or abs(self.log_degeneracy(s) - self.log_degeneracy(state)) > 1e-12
             ):
                 raise ValueError(
-                    "Declared symmetry changes physical energy or degeneracy"
+                    "Declared symmetry changes physical energy, material or degeneracy"
                 )
             actual = signature(s)
             if expected.keys() != actual.keys() or any(
@@ -341,12 +429,19 @@ class LocalModel:
                 )
 
     def record(self):
+        def rule_record(rule):
+            row = asdict(rule)
+            for key in ("roles", "parent", "child"):
+                if not row[key]:
+                    row.pop(key)
+            return row
+
         return {
             "schema": "omega.local-model/1",
             "id": self.id,
             "beta": self.beta,
             "coordinates": [asdict(c) for c in self.coordinates],
-            "rules": [asdict(r) for r in self.rules],
+            "rules": [rule_record(r) for r in self.rules],
             "energy_terms": [asdict(t) for t in self.energy_terms],
             "forbidden": [[asdict(c) for c in p] for p in self.forbidden],
             "degeneracy": [asdict(t) for t in self.degeneracy_terms],
@@ -384,4 +479,5 @@ class LocalModel:
             symmetry=value.get("symmetry", ()),
             relations=value.get("relations", ()),
             material=value.get("material", ()),
+            legacy_material=True,
         )

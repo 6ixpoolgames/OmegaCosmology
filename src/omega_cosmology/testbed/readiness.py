@@ -129,6 +129,7 @@ def readiness_world(
                 (("body.cue", 1), ("body.bank", -scale)),
                 0.02 * (16 if opened else 1),
                 mechanism="bank-paid observation, faster at an open barrier; reverse retained",
+                roles=("register.cue",),
             ),
             Rule(
                 f"cue_reset_{opened}",
@@ -136,15 +137,23 @@ def readiness_world(
                 (("body.cue", -1), ("body.bank", -scale)),
                 0.02 * (1 if opened else 16),
                 mechanism="bank-paid cue reset; stale and false cues remain possible",
+                roles=("register.cue",),
             ),
         ]
     rules += [
-        Rule("cue_relax", (C("body.cue", "eq", 1),), (("body.cue", -1),), 0.0001),
+        Rule(
+            "cue_relax",
+            (C("body.cue", "eq", 1),),
+            (("body.cue", -1),),
+            0.0001,
+            roles=("register.cue",),
+        ),
         Rule(
             "cue_upkeep",
             (C("body.cue", "eq", 1), C("body.bank", "ge", scale)),
             (("body.bank", -scale),),
             0.002,
+            roles=("register.cue",),
         ),
     ]
     response_guard = (
@@ -165,6 +174,7 @@ def readiness_world(
                     (("body.location", 1), ("body.bank", -effort)),
                     0.08,
                     mechanism="funded warning response below declared physical memory threshold",
+                    roles=("response.attempt",),
                 )
             )
             writing = count < failure_limit
@@ -184,6 +194,7 @@ def readiness_world(
                     changes,
                     0.08 * (1 - effort_damage_weight),
                     mechanism="failed attempt pays effort and unsaturated physical memory; reverse can undo both",
+                    roles=("response.attempt",),
                 )
             )
             if effort_damage_weight:
@@ -194,6 +205,7 @@ def readiness_world(
                         changes + (("body.working", -1),),
                         0.08 * effort_damage_weight,
                         mechanism="distinct paid effort outcome damages repairable apparatus; native reverse retained",
+                        roles=("response.attempt",),
                     )
                 )
     if policy == "reengage":
@@ -210,6 +222,7 @@ def readiness_world(
                     (("body.failures", -1), ("body.bank", -scale)),
                     0.12,
                     mechanism="cue-dependent mark clearing pays reserve, not an oracle reset",
+                    roles=("register.cue",),
                 )
             )
     return LocalModel(

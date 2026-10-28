@@ -126,6 +126,8 @@ def autocatalytic_ecology(
                     ((field, 1),),
                     basal_conductance,
                     mechanism="native construction and bank-independent thermal breakdown",
+                    roles=("construction.basal",),
+                    child=field,
                 ),
                 Rule(
                     "paid_construct_" + field,
@@ -133,6 +135,8 @@ def autocatalytic_ecology(
                     ((field, 1), (bank, -construction_bill_ticks)),
                     repair_conductance,
                     mechanism="paid reconstruction with formation energy and heat accounted",
+                    roles=("construction.paid",),
+                    child=field,
                 ),
             ]
         for parent, child in zip(fields, fields[1:] + fields[:1]):
@@ -155,6 +159,7 @@ def autocatalytic_ecology(
                 (("carrier", -2), (bank, 1)),
                 assisted_capture_conductance,
                 mechanism="constructed local interface assists access; native route stays",
+                roles=("capture.assisted",),
             ),
         ]
         relations.append(
@@ -170,6 +175,7 @@ def autocatalytic_ecology(
             {
                 "id": name + ".slots",
                 "quantity": len(fields),
+                "inventory": [{"coefficient": str(len(fields))}],
                 "conservation": "fixed distinct material slots, precursor or constructed",
             }
         )
@@ -194,6 +200,9 @@ def autocatalytic_ecology(
                 ((child, 1), (bank, -construction_bill_ticks)),
                 assistance_conductance,
                 mechanism="native marked parent assists paid construction; paired reverse retained",
+                roles=("construction.assisted",),
+                parent=parent,
+                child=child,
             )
         )
     coords.append(Coordinate("carrier", (0, 1, 2), "shared_resource"))
@@ -226,6 +235,7 @@ def autocatalytic_ecology(
             {
                 "id": "shared_carrier",
                 "quantity": 1,
+                "inventory": [{"coefficient": "1"}],
                 "conservation": "one carrier switches state; no extra matter",
             }
         ],
@@ -237,16 +247,14 @@ def assistance_spec(model, fields, *, depth_cap=3):
     fields = list(fields)
     edges = []
     for rule in model.rules:
-        if not rule.id.startswith("assisted_construct_"):
+        if "construction.assisted" not in rule.roles:
             continue
-        children = [k for k, delta in rule.changes if k in fields and delta == 1]
-        parents = [
-            c.coordinate
-            for c in rule.guards
-            if c.coordinate in fields and c.operator == "eq" and c.value == 1
-        ]
-        if len(children) == len(parents) == 1:
-            edges.append({"rule": rule.id, "parent": parents[0], "child": children[0]})
+        if rule.parent in fields and rule.child in fields:
+            edges.append({"rule": rule.id, "parent": rule.parent, "child": rule.child})
+    if not edges:
+        raise ValueError(
+            "No explicit assisted-construction roles in the requested fields; migrate legacy metadata explicitly"
+        )
     return {
         "id": "construction_depth",
         "presence_coordinates": fields,

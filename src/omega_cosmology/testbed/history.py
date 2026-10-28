@@ -1,8 +1,45 @@
 """Small exact-reference queries; every exponential allocation has a size gate."""
 
+from hashlib import sha256
+
 import numpy as np
 from scipy.linalg import expm
 from scipy.sparse.linalg import expm_multiply
+
+
+class EvaluationContext:
+    """Reusable numerical artifacts bound to one validated physical compilation."""
+
+    def __init__(self, compiled, cadence, *, max_dense_bytes=32 * 1024**2):
+        self.compiled = compiled
+        self.cadence = cadence
+        self.kernel = sampled_kernel(compiled, cadence, max_dense_bytes=max_dense_bytes)
+        self.kernel.setflags(write=False)
+        self.kernel_hash = sha256(self.kernel.tobytes()).hexdigest()
+        self.profiles = {}
+        self.asymptotic = None
+
+    def require(self, compiled, cadence):
+        compiled.require_complete()
+        if (
+            compiled is not self.compiled
+            or cadence != self.cadence
+            or sha256(self.kernel.tobytes()).hexdigest() != self.kernel_hash
+        ):
+            raise ValueError(
+                "Evaluation cache does not match immutable law/kernel/cadence"
+            )
+
+    def profile(self, initial, steps):
+        self.require(self.compiled, self.cadence)
+        mu = validate_distribution(initial, len(self.kernel))
+        key = tuple(mu)
+        value = self.profiles.get(key)
+        if value is None or len(value) <= steps:
+            value = history_profile(self.kernel, mu, steps)
+            value.setflags(write=False)
+            self.profiles[key] = value
+        return value[: steps + 1]
 
 
 def entropy(p, axis=None):
@@ -102,7 +139,9 @@ def sampled_support(compiled, *, max_bytes=32 * 1024**2):
     return result
 
 
-def irreducible_asymptotics(compiled, cadence, mu, *, max_dense_bytes=32 * 1024**2):
+def irreducible_asymptotics(
+    compiled, cadence, mu, *, max_dense_bytes=32 * 1024**2, context=None
+):
     """Numerical rate/offset of a small irreducible sampled CTMC only.
 
     The finite profile remains the query. Reducible chains are deliberately
@@ -115,7 +154,17 @@ def irreducible_asymptotics(compiled, cadence, mu, *, max_dense_bytes=32 * 1024*
         raise ValueError(
             "Reducible asymptotics require class/absorption accounting; unsupported here"
         )
-    p = sampled_kernel(compiled, cadence, max_dense_bytes=max_dense_bytes)
+    if context is not None:
+        context.require(compiled, cadence)
+        if context.asymptotic is not None:
+            cached, bias = context.asymptotic
+            mu = validate_distribution(mu, len(bias))
+            return {**cached, "offset_bits": float(mu @ bias)}
+    p = (
+        context.kernel
+        if context is not None
+        else sampled_kernel(compiled, cadence, max_dense_bytes=max_dense_bytes)
+    )
     n = len(p)
     mu = validate_distribution(mu, n)
     system = p.T - np.eye(n)
@@ -133,12 +182,16 @@ def irreducible_asymptotics(compiled, cadence, mu, *, max_dense_bytes=32 * 1024*
     )
     if residual > 1e-10:
         raise ArithmeticError("Stationary/Poisson equations failed residual check")
-    return {
+    result = {
         "rate_bits_per_time": step_rate / cadence,
         "offset_bits": float(mu @ bias),
         "residual": residual,
         "scope": "finite irreducible sampled CTMC; numerical, not a persistence claim",
     }
+    if context is not None:
+        bias.setflags(write=False)
+        context.asymptotic = (dict(result), bias)
+    return result
 
 
 def observed_history_law(p, mu, labels, steps, *, max_words=100000):
@@ -247,6 +300,7 @@ def evaluate_history(
     *,
     max_words=100000,
     max_dense_bytes=32 * 1024**2,
+    context=None,
 ):
     from .semantics import validate_query
 
@@ -287,12 +341,26 @@ def evaluate_history(
             "Own-present hidden roots disagree on the observed initial present"
         )
     steps = round(comparison.horizon / comparison.cadence)
-    p = sampled_kernel(compiled, comparison.cadence, max_dense_bytes=max_dense_bytes)
+    if context is not None:
+        context.require(compiled, comparison.cadence)
+    p = (
+        context.kernel
+        if context is not None
+        else sampled_kernel(
+            compiled, comparison.cadence, max_dense_bytes=max_dense_bytes
+        )
+    )
     mu = np.zeros(len(compiled.states))
     for i, w in roots:
         mu[i] += w
     if observation.scope == "whole_modeled_field":
-        ell = float(history_profile(p, mu, steps)[-1])
+        ell = float(
+            (
+                context.profile(mu, steps)
+                if context is not None
+                else history_profile(p, mu, steps)
+            )[-1]
+        )
         if present.conditioning in ("unobserved_root_mixture", "own_present") and steps:
             ell += float(entropy(mu @ p) - mu @ entropy(p, axis=1))
     elif present.conditioning in ("full_present", "root_conditioned_average"):

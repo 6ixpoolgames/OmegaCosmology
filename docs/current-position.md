@@ -1,4 +1,112 @@
-# Current position — 25 October 2026
+# Current position — 28 October 2026
+
+## Publication checkpoint
+
+The user's 28 October “Push” authorizes publication of the completed pending
+machinery repairs, enacted-damage and R2 engineering evidence, the C.7 replay
+and the v4.2 reconciliation proposals on the existing branch. Privacy checks
+cover all 231 pending files and nested archives. Private manuscript copies,
+source locators and run caches stay ignored. The last full unit suite passes
+170 tests; source, archive, evidence, link and lint checks also pass.
+
+Reports preserve the local delivery status recorded when generated. Publication
+does not apply the proposed manuscript replacements or resume experiments.
+
+## v4.2 evidence reconciliation, local proposals
+
+The [reconciliation handoff](../research/evidence/evidence-reconciliation-v42-2026-10-28/EVIDENCE_RECONCILIATION_V42_r1.md)
+is complete: 31 exact proposed edits across nine active manuscript files and the
+migration log. All 32 active Drive working Markdown files and four context notes
+were inspected; the older repository v4.1 copies were not substituted. Each
+replacement is anchored to a source hash and was dry-applied to an ignored copy.
+The canonical manuscripts, substrate and retained scientific records are unchanged.
+
+The note separates twelve historical C.7 points from the one selected numerical
+replay, paired-validator applicability and physical limits. It preserves the
+separate passing R2 engineering contracts and proposes distinct verification
+fields in Appendix D. No historical tier is promoted and no ethical or physical
+certificate is inferred. Deferred experiments remain open without another run.
+No commit, push or upload is authorized by this editorial handoff.
+
+## C.7 representative verification replay, local
+
+The [fixed historical replay](../research/platform/engineering/c7-replay-2026-10-28/REPORT.md)
+reproduces the original capacity-4 midpoint loop/basal pair from verified frozen
+source. No parameters were refitted. All24 seed profiles reproduce; independent
+uniformization/history/occupation checks agree. AtT64/cadence.25 the loop leads
+by39.42566 bits; stationary excess rates are positive at all three cadences.
+Stationary accepted work matches to1.4e-17, but source arrival rates differ and
+finite work/activity do not match. Actual debits, reverse refunds, heat and
+native paired-rate ratios pass their stated checks. Material accounting covers
+apparatus plus derived precursor, not unresolved packet/waste chemistry.
+
+This is a verified historical throughput-matched mechanism contrast. The current
+identical-boundary paired certificate is inapplicable; its validator was not
+weakened. Only one of12 C.7 parameter points has this replay status. Evidence
+quality axes and manuscript-ready wording accompany the report. R2 remains
+paused; no new campaign, manuscript edit, commit or push follows automatically.
+
+## R2 control repair checkpoint, local
+
+The bounded [control repair](../research/platform/engineering/r2-bank-load-2026-10-28/REPORT.md)
+is complete. Fixed thermal physics and two paid rotor strokes now have executable
+energy, material, native-reverse and compatibility tests. All 166 tests and the
+full workspace/baseline/P001 checks pass. Prior evidence remains intact.
+
+The final bank-load candidate matches both continuous T64 moments: expected
+event count and gross accepted work, residuals about 3.1e-11 and 4.1e-11. However,
+it refunds more bank energy than it withdraws (net payment -0.0483251). Although
+83% of rotor events use paid channels, this is not a net-consuming load. The
+runner correctly stopped before computing any history scores for this family.
+Matching moments does not establish the intended physical control.
+
+The preceding [activity-only check](../research/platform/engineering/r2-activity-only-2026-10-28/REPORT.md)
+matches event count but accepts .0816566 more gross work, outside tolerance,
+and also returns net bank energy. Its 18 retained profiles show productive
+losing 0.3115/0.3158 finite bits at T64 at the two cadences, while having a small
+positive limiting-rate difference. The earlier
+[joint B-gated attempt](../research/platform/engineering/r2-paid-cycle-2026-10-27/REPORT.md)
+also misses the work tolerance and refunds net energy; its profiles remain.
+
+This checkpoint leaves productive organization versus an equally active,
+equally supplied **net-consuming** non-enabling load unresolved. It is a
+comparator-design boundary, not a generativity-principle failure. The final
+specification stops further family adjustments and history searches. Review
+the physical comparator before another run. No wider campaign, commit or push
+is authorized by this bounded repair.
+
+## Earlier R2 integration smoke checkpoint, local
+
+The authorized [construction/transduction smoke](../research/platform/engineering/r2-transduction-2026-10-27/REPORT.md)
+is complete: five324-state laws, two cadences,30 profiles throughT64;128.3s and
+148.6MiB peak. All159tests and exact baseline/source/archive checks pass.
+Explicit module ports connect costed A construction, competing B/C precursor
+uses, a distinct B energy-transduction function and a rotor control candidate.
+Both enabling-link ablations lower the finite profiles at both cadences. The
+conservative paid-chain witness hasT64 probability.0010333; it is not depth-three
+ancestry or captured-energy provenance. The earlier two-unlocker version and
+its reporting-error attempt remain retained, with the interpretation correction
+explicit in the [audit](../research/platform/models/r2-integrated/AUDIT.md).
+
+The activity/work question is still open. The selected rotor candidate nearly
+matchesT64 event count but accepts.07734more gross work (~.697percent), outside
+its.1percent tolerance. Its extra cycling is almost entirely thermal, and its
+finite score is about1.06–1.08bits higher than productive atT64. Productive has
+a higher limiting rate, but no later horizon was run and stationary moments
+are not matched. Keep these observations distinct. The subsequent repair above
+addresses the proposed next work: it was to
+make the intended control's added activity predominantly paid with its native
+thermal baseline fixed, then repeat moment-only calibration before a wider map.
+No wider run, commit or push is authorized by this smoke.
+
+## Machinery hardening, local
+
+The 27 October construction audit identified six executable-contract gaps.
+They are repaired locally, with adversarial regression tests and native-physics
+compatibility checks. See [repair report](../research/platform/reviews/machinery-audit-2026-10-27/REPAIRS.md).
+Historical inputs/results remain intact. New model metadata changes fingerprints;
+legacy records remain readable and explicitly unverified where declarations were
+only prose. No new scientific campaign or publication is authorized by this pass.
 
 **Canonical starting reference: v4.1**, selected by the author. The immutable
 [reference snapshot](../sources/v4.1/README.md) replaces the September v2 seed
@@ -42,6 +150,30 @@ assumptions hold. A stationary calculation does not replace a finite query.
   until an explicit editorial reconciliation, rather than renumber by guess.
 
 ## Platform status
+
+The authorized [enacted-damage engineering sprint](../research/platform/engineering/enacted-damage-2026-10-26/REPORT.md)
+is complete locally: six108-state cases/18 finite profiles, full operation
+prefixes and non-Markov projected history across the switch to common recovery.
+Both non-damaging controls match T16 native event count and gross accepted work
+before history scoring. R damage is slightly above its matched sham; Y damage
+slightly below. Both reduce function. These are single-setting smoke readouts,
+not a robust scientific map or an irreversible-loss result. The generic
+[scheduled-continuation contract](../formal/contracts/SCHEDULED_CONTINUATION_r1.md)
+and [sprint specification](../research/platform/specs/ENACTED_DAMAGE_SPRINT_r1.md)
+record what is modeled and which exterior histories remain unresolved. The run
+finished94.24s/129.45MiB; no wider campaign or publication follows automatically.
+
+The local [26 October manuscript follow-up](../research/evidence/manuscript-handoff-2026-10-26/README.md)
+now packages six final study-version cards, full interpretations, four quality
+axes, a17-model legacy carry-forward register and design/status notes. Its
+source numbers/bytes are checked against published89595bf. No new scientific
+run or manuscript edit accompanied the handoff. A legacy-law replication is
+distinguished from a new-proxy claim test; the formal T quantity and newest
+Prediction26.1 conditions still need their current definitions. The proposed
+physical work paired enacted S3 damage with activity/work controls, now smoked, then
+small audited blocking; population is not an inherent prerequisite for that
+two-organization control experiment. This handoff remains local pending a
+separate publication instruction.
 
 the author's26 October "Push" authorizes publishing the pending S3 structural-harm/
 foreclosure work, S4/S4b warning studies, readiness smoke/fidelity pilot and

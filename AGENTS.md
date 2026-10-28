@@ -52,6 +52,67 @@ entire legacy simulator or hardcode experiment-specific component counts.
 
 ## Workflow
 
+The user's latest28 October “Push” authorizes publishing the completed pending
+machinery repairs, enacted-damage and R2 engineering evidence, C.7 replay and
+v4.2 reconciliation proposals to the existing origin and current branch.
+Keep private manuscript/locator copies and execution caches ignored. Official
+commit attribution is S. Poole. Reports retain their original local delivery
+wording; this publication does not apply proposed canonical manuscript edits
+or authorize new runs. Later publication still requires its own user scope.
+
+The latest28 October “Proceed please” authorized evidence-reconciliation
+proposals only. Read research/evidence/evidence-reconciliation-v42-2026-10-28/
+EVIDENCE_RECONCILIATION_V42_r1.md:31 source-anchored proposed edits, with all32
+active v4.2 working Markdown files and four context notes inspected. Canonical
+manuscripts, substrate and retained science remain unchanged. Separate one-point
+C.7 numerical reproduction from the inapplicable unequal-boundary certificate;
+preserve the distinct R2 paired engineering checks. No new campaigns, manuscript
+edits, commit, push or upload are authorized by this completed handoff.
+
+The user's28 October “Please proceed” authorized a fixed C.7 verification replay,
+not another campaign. See research/platform/engineering/c7-replay-2026-10-28/REPORT.md
+and C7_VERIFICATION_REPLAY_r1.md. One historical capacity-4 midpoint pair reproduces
+from verified original source. Different source arrival rates remain explicit;
+only stationary accepted work matches. The current identical-boundary paired
+certificate is inapplicable, and its validator stays unchanged. Do not promote
+one-point reproduction to all12 C.7 points or full material/physical certification.
+R2 stays paused. No manuscript edits, commit or push are authorized by this replay.
+
+The subsequent Continue authorized bounded R2 control repair, completed locally
+28 October. Read research/platform/engineering/r2-bank-load-2026-10-28/REPORT.md
+and its prior-attempt links. The final control matches both T64 moments but
+returns net bank energy, so the runner stops before history scoring. Earlier
+gated fits and their18-profile sets remain intact; they also refund net energy.
+Do not call paid-channel activity net consumption, or a matched fit a qualified
+physical comparator. All166 tests pass. The final control spec stops additional
+family adjustments/history searches: review physics before another run.
+No broader campaign, commit or push is authorized by this bounded repair.
+
+The latest27 October "Proceed" authorized R2 integration through smoke, now
+complete locally under research/platform/engineering/r2-transduction-2026-10-27/.
+Five laws/two cadences/30profiles pass. Bindings are in modules.py; source
+snapshots retain the earlier two-unlocker version and reporting-error attempt.
+Do not silently call the rotor matched or predominantly paid: its accepted-work
+residual fails tolerance and almost all fitted rotor events are thermal. Keep
+finite profiles separate from its contrary limiting-rate diagnostic. Next is
+control-family repair and recalibration, not an automatic wider map or push.
+
+The user's27 October request authorizes fixing the verified machinery audit
+defects and testing surrounding contracts. See
+research/platform/reviews/machinery-audit-2026-10-27/REPAIRS.md for implementation,
+migration requirements and remaining limits. Preserve retained evidence; do not
+silently infer absent query channels or treat legacy prose as verified inventory.
+This repair scope does not authorize a new scientific campaign or publication.
+
+The user's26 October “Go for sprint” authorized enacted damage, physical
+activity/work controls and a capped smoke. See the completed local delivery
+research/platform/engineering/enacted-damage-2026-10-26/REPORT.md. New generic
+phase composition includes the entire prefix and projected memory; source/bath
+and external barrier-setting histories remain unresolved. The finite T16
+controls match two moments, not whole paths. Do not extend their calibration
+to new horizons/laws, add irreversible loss silently, or automatically run a
+scientific map. No commit/push is authorized by this instruction.
+
 The user's26 October "Push" authorizes the pending completed S3/S4 and readiness
 code, interpretations and compact retained evidence to the existing origin and
 branch. It does not authorize a new run or recurring future publication. Reports
