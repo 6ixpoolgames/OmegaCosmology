@@ -1,5 +1,14 @@
 # Research roadmap — v4.1 starting reference
 
+Latest31 October checkpoint: [J2](platform/engineering/j2-discharge-2026-10-31/REPORT.md)
+is implemented, tested and physically run under the user's execute-and-push
+instruction. The 100-state law made122 physical evaluations/two starts;
+neither produced a joint match. No unqualified histories were scored.
+All211 tests pass. The simultaneous activity/net-work comparison remains
+open; old separate-moment results are unchanged. Publish this bounded outcome
+with the new law, source versions and physical limits, without calling it a
+theory failure or dispatching the rest of r7 automatically.
+
 Latest31 October review: the
 [retained-J boundary diagnosis](platform/reviews/joint-load-boundary-2026-10-31/REPORT.md)
 is complete without a new fit/model/run. The local inverse asks for negative

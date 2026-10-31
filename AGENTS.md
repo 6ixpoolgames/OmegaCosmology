@@ -52,6 +52,17 @@ entire legacy simulator or hardcode experiment-specific component counts.
 
 ## Workflow
 
+The user's latest “Run it all and then push” authorizes implementing J2,
+qualification-gated execution and publishing the completed package on the
+existing branch. See research/platform/engineering/j2-discharge-2026-10-31/.
+The 100-state shared-intermediate law completed122 physical evaluations
+but found no joint match; histories were correctly not run. Both planned
+fit starts and all contrary/limited results stay retained. All211 tests pass.
+The unexecuted history path received additional preflight/gate checks after
+the physical run; retain executed versus current source versions distinctly.
+No new family, larger r7 campaign or manuscript edit follows automatically.
+Keep private inputs/caches ignored and use S. Poole for this authorized push.
+
 The user's latest 31 October “Push” authorizes publication of the pending
 r7 K/J reviews, J physical pilot and boundary review/proposed J2 design, with
 their supporting code, tests, contracts and retained evidence, to the existing

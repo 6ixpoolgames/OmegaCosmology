@@ -141,7 +141,7 @@ def prepare(out):
     print(json.dumps({"status": "prepared", "plan_sha256": digest(out / "PLAN.json")}))
 
 
-def worker(out):
+def worker(out, *, control_builder=control_model):
     import numpy as np
     from resource_load_control import compile_for, model_for, stationary
     from scipy.optimize import least_squares
@@ -156,6 +156,10 @@ def worker(out):
     )
 
     inputs, plan = read(out / "frozen/INPUTS.json"), read(out / "PLAN.json")
+    parameter_names = plan.get("parameter_names", ["k_L", "k_U"])
+    heat_releases = plan.get(
+        "load_energy_releases", {"load_locked": 3, "load_usable": 2}
+    )
     rows, cache, objects = [], {}, {}
     folder = out / "physical"
 
@@ -166,7 +170,7 @@ def worker(out):
         if len(rows) >= plan["max_physical_evaluations"]:
             raise RuntimeError("Total physical evaluation cap reached")
         model = (
-            control_model(inputs, source_on, k_l, k_u)
+            control_builder(inputs, source_on, k_l, k_u)
             if kind == "control"
             else model_for(inputs, kind, source_on)
         )
@@ -205,7 +209,7 @@ def worker(out):
             "index": len(rows),
             "kind": kind,
             "source_on": source_on,
-            "parameters": {"k_L": float(k_l), "k_U": float(k_u)},
+            "parameters": dict(zip(parameter_names, [float(k_l), float(k_u)])),
             "model_hash": model.fingerprint(),
             "state_order_hash": c.state_order_hash,
             "event_ledger_hash": c.ledger_hash,
@@ -240,7 +244,7 @@ def worker(out):
                         raise ArithmeticError(
                             "Load contains hidden work/bank/other change"
                         )
-                    expected = 3 if e.rule_id == "load_locked" else 2
+                    expected = heat_releases[e.rule_id]
                     if (
                         e.heat != expected * e.direction
                         or e.delta_energy != -expected * e.direction
@@ -293,9 +297,36 @@ def worker(out):
                 float(
                     sum(pi[i] for i, s in enumerate(c.states) if s[ix["carrier"]] == j)
                 )
-                for j in range(3)
+                for j in model.coordinates[ix["carrier"]].domain
             ],
         }
+        row["function"]["carrier_domain"] = list(
+            model.coordinates[ix["carrier"]].domain
+        )
+        if "intermediate_code" in plan:
+            intermediate = plan["intermediate_code"]
+            indicator = np.array(
+                [s[ix["carrier"]] == intermediate for s in c.states], dtype=float
+            )
+            exit_reward = np.zeros(len(pi))
+            for a, b, event in c.ledger:
+                if (
+                    c.states[a][ix["carrier"]] == intermediate
+                    and c.states[b][ix["carrier"]] != intermediate
+                ):
+                    exit_reward[a] += event.rate
+            occupied_probability = float(pi @ indicator)
+            flux = float(pi @ exit_reward)
+            row["function"]["intermediate"] = {
+                "stationary_occupancy": occupied_probability,
+                "stationary_exit_flux": flux,
+                "stationary_mean_episode_duration": occupied_probability / flux
+                if flux > 0
+                else None,
+                "finite_T64_occupancy_time": float(occupied @ indicator),
+                "finite_T64_exit_count": float(occupied @ exit_reward),
+                "scope": "Episodes end on carrier changes, not unrelated apparatus events",
+            }
         rows.append(row)
         cache[key] = row
         objects[row["index"]] = (c, mu, pi, work, jumps)
@@ -316,7 +347,10 @@ def worker(out):
     target = evaluate("productive", True)
     names = ["event_rate", "net_work_rate"]
     targets = np.array([target["stationary"][n] for n in names])
-    if max(abs(targets - [inputs["reference_target"][n] for n in names])) > 1e-10:
+    if (
+        "reference_target" in inputs
+        and max(abs(targets - [inputs["reference_target"][n] for n in names])) > 1e-10
+    ):
         raise ArithmeticError("Productive physical anchor changed from run A")
     allowances = plan["absolute_tolerance"] + plan["relative_tolerance"] * abs(targets)
 
@@ -350,20 +384,60 @@ def worker(out):
             raise FitBudget()
         return residuals(evaluate("control", True, k_l, k_u)) / allowances
 
-    solver = {"termination": "completed"}
-    try:
-        result = least_squares(
-            objective,
-            np.log1p(np.array(list(start["parameters"].values())) / scale),
-            bounds=(np.zeros(2), np.full(2, np.log1p(2 / scale))),
-            max_nfev=48,
-            xtol=1e-10,
-            ftol=1e-10,
-            gtol=1e-10,
-        )
-        solver.update({"success": bool(result.success), "message": result.message})
-    except FitBudget:
-        solver["termination"] = "literal_48_extra_evaluation_cap"
+    starts = [start]
+    if plan.get("fit_initializations", 1) == 2:
+        start_x = np.log1p(np.array(list(start["parameters"].values())) / scale)
+        separated = [
+            r
+            for r in grid
+            if np.linalg.norm(
+                (np.log1p(np.array(list(r["parameters"].values())) / scale) - start_x)
+                / np.log1p(2 / scale)
+            )
+            >= 0.5
+        ]
+        if separated:
+            starts.append(min(separated, key=score))
+    solver = {"termination": "completed", "starts": []}
+    for seed in starts:
+        seed_begin = len(rows)
+
+        def limited_objective(x, _seed_begin=seed_begin):
+            if len(rows) - _seed_begin >= plan.get(
+                "per_start_evaluations", plan["fit_extra_evaluations"]
+            ):
+                raise FitBudget()
+            return objective(x)
+
+        try:
+            result = least_squares(
+                limited_objective,
+                np.log1p(np.array(list(seed["parameters"].values())) / scale),
+                bounds=(np.zeros(2), np.full(2, np.log1p(2 / scale))),
+                max_nfev=48,
+                xtol=1e-10,
+                ftol=1e-10,
+                gtol=1e-10,
+            )
+            solver["starts"].append(
+                {
+                    "seed_index": seed["index"],
+                    "success": bool(result.success),
+                    "message": result.message,
+                    "extra_evaluations": len(rows) - seed_begin,
+                }
+            )
+        except FitBudget:
+            solver["starts"].append(
+                {
+                    "seed_index": seed["index"],
+                    "termination": "literal_evaluation_cap",
+                    "extra_evaluations": len(rows) - seed_begin,
+                }
+            )
+            solver["termination"] = "one_or_more_literal_evaluation_caps"
+        if len(rows) - extra_start >= plan["fit_extra_evaluations"]:
+            break
     candidates = [r for r in rows if r["kind"] == "control" and r["source_on"]]
 
     def matched(row):
@@ -399,8 +473,8 @@ def worker(out):
             abs(
                 q
                 - base_q
-                - best["parameters"]["k_L"] * dqs[0]
-                - best["parameters"]["k_U"] * dqs[1]
+                - best["parameters"][parameter_names[0]] * dqs[0]
+                - best["parameters"][parameter_names[1]] * dqs[1]
             )
         )
     )
@@ -447,7 +521,10 @@ def worker(out):
         {
             "status": status,
             "history_computed": False,
-            "history_permission": False,
+            "history_permission": bool(
+                status == "qualified_joint_match"
+                and plan.get("conditional_history_authorized", False)
+            ),
             "target": target,
             "best": best,
             "source_off_at_best": off,

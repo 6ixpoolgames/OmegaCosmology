@@ -1,5 +1,25 @@
 # Current position — 31 October 2026
 
+## J2 implemented and executed; joint comparison remains open
+
+The user's “Run it all and then push” authorizes the
+[J2 package](../research/platform/engineering/j2-discharge-2026-10-31/REPORT.md)
+and its publication. The expanded carrier grammar has 100 reachable states
+and preserves the same intermediate/thermal routes across its arms. The new
+productive targets were recalculated; this is not a replay of the old law.
+
+Both planned fit starts ran: 122 physical evaluations in 42.64 seconds,
+172.20 MiB peak. No joint match was found. Selected activity is .3646% below
+target and net work3.8937% above, outside .1% allowances; one catalytic leg
+becomes negligible. This bounded result is not a global impossibility claim
+or a lushness/theory verdict. The physical gate correctly skipped histories.
+
+All 211 tests pass, including conformation thermodynamics and three rejection
+tests for the history gate. The stricter current preflight and exact executed
+snapshot are distinguished in the implementation notes. Prior results remain
+unchanged. Publish the honest physical outcome; no automatic J3/search widening,
+new campaign or manuscript amendment follows.
+
 ## Publication checkpoint: r7 reviews and J physical qualification
 
 The latest “Push” authorizes publishing the completed K/J reviews, J's
