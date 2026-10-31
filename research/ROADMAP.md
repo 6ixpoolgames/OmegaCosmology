@@ -1,5 +1,33 @@
 # Research roadmap — v4.1 starting reference
 
+Latest 30 October checkpoint: the [resource-load control](platform/engineering/resource-load-control-2026-10-30/REPORT.md)
+qualifies two separately stationary-matched source-fed controls and completes
+the bounded conditional comparison. Positive source-on rate differences survive
+the three tested cadences; intermediate finite profiles cross and are cadence
+dependent. No joint activity/work match or finite-total match is claimed.
+This closes the qualification boundary for this new R1 family, not the earlier
+R2 rotor family or every parameter regime. V, spatial disorder, irreversible
+damage and deeper compounding remain separately scoped, not automatically run.
+
+Later 30 October checkpoint: “Go next” authorized scoped paired qualification,
+now [complete locally](platform/engineering/paired-qualification-2026-10-30-r2/REPORT.md).
+Fourteen interpreted-input checks pass without changing native dynamics or
+28 checked history values. Retained-unit inventories and R2's explicit state
+mapping close the corresponding executable-contract gaps, not chemical closure
+or historical physical omissions. P0's literal-input statuses stay unchanged.
+The activity/work comparator still needs its separate physical design review;
+no further campaign or publication follows automatically.
+
+30 October checkpoint: the user authorized the bounded P0/T package, now
+[completed locally](platform/engineering/p0-t-verification-2026-10-30/REPORT.md).
+All six selected numerical contrasts reproduce. Paired-contract applicability
+is separately unresolved/inapplicable for literal legacy material/grammar
+declarations. The new full-state profile/ending-law queries are verified on
+small mathematical references; no projected Markov approximation is introduced.
+No broader campaign, manuscript tier promotion or publication follows. Review
+the [assessment](platform/reviews/v42b-run-requests-2026-10-30/ASSESSMENT.md)
+before scoping any next physical experiment.
+
 The latest28 October “Proceed please” authorized the final
 [v4.2 evidence reconciliation](evidence/evidence-reconciliation-v42-2026-10-28/EVIDENCE_RECONCILIATION_V42_r1.md).
 It is complete as proposed replacement passages and separate verification axes,

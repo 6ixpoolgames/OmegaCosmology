@@ -1,4 +1,83 @@
-# Current position — 28 October 2026
+# Current position — 31 October 2026
+
+## Publication checkpoint
+
+The user's 31 October “Push available results” authorizes publishing the
+completed pending P0/T verification, scoped paired qualification and source-fed
+resource-load control, with their implementation, contracts, tests and retained
+evidence, to the existing branch. Reports keep their original local-generation
+wording. Source and interpretation limits travel with the numbers; no manuscript
+revision, new experiment, history rewrite or automatic later publication follows.
+
+The package preserves 252 replayed historical profile rows, 14 interpreted-input
+paired checks, and 96 resource-load profiles/72 paired comparisons. The last full
+unit suite passes 201 tests. Private manuscript inputs, identity policies and
+execution caches remain ignored. Official commit attribution remains S. Poole.
+
+## Source-fed activity control, completed locally
+
+The latest “Proceed” authorized physical review, a new resource-fed load and
+a conditional compact comparison, now [complete](../research/platform/engineering/resource-load-control-2026-10-30/REPORT.md).
+The old bank-returning rotor family remains unchanged. The new existing-motif
+coupling relaxes locked carrier energy to heat, with its reverse retained and
+no new register. Both selected controls have positive measured source-on net
+load heat and source work; source-off stationary net flows vanish.
+
+Physical calibration precedes scoring: one control matches stationary event
+rate, another stationary net external work. They are not jointly or finitely
+matched. There are 96 arm profiles, 72 signed endpoint comparisons and 72
+passing scoped paired checks. Productive rate differences against both separate
+controls are positive at .125/.25/.5. Against the activity control, finite
+profiles cross three times: at .25, T64/T256 are negative and T1024 positive;
+intermediate endpoint signs change with cadence. All signs remain in the report.
+
+This is one finite count-world mechanism example, not gas, chemical closure,
+robust compounding or ethical confirmation. The V register arm and any larger
+map remain unrun. No manuscript edit, commit, push or automatic further campaign.
+
+## Scoped paired qualification, completed locally
+
+The subsequent “Go next” authorized closing the P0 comparison-contract gaps.
+The [qualification report](../research/platform/engineering/paired-qualification-2026-10-30-r2/REPORT.md)
+records 14 passing paired checks across six selected studies at cadence .25,
+T16/T64. All 28 checked history values, native states, generators, Hamiltonians
+and marked ledgers are unchanged. New input fingerprints explicitly interpret
+the original fixed retained-unit assumptions; this is not chemical closure.
+
+R2 now has a hash-bound common-alphabet mapping for 180 useful-capacity states
+and 150 sham states. No states or transitions are added to either law, and the
+ordinary unmapped validator stays strict. New guards reject empty required
+inventories, partial partitions, aliasing mappings and changed physical grammar.
+All root, endowment, boundary, resolution and quantity checks still apply.
+
+P0's literal old-input rejection statuses remain intact. These are scoped
+certificates for explicitly interpreted versions, not physical repair, global
+material adequacy or an ethical/tier promotion. Both engineering snapshots are
+retained. No new activity-control campaign, manuscript edit, commit or push.
+
+## P0/T representative verification, completed locally
+
+The user's 30 October “Proceed” authorized the bounded P0/T package in the
+[request assessment](../research/platform/reviews/v42b-run-requests-2026-10-30/ASSESSMENT.md).
+The [completed report](../research/platform/engineering/p0-t-verification-2026-10-30/REPORT.md)
+replays six fixed historical contrasts: 36 native cases, 15 current audits,
+252 original profile rows and 61 selected signed contrasts. Native/current
+history and native projected bounds reproduce with zero observed difference.
+Integrated first-law residual is below 6.6e-13; peak job memory 702 MiB.
+
+Current paired certificates remain inapplicable to these literal inputs:
+legacy descriptive inventories are not executable, and R2's capacity sham has
+a different allowed state space requiring an explicit mapping. No validator
+was weakened or historical law silently repaired. The full-state profile and
+independent-ending identities pass synthetic reference checks, including
+reducible/periodic kernels and multiple crossings. S4b's interaction has two
+observed crossings at every tested cadence; its original endpoints reproduce.
+Projected rate/offset and latest Appendix A/B conformance remain unsupported.
+
+All retained sources can be restored without ignored historical caches. No new
+activity-control, irreversible-damage, spatial or social campaign follows.
+No manuscript edit, commit, push or upload is authorized by this completed run.
+Earlier publication/local wording below records the earlier delivery stages.
 
 ## Publication checkpoint
 

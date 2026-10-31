@@ -243,13 +243,33 @@ def validate_query(present, law, observation, comparison, quantity):
     }
 
 
-def validate_comparison(comparison, left, right):
+def validate_comparison(
+    comparison, left, right, *, state_mapping=None, require_material=False
+):
     """Validate both executable arms, rather than trust matching prose.
 
     Each arm supplies compiled, present, law, observation, quantity and its
     own comparison/window. Current adapter requires a common named coordinate
     grammar; coordinate renamings require an explicit future mapping adapter.
     """
+    if type(require_material) is not bool:
+        raise ValueError("Material requirement must be explicit Boolean")
+    mapping_record = None
+    if state_mapping is not None:
+        from .state_mapping import ConstraintStateMapping
+
+        if (
+            not isinstance(state_mapping, ConstraintStateMapping)
+            or comparison.kind != "mechanism"
+            or any(
+                arm["observation"].scope != "whole_modeled_field"
+                for arm in (left, right)
+            )
+        ):
+            raise ValueError(
+                "Explicit constraint mappings require a full-state mechanism contrast"
+            )
+        mapping_record = state_mapping.verify(left["compiled"], right["compiled"])
     if comparison.kind == "single_query":
         raise ValueError("A single query is not a paired comparison")
     for arm in (left, right):
@@ -314,7 +334,7 @@ def validate_comparison(comparison, left, right):
         for k in ("id", "rules"):
             a.pop(k)
             b.pop(k)
-        if a != b:
+        if a != b and mapping_record is None:
             raise ValueError(
                 "Physical grammar/endowment differs; explicit mapping required"
             )
@@ -339,6 +359,16 @@ def validate_comparison(comparison, left, right):
         raise ValueError(
             "Matched material claim needs executable inventory definitions"
         )
+    if require_material and (
+        lm.material_status != "executable"
+        or rm.material_status != "executable"
+        or not lm.material
+        or not rm.material
+        or any(not item.get("inventory") for item in (*lm.material, *rm.material))
+    ):
+        raise ValueError(
+            "Material-required comparison needs nonempty executable inventories"
+        )
     if (
         comparison.kind == "process"
         and comparison.common_present_hash != lp.content_fingerprint()
@@ -351,6 +381,14 @@ def validate_comparison(comparison, left, right):
         "right_model": rm.fingerprint(),
         "left_present": lp.content_fingerprint(),
         "right_present": rp.content_fingerprint(),
+        "state_mapping": mapping_record,
+        "material_endowment": "declared_executable_totals_checked"
+        if lm.material and rm.material
+        else "not_declared_not_certified",
+        "material_inventory_scopes": {
+            item["id"]: item.get("inventory_scope", "declared_inventory_only")
+            for item in lm.material
+        },
         "process_enactment": "declared_requires_encompassing_process_audit"
         if comparison.kind == "process"
         else "not_a_process_contrast",

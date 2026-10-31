@@ -1,5 +1,18 @@
 # Formal arm
 
+The [retained-unit and state-mapping contract](contracts/RETAINED_INVENTORY_AND_STATE_MAPPING_r1.md)
+describes scoped inventory interpretations and injective common-alphabet maps
+for mechanism contrasts with different allowed-state constraints. The new
+qualified inputs preserve their native laws; this does not convert an old
+descriptive inventory into a chemical closure result or waive matching checks.
+
+The [finite-profile and ending-law contract](contracts/FINITE_PROFILE_ENDINGS_r1.md)
+records the implemented ergodic-projector/Poisson identity, transient bounds
+and independent versus state-dependent ending quantities. Synthetic references
+cover reducible and periodic kernels and multiple crossings. Float64 checks
+are not verified rounding bounds, and this addition does not claim conformance
+to a newer Appendix A that has not reached the repository.
+
 The [module-binding contract](contracts/MODULE_BINDINGS_r1.md) describes explicit
 coordinate ports in the distinct-slot classical adapter. It is exercised by the
 R2 construction/transduction smoke, not a claim of general graph composition or

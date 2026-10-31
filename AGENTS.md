@@ -52,6 +52,40 @@ entire legacy simulator or hardcode experiment-specific component counts.
 
 ## Workflow
 
+The user's 31 October “Push available results” authorizes publishing completed
+pending P0/T verification, paired qualification and resource-load evidence,
+necessary code/contracts/tests and request assessment to the existing branch.
+Retain the reports' original generation-status wording and all scientific
+limitations. Keep private inputs/identity policies/run caches ignored, and use
+S. Poole attribution. This does not authorize new science, manuscript edits,
+history rewriting or recurring future publication.
+
+The latest 30 October “Proceed” authorized a new source-fed relaxation control
+and qualification-gated compact comparison, complete locally at
+research/platform/engineering/resource-load-control-2026-10-30/REPORT.md.
+Physical moments and net source/load flows were frozen before history scoring.
+Two controls match stationary jumps and net external work separately, not jointly
+or at finite horizons. All finite crossings and cadence-dependent intermediate
+signs remain. No new register, source manipulation or removal of native reverses
+was used. The old rotor family/results stay unchanged. No new family search,
+V arm, wider campaign, manuscript application, commit or push follows.
+
+The user's later 30 October “Go next” authorized the bounded paired-qualification
+slice, complete locally at research/platform/engineering/paired-qualification-2026-10-30-r2/REPORT.md.
+Keep both engineering source versions and P0's original statuses. New retained-unit
+inventory interpretations and explicit R2 state mappings pass 14 scoped paired
+checks; native dynamics and checked histories are unchanged. Do not present this
+as chemical closure, physical repair, latest Appendix B conformance or ethical
+certification. No further science, manuscript edit, commit or push follows.
+
+The user's 30 October “Proceed” authorized bounded P0/T verification, now
+complete locally. See research/platform/engineering/p0-t-verification-2026-10-30/REPORT.md.
+Six literal historical contrasts reproduce; paired validation remains separate
+and inapplicable where legacy inventory/grammar declarations do not qualify.
+The new full-state profile queries do not approximate projected histories as
+Markov. All original laws and contrary results remain unchanged. No further
+physical experiment, manuscript application, commit or push follows automatically.
+
 The user's latest28 October “Push” authorizes publishing the completed pending
 machinery repairs, enacted-damage and R2 engineering evidence, C.7 replay and
 v4.2 reconciliation proposals to the existing origin and current branch.

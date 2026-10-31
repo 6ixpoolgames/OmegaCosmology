@@ -1,0 +1,6042 @@
+{
+  "status": "passed",
+  "study": "S3",
+  "cadence": 0.25,
+  "arms": [
+    {
+      "original_law": "one_way",
+      "interpretation": {
+        "source_model_hash": "ae46e06b6696c9e54cfedde01251c956be3b041e7857c122f27ac7446eaf7fbb",
+        "interpreted_model_hash": "cbb8288e8c2d72239e39acf174d89a32e0d0b5d6063f78e2c4352d26669f471d",
+        "changed_fields": [
+          "id",
+          "material"
+        ],
+        "inventories": [
+          {
+            "id": "A.slots",
+            "retained_units": 2,
+            "slots": [
+              {
+                "coordinate": "A.x",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              },
+              {
+                "coordinate": "A.y",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              }
+            ],
+            "source_declaration": {
+              "id": "A.slots",
+              "quantity": 2,
+              "conservation": "fixed distinct material slots, precursor or constructed"
+            },
+            "interpretation_justification": "The original declaration retains each named physical unit through all listed internal states; this witness interprets fixed units, not chemical atoms or unmodeled matter."
+          },
+          {
+            "id": "B.slots",
+            "retained_units": 2,
+            "slots": [
+              {
+                "coordinate": "B.x",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              },
+              {
+                "coordinate": "B.y",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              }
+            ],
+            "source_declaration": {
+              "id": "B.slots",
+              "quantity": 2,
+              "conservation": "fixed distinct material slots, precursor or constructed"
+            },
+            "interpretation_justification": "The original declaration retains each named physical unit through all listed internal states; this witness interprets fixed units, not chemical atoms or unmodeled matter."
+          },
+          {
+            "id": "shared_carrier",
+            "retained_units": 1,
+            "slots": [
+              {
+                "coordinate": "carrier",
+                "states": [
+                  [
+                    0,
+                    "spent"
+                  ],
+                  [
+                    1,
+                    "locked"
+                  ],
+                  [
+                    2,
+                    "usable"
+                  ]
+                ]
+              }
+            ],
+            "source_declaration": {
+              "id": "shared_carrier",
+              "quantity": 1,
+              "conservation": "one carrier switches state; no extra matter"
+            },
+            "interpretation_justification": "The original declaration retains each named physical unit through all listed internal states; this witness interprets fixed units, not chemical atoms or unmodeled matter."
+          }
+        ],
+        "scope": "Fixed retained-unit interpretation; no atom/waste/bath-material or full chemical closure certificate",
+        "law_equivalence": "requires native compilation/event-ledger comparison; metadata is not sufficient"
+      },
+      "interpreted_model": {
+        "schema": "omega.local-model/1",
+        "id": "autocatalytic-ecology-occupied-v1.retained-slot-interpretation-v1",
+        "beta": 1.0,
+        "coordinates": [
+          {
+            "name": "A.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "A"
+          },
+          {
+            "name": "B.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "B"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "shared_resource",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.A.x_to_A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.A.y_to_A.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.B.x_to_B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.B.y_to_B.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.A.x_to_B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.B.x_to_A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          }
+        ],
+        "rules": [
+          {
+            "id": "basal_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_A.x.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "contact.A.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.x.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "contact.A.y_to_A.x",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.x.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "contact.A.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_A.x.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.x.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.y_to_A.x",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.x.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_A.y.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "contact.A.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.y.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "contact.A.y_to_A.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.y.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "contact.B.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_A.y.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.y.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.y_to_A.x",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.y.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "basal_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_B.x.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "contact.B.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.x.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "contact.B.y_to_B.x",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.x.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "contact.B.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_B.x.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.x.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.y_to_B.x",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.x.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_B.y.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "contact.B.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.y.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "contact.B.y_to_B.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.y.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "contact.A.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_B.y.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.y.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.y_to_B.x",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.y.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible work supply"
+          },
+          {
+            "id": "native_locked_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "native_usable_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                2
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "unlock_basal",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "bind.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.A.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.A.y_to_A.x",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.y_to_A.x",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.B.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.B.y_to_B.x",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.y_to_B.x",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.A.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.B.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": ".5",
+            "coordinate": "A.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "A.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "A.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "B.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "3",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "coefficient": "2",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.A.x_to_A.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.A.y_to_A.x",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.B.x_to_B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.B.y_to_B.x",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.A.x_to_B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.B.x_to_A.y",
+            "conditions": []
+          }
+        ],
+        "forbidden": [
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.y",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.y",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        ],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        ],
+        "relations": [
+          {
+            "id": "A.contact",
+            "support": [
+              "A.x",
+              "A.y",
+              "A.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          },
+          {
+            "id": "B.contact",
+            "support": [
+              "B.x",
+              "B.y",
+              "B.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          },
+          {
+            "id": "contact.A.x_to_A.y",
+            "parent": "A.x",
+            "child": "A.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.A.y_to_A.x",
+            "parent": "A.y",
+            "child": "A.x",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.B.x_to_B.y",
+            "parent": "B.x",
+            "child": "B.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.B.y_to_B.x",
+            "parent": "B.y",
+            "child": "B.x",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.A.x_to_B.y",
+            "parent": "A.x",
+            "child": "B.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.B.x_to_A.y",
+            "parent": "B.x",
+            "child": "A.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          }
+        ],
+        "material": [
+          {
+            "id": "A.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed",
+            "inventory": [
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.x",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.x",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.y",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "inventory_scope": "declared_retained_units_only_not_chemical_closure"
+          },
+          {
+            "id": "B.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed",
+            "inventory": [
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.x",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.x",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.y",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "inventory_scope": "declared_retained_units_only_not_chemical_closure"
+          },
+          {
+            "id": "shared_carrier",
+            "quantity": 1,
+            "conservation": "one carrier switches state; no extra matter",
+            "inventory": [
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "carrier",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "carrier",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "carrier",
+                    "operator": "eq",
+                    "value": 2
+                  }
+                ]
+              }
+            ],
+            "inventory_scope": "declared_retained_units_only_not_chemical_closure"
+          }
+        ]
+      },
+      "native_generator_difference": 0.0,
+      "state_count": 1215,
+      "marked_event_count": 15942,
+      "native_ledger_unchanged": true,
+      "state_hash": "9ca1b10a069a687e38833ba2179b41e01127ba4e362609f7b95d579122e52ce2",
+      "native_generator_entries_sha256": "12c0c9d6364167c243931f40ad6c6eb2627cc62c7595015d540b5d5bb5458aa5",
+      "inventory_on_every_reachable_state": {
+        "A.slots": "2",
+        "B.slots": "2",
+        "shared_carrier": "1"
+      },
+      "rows": [
+        {
+          "horizon": 16,
+          "ell_bits": 47.41491319799848,
+          "difference_from_P0_bits": 0.0,
+          "physical": {
+            "work_net": 1.5333055294097044,
+            "heat_export": -0.05513045624254408,
+            "delta_energy": 1.58843598565225,
+            "energy_residual": 1.5612511283791264e-15,
+            "entropy_production": 5.483083580462219,
+            "free_energy_excess_initial": 6.610189473623755,
+            "free_energy_excess_final": 2.6604114225712423,
+            "kl_availability": 2.660411422571249,
+            "availability_identity_residual": 6.661338147750939e-15,
+            "availability_status": "supported",
+            "expected_jumps": 6.1795573306369205,
+            "integrated_channels": {
+              "basal_construct_A.x.reverse": 0.029586742516870712,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.0257023162857276,
+              "paid_construct_A.x.reverse": 0.0938766387823124,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.10057437118786766,
+              "basal_construct_A.y.reverse": 0.03239241536948622,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.0257023162857276,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.02314554209357103,
+              "paid_construct_A.y.reverse": 0.11100419767845417,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.10057437118786766,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.08251162659310411,
+              "basal_construct_B.x.reverse": 0.03308148377880027,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.025314585238248893,
+              "paid_construct_B.x.reverse": 0.09237347555406186,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.09878933260735262,
+              "basal_construct_B.y.reverse": 0.028990703779293858,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.025314585238248893,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.019419375754046033,
+              "paid_construct_B.y.reverse": 0.09821945769854462,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.09878933260735262,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.06845948447113642,
+              "source.forward": 0.8531298536012953,
+              "native_locked_bath.forward": 0.0047589750215365914,
+              "native_usable_bath.forward": 0.007846223344737977,
+              "assisted_construct_A.x_to_A.y.reverse": 0.30172311356360304,
+              "assisted_construct_A.y_to_A.x.reverse": 0.30172311356360304,
+              "assisted_construct_B.x_to_B.y.reverse": 0.29636799782205797,
+              "assisted_construct_B.y_to_B.x.reverse": 0.29636799782205797,
+              "assisted_construct_A.x_to_B.y.reverse": 0.20537845341340938,
+              "basal_construct_A.x.forward": 0.0035588474980284427,
+              "bind.contact.A.y_to_A.x.forward": 0.058503024986954005,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.005211373077536608,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.008592101642488593,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.003482542306042831,
+              "bind.contact.A.y_to_A.x.reverse": 0.08922047316532299,
+              "paid_construct_A.x.forward": 0.0321820900926185,
+              "capture_A.reverse": 0.009278791915768561,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.05105495609763959,
+              "assisted_construct_A.y_to_A.x.forward": 0.1531648682929187,
+              "basal_construct_A.y.forward": 0.0037279575813357556,
+              "bind.contact.A.x_to_A.y.forward": 0.0531910491254282,
+              "bind.contact.B.x_to_A.y.forward": 0.037952483193777344,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.008525303602925527,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.003417499169276524,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.005170858018532913,
+              "bind.contact.A.x_to_A.y.reverse": 0.088526841625065,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.0019793327435499047,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.00326336799608397,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.007650149801986847,
+              "bind.contact.B.x_to_A.y.reverse": 0.03388684734400478,
+              "paid_construct_A.y.forward": 0.03211233058960504,
+              "assisted_capture_A.reverse": 0.02339682963416536,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.05049776628770762,
+              "assisted_construct_A.x_to_A.y.forward": 0.15149329886312285,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.016465724642427206,
+              "basal_construct_B.x.forward": 0.0034054289739432497,
+              "bind.contact.B.y_to_B.x.forward": 0.05469359019157607,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.005113019685488222,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.008429944312972908,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.003387724480434246,
+              "bind.contact.B.y_to_B.x.reverse": 0.08753662976255522,
+              "paid_construct_B.x.forward": 0.03101203722538184,
+              "capture_B.reverse": 0.010334241161476338,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.05013771456641055,
+              "assisted_construct_B.y_to_B.x.forward": 0.15041314369923164,
+              "basal_construct_B.y.forward": 0.004015775776241095,
+              "bind.contact.B.x_to_B.y.forward": 0.06280387092027616,
+              "bind.contact.A.x_to_B.y.forward": 0.03793093302940543,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.008548636550277534,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.003397164570454355,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.005185010166483364,
+              "bind.contact.B.x_to_B.y.reverse": 0.08876913119398641,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.005985419317520354,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.018007248935380592,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.0036303403273123614,
+              "bind.contact.A.x_to_B.y.reverse": 0.06215265668660758,
+              "paid_construct_B.y.forward": 0.035346584233940104,
+              "assisted_capture_B.reverse": 0.03820300852936556,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.050587371649830994,
+              "assisted_construct_B.x_to_B.y.forward": 0.15176211494949293,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.03382944949448716,
+              "assisted_construct_A.x_to_B.y.forward": 0.10148834848346147,
+              "source.reverse": 0.34202801046472736,
+              "native_locked_bath.reverse": 0.038321579906231064,
+              "unlock_basal.forward": 0.14097721400711052,
+              "capture_A.forward": 0.0044921911015079604,
+              "assisted_capture_A.forward": 0.03028845881719708,
+              "capture_B.forward": 0.004327921148275259,
+              "assisted_capture_B.forward": 0.036215615138439794,
+              "native_usable_bath.reverse": 0.005765620909924606,
+              "unlock_basal.reverse": 0.012864839169866122,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.0004516147587325685,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.0004516147587325685,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.004290119183549328,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.004290119183549328,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.0007166458147059698,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.006343123544388611,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.0005399219613473651,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.004856331271249223,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.00045592588881535073,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.00045592588881535073,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.004346603345534534,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.004346603345534534
+            },
+            "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work"
+          }
+        },
+        {
+          "horizon": 64,
+          "ell_bits": 159.70266174369993,
+          "difference_from_P0_bits": 0.0,
+          "physical": {
+            "work_net": 2.998960002910782,
+            "heat_export": 1.524531354883855,
+            "delta_energy": 1.4744286480269493,
+            "energy_residual": 2.220446049250313e-14,
+            "entropy_production": 8.274952547164368,
+            "free_energy_excess_initial": 6.610189473623755,
+            "free_energy_excess_final": 1.3341969293701923,
+            "kl_availability": 1.334196929370195,
+            "availability_identity_residual": 2.6645352591003757e-15,
+            "availability_status": "supported",
+            "expected_jumps": 20.593204769293852,
+            "integrated_channels": {
+              "basal_construct_A.x.reverse": 0.09975520575519391,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.06687465219705054,
+              "paid_construct_A.x.reverse": 0.22133341384963473,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.20879355296130778,
+              "basal_construct_A.y.reverse": 0.10100025281976925,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.06687465219705054,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.058305854215757194,
+              "paid_construct_A.y.reverse": 0.25811775276814464,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.20879355296130778,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.16147360812500774,
+              "basal_construct_B.x.reverse": 0.10494390166855708,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.06647856466619148,
+              "paid_construct_B.x.reverse": 0.21773468253041256,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.20624981455861396,
+              "basal_construct_B.y.reverse": 0.09636751226318563,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.06647856466619148,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.05312875126121653,
+              "paid_construct_B.y.reverse": 0.24268723848600876,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.20624981455861396,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.1440417541480672,
+              "source.forward": 2.6002832091816668,
+              "native_locked_bath.forward": 0.014505040222399462,
+              "native_usable_bath.forward": 0.023914768347030907,
+              "assisted_construct_A.x_to_A.y.reverse": 0.6263806588839236,
+              "assisted_construct_A.y_to_A.x.reverse": 0.6263806588839236,
+              "assisted_construct_B.x_to_B.y.reverse": 0.6187494436758421,
+              "assisted_construct_B.y_to_B.x.reverse": 0.6187494436758421,
+              "assisted_construct_A.x_to_B.y.reverse": 0.43212526244420174,
+              "basal_construct_A.x.forward": 0.024349601299840627,
+              "bind.contact.A.y_to_A.x.forward": 0.33016022794332855,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.021110662466343678,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.034805598246831645,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.030970918354138254,
+              "bind.contact.A.y_to_A.x.reverse": 0.3614216955986829,
+              "paid_construct_A.x.forward": 0.18270386334631314,
+              "capture_A.reverse": 0.035825521973960175,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.17032950893631088,
+              "assisted_construct_A.y_to_A.x.forward": 0.5109885268089326,
+              "basal_construct_A.y.forward": 0.025907070985007684,
+              "bind.contact.A.x_to_A.y.forward": 0.3224049434838876,
+              "bind.contact.B.x_to_A.y.forward": 0.23491088286415668,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.034911770790591254,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.029223959846631474,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.021175059369353558,
+              "bind.contact.A.x_to_A.y.reverse": 0.3625241924016251,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.01274937018777196,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.021020157816609715,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.038807843859316335,
+              "bind.contact.B.x_to_A.y.reverse": 0.2182735382381356,
+              "paid_construct_A.y.forward": 0.18610134341997783,
+              "assisted_capture_A.reverse": 0.13403602896145014,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.16742072696639188,
+              "assisted_construct_A.x_to_A.y.forward": 0.5022621808991756,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.09131013889153952,
+              "basal_construct_B.x.forward": 0.023754592669855648,
+              "bind.contact.B.y_to_B.x.forward": 0.3199981429246614,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.020727430310324604,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.034173755239586726,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.030440276645147944,
+              "bind.contact.B.y_to_B.x.reverse": 0.35486063121440914,
+              "paid_construct_B.x.forward": 0.17743019053149764,
+              "capture_B.reverse": 0.03728962068967906,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.1671947369328226,
+              "assisted_construct_B.y_to_B.x.forward": 0.5015842107984677,
+              "basal_construct_B.y.forward": 0.026643806891230817,
+              "bind.contact.B.x_to_B.y.forward": 0.34209972412983863,
+              "bind.contact.A.x_to_B.y.forward": 0.23495707118589462,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.03519519337259767,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.028716192339350965,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.02134696385499537,
+              "bind.contact.B.x_to_B.y.reverse": 0.36546725545238135,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.024385013015115677,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.05173136504031384,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.014790258031159268,
+              "bind.contact.A.x_to_B.y.reverse": 0.25321422975171337,
+              "paid_construct_B.y.forward": 0.19478270009137721,
+              "assisted_capture_B.reverse": 0.1556518178959866,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.16876659518594783,
+              "assisted_construct_B.x_to_B.y.forward": 0.5062997855578435,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.11365292728176603,
+              "assisted_construct_A.x_to_B.y.forward": 0.34095878184529804,
+              "source.reverse": 1.6006298748780725,
+              "native_locked_bath.reverse": 0.17933813539744115,
+              "unlock_basal.forward": 0.6597481303073908,
+              "capture_A.forward": 0.04513512855371144,
+              "assisted_capture_A.forward": 0.24744894232959733,
+              "capture_B.forward": 0.045341373719479904,
+              "assisted_capture_B.forward": 0.2582490044182459,
+              "native_usable_bath.reverse": 0.06245843155937187,
+              "unlock_basal.reverse": 0.13936359836462378,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.005787334772192414,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.005787334772192414,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.041311138726733414,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.041311138726733414,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.006312524200942044,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.0454345637117354,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.005853853425528939,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.04170127188459359,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.005742118792153858,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.005742118792153858,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.04095928357664158,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.04095928357664158
+            },
+            "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work"
+          }
+        }
+      ]
+    },
+    {
+      "original_law": "local",
+      "interpretation": {
+        "source_model_hash": "7a4c7d09bdf23a6baacfca36c763a19140173175619ad3ad3b801c2e5cc3503a",
+        "interpreted_model_hash": "649406cd6775742b61721b51ff9352a3187db757e80410dfd48efd5b34fcb59e",
+        "changed_fields": [
+          "id",
+          "material"
+        ],
+        "inventories": [
+          {
+            "id": "A.slots",
+            "retained_units": 2,
+            "slots": [
+              {
+                "coordinate": "A.x",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              },
+              {
+                "coordinate": "A.y",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              }
+            ],
+            "source_declaration": {
+              "id": "A.slots",
+              "quantity": 2,
+              "conservation": "fixed distinct material slots, precursor or constructed"
+            },
+            "interpretation_justification": "The original declaration retains each named physical unit through all listed internal states; this witness interprets fixed units, not chemical atoms or unmodeled matter."
+          },
+          {
+            "id": "B.slots",
+            "retained_units": 2,
+            "slots": [
+              {
+                "coordinate": "B.x",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              },
+              {
+                "coordinate": "B.y",
+                "states": [
+                  [
+                    0,
+                    "precursor"
+                  ],
+                  [
+                    1,
+                    "working"
+                  ]
+                ]
+              }
+            ],
+            "source_declaration": {
+              "id": "B.slots",
+              "quantity": 2,
+              "conservation": "fixed distinct material slots, precursor or constructed"
+            },
+            "interpretation_justification": "The original declaration retains each named physical unit through all listed internal states; this witness interprets fixed units, not chemical atoms or unmodeled matter."
+          },
+          {
+            "id": "shared_carrier",
+            "retained_units": 1,
+            "slots": [
+              {
+                "coordinate": "carrier",
+                "states": [
+                  [
+                    0,
+                    "spent"
+                  ],
+                  [
+                    1,
+                    "locked"
+                  ],
+                  [
+                    2,
+                    "usable"
+                  ]
+                ]
+              }
+            ],
+            "source_declaration": {
+              "id": "shared_carrier",
+              "quantity": 1,
+              "conservation": "one carrier switches state; no extra matter"
+            },
+            "interpretation_justification": "The original declaration retains each named physical unit through all listed internal states; this witness interprets fixed units, not chemical atoms or unmodeled matter."
+          }
+        ],
+        "scope": "Fixed retained-unit interpretation; no atom/waste/bath-material or full chemical closure certificate",
+        "law_equivalence": "requires native compilation/event-ledger comparison; metadata is not sufficient"
+      },
+      "interpreted_model": {
+        "schema": "omega.local-model/1",
+        "id": "autocatalytic-ecology-occupied-v1.retained-slot-interpretation-v1",
+        "beta": 1.0,
+        "coordinates": [
+          {
+            "name": "A.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "A"
+          },
+          {
+            "name": "A.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "A"
+          },
+          {
+            "name": "B.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "constructed_component",
+            "owner": "B"
+          },
+          {
+            "name": "B.bank",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "energy",
+            "owner": "B"
+          },
+          {
+            "name": "carrier",
+            "domain": [
+              0,
+              1,
+              2
+            ],
+            "role": "shared_resource",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.A.x_to_A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.A.y_to_A.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.B.x_to_B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.B.y_to_B.x",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.A.x_to_B.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          },
+          {
+            "name": "contact.B.x_to_A.y",
+            "domain": [
+              0,
+              1
+            ],
+            "role": "catalytic_contact",
+            "owner": "shared"
+          }
+        ],
+        "rules": [
+          {
+            "id": "basal_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_A.x.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "contact.A.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.x.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "contact.A.y_to_A.x",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.x.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "contact.A.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_A.x.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.x.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.y_to_A.x",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.x.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_A.y.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "contact.A.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.y.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "contact.A.y_to_A.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_A.y.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "contact.B.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_A.y.bound.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.y.bound.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.y_to_A.x",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_A.y.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_A",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "A.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "basal_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_B.x.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "contact.B.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.x.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "contact.B.y_to_B.x",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.x.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "contact.B.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_B.x.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.x.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.y_to_B.x",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.x.bound.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction and bank-independent thermal breakdown"
+          },
+          {
+            "id": "basal_construct_B.y.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "contact.B.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.y.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "contact.B.y_to_B.x",
+                1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "basal_construct_B.y.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "contact.A.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.003,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "paid reconstruction with formation energy and heat accounted"
+          },
+          {
+            "id": "paid_construct_B.y.bound.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.y.bound.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.y_to_B.x",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "paid_construct_B.y.bound.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "native construction/failure dissolves or restores contact; paired reverse"
+          },
+          {
+            "id": "capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.004,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "basal capture competes for one shared carrier"
+          },
+          {
+            "id": "assisted_capture_B",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "le",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                -2
+              ],
+              [
+                "B.bank",
+                1
+              ]
+            ],
+            "conductance": 0.05,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "constructed local interface assists access; native route stays"
+          },
+          {
+            "id": "source",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.08,
+            "work": "3",
+            "boundary": "work_source",
+            "support": [],
+            "mechanism": "maintained reversible work supply"
+          },
+          {
+            "id": "native_locked_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "native_usable_bath",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                2
+              ]
+            ],
+            "conductance": 0.002,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "unlock_basal",
+            "guards": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "carrier",
+                1
+              ]
+            ],
+            "conductance": 0.02,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "unspecified"
+          },
+          {
+            "id": "bind.contact.A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.A.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_A.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.y",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.x_to_A.y",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.A.y_to_A.x",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_A.y_to_A.x",
+            "guards": [
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "A.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "A.x",
+                1
+              ],
+              [
+                "A.bank",
+                -2
+              ],
+              [
+                "contact.A.y_to_A.x",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.B.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_B.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.y",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.x_to_B.y",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.B.y_to_B.x",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "assisted_construct_B.y_to_B.x",
+            "guards": [
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "B.bank",
+                "operator": "ge",
+                "value": 2
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 1
+              }
+            ],
+            "changes": [
+              [
+                "B.x",
+                1
+              ],
+              [
+                "B.bank",
+                -2
+              ],
+              [
+                "contact.B.y_to_B.x",
+                -1
+              ]
+            ],
+            "conductance": 0.06,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "occupied native helper assists recipient-paid construction then releases"
+          },
+          {
+            "id": "bind.contact.A.x_to_B.y",
+            "guards": [
+              {
+                "coordinate": "A.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.A.x_to_B.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          },
+          {
+            "id": "bind.contact.B.x_to_A.y",
+            "guards": [
+              {
+                "coordinate": "B.x",
+                "operator": "eq",
+                "value": 1
+              },
+              {
+                "coordinate": "A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.A.y_to_A.x",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_A.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.x_to_B.y",
+                "operator": "eq",
+                "value": 0
+              },
+              {
+                "coordinate": "contact.B.y_to_B.x",
+                "operator": "eq",
+                "value": 0
+              }
+            ],
+            "changes": [
+              [
+                "contact.B.x_to_A.y",
+                1
+              ]
+            ],
+            "conductance": 0.04,
+            "work": "0",
+            "boundary": "native",
+            "support": [],
+            "mechanism": "reversible binding sequesters a finite helper and substrate port"
+          }
+        ],
+        "energy_terms": [
+          {
+            "coefficient": ".5",
+            "coordinate": "A.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "A.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "A.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.x",
+            "conditions": []
+          },
+          {
+            "coefficient": ".5",
+            "coordinate": "B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "1/2",
+            "coordinate": "B.bank",
+            "conditions": []
+          },
+          {
+            "coefficient": "3",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "coefficient": "2",
+            "coordinate": null,
+            "conditions": [
+              {
+                "coordinate": "carrier",
+                "operator": "eq",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.A.x_to_A.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.A.y_to_A.x",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.B.x_to_B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.B.y_to_B.x",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.A.x_to_B.y",
+            "conditions": []
+          },
+          {
+            "coefficient": "-.25",
+            "coordinate": "contact.B.x_to_A.y",
+            "conditions": []
+          }
+        ],
+        "forbidden": [
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.y",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.y",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "B.x",
+              "operator": "eq",
+              "value": 0
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.A.y_to_A.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.x_to_A.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ],
+          [
+            {
+              "coordinate": "contact.B.y_to_B.x",
+              "operator": "eq",
+              "value": 1
+            },
+            {
+              "coordinate": "contact.A.x_to_B.y",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        ],
+        "degeneracy": [],
+        "symmetry": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        ],
+        "relations": [
+          {
+            "id": "A.contact",
+            "support": [
+              "A.x",
+              "A.y",
+              "A.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          },
+          {
+            "id": "B.contact",
+            "support": [
+              "B.x",
+              "B.y",
+              "B.bank",
+              "carrier"
+            ],
+            "geometry": "fixed well-mixed contact to a shared finite carrier",
+            "construction": "interfaces require the corresponding constructed members",
+            "transport": "no resolved spatial displacement or migration"
+          },
+          {
+            "id": "contact.A.x_to_A.y",
+            "parent": "A.x",
+            "child": "A.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.A.y_to_A.x",
+            "parent": "A.y",
+            "child": "A.x",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.B.x_to_B.y",
+            "parent": "B.x",
+            "child": "B.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.B.y_to_B.x",
+            "parent": "B.y",
+            "child": "B.x",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.A.x_to_B.y",
+            "parent": "A.x",
+            "child": "B.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          },
+          {
+            "id": "contact.B.x_to_A.y",
+            "parent": "B.x",
+            "child": "A.y",
+            "interface_capacity": 1,
+            "construction": "reversible physical bond",
+            "helper_cost": "occupied port; recipient pays conversion"
+          }
+        ],
+        "material": [
+          {
+            "id": "A.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed",
+            "inventory": [
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.x",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.x",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.y",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "A.y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "inventory_scope": "declared_retained_units_only_not_chemical_closure"
+          },
+          {
+            "id": "B.slots",
+            "quantity": 2,
+            "conservation": "fixed distinct material slots, precursor or constructed",
+            "inventory": [
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.x",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.x",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.y",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "B.y",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "inventory_scope": "declared_retained_units_only_not_chemical_closure"
+          },
+          {
+            "id": "shared_carrier",
+            "quantity": 1,
+            "conservation": "one carrier switches state; no extra matter",
+            "inventory": [
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "carrier",
+                    "operator": "eq",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "carrier",
+                    "operator": "eq",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "coefficient": "1",
+                "conditions": [
+                  {
+                    "coordinate": "carrier",
+                    "operator": "eq",
+                    "value": 2
+                  }
+                ]
+              }
+            ],
+            "inventory_scope": "declared_retained_units_only_not_chemical_closure"
+          }
+        ]
+      },
+      "native_generator_difference": 0.0,
+      "state_count": 1215,
+      "marked_event_count": 15852,
+      "native_ledger_unchanged": true,
+      "state_hash": "9ca1b10a069a687e38833ba2179b41e01127ba4e362609f7b95d579122e52ce2",
+      "native_generator_entries_sha256": "7ad3da9ef4b5c64bfd4afc82545edbdffe39dc7260a43c355f128fd8178f59b4",
+      "inventory_on_every_reachable_state": {
+        "A.slots": "2",
+        "B.slots": "2",
+        "shared_carrier": "1"
+      },
+      "rows": [
+        {
+          "horizon": 16,
+          "ell_bits": 46.48866237830536,
+          "difference_from_P0_bits": 0.0,
+          "physical": {
+            "work_net": 1.5426209103768849,
+            "heat_export": -0.03390055572011559,
+            "delta_energy": 1.5765214660970006,
+            "energy_residual": 1.5265566588595902e-16,
+            "entropy_production": 5.492190687536362,
+            "free_energy_excess_initial": 6.610189473623755,
+            "free_energy_excess_final": 2.6606196964642796,
+            "kl_availability": 2.6606196964642863,
+            "availability_identity_residual": 6.661338147750939e-15,
+            "availability_status": "supported",
+            "expected_jumps": 6.0193576129922866,
+            "integrated_channels": {
+              "basal_construct_A.x.reverse": 0.03162916852551829,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.02732559329044341,
+              "paid_construct_A.x.reverse": 0.09988918683409383,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.10690944756112859,
+              "basal_construct_A.y.reverse": 0.031459797786903526,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.02732559329044341,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.02122056194549634,
+              "paid_construct_A.y.reverse": 0.10695264513704306,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.10690944756112859,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.07507861521823964,
+              "basal_construct_B.x.reverse": 0.031629168525518295,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.027325593290443404,
+              "paid_construct_B.x.reverse": 0.09988918683409383,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.10690944756112859,
+              "basal_construct_B.y.reverse": 0.031459797786903526,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.027325593290443404,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.021220561945496336,
+              "paid_construct_B.y.reverse": 0.10695264513704306,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.10690944756112859,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.07507861521823962,
+              "source.forward": 0.8574127172227677,
+              "native_locked_bath.forward": 0.004782865922680416,
+              "native_usable_bath.forward": 0.007885612781629995,
+              "assisted_construct_A.x_to_A.y.reverse": 0.32072834268338585,
+              "assisted_construct_A.y_to_A.x.reverse": 0.32072834268338585,
+              "assisted_construct_B.x_to_B.y.reverse": 0.32072834268338585,
+              "assisted_construct_B.y_to_B.x.reverse": 0.32072834268338585,
+              "basal_construct_A.x.forward": 0.0036086493414910657,
+              "bind.contact.A.y_to_A.x.forward": 0.059237642593274686,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.005526652146887872,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.009111908950334563,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.0036582031793294433,
+              "bind.contact.A.y_to_A.x.reverse": 0.0946181576772787,
+              "paid_construct_A.x.forward": 0.03271923471023936,
+              "capture_A.reverse": 0.009611383112111647,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.05420344387354448,
+              "assisted_construct_A.y_to_A.x.forward": 0.16261033162063343,
+              "basal_construct_A.y.forward": 0.0037113778873190967,
+              "bind.contact.A.x_to_A.y.forward": 0.0576705094079295,
+              "bind.contact.B.x_to_A.y.forward": 0.03477216207105751,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.00910263387851837,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.0036483325398730037,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.005521026531460314,
+              "bind.contact.A.x_to_A.y.reverse": 0.09452184523469878,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.0018277109094018678,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.0030133858530215336,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.008835399497980019,
+              "bind.contact.B.x_to_A.y.reverse": 0.03129103016039287,
+              "paid_construct_A.y.forward": 0.031952893628318525,
+              "assisted_capture_A.reverse": 0.02548440222623213,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.05390607164845341,
+              "assisted_construct_A.x_to_A.y.forward": 0.1617182149453602,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.015117767173448544,
+              "basal_construct_B.x.forward": 0.003608649341491066,
+              "bind.contact.B.y_to_B.x.forward": 0.059237642593274686,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.005526652146887872,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.009111908950334563,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.003658203179329444,
+              "bind.contact.B.y_to_B.x.reverse": 0.09461815767727871,
+              "paid_construct_B.x.forward": 0.03271923471023935,
+              "capture_B.reverse": 0.00961138311211165,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.05420344387354448,
+              "assisted_construct_B.y_to_B.x.forward": 0.16261033162063343,
+              "basal_construct_B.y.forward": 0.003711377887319097,
+              "bind.contact.B.x_to_B.y.forward": 0.057670509407929484,
+              "bind.contact.A.x_to_B.y.forward": 0.0347721620710575,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.009102633878518368,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.0036483325398730033,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.005521026531460315,
+              "bind.contact.B.x_to_B.y.reverse": 0.0945218452346988,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.0030133858530215336,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.008835399497980017,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.0018277109094018678,
+              "bind.contact.A.x_to_B.y.reverse": 0.03129103016039286,
+              "paid_construct_B.y.forward": 0.03195289362831852,
+              "assisted_capture_B.reverse": 0.025484402226232133,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.05390607164845341,
+              "assisted_construct_B.x_to_B.y.forward": 0.1617182149453602,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.015117767173448544,
+              "source.reverse": 0.34320574709713964,
+              "native_locked_bath.reverse": 0.03845353614106153,
+              "unlock_basal.forward": 0.1414626538663957,
+              "capture_A.forward": 0.0040032861249166786,
+              "assisted_capture_A.forward": 0.03161958033358192,
+              "capture_B.forward": 0.0040032861249166786,
+              "assisted_capture_B.forward": 0.03161958033358192,
+              "native_usable_bath.reverse": 0.005394534648859246,
+              "unlock_basal.reverse": 0.012036833801262168,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.00046928011036810363,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.00046928011036810363,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.004463531783171264,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.004463531783171264,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.0005765048582195667,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.005139447335647526,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.0005765048582195668,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.005139447335647526,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.00046928011036810363,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.00046928011036810363,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.004463531783171264,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.004463531783171264
+            },
+            "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work"
+          }
+        },
+        {
+          "horizon": 64,
+          "ell_bits": 156.1947836615896,
+          "difference_from_P0_bits": 0.0,
+          "physical": {
+            "work_net": 3.0115182111662624,
+            "heat_export": 1.5417163915518584,
+            "delta_energy": 1.4698018196143885,
+            "energy_residual": -1.554312234475219e-14,
+            "entropy_production": 8.293592847408737,
+            "free_energy_excess_initial": 6.610189473623755,
+            "free_energy_excess_final": 1.3281148373812655,
+            "kl_availability": 1.3281148373812544,
+            "availability_identity_residual": 1.1102230246251565e-14,
+            "availability_status": "supported",
+            "expected_jumps": 20.018457347533108,
+            "integrated_channels": {
+              "basal_construct_A.x.reverse": 0.10197497755213636,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.06901701283157073,
+              "paid_construct_A.x.reverse": 0.22814744823988403,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.reverse": 0.21643915724238616,
+              "basal_construct_A.y.reverse": 0.10008375822674213,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.06901701283157073,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.05519725607541011,
+              "paid_construct_A.y.reverse": 0.25341734966712687,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.reverse": 0.21643915724238616,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.reverse": 0.1507800456962688,
+              "basal_construct_B.x.reverse": 0.10197497755213637,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.06901701283157075,
+              "paid_construct_B.x.reverse": 0.22814744823988403,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.reverse": 0.21643915724238613,
+              "basal_construct_B.y.reverse": 0.10008375822674213,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.06901701283157075,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.05519725607541011,
+              "paid_construct_B.y.reverse": 0.25341734966712687,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.reverse": 0.21643915724238613,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.reverse": 0.15078004569626877,
+              "source.forward": 2.608873690039994,
+              "native_locked_bath.forward": 0.01455296010664123,
+              "native_usable_bath.forward": 0.02399377487946981,
+              "assisted_construct_A.x_to_A.y.reverse": 0.6493174717271586,
+              "assisted_construct_A.y_to_A.x.reverse": 0.6493174717271586,
+              "assisted_construct_B.x_to_B.y.reverse": 0.6493174717271587,
+              "assisted_construct_B.y_to_B.x.reverse": 0.6493174717271587,
+              "basal_construct_A.x.forward": 0.0246312182249577,
+              "bind.contact.A.y_to_A.x.forward": 0.33502897936877984,
+              "basal_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.021770545898562595,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.03589356209771358,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.reverse": 0.031669992689003695,
+              "bind.contact.A.y_to_A.x.reverse": 0.37271912358561937,
+              "paid_construct_A.x.forward": 0.18514216613359086,
+              "capture_A.reverse": 0.03626520798874349,
+              "paid_construct_A.x.bound.contact.A.y_to_A.x.forward": 0.17618195483659235,
+              "assisted_construct_A.y_to_A.x.forward": 0.5285458645097769,
+              "basal_construct_A.y.forward": 0.025778300730050347,
+              "bind.contact.A.x_to_A.y.forward": 0.32880939480434807,
+              "bind.contact.B.x_to_A.y.forward": 0.22429791682543557,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.03611392875796416,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.reverse": 0.030053209162893623,
+              "basal_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.021904205034383048,
+              "bind.contact.A.x_to_A.y.reverse": 0.3750074132864991,
+              "basal_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.011964544646761704,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.019726199253357373,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.reverse": 0.040038747960213866,
+              "bind.contact.B.x_to_A.y.reverse": 0.2048370590071639,
+              "paid_construct_A.y.forward": 0.1848981079495244,
+              "assisted_capture_A.reverse": 0.1366244978246432,
+              "paid_construct_A.y.bound.contact.A.x_to_A.y.forward": 0.17349507198091701,
+              "assisted_construct_A.x_to_A.y.forward": 0.5204852159427509,
+              "paid_construct_A.y.bound.contact.B.x_to_A.y.forward": 0.08520959231839882,
+              "basal_construct_B.x.forward": 0.024631218224957698,
+              "bind.contact.B.y_to_B.x.forward": 0.3350289793687798,
+              "basal_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.021770545898562588,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.03589356209771356,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.reverse": 0.03166999268900367,
+              "bind.contact.B.y_to_B.x.reverse": 0.3727191235856192,
+              "paid_construct_B.x.forward": 0.18514216613359086,
+              "capture_B.reverse": 0.036265207988743504,
+              "paid_construct_B.x.bound.contact.B.y_to_B.x.forward": 0.17618195483659227,
+              "assisted_construct_B.y_to_B.x.forward": 0.5285458645097768,
+              "basal_construct_B.y.forward": 0.025778300730050347,
+              "bind.contact.B.x_to_B.y.forward": 0.32880939480434823,
+              "bind.contact.A.x_to_B.y.forward": 0.2242979168254356,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.03611392875796417,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.reverse": 0.03005320916289358,
+              "basal_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.021904205034383055,
+              "bind.contact.B.x_to_B.y.reverse": 0.3750074132864992,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.019726199253357373,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.reverse": 0.04003874796021388,
+              "basal_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.011964544646761706,
+              "bind.contact.A.x_to_B.y.reverse": 0.2048370590071639,
+              "paid_construct_B.y.forward": 0.1848981079495245,
+              "assisted_capture_B.reverse": 0.13662449782464328,
+              "paid_construct_B.y.bound.contact.B.x_to_B.y.forward": 0.17349507198091713,
+              "assisted_construct_B.x_to_B.y.forward": 0.5204852159427513,
+              "paid_construct_B.y.bound.contact.A.x_to_B.y.forward": 0.08520959231839884,
+              "source.reverse": 1.6050342863179063,
+              "native_locked_bath.reverse": 0.17983161546272058,
+              "unlock_basal.forward": 0.6615635420138332,
+              "capture_A.forward": 0.044366614705014004,
+              "assisted_capture_A.forward": 0.24733169172733543,
+              "capture_B.forward": 0.044366614705014004,
+              "assisted_capture_B.forward": 0.2473316917273355,
+              "native_usable_bath.reverse": 0.061575337069449,
+              "unlock_basal.reverse": 0.1373931482149969,
+              "basal_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.0058793940989123284,
+              "basal_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.0058793940989123284,
+              "paid_construct_A.x.bound.contact.A.x_to_A.y.forward": 0.0420261998005428,
+              "paid_construct_A.y.bound.contact.A.y_to_A.x.forward": 0.0420261998005428,
+              "basal_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.006009015936033586,
+              "paid_construct_A.x.bound.contact.A.x_to_B.y.forward": 0.043060846668311205,
+              "basal_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.0060090159360335835,
+              "paid_construct_B.x.bound.contact.B.x_to_A.y.forward": 0.043060846668311205,
+              "basal_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.005879394098912326,
+              "basal_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.005879394098912326,
+              "paid_construct_B.x.bound.contact.B.x_to_B.y.forward": 0.04202619980054279,
+              "paid_construct_B.y.bound.contact.B.y_to_B.x.forward": 0.04202619980054279
+            },
+            "scope": "One declared bath; boundary histories unresolved; availability is a benchmark, not guaranteed extractable work"
+          }
+        }
+      ]
+    }
+  ],
+  "paired_checks": [
+    {
+      "left": "one_way",
+      "right": "local",
+      "horizon": 16,
+      "certificate": {
+        "status": "validated_paired_comparison",
+        "kind": "mechanism",
+        "left_model": "cbb8288e8c2d72239e39acf174d89a32e0d0b5d6063f78e2c4352d26669f471d",
+        "right_model": "649406cd6775742b61721b51ff9352a3187db757e80410dfd48efd5b34fcb59e",
+        "left_present": "44d9da32cb5928c78e17fa8b29e36fb5b684966c534a050a3d8fb67ab84d484c",
+        "right_present": "44d9da32cb5928c78e17fa8b29e36fb5b684966c534a050a3d8fb67ab84d484c",
+        "state_mapping": null,
+        "material_endowment": "declared_executable_totals_checked",
+        "material_inventory_scopes": {
+          "A.slots": "declared_retained_units_only_not_chemical_closure",
+          "B.slots": "declared_retained_units_only_not_chemical_closure",
+          "shared_carrier": "declared_retained_units_only_not_chemical_closure"
+        },
+        "process_enactment": "not_a_process_contrast",
+        "scope": "Declared finite grammar/endowment checked; exterior cancellation and physical faithfulness not established"
+      },
+      "mapping_check": null
+    },
+    {
+      "left": "one_way",
+      "right": "local",
+      "horizon": 64,
+      "certificate": {
+        "status": "validated_paired_comparison",
+        "kind": "mechanism",
+        "left_model": "cbb8288e8c2d72239e39acf174d89a32e0d0b5d6063f78e2c4352d26669f471d",
+        "right_model": "649406cd6775742b61721b51ff9352a3187db757e80410dfd48efd5b34fcb59e",
+        "left_present": "44d9da32cb5928c78e17fa8b29e36fb5b684966c534a050a3d8fb67ab84d484c",
+        "right_present": "44d9da32cb5928c78e17fa8b29e36fb5b684966c534a050a3d8fb67ab84d484c",
+        "state_mapping": null,
+        "material_endowment": "declared_executable_totals_checked",
+        "material_inventory_scopes": {
+          "A.slots": "declared_retained_units_only_not_chemical_closure",
+          "B.slots": "declared_retained_units_only_not_chemical_closure",
+          "shared_carrier": "declared_retained_units_only_not_chemical_closure"
+        },
+        "process_enactment": "not_a_process_contrast",
+        "scope": "Declared finite grammar/endowment checked; exterior cancellation and physical faithfulness not established"
+      },
+      "mapping_check": null
+    }
+  ],
+  "contrasts": [
+    {
+      "horizon": 16,
+      "delta_bits": 0.9262508196931236
+    },
+    {
+      "horizon": 64,
+      "delta_bits": 3.5078780821103237
+    }
+  ],
+  "limits": "Interpreted retained-unit inventories only; not full chemistry, historical-certificate replacement, physical faithfulness, exterior cancellation or an ethical certificate"
+}
