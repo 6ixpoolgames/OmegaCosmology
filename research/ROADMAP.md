@@ -1,5 +1,32 @@
 # Research roadmap — v4.1 starting reference
 
+Latest31 October review: the
+[retained-J boundary diagnosis](platform/reviews/joint-load-boundary-2026-10-31/REPORT.md)
+is complete without a new fit/model/run. The local inverse asks for negative
+locked-load conductance; this explains the boundary locally, not globally.
+The proposed next comparator resolves a physical intermediate and a two-step
+discharge, shared with the productive baseline's thermal grammar. It is a
+new version requiring new physical targets, not silent retuning or a matched
+control already established. No implementation or science follows automatically.
+
+Latest31 October checkpoint: J's
+[physical pilot](platform/engineering/joint-resource-load-2026-10-31/REPORT.md)
+is complete without a joint match in its bounded search. Both mean moments
+remain outside tolerance at the selected control; no new history score exists.
+The family retains54 physically qualified source-on control evaluations, but
+physical payment does not imply matching. Review the physical moment surface
+and energy-per-event structure before any further construction/search. All203
+tests pass. No broader run or publication follows from this completed pilot.
+
+31 October checkpoint: request r7's
+[K audit and J physical review](platform/reviews/r7-k-j-review-2026-10-31/README.md)
+are complete locally. K preserves all numerical results and corrects their
+scope, including coarse-cadence intermediate crossings. J recommends an
+anchor-only physical qualification pilot with two reversible load routes,
+conditional on author review; no new calibration or history scoring has run.
+The private working manuscripts are not imported. Broader r7 studies,
+manuscript amendments and publication remain separate subsequent scope.
+
 Latest 30 October checkpoint: the [resource-load control](platform/engineering/resource-load-control-2026-10-30/REPORT.md)
 qualifies two separately stationary-matched source-fed controls and completes
 the bounded conditional comparison. Positive source-on rate differences survive

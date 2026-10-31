@@ -52,6 +52,43 @@ entire legacy simulator or hardcode experiment-specific component counts.
 
 ## Workflow
 
+The user's latest 31 October “Push” authorizes publication of the pending
+r7 K/J reviews, J physical pilot and boundary review/proposed J2 design, with
+their supporting code, tests, contracts and retained evidence, to the existing
+branch. Preserve every no-match result and report limitation. Private drafts,
+identity policies and execution caches remain ignored. Use S. Poole attribution.
+This publication does not implement J2, run histories, amend manuscripts or
+authorize recurring publication. Original evidence bytes remain unchanged.
+
+The user's latest 31 October “Ok go” authorized the retained-J physical
+boundary review, complete at
+research/platform/reviews/joint-load-boundary-2026-10-31/REPORT.md.
+Only existing physical data/sensitivities were analyzed: the local inverse
+needs negative k_L, not a global infeasibility proof. NEXT_CONTROL_DESIGN.md
+proposes a shared physical intermediate and two-step discharge, not an event
+subdivision label. No new model, fit, history score or run was executed.
+J2 remains a prospective new substrate version requiring recomputed targets;
+do not silently implement/run it or update manuscripts/commit/push from this
+completed review alone. All prior numerical records remain unchanged.
+
+The user's latest 31 October “Ok go next” authorized J's capped physical-only
+anchor pilot, complete locally at
+research/platform/engineering/joint-resource-load-2026-10-31/REPORT.md.
+It found no joint match in 105 evaluations; no history was scored. The two
+new load routes retain their reverses and common physics. Per-route load
+rewards now have an optional explicit rule-ID filter; old default behavior
+is unchanged and all203 tests pass. Do not widen the search, tune the family,
+score an unmatched control or infer global infeasibility/theory failure.
+Stop at the physical report. No commit, push or manuscript edit follows.
+
+The user's latest 31 October “Proceed” authorizes request r7's K numerical-
+claim audit and J physical design review, complete locally at
+research/platform/reviews/r7-k-j-review-2026-10-31/. Stop at those reports.
+No new science, calibration, manuscript application, commit or push follows.
+The ten private working drafts stay ignored. K records 124 consistent checks
+and eight correction groups; J proposes a capped physical-only pilot, not a
+qualified joint match. Prior reports and numerical evidence stay unchanged.
+
 The user's 31 October “Push available results” authorizes publishing completed
 pending P0/T verification, paired qualification and resource-load evidence,
 necessary code/contracts/tests and request assessment to the existing branch.

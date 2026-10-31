@@ -69,10 +69,15 @@ def attach_resource_load(
     return LocalModel.from_record(record)
 
 
-def load_rewards(compiled, *, role=LOAD_ROLE):
+def load_rewards(compiled, *, role=LOAD_ROLE, rule_ids=None):
     """Continuous physical flow vectors. They never enter entropy scoring."""
     compiled.require_complete()
     ids = {r.id for r in compiled.model.rules if role in r.roles}
+    if rule_ids is not None:
+        requested = set(rule_ids)
+        if not requested or not requested <= ids:
+            raise ValueError("Select nonempty existing load-rule identifiers")
+        ids = requested
     if not ids:
         raise ValueError("Declared load channel is absent")
     names = (

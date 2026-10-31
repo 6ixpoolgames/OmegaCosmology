@@ -1,5 +1,72 @@
 # Current position — 31 October 2026
 
+## Publication checkpoint: r7 reviews and J physical qualification
+
+The latest “Push” authorizes publishing the completed K/J reviews, J's
+105-evaluation physical pilot, its boundary diagnosis and the prospective
+J2 design, with supporting implementation/tests and retained evidence.
+The pilot found no joint match; no new history result is published. K's
+124 checks and all manuscript-scope corrections remain visible. J2 remains
+unimplemented. The last full suite passed 203 tests. Earlier local-generation
+wording records delivery stages, not the current publication status.
+
+Private manuscript bytes, policies and run caches stay excluded; attribution
+is S. Poole. No history run, manuscript edit or new model follows from this
+publication instruction.
+
+## J boundary review completed; J2 proposed
+
+The latest “Ok go” authorized the
+[retained-data review](../research/platform/reviews/joint-load-boundary-2026-10-31/REPORT.md),
+now complete without new physical evaluations, fits or history scores.
+The stored local inverse needs k_L below zero to raise activity and reduce
+net work simultaneously. The rates are locally distinct; no global
+infeasibility follows. One-step discharge differs from useful unlocking
+and capture in energy destinations, bank routing and path length.
+
+The proposed next candidate is a
+[shared-intermediate two-step discharge](../research/platform/reviews/joint-load-boundary-2026-10-31/NEXT_CONTROL_DESIGN.md).
+The intermediate and thermal routes belong in every arm; both targets must
+be recomputed on this new model version. About 100 states are expected,
+but implementation, qualification and any later history run remain unexecuted.
+No old evidence, manuscript, commit or publication was changed.
+
+## J physical pilot: no joint match in the bounded search
+
+The user's latest “Ok go next” authorized the
+[physical-only anchor pilot](../research/platform/engineering/joint-resource-load-2026-10-31/REPORT.md),
+now complete:105 evaluations on75 states,27.14s,155.02MiB peak. The selected
+control has12.04% fewer events and3.18% more net work than the productive
+target, outside the frozen .1% allowances; its locked load is negligible.
+There is no jointly matched/qualified control to history-score from this run.
+This is a one-start physical search boundary, not global infeasibility or a
+lushness/theory result. Local sensitivities are distinct; a sampled convex-hull
+enclosure does not establish one-model attainability.
+
+All203 tests pass; the new per-route reward selection preserves existing
+default accounting. All grid/fit/source-off rows and45 restored snapshot
+inputs remain. Original single-load, rotor and K-review records are unchanged.
+Stop at the physical report; no next family, histories, manuscript amendment,
+commit or push is authorized automatically.
+
+## Request r7: K audit and J review completed locally
+
+The user's latest “Proceed” authorized the two
+[reviews](../research/platform/reviews/r7-k-j-review-2026-10-31/README.md),
+now complete without new simulation. K checks 124 retained figures/counts
+with no mismatches and identifies eight manuscript correction groups. Most
+notably, the activity comparison also crosses three times at cadence .5;
+four positive endpoint values concealed its negative intermediate intervals.
+The source-off positive T1024 difference is not an offset-only comparison.
+
+J proposes a second bond-gated resource-relaxation route on the existing
+75-state world. Both routes retain native energy-return channels and the
+common background. This gives two physical parameters, not a guarantee of
+joint activity/net-work attainability. A capped physical-only anchor pilot is
+the next recommendation; no pilot, wider study or manuscript edit has begun.
+Private drafts stay outside tracked content. Stop at the reports; no commit
+or publication is authorized by this review step.
+
 ## Publication checkpoint
 
 The user's 31 October “Push available results” authorizes publishing the

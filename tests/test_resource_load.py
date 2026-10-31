@@ -135,6 +135,64 @@ class ResourceLoadTests(unittest.TestCase):
                 conductance=0.1,
             )
 
+    def test_distinct_loads_have_separate_energy_bills_and_sum(self):
+        # Independent three-state star: two energies, one physical catalyst.
+        m = LocalModel(
+            "three_state_fixture",
+            [
+                Coordinate("device", (0, 1), "material_state"),
+                Coordinate("fuel", (0, 1, 2), "resource"),
+            ],
+            [
+                Rule("bath1", (C("fuel", "eq", 0),), (("fuel", 1),), 0.002),
+                Rule("bath2", (C("fuel", "eq", 0),), (("fuel", 2),), 0.002),
+                Rule(
+                    "source",
+                    (C("fuel", "eq", 0),),
+                    (("fuel", 1),),
+                    0.08,
+                    "3",
+                    "work_source",
+                ),
+            ],
+            [
+                EnergyTerm("3", conditions=(C("fuel", "eq", 1),)),
+                EnergyTerm("2", conditions=(C("fuel", "eq", 2),)),
+            ],
+        )
+        for state, k in [(1, 0.1), (2, 0.03)]:
+            m = attach_resource_load(
+                m,
+                resource="fuel",
+                charged=state,
+                spent=0,
+                helper_conditions=(C("device", "eq", 1),),
+                conductance=k,
+                rule_id="load" + str(state),
+            )
+        c = enumerate_model(m, [(1, 0)])
+        pi = self.stationary(c)
+        a, _ = load_rewards(c, rule_ids=("load1",))
+        b, _ = load_rewards(c, rule_ids=("load2",))
+        total, _ = load_rewards(c)
+        for key in total:
+            np.testing.assert_allclose(total[key], a[key] + b[key], atol=1e-15)
+        # Star equilibrium for state 2 holds even with the source on state 1.
+        self.assertAlmostEqual(pi[c.index[(1, 2)]] / pi[c.index[(1, 0)]], exp(-2))
+        self.assertAlmostEqual(pi @ b["net_heat"], 0, places=13)
+        self.assertGreater(pi @ a["net_heat"], 0)
+        forward = next(e for e in m.events((1, 2)) if e.rule_id == "load2")
+        self.assertEqual((forward.work, forward.heat, forward.delta_energy), (0, 2, -2))
+        reverse = next(e for e in m.events((1, 0)) if e.rule_id == "load2")
+        self.assertAlmostEqual(forward.rate / reverse.rate, exp(2))
+
+    def test_unknown_or_empty_load_selection_is_rejected(self):
+        m, root = base()
+        c = enumerate_model(load(m), [root])
+        for ids in [(), ("absent",), ("resource_load", "bath")]:
+            with self.assertRaises(ValueError):
+                load_rewards(c, rule_ids=ids)
+
 
 if __name__ == "__main__":
     unittest.main()
