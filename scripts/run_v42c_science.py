@@ -423,11 +423,15 @@ def main():
     write(
         retained / "EVIDENCE.json",
         {
-            p.relative_to(retained).as_posix(): hashlib.sha256(
-                p.read_bytes()
-            ).hexdigest()
-            for p in retained.rglob("*")
-            if p.is_file()
+            "files": [
+                {
+                    "path": p.relative_to(retained).as_posix(),
+                    "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
+                    "bytes": p.stat().st_size,
+                }
+                for p in sorted(retained.rglob("*"))
+                if p.is_file() and p.name != "EVIDENCE.json"
+            ]
         },
     )
 

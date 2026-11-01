@@ -1,3 +1,8 @@
+Version C batch completed:18profiles plusqualification verified. See
+[interpretation](studies/V42C-spatial-investment/INTERPRETATION.md).
+Finish manuscript alignment with the actual results; no additional campaign is
+needed for the agreed scope. The author authorized publishing the full results and Opus addendum.
+
 Version C stopping rule agreed: this fixed batch is the final planned empirical
 package for the redraft. See [Opus handoff](handoffs/OPUS_VERSION_C_REDRAFT_HANDOFF_2026-11-01.md).
 Qualification and one full baseline are retained; comparative results pending.

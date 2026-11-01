@@ -1,3 +1,16 @@
+# Current position — completed Version C batch
+
+All18 spatial scientific profiles plus qualification are complete and verified.
+See [interpretation](../research/studies/V42C-spatial-investment/INTERPRETATION.md)
+and [Opus addendum](../research/handoffs/OPUS_VERSION_C_RESULTS_ADDENDUM_2026-11-01.md).
+AtT4096, AA leads idle and AB in both source settings at all3cadences. Full
+profiles contain reversals; short-source AA leads idle despite less cumulative
+BB-function. Complete numerical/physical gates pass,3.412job-hours,3.485GiB peak.
+No permanent rate, activity-independent or ethical-sufficiency claim follows.
+The author authorized publication of the completed results and Opus addendum.
+The earlier68dc10e partial checkpoint remains historical evidence. This update
+includes the full batch and interpretation; no new campaign or manuscript edit.
+
 # Current position — 1 November 2026
 
 ## Version C redraft handoff and publication checkpoint
