@@ -1,0 +1,6238 @@
+{
+  "schema": "omega.local-model/1",
+  "id": "spatial.ladder3.v1",
+  "beta": 1.0,
+  "coordinates": [
+    {
+      "name": "site.0",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "site_occupancy",
+      "owner": "shared"
+    },
+    {
+      "name": "site.1",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "site_occupancy",
+      "owner": "shared"
+    },
+    {
+      "name": "site.2",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "site_occupancy",
+      "owner": "shared"
+    },
+    {
+      "name": "site.3",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "site_occupancy",
+      "owner": "shared"
+    },
+    {
+      "name": "site.4",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "site_occupancy",
+      "owner": "shared"
+    },
+    {
+      "name": "site.5",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "site_occupancy",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.0.1",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.1.2",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.3.4",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.4.5",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.0.3",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.1.4",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "bond.2.5",
+      "domain": [
+        0,
+        1
+      ],
+      "role": "structural_bond",
+      "owner": "shared"
+    },
+    {
+      "name": "carrier",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "chemical_conformation",
+      "owner": "shared"
+    },
+    {
+      "name": "bank",
+      "domain": [
+        0,
+        1,
+        2
+      ],
+      "role": "charged_storage_count",
+      "owner": "shared"
+    }
+  ],
+  "rules": [
+    {
+      "id": "hop.0.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.1",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.0.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.1",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.0.1.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.1"
+    },
+    {
+      "id": "assemble.0.1.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.1"
+    },
+    {
+      "id": "assemble.0.2.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.1"
+    },
+    {
+      "id": "assemble.0.2.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.1"
+    },
+    {
+      "id": "assist.2.0",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.3.4",
+      "child": "bond.0.1"
+    },
+    {
+      "id": "assist.3.0",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.4.5",
+      "child": "bond.0.1"
+    },
+    {
+      "id": "assist.6.0",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.1",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.2.5",
+      "child": "bond.0.1"
+    },
+    {
+      "id": "capture.B.0",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "hop.1.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.2",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.1.2",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.2",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.1.1.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.2"
+    },
+    {
+      "id": "assemble.1.1.2",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.2"
+    },
+    {
+      "id": "assemble.1.2.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.2"
+    },
+    {
+      "id": "assemble.1.2.2",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.2"
+    },
+    {
+      "id": "assist.2.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.3.4",
+      "child": "bond.1.2"
+    },
+    {
+      "id": "assist.3.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.4.5",
+      "child": "bond.1.2"
+    },
+    {
+      "id": "assist.4.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.2",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.0.3",
+      "child": "bond.1.2"
+    },
+    {
+      "id": "capture.B.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "hop.2.1",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.3",
+          -1
+        ],
+        [
+          "site.4",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.2.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.3",
+          -2
+        ],
+        [
+          "site.4",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.2.1.1",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.3.4"
+    },
+    {
+      "id": "assemble.2.1.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.3.4"
+    },
+    {
+      "id": "assemble.2.2.1",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.3.4"
+    },
+    {
+      "id": "assemble.2.2.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.3.4"
+    },
+    {
+      "id": "assist.0.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.0.1",
+      "child": "bond.3.4"
+    },
+    {
+      "id": "assist.1.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.1.2",
+      "child": "bond.3.4"
+    },
+    {
+      "id": "assist.6.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.3.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.2.5",
+      "child": "bond.3.4"
+    },
+    {
+      "id": "capture.B.2",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "hop.3.1",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.4",
+          -1
+        ],
+        [
+          "site.5",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.3.2",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.4",
+          -2
+        ],
+        [
+          "site.5",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.3.1.1",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.4.5"
+    },
+    {
+      "id": "assemble.3.1.2",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.4.5"
+    },
+    {
+      "id": "assemble.3.2.1",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.4.5"
+    },
+    {
+      "id": "assemble.3.2.2",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.4.5"
+    },
+    {
+      "id": "assist.0.3",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.0.1",
+      "child": "bond.4.5"
+    },
+    {
+      "id": "assist.1.3",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.1.2",
+      "child": "bond.4.5"
+    },
+    {
+      "id": "assist.4.3",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.4.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.0.3",
+      "child": "bond.4.5"
+    },
+    {
+      "id": "capture.B.3",
+      "guards": [
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "hop.4.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.3",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.4.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.3",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.4.1.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.3"
+    },
+    {
+      "id": "assemble.4.1.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.3"
+    },
+    {
+      "id": "assemble.4.2.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.3"
+    },
+    {
+      "id": "assemble.4.2.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.0.3"
+    },
+    {
+      "id": "assist.1.4",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.1.2",
+      "child": "bond.0.3"
+    },
+    {
+      "id": "assist.3.4",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.4.5",
+      "child": "bond.0.3"
+    },
+    {
+      "id": "assist.5.4",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.0.3",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.1.4",
+      "child": "bond.0.3"
+    },
+    {
+      "id": "capture.B.4",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "hop.5.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.4",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.5.2",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.4",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.5.1.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.4"
+    },
+    {
+      "id": "assemble.5.1.2",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.4"
+    },
+    {
+      "id": "assemble.5.2.1",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.4"
+    },
+    {
+      "id": "assemble.5.2.2",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.1.4"
+    },
+    {
+      "id": "assist.4.5",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.0.3",
+      "child": "bond.1.4"
+    },
+    {
+      "id": "assist.6.5",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.1.4",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.2.5",
+      "child": "bond.1.4"
+    },
+    {
+      "id": "capture.B.5",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "hop.6.1",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.2",
+          -1
+        ],
+        [
+          "site.5",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "hop.6.2",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.2",
+          -2
+        ],
+        [
+          "site.5",
+          2
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.monomer"
+      ]
+    },
+    {
+      "id": "assemble.6.1.1",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.2.5"
+    },
+    {
+      "id": "assemble.6.1.2",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.2.5"
+    },
+    {
+      "id": "assemble.6.2.1",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.2.5"
+    },
+    {
+      "id": "assemble.6.2.2",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.003,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.basal"
+      ],
+      "child": "bond.2.5"
+    },
+    {
+      "id": "assist.0.6",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.0.1",
+      "child": "bond.2.5"
+    },
+    {
+      "id": "assist.2.6",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.3.4",
+      "child": "bond.2.5"
+    },
+    {
+      "id": "assist.5.6",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bank",
+          "operator": "ge",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "bond.2.5",
+          1
+        ],
+        [
+          "bank",
+          -1
+        ]
+      ],
+      "conductance": 0.15,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "construction.assisted"
+      ],
+      "parent": "bond.1.4",
+      "child": "bond.2.5"
+    },
+    {
+      "id": "capture.B.6",
+      "guards": [
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.12,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.enabled"
+      ]
+    },
+    {
+      "id": "translate.1",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.2",
+          1
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.1.2",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.2",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.2",
+          2
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.1.2",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.3",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.1",
+          1
+        ],
+        [
+          "site.2",
+          1
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.1.2",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.4",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.2",
+          2
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.1.2",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.5",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.3",
+          1
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.3.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.6",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.3",
+          1
+        ],
+        [
+          "site.4",
+          2
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.3.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.7",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.3",
+          2
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.3.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.8",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.3",
+          2
+        ],
+        [
+          "site.4",
+          2
+        ],
+        [
+          "bond.0.1",
+          -1
+        ],
+        [
+          "bond.3.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.9",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.2",
+          -1
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "site.5",
+          1
+        ],
+        [
+          "bond.1.2",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.10",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.2",
+          -2
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "site.5",
+          2
+        ],
+        [
+          "bond.1.2",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.11",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.2",
+          -1
+        ],
+        [
+          "site.4",
+          2
+        ],
+        [
+          "site.5",
+          1
+        ],
+        [
+          "bond.1.2",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.12",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.2",
+          -2
+        ],
+        [
+          "site.4",
+          2
+        ],
+        [
+          "site.5",
+          2
+        ],
+        [
+          "bond.1.2",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.13",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.3",
+          -1
+        ],
+        [
+          "site.5",
+          1
+        ],
+        [
+          "bond.3.4",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.14",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.3",
+          -1
+        ],
+        [
+          "site.4",
+          -1
+        ],
+        [
+          "site.5",
+          2
+        ],
+        [
+          "bond.3.4",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.15",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.3",
+          -2
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "site.5",
+          1
+        ],
+        [
+          "bond.3.4",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.16",
+      "guards": [
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.3",
+          -2
+        ],
+        [
+          "site.5",
+          2
+        ],
+        [
+          "bond.3.4",
+          -1
+        ],
+        [
+          "bond.4.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.17",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.1",
+          1
+        ],
+        [
+          "site.3",
+          -1
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "bond.0.3",
+          -1
+        ],
+        [
+          "bond.1.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.18",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -1
+        ],
+        [
+          "site.1",
+          1
+        ],
+        [
+          "site.3",
+          -2
+        ],
+        [
+          "site.4",
+          2
+        ],
+        [
+          "bond.0.3",
+          -1
+        ],
+        [
+          "bond.1.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.19",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.1",
+          2
+        ],
+        [
+          "site.3",
+          -1
+        ],
+        [
+          "site.4",
+          1
+        ],
+        [
+          "bond.0.3",
+          -1
+        ],
+        [
+          "bond.1.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.20",
+      "guards": [
+        {
+          "coordinate": "site.0",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.3",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.3",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.0",
+          -2
+        ],
+        [
+          "site.1",
+          2
+        ],
+        [
+          "site.3",
+          -2
+        ],
+        [
+          "site.4",
+          2
+        ],
+        [
+          "bond.0.3",
+          -1
+        ],
+        [
+          "bond.1.4",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.21",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.2",
+          1
+        ],
+        [
+          "site.4",
+          -1
+        ],
+        [
+          "site.5",
+          1
+        ],
+        [
+          "bond.1.4",
+          -1
+        ],
+        [
+          "bond.2.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.22",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -1
+        ],
+        [
+          "site.2",
+          1
+        ],
+        [
+          "site.4",
+          -2
+        ],
+        [
+          "site.5",
+          2
+        ],
+        [
+          "bond.1.4",
+          -1
+        ],
+        [
+          "bond.2.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.23",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.2",
+          2
+        ],
+        [
+          "site.4",
+          -1
+        ],
+        [
+          "site.5",
+          1
+        ],
+        [
+          "bond.1.4",
+          -1
+        ],
+        [
+          "bond.2.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "translate.24",
+      "guards": [
+        {
+          "coordinate": "site.1",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "site.4",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "site.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.0.1",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.2",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.3.4",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.4.5",
+          "operator": "eq",
+          "value": 0
+        },
+        {
+          "coordinate": "bond.1.4",
+          "operator": "eq",
+          "value": 1
+        },
+        {
+          "coordinate": "bond.2.5",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "site.1",
+          -2
+        ],
+        [
+          "site.2",
+          2
+        ],
+        [
+          "site.4",
+          -2
+        ],
+        [
+          "site.5",
+          2
+        ],
+        [
+          "bond.1.4",
+          -1
+        ],
+        [
+          "bond.2.5",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "motion.dimer"
+      ]
+    },
+    {
+      "id": "source",
+      "guards": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          1
+        ]
+      ],
+      "conductance": 0.08,
+      "work": "3",
+      "boundary": "work_source",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "id": "bath.locked",
+      "guards": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          1
+        ]
+      ],
+      "conductance": 0.002,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified"
+    },
+    {
+      "id": "bath.usable",
+      "guards": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 0
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          2
+        ]
+      ],
+      "conductance": 0.002,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified"
+    },
+    {
+      "id": "unlock",
+      "guards": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          1
+        ]
+      ],
+      "conductance": 0.04,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified"
+    },
+    {
+      "id": "capture.basal",
+      "guards": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        },
+        {
+          "coordinate": "bank",
+          "operator": "le",
+          "value": 1
+        }
+      ],
+      "changes": [
+        [
+          "carrier",
+          -2
+        ],
+        [
+          "bank",
+          1
+        ]
+      ],
+      "conductance": 0.004,
+      "work": "0",
+      "boundary": "native",
+      "support": [],
+      "mechanism": "unspecified",
+      "roles": [
+        "capture.basal"
+      ]
+    }
+  ],
+  "energy_terms": [
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.0.1",
+      "conditions": []
+    },
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.1.2",
+      "conditions": []
+    },
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.3.4",
+      "conditions": []
+    },
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.4.5",
+      "conditions": []
+    },
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.0.3",
+      "conditions": []
+    },
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.1.4",
+      "conditions": []
+    },
+    {
+      "coefficient": ".5",
+      "coordinate": "bond.2.5",
+      "conditions": []
+    },
+    {
+      "coefficient": "3",
+      "coordinate": null,
+      "conditions": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "coefficient": "2",
+      "coordinate": null,
+      "conditions": [
+        {
+          "coordinate": "carrier",
+          "operator": "eq",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "coefficient": "1",
+      "coordinate": "bank",
+      "conditions": []
+    }
+  ],
+  "forbidden": [
+    [
+      {
+        "coordinate": "bond.0.1",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.0",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.0.1",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.1",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.1.2",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.1",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.1.2",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.2",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.3.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.3",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.3.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.4",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.4.5",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.4",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.4.5",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.5",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.0.3",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.0",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.0.3",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.3",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.1.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.1",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.1.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.4",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.2.5",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.2",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.2.5",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "site.5",
+        "operator": "eq",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.0.1",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.0.3",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.0.1",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.1.2",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.0.1",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.1.4",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.1.2",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.1.4",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.1.2",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.2.5",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.3.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.0.3",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.3.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.4.5",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.3.4",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.1.4",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.4.5",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.1.4",
+        "operator": "eq",
+        "value": 1
+      }
+    ],
+    [
+      {
+        "coordinate": "bond.4.5",
+        "operator": "eq",
+        "value": 1
+      },
+      {
+        "coordinate": "bond.2.5",
+        "operator": "eq",
+        "value": 1
+      }
+    ]
+  ],
+  "degeneracy": [],
+  "symmetry": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "relations": [
+    {
+      "id": "geometry",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "chemical_medium": "rapidly_mixed"
+    }
+  ],
+  "material": [
+    {
+      "id": "species.1",
+      "inventory": [
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.0",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.1",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.2",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.3",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.4",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.5",
+              "operator": "eq",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "species.2",
+      "inventory": [
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.0",
+              "operator": "eq",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.1",
+              "operator": "eq",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.2",
+              "operator": "eq",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.3",
+              "operator": "eq",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.4",
+              "operator": "eq",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "coefficient": "1",
+          "conditions": [
+            {
+              "coordinate": "site.5",
+              "operator": "eq",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carrier_molecule",
+      "inventory": [
+        {
+          "coefficient": "1"
+        }
+      ]
+    },
+    {
+      "id": "storage_molecules",
+      "inventory": [
+        {
+          "coefficient": "2"
+        }
+      ]
+    }
+  ]
+}

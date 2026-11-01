@@ -1,4 +1,32 @@
+Version C stopping rule agreed: this fixed batch is the final planned empirical
+package for the redraft. See [Opus handoff](handoffs/OPUS_VERSION_C_REDRAFT_HANDOFF_2026-11-01.md).
+Qualification and one full baseline are retained; comparative results pending.
+
+1 November review accepted: author authorized the fixed18-profile spatial batch
+after compact-storage, numerical-validation and reporting corrections. Actual
+finest-cadence scoring qualification gates all full runs;4GiB/one worker.
+
 # Research roadmap — v4.1 starting reference
+
+1 November: [paid-operation engineering and review handoff](platform/reviews/v42c-astra-review-2026-11-01/README.md)
+complete. Shared actuator/paid choices, exact state/energy/material checks,
+source-off references, streamed kernels and220tests pass.7344states,458.56s,
+3.503GiB peak. No C1-C3 scientific entropy computed. Astra review of the scoped
+six-schedule/three-cadence plan precedes the scientific executor and launches.
+The common irreducible recovery targets finite profiles/offsets, not rate splits.
+
+1 November physical extension: [longer unchanged-law diagnostics](platform/engineering/v42c-physical-extension-2026-11-01/REPORT.md)
+show replenishment from zero initial charge and transient arrangement effects;
+no irreversible-maintenance or entropy claim. The [paid-operation protocol](platform/specs/V42C_PAID_OPERATIONS_PROTOCOL_r1.md)
+is drafted, not implemented. Next review concerns actuator memory, competing-
+arrangement interpretation and the final small science protocol. No automatic run.
+
+1 November: the [Version C spatial engineering prototype](platform/engineering/v42c-spatial-2026-11-01/REPORT.md)
+fits exact enumeration and a sampled kernel at3672states/~946MiB. Native local
+assistance and capture are used, but sustained repayment and a spatially distinct
+arrangement comparison remain unqualified. Next scope is review of physical
+window, geometry and paid preparation operations before C1-C3 history scoring.
+No automatic larger grid, scientific sweep, publication or manuscript edit.
 
 Latest31 October checkpoint: [J2](platform/engineering/j2-discharge-2026-10-31/REPORT.md)
 is implemented, tested and physically run under the user's execute-and-push

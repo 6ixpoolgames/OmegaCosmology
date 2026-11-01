@@ -1,4 +1,58 @@
-# Current position — 31 October 2026
+# Current position — 1 November 2026
+
+## Version C redraft handoff and publication checkpoint
+
+The author requested a handoff to Opus and publication of the pending Version C
+work. [The handoff](../research/handoffs/OPUS_VERSION_C_REDRAFT_HANDOFF_2026-11-01.md)
+sets the stopping rule: complete this batch and align the manuscript with its
+actual findings; no further campaign is a publication gate. At the retained
+checkpoint, scoring qualification and one of18 full profiles are complete.
+No paired C1/C2 conclusion is available yet. The run continues locally; this
+publication is a static checkpoint, not the completed scientific batch.
+Official attribution is S. Poole. Canonical manuscripts remain unchanged.
+
+## Astra review accepted; scoring execution authorized
+
+The [review package](../research/platform/reviews/v42c-astra-review-2026-11-01/README.md)
+completes the authorized engineering leg. Four7344-state phase laws share a
+literal root, energy and material. Paid strokes/refunds and idle thermal hardware
+are implemented; physical balances and source-off equilibrium pass. Sequential
+aa/idle exact kernels finished458.56seconds,3.503GiB peak under4GiB; sampled and
+continuous phase endpoints agree2.47e-15. All220tests pass. No scientific entropy.
+The proposed six schedules/three cadences (18profiles) remain review-pending,
+with source/command scope and C2 competing-arrangement interpretation explicit.
+The author authorized proceeding after review. Compact profile storage, long
+state-dependent phase validation and preparation wording are repaired. A capped
+T64 actual scoring qualification gates the fixed18-profile batch. Commit, push,
+new sweeps and manuscript edits remain outside this instruction.
+
+## Longer physical window and arrangement diagnostics complete
+
+The unchanged-law [extension](../research/platform/engineering/v42c-physical-extension-2026-11-01/REPORT.md)
+completed42.52seconds/~150MiB, four roots throughT4096 plus stationary physical
+flows. Zero-charge root reaches3.366349 charge units in bank+bonds byT4096;
+both enabling links repeat. This qualifies replenishment/use, not irreversible
+maintenance: dissolution refunds charge and no upkeep drain exists. Contacted
+and separated matched preparations have TV.405554 atT16,.117454 atT64,.006784
+atT4096; early arrangement effects are real, with no assigned lushness sign.
+All balances and five spatial tests pass. No entropy or new scientific ranking.
+The [paid-operation draft](../research/platform/specs/V42C_PAID_OPERATIONS_PROTOCOL_r1.md)
+specifies common actuator, paid strokes/refunds and exterior commands, for review.
+Actuator/phase memory feasibility precedes scientific scoring. No push performed.
+
+## Version C spatial engineering prototype
+
+The [physical benchmark](../research/platform/engineering/v42c-spatial-2026-11-01/REPORT.md)
+implements a 2x3 resolved-site world with two mobile dimer types, competing bonds,
+local catalytic assembly and a rapidly mixed chemical store. All3672states are
+reachable. The final capped run took43.13seconds and946.41MiB; one exact kernel
+fits. Accounting checks pass. No history entropy or option rankings were scored.
+Assisted B construction and enabled capture occur, but dependence on initial
+charge remains strong atT64. The loop is not yet qualified as self-funding.
+Coexisting dimers are usually in contact, limiting the arrangement assay.
+All three engineering runs/source versions remain retained, including a corrected
+storage description. Paid preparation operations and C1-C3 science remain pending.
+No commit or push is authorized by this implementation step.
 
 ## J2 implemented and executed; joint comparison remains open
 
